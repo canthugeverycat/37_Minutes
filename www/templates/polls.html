@@ -1,0 +1,160 @@
+<ion-view>
+
+	<!-- Header -->
+
+	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+		<button class="button backBtn button-clear button-light button-icon ion-android-arrow-back"></button>
+		<h1 class="title light">Polls</h1>
+	</ion-header-bar>
+
+	<!-- Tabs -->
+
+	<div class="tabs-striped tabs-top tabs-background-light tabs-color-grey">
+
+		<div class="tabs">
+
+			<a class="tab-item active" href="#/polls">
+				<i class="material-icons">textsms</i>
+			</a>
+	
+			<a class="tab-item" href="#/">
+				<i class="material-icons">notifications_active</i>
+			</a>
+		
+			<a class="tab-item" href="#/friends">
+				<i class="material-icons">group</i>
+			</a>
+		
+			<a class="tab-item" href="#/profile">
+				<i class="material-icons">person</i>
+			</a>
+		
+			<a class="tab-item" href="#/settings">
+				<i class="material-icons">settings</i>
+			</a>
+
+		</div>
+	</div>
+
+<ion-content class="pollsContent" ng-controller="refresher">
+
+	<!-- Refresh page -->
+	<ion-refresher
+		on refresh="doRefresh()"
+		pulling-icon="ion-help-buoy"
+		disable-pulling-rotation="true">
+	</ion-refresher>
+
+<div class="list">
+
+<!-- Active poll -->
+	<div class="item item-avatar">
+		<img src="img/avatar.jpg">
+		<h2 class="userName">ANNE TONG</h2>
+		<p class="asked">ASKED</p>
+		<p class="timer">25 MIN. LEFT</p>
+		<h2 class="pollQuestion">Should I dye my hair green?</h2>
+
+	<!-- Poll image -->
+		<div class="imageContainer">
+	<!-- Grey overlay -->
+		<div class="yesGrey">
+		<!-- Yes votes  -->
+			<div class="yesContainer">
+				<p class="yes light">YES</p>
+				<p class="yesNumber light">68</p>
+				<p class="percent light">%</p>
+				<img class="answeredIcon" src="img/answered.png">
+			</div>
+		</div>
+	<!-- Grey overlay -->
+		<div class="noGrey">
+		<!-- No votes -->
+			<div class="noContainer">
+				<p class="no">NO</p>
+				<p class="noNumber">32</p>
+				<p class="percent">%</p>
+			</div>
+		</div>
+		</div>
+		<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
+		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
+		<a href="#/pollDetails"><i class="material-icons pollMore stable">more_horiz</i></a>
+	</div>
+
+
+	<div class="item item-avatar">
+		<img src="img/avatar.jpg">
+		<h2 class="userName">LISA WRIGHT</h2>
+		<p class="asked">ASKED</p>
+		<p class="timer">18 MIN. LEFT</p>
+		<h2 class="pollQuestion">Should I go to the cinema tonight?</h2>
+
+	<!--Poll with default image -->
+		<div class="imageContainerDefault">
+		<div class="yesGrey">
+		<!-- Yes votes -->
+			<div class="yesContainer">
+				<p class="yes light">YES</p>
+				<p class="yesNumber light">68</p>
+				<p class="percent light">%</p>
+			</div>
+		</div>
+		
+		<div class="noGrey">	
+		<!-- No votes -->
+			<div class="noContainer">
+				<p class="no">NO</p>
+				<p class="noNumber">32</p>
+				<p class="percent">%</p>
+			</div>
+		</div>	
+		</div>
+		<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
+		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
+		<i class="material-icons pollMore stable">more_horiz</i>
+	</div>
+
+	<!-- Expired poll -->
+	
+	<div class="item item-avatar overlay">
+			
+			<img src="img/avatar.jpg">
+			<h2 class="userName">MELINDA NIGHT</h2>
+			<p class="asked">ASKED</p>
+			<p class="timer">EXPIRED</p>
+			<h2 class="pollQuestion">Pizza tonight at my place?</h2>
+
+		<div class="imageContainerDefault">
+			
+			<div class="yesGrey">
+				<div class="yesContainer">
+					<p class="yes light">YES</p>
+					<p class="yesNumber light">68</p>
+					<p class="percent light">%</p>
+				</div>
+			</div>
+			
+			<div class="noGrey">	
+				<div class="noContainer">
+					<p class="no">NO</p>
+					<p class="noNumber">32</p>
+					<p class="percent">%</p>
+				</div>
+			</div>	
+			<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
+			<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
+			<i class="material-icons pollMore stable">more_horiz</i>
+		</div>
+	</div>	
+</div>
+
+</ion-content>
+
+<!-- Add poll footer -->
+<ion-footer-bar align-title="left" class="bar-royal">
+<!-- Add poll button -->
+	<a href="#/addPoll"><h1 class="title addIcon"><i class="material-icons">add</i></h1></a>
+</ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view>
+
+<ion-content class="signUpContent" ng-controller="SignupController">
+
+	<!-- Logo -->
+
+	<img src="img/logo.png" class="signInLogo">
+
+	<!-- Register form -->
+
+	<div class="list list-inset">
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">email</i>
+			<input class="register-input" type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.signUpMail" ng-enter="focusField(1)">
+		</label>
+
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">lock_open</i>
+			<input class="register-input" type="password" placeholder="Password" ng-model="$root.inputs.signUpPass" ng-enter="focusField(2)">
+		</label>
+
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">lock_open</i>
+			<input class="register-input" type="text" placeholder="First Name" ng-model="$root.inputs.signUpFirstName" ng-enter="focusField(3)">
+		</label>
+
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">lock_open</i>
+			<input class="register-input" type="text" placeholder="Last Name" ng-model="$root.inputs.signUpLastName" ng-enter="signUp()">
+		</label>
+
+	<!-- Sign Up button -->
+
+		<button class="button button-royal signInButton" ng-click="signUp()">
+			SIGN UP
+		</button>
+	</div>
+
+	<button class="button button-positive fbBtn" ng-click="fbLogin()">
+		<i class="ion-social-facebook fbIcon"></i>
+		Sign up with Facebook
+	</button>
+
+	
+	<p class="signUpAlready light">Already have an account?</p>
+	<a href="#/login"><p class="signUpLogIn light">Log in with E-mail</p></a>
+
+ 	<p class="signUpTerms light">By signing up, you agree to our Terms of Use and Privacy Policy.</p>
+</ion-content>
+</ion-view>

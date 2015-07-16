@@ -1,0 +1,96 @@
+<ion-view>
+	<!-- Header -->
+
+	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+		<button class="button backBtn button-clear button-light button-icon ion-android-arrow-back"></button>
+		<h1 class="title light">Invite Friends <!-- Number of selected friends -->(2)</h1>
+	</ion-header-bar>
+
+	<!-- Tabs -->
+
+	<div class="tabs-striped tabs-top tabs-background-light tabs-color-grey">
+
+		<div class="tabs">
+
+			<a class="tab-item" href="#/polls">
+				<i class="material-icons">textsms</i>
+			</a>
+	
+			<a class="tab-item" href="#/">
+				<i class="material-icons">notifications_active</i>
+			</a>
+		
+			<a class="tab-item active" href="#/friends">
+				<i class="material-icons">group</i>
+			</a>
+		
+			<a class="tab-item" href="#/profile">
+				<i class="material-icons">person</i>
+			</a>
+		
+			<a class="tab-item" href="#/">
+				<i class="material-icons">settings</i>
+			</a>
+
+		</div>
+	</div>
+
+<ion-content class="inviteFriendsContent">
+
+	<button class="button button-positive button-small importFb">
+		<i class="ion-social-facebook fbIcon"></i>
+		Import from Facebook
+	</button>
+
+	<button class="button button-assertive button-small importGoogle">
+		<i class="ion-social-googleplus googleIcon"></i>
+		Import from Google Plus
+	</button>
+		
+	<p class="groupsTitle">A</p>
+
+	<div class="list">
+
+    	<a class="item item-avatar friendsList" href="#">
+      		<img src="img/avatar.jpg">
+      		<h2 class="friendsName">Aronda Doe</h2>
+      	<!-- Select button -->	
+      		<i class="material-icons friendsClose">check</i>
+   			</a>
+
+   		<a class="item item-avatar friendsList" href="#">
+      		<img src="img/avatar.jpg">
+      		<h2  class="friendsName">Amanda Ipsum</h2>
+      	<!-- If invite accepted -->
+      		<p>ACCEPTED</p>
+   		</a>
+	</div>
+
+	<p class="groupsTitle">B</p>
+
+	<div class="list">
+
+    	<a class="item item-avatar friendsList" href="#">
+      		<img src="img/avatar.jpg">
+      		<h2 class="friendsName">Bronda Doe</h2>
+   			</a>
+
+   		<a class="item item-avatar friendsList" href="#">
+      		<img src="img/avatar.jpg">
+      		<h2  class="friendsName">Bamanda Ipsum</h2>
+      		<i class="material-icons friendsClose">check</i>
+   		</a>
+	</div>
+</ion-content>
+
+<ion-footer-bar class="bar-royal">
+	<div class="button-bar addFriendsBar">
+	<!-- Add Group button -->
+  		<a class="button button-clear"><i class="material-icons">group_add</i></a>
+  	<!-- Invite friends button -->
+  		<a class="button button-clear" href="#/inviteFriends"><i class="material-icons">person_add</i></a>
+	</div>
+</ion-footer-bar>
+
+
+</ion-view>

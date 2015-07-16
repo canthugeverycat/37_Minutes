@@ -1,0 +1,37 @@
+<ion-view>
+
+<ion-content class="signInContent" ng-controller="LoginController">
+
+	<!-- Logo -->
+
+	<img src="img/logo.png" class="signInLogo">
+
+	<!-- Login form -->
+
+	<div class="list list-inset">
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">email</i>
+			<input type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.loginMail" ng-enter="focusPassword()">
+		</label>
+
+		<label class="item item-input">
+			<i class="material-icons formIcon stable">lock_open</i>
+			<input id="login-password-input" type="password" placeholder="Password" ng-model="$root.inputs.loginPass" ng-enter="login()">
+		</label>
+
+	<!-- Sign In button #/polls -->
+
+		<a ng-click="login()"><button class="button button-royal signInButton">
+			SIGN IN
+		</button></a>
+	</div>
+
+	<div class="signInCorner">
+		<a href="#/signUp"><p class="signInNew light">New here? Sign up!</p></a>
+		<p class="signInForgot light">Forgot password?</p>
+	</div>
+
+
+</ion-content>
+
+</ion-view>
