@@ -1,0 +1,1293 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:*/
+
+$light:                           #ffffff !default;
+$stable:                          #e0e0e0 !default;
+$positive:                        #355085 !default;
+$calm:                            #9bcb64 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #bf360c !default;
+$royal:                           #ee524f !default;
+$dark:                            #444 !default;
+$grey:							  #62666c!default;
+
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+ion-content{
+
+	color:$dark;
+}
+
+
+//Defining background colors for info messages
+
+.bg-light{background-color:$light;}
+.bg-stable{background-color:$stable;}
+.bg-positive{background-color:$positive;}
+.bg-calm{background-color:$calm;}
+.bg-balanced{background-color:$balanced;}
+.bg-energized{background-color:$energized;}
+.bg-assertive{background-color:$assertive;}
+.bg-royal{background-color:$royal;}
+.bg-dark{background-color:$dark;}
+.bg-grey{background-color:$grey;}
+
+
+//Info message that appears upon errors or successful operations
+.info-message{
+	position:absolute;
+	top:0;
+	height:40px;
+	width:100%;
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:400;
+	font-size:1em;
+	z-index:9999999;
+	color:white;
+	overflow:hidden;
+	left:50%;
+	margin-left:-50%;
+	margin-top:0;
+	line-height:2.8em;
+	border-radius:4px;
+	border:1px solid rgba(0,0,0,0.1);
+
+	.info-title{
+		white-space: nowrap;
+		opacity:1;
+	}
+}
+
+//Animation for the info-message
+//Animation for the InfoHandlers
+.animate-footer-show.ng-hide-add.ng-hide-add-active,
+.animate-footer-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  .info-title{
+  	-webkit-transition: all 0.5s;
+  	transition: all 0.5s;
+  }
+}
+
+.animate-footer-show.ng-hide {
+  height: 0 !important;
+  width:0 !important;
+  margin-left:0 !important;
+  margin-top:20px !important;
+
+  .info-title{
+  	opacity:0;
+  }
+}
+
+.bar-footer{
+	height:60px;
+}
+
+.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
+  border-color: $calm;
+}
+
+
+/*Onboarding cards*/
+
+ion-content{
+	.scroll{
+		.cardIcon{
+			font-size: 96pt;
+		}
+	}
+}
+
+.cardIcon{
+	font-size: 100px;
+	display: inline-block;
+	width:100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.cardHeader{
+	margin-top: 20px;
+	font-size:22pt;
+	line-height:100%;
+	font-weight:500;
+	color:$light;
+	text-align: center;
+	width: 85%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.cardSubheader{
+	font-size: 14pt;
+	color:$light;
+	font-weight: 300;
+	text-align: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.arrowNext{
+	position: relative;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 60px;
+	margin-top: 150px;
+
+}
+
+.cardOne{
+	background-color:$calm;
+}
+
+.cardTwo{
+	background-color:$royal;
+}
+
+.cardThree{
+	background-color:#1f252e;
+}
+
+
+/*Sign In screen*/
+
+.card, .list-inset{
+	background-color: transparent;
+}
+
+.signInContent{
+	background-image: url("../img/login.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+.signInLogo{
+	height:120px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.list-inset{
+	width:70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.formIcon{
+	margin-right: 10px;
+}
+
+.signInButton{
+	width:100%;
+}
+
+.signInCorner{
+	float: right;
+	margin-top: 40px;
+	margin-right: 60px;
+}
+
+.signInNew{
+	text-decoration: underline;
+}
+
+.signInForgot{
+	margin-left: 8px;
+	opacity: 0.4;
+}
+
+/*Sign Up screen*/
+
+.signUpContent{
+	background-image: url("../img/signUp.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+.fbBtn{
+	width:70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.fbIcon{
+	margin-right: 20px;
+}
+
+.signUpAlready{
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 11pt;
+}
+
+.signUpLogIn{
+	font-size: 11pt;
+	display: block;
+	text-align: center;
+}
+
+.signUpTerms{
+	font-size: 10pt;
+	margin-top: 60px;
+}
+
+/*Polls screen*/
+
+.ion-help-buoy:before {
+  content: url("../img/swipe.png") !important;
+}
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: $calm;
+    padding-top: 5px;
+}
+
+.tab-item{
+	padding-top: 5px;
+}
+
+.bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
+  font-size: 25px;
+}
+
+.bar{
+	.title{
+		font-size: 18px;
+	}
+}
+
+.pollAvatar{
+	height:30px;
+}
+
+.pollsContent{
+	padding: 0;
+	padding-top: 45px;
+	background:#ededed;
+}
+
+.pollImage{
+	width:100%;
+	display: block;
+	margin-top: 15px;
+	height:200px;
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.userName{
+					font-weight: 500;
+					display: inline-block;
+					font-size: 11pt;
+					padding-left: 72px;
+					padding-top: 20px;
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.pollQuestion{
+					font-size: 13pt;
+					padding-left:72px; 
+				}
+			}
+		}
+	}
+}
+
+.asked{
+	display: inline-block;
+	position: relative;
+	font-size: 11pt;
+	top:1.4px;
+}
+
+.timer{
+	display: inline-block;
+	float: right;
+	position: relative;
+	font-size: 11pt;
+	top:1.4px;
+	padding-top: 20px;
+	padding-right: 8px;
+}
+
+.pollComments{
+	font-size: 11pt;
+	display: inline-block;
+	padding:10px;
+	padding-left: 0;
+}
+
+.pollVotes{
+	padding-left:10px;
+	font-size: 11pt;
+	display: inline-block;
+	border-right: 2px solid #e0e0e0;
+	height: 20px;
+	margin-right: 0;
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				a.subdued{
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+.pollMore{
+	padding:8px;
+	float: right;
+	display: inline-block;
+}
+
+.item-avatar{
+	padding:0;
+}
+
+.imageContainer{
+	margin-top: 10px;
+	width: 100%;
+	height:200px;
+	background-image: url("../img/pollImage.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.yesGrey{
+	height: 50%;
+	width: 100%;
+	background-color: rgba(17,17,17,0.5);
+}
+
+.noGrey{
+	width: 100%;
+	height: 50%;
+	background-color:rgba(17,17,17,0.3);
+}
+
+.yesContainer{
+	height:100%;
+	background-color: rgba(155,203,100,0.7);
+	width:50%;
+	border-bottom:1px solid $light;
+}
+
+.noContainer{
+	height:100%;
+	width:30%;
+	background-color: rgba(238,82,79,0.7);
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.noContainer{
+						.no{
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.noContainer{
+						.noNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 10px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.noContainer{
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.yesContainer{
+						.yes{
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.yesContainer{
+						.yesNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 10px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainer{
+					.yesContainer{
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.item-avatar{
+	margin-top: 10px;
+}
+
+.imageContainerDefault{
+	background-image: url("../img/default.png");
+	margin-top: 10px;
+	width: 100%;
+	height:200px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.noContainer{
+						.no{
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.noContainer{
+						.noNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 10px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.noContainer{
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.yesContainer{
+						.yes{
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.yesContainer{
+						.yesNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 10px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.list{
+			.item{
+				.imageContainerDefault{
+					.yesContainer{
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.addIcon{
+	padding-top: 12px;
+}
+
+.overlay{
+	background-color:$light;
+	opacity:0.6;
+	width:100%;
+}
+
+.answeredIcon{
+	float:right;
+	margin-top: 20px;
+	display: inline-block;
+	padding-right: 5px;
+}
+
+/*Comment screen*/
+
+ion-content{
+	.scroll{
+		.noComments{
+			.noComIcon{
+				font-size: 48pt;
+			}
+		}
+	}
+}
+
+.noComIcon{
+	display: inline-block;
+	width:100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.noCom{
+	text-align: center;
+	width: 100%;
+	font-weight: 500;
+	font-size: 18pt;
+}
+
+.firstCom{
+	text-align: center;
+	width: 40%;
+	font-size: 12pt;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.comment{
+	padding-left: 72px;
+}
+
+.yesIcon{
+	float: right;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.noIcon{
+	float:right;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.commentTime{
+	display: inline-block;
+	float: right;
+	position: relative;
+	font-size: 11pt;
+	top:1.4px;
+	padding-top: 20px;
+	padding-right: 8px;
+	color: #b6c3c9;
+}
+
+.comment{
+	padding-top: 5px;
+	padding-right: 20px;
+}
+
+.commentsContent{
+	padding-top: 50px;
+	background-color: #ededed;
+}
+
+.commentsOnPoll{
+	font-size: 9pt;
+	font-weight: 500;
+	color: $grey;
+	padding-left:10px;
+	padding-top: 55px;
+	margin-bottom: 0;
+}
+
+.commentsContent{
+	.scroll{
+		.commentsContainer{
+			.item-avatar{
+				margin-top: 0px;
+			}
+		}
+	}
+}
+
+.enterComment{
+	width: 100%;
+	background-color: $stable;
+}
+
+/*addPoll screen*/
+
+.addPollContent{
+	background-color: #171717;
+}
+
+.addBack{
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.addCamera{
+	margin-top: 20px;
+	float: right;
+	margin-right: 25px;
+}
+
+.addConfirm{
+	margin-top: 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+.addAsk{
+	font-weight: 300;
+	font-size: 14pt;
+	margin-top: 50px;
+	margin-left: 40px;
+	color:#757575;
+}
+
+.addText{
+	background-color: transparent;
+	font-size: 11pt;
+	margin-left: 40px;
+	color: $light;
+	height:400px;
+	width:80%;
+}
+
+.addPollContent{
+	.scroll{
+		textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  display: block;
+  padding-top: 2px;
+  padding-left: 0;
+  height: 34px;
+  color: #ffffff;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 16px; }
+	}
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  display: block;
+  padding-top: 2px;
+  padding-left: 10px;
+  height: 34px;
+  color: #111;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 16px; }
+
+.addGroup{
+	width: 50%;
+	background-color: #c62828;
+}
+
+/*Friends screen*/
+
+.friendsContent{
+	padding-top: 50px;
+	background-color: #ededed;
+	color: #62666c;
+}
+
+.addFriendsBar{
+	padding-top: 10px;
+}
+
+.groupsTitle{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 9pt;
+}
+
+.friendsList{
+	margin-top: 0;
+	min-height: 50px;
+	height: 65px;
+}
+
+.groupName{
+	color: #62666c;
+}
+
+.groupsClose{
+	color: #62666c;
+	float: right;
+	padding-right: 20px;
+}
+
+.groupsEdit{
+	color: #62666c;
+	float: right;
+}
+
+.friendsClose{
+	color: #62666c;
+	float: right;
+	display: inline-block;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+.friendsName{
+	color: #62666c;
+	padding-left: 72px;
+	display: inline-block;
+	padding-top: 20px;
+}
+
+/*Invite friends screen*/
+
+.inviteFriendsContent{
+	padding-top: 50px;
+	background-color: #ededed;
+}
+
+.importFb{
+	margin-top: 10px;
+	width:60%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.importGoogle{
+	margin-top: 10px;
+	width:60%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.googleIcon{
+	margin-right: 8px;
+}
+
+.accepted{
+	color: #62666c;
+	float: right;
+	padding-right: 20px;
+	display: inline-block;
+}
+
+ion-content{
+	.scroll{
+		.list{
+			a{
+				p{	
+						padding-top: 20px;
+						font-size: 9pt;
+						color: #62666c;
+						float: right;
+						padding-right: 20px;
+						display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+/*Edit Group screen*/
+
+.editGroupContent{
+	padding-top: 50px;
+	background-color: #ededed;
+	color: #62666c;
+}
+
+.editGroupName{
+	width:100%;
+	height:40px;
+}
+
+/*New Group screen*/
+
+.newGroupContent{
+	padding-top: 50px;
+	background-color: #ededed;
+	color: #62666c;
+}
+
+/*Profile screen*/
+
+.profileContent{
+	padding-top: 50px;
+	background-color: #ededed;
+	color: #62666c;
+}
+
+.profileContainer{
+	width:100%;
+	height:300px;
+	background-image: url("../img/avatar.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
+ }
+
+ .profileAvatar{
+ 	background-color: transparent;
+ 	border: solid transparent;
+ 	padding-top: 180px;
+ 	padding-left: 20px;
+}
+
+.profileImg{
+	margin-top: 120px;
+}
+
+.profileName{
+	color: $light;
+	font-size: 14pt;
+}
+
+.profileQuote{
+	color:#bdbdbd;
+}
+
+.commentsContainer{
+	margin-bottom: 0;
+}
+
+.commentLine{
+	margin-top: 30px;
+	margin-left: 75px;
+}
+
+.commentActivity{
+	margin-left: 75px;
+	font-weight: 500;
+	color:$dark;
+	font-size: 11pt;
+}
+
+.commentedPoll{
+	margin-left: 75px;
+	color:#b6c3c9;
+	opacity: 0.6;
+	font-weight: 500;
+}
+
+.actFeed{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 9pt;
+	margin-bottom: 0;
+}
+
+.profileOverlay{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(17,17,17,0.5);
+}
+/*poll details screen*/
+
+.detailsContent{
+	padding: 0;
+	margin-top:0;
+}
+
+.imageContainerDetails{
+	width: 100%;
+	height:400px;
+	background-image: url("../img/pollImage.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.yesContainerDetails{
+	height:100%;
+	background-color: rgba(155,203,100,0.7);
+	width:70%;
+	border-bottom:1px solid $light;
+}
+
+.noContainerDetails{
+	display: inline-block;
+	height:100%;
+	width:40%;
+	background-color: rgba(238,82,79,0.7);
+	opacity: 0.6;
+
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.yesContainerDetails{
+				.yes{
+						font-size: 14pt;
+						color: $light;
+						padding-top: 60px;
+						padding-left:35px; 
+						margin-bottom: -15px;
+						font-weight: 500;
+
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.yesContainerDetails{
+				.yesNumber{
+								font-size: 40pt;
+								color: $light;
+								padding-left:30px; 
+								display: inline-block;
+								padding-top: 30px;
+
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.yesContainerDetails{
+				.percent{
+								font-size: 20pt;
+								color: $light;
+								display: inline-block;
+								padding-top: 10px;
+
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.noContainerDetails{
+				.no{
+						font-size: 14pt;
+						color: $light;
+						padding-top: 60px;
+						padding-left:35px; 
+						margin-bottom: -15px;
+						font-weight: 500;
+
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.noContainerDetails{
+				.noNumber{
+								font-size: 40pt;
+								color: $light;
+								padding-left:30px; 
+								display: inline-block;
+								padding-top: 30px;
+
+				}
+			}
+		}
+	}
+}
+
+ion-content{
+	.scroll{
+		.imageContainerDetails{
+			.noContainerDetails{
+				.percent{
+								font-size: 20pt;
+								color: $light; 
+								display: inline-block;
+								padding-top: 10px;
+
+				}
+			}
+		}
+	}
+}
+
+.detailsName{
+	padding-left: 72px;
+	padding-top: 20px;
+	display: inline-block;
+}
+
+.detailsAsked{
+	display: inline-block;
+}
+
+.detailsAnswered{
+	display: inline-block;
+	float:right;
+	padding-top: 20px;
+	padding-right: 5px;
+}
+
+.detailsAnsweredIcon{
+	padding-right: 5px;
+	float:right;
+	padding-top: 16px;
+}
+
+.detailsComments{
+	display: inline-block;
+	padding-right: 5px;
+	float:right;
+	padding-top: 20px;
+}
+
+.detailsComIcon{
+	padding-right: 10px;
+	float:right;
+	padding-top: 16px;
+}
+
+.pollQuestionDetails{
+	padding-left: 72px;
+}
+
+.detailsContent{
+	.scroll{
+		.imageContainerDetails{
+			.yesGrey{
+				.yesContainerDetails{
+					.answeredIcon{
+						margin-top:105px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.detailsContent{
+	.scroll{
+		.imageContainerDetails{
+			.noGrey{
+				.noContainerDetails{
+					.answeredIcon{
+						margin-top:105px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.detailsContent{
+	.scroll{
+		.item{
+			border-color: transparent;
+		}
+	}
+}
+
+.activeIcon{
+	display: inline-block;
+	float: right;
+	margin-top: 155px;
+	padding-right: 20px;
+}
+
+.expiredIcon{
+	display: inline-block;
+	float: right;
+	margin-top: 155px;
+	padding-right: 20px;
+}
+
+.activeTxt{
+	display: inline-block;
+	float: right;
+	margin-top: 175px;
+}
+
+.expiredTxt{
+	display: inline-block;
+	float: right;
+	margin-top: 175px;
+}
+
