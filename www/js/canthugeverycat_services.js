@@ -6,7 +6,7 @@ angular.module('canthugeverycat.services',['ngResource'])
  * @param {string} APIurl Sets the path to the API
  */
 .factory('RESTCalls', function ($resource) {
-	APIurl = 'http://p.vz301.verteez.net/37-api/v1'
+	APIurl = 'http://p.vz301.verteez.net/mobile-api/v1'
 	return $resource(APIurl + '/:url/', null, {
 		post: {
 			//Defining the content-type header for POST so the server can recognize the data.
