@@ -244,11 +244,14 @@ ion-content{
 	font-size: 11pt;
 	display: block;
 	text-align: center;
+	text-decoration: underline;
 }
 
 .signUpTerms{
 	font-size: 10pt;
-	margin-top: 60px;
+	margin-top: 30px;
+	text-align: center;
+	margin-left: 10px;
 }
 
 /*Polls screen*/
@@ -259,7 +262,7 @@ ion-content{
 
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
     color: $calm;
-    padding-top: 5px;
+    padding-top: 11px;
 }
 
 .tab-item{
@@ -1017,7 +1020,7 @@ ion-content{
 }
 
 .profileQuote{
-	color:#bdbdbd;
+	color:$light !important;
 }
 
 .commentsContainer{
@@ -1093,7 +1096,7 @@ ion-content{
 				.yes{
 						font-size: 14pt;
 						color: $light;
-						padding-top: 60px;
+						padding-top: 20px;
 						padding-left:35px; 
 						margin-bottom: -15px;
 						font-weight: 500;
@@ -1234,7 +1237,7 @@ ion-content{
 			.yesGrey{
 				.yesContainerDetails{
 					.answeredIcon{
-						margin-top:105px;
+						margin-top:90px;
 					}
 				}
 			}
@@ -1263,35 +1266,109 @@ ion-content{
 		}
 	}
 }
-/*
-.activeIcon{
+
+.expiredCol{
 	display: inline-block;
 	float: right;
-	margin-top: 140px;
-	padding-right: 20px;
+	width: 20%;
+	margin-top: 130px;
+	text-align: center;
 }
 
-.expiredIcon{
+.activeCol{
 	display: inline-block;
 	float: right;
-	margin-top: 140px;
-	padding-right: 20px;
+	width: 30%;
+	margin-top: 130px;
+	text-align: center;
 }
 
-.activeTxt{
-	display: inline-block;
-	float: right;
-	margin-top: 175px;
+.backBtnDetails{
+	font-size: 24pt;
 }
 
-.expiredTxt{
-	display: inline-block;
-	float: right;
-	margin-top: 175px;
-}*/
+/*Settings screen*/
 
-.cornerIcons{
-	display: inline-block;
-	float: right;
-	width:60%;
+.settingsContent{
+	background-color: #ededed;
+	padding-top: 50px;
 }
+
+.settingsName{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 9pt;
+}
+
+.settingsNameInput{
+	width:100%;
+	height:40px;
+}
+
+.settingsTagline{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 9pt;
+}
+
+.settingsTaglineInput{
+	width:100%;
+	height:40px;
+}
+
+.settingsNotification{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 9pt;
+}
+
+/*Notifications screen*/
+
+.notificationsContent{
+	padding-top: 50px;
+	background-color: #ededed;
+}
+
+.answeredNotification{
+	margin-left: 75px;
+	color:#b6c3c9;
+	opacity: 0.6;
+	font-weight: 500;
+}
+
+.answeredPollNotification{
+	margin-left: 75px;
+	font-weight: 500;
+	color:$dark;
+	font-size: 11pt;
+}
+
+.invitationLine{
+    margin-top: 10px;
+	margin-left: 75px;
+}
+
+.barNotification{
+	width:80%;
+	margin-left: 50px;
+
+}
+
+.ignoreIcon{
+	margin-top: 9px;
+	padding-right: 15px;
+}
+
+.acceptIcon{
+	margin-top: 9px;
+	padding-right: 15px;
+}
+
+.newNotification{
+	background-color: #e1e8ed;
+}
+
+

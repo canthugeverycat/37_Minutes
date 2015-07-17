@@ -7869,11 +7869,14 @@ ion-content .scroll .cardIcon {
 .signUpLogIn {
   font-size: 11pt;
   display: block;
-  text-align: center; }
+  text-align: center;
+  text-decoration: underline; }
 
 .signUpTerms {
   font-size: 10pt;
-  margin-top: 60px; }
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 10px; }
 
 /*Polls screen*/
 .ion-help-buoy:before {
@@ -7881,7 +7884,7 @@ ion-content .scroll .cardIcon {
 
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
   color: #9bcb64;
-  padding-top: 5px; }
+  padding-top: 11px; }
 
 .tab-item {
   padding-top: 5px; }
@@ -8357,7 +8360,7 @@ ion-content .scroll .list a p {
   font-size: 14pt; }
 
 .profileQuote {
-  color: #bdbdbd; }
+  color: #ffffff !important; }
 
 .commentsContainer {
   margin-bottom: 0; }
@@ -8417,7 +8420,7 @@ ion-content .scroll .list a p {
 ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
   font-size: 14pt;
   color: #ffffff;
-  padding-top: 60px;
+  padding-top: 20px;
   padding-left: 35px;
   margin-bottom: -15px;
   font-weight: 500; }
@@ -8490,7 +8493,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   padding-left: 72px; }
 
 .detailsContent .scroll .imageContainerDetails .yesGrey .yesContainerDetails .answeredIcon {
-  margin-top: 105px; }
+  margin-top: 90px; }
 
 .detailsContent .scroll .imageContainerDetails .noGrey .noContainerDetails .answeredIcon {
   margin-top: 105px; }
@@ -8498,33 +8501,86 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 .detailsContent .scroll .item {
   border-color: transparent; }
 
-/*
-.activeIcon{
-	display: inline-block;
-	float: right;
-	margin-top: 140px;
-	padding-right: 20px;
-}
-
-.expiredIcon{
-	display: inline-block;
-	float: right;
-	margin-top: 140px;
-	padding-right: 20px;
-}
-
-.activeTxt{
-	display: inline-block;
-	float: right;
-	margin-top: 175px;
-}
-
-.expiredTxt{
-	display: inline-block;
-	float: right;
-	margin-top: 175px;
-}*/
-.cornerIcons {
+.expiredCol {
   display: inline-block;
   float: right;
-  width: 60%; }
+  width: 20%;
+  margin-top: 130px;
+  text-align: center; }
+
+.activeCol {
+  display: inline-block;
+  float: right;
+  width: 30%;
+  margin-top: 130px;
+  text-align: center; }
+
+.backBtnDetails {
+  font-size: 24pt; }
+
+/*Settings screen*/
+.settingsContent {
+  background-color: #ededed;
+  padding-top: 50px; }
+
+.settingsName {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 9pt; }
+
+.settingsNameInput {
+  width: 100%;
+  height: 40px; }
+
+.settingsTagline {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 9pt; }
+
+.settingsTaglineInput {
+  width: 100%;
+  height: 40px; }
+
+.settingsNotification {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 9pt; }
+
+/*Notifications screen*/
+.notificationsContent {
+  padding-top: 50px;
+  background-color: #ededed; }
+
+.answeredNotification {
+  margin-left: 75px;
+  color: #b6c3c9;
+  opacity: 0.6;
+  font-weight: 500; }
+
+.answeredPollNotification {
+  margin-left: 75px;
+  font-weight: 500;
+  color: #444;
+  font-size: 11pt; }
+
+.invitationLine {
+  margin-top: 10px;
+  margin-left: 75px; }
+
+.barNotification {
+  width: 80%;
+  margin-left: 50px; }
+
+.ignoreIcon {
+  margin-top: 9px;
+  padding-right: 15px; }
+
+.acceptIcon {
+  margin-top: 9px;
+  padding-right: 15px; }
+
+.newNotification {
+  background-color: #e1e8ed; }

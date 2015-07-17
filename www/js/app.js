@@ -95,5 +95,15 @@ angular.module('starter', ['ionic','directives','controllers','controllers.accou
     templateUrl:'/templates/pollDetails.html'
   })
 
+  .state('settings', {
+    url:'/settings',
+    templateUrl:'/templates/settings.html'
+  })
+
+  .state('notifications', {
+    url:'/notifications',
+    templateUrl:'/templates/notifications.html'
+  })
+
   $urlRouterProvider.otherwise('/login');
 })
