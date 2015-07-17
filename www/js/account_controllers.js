@@ -19,7 +19,7 @@ angular.module('controllers.account',[])
           InfoHandling.set('loginFailed',response.error.errorMessage,2000);
         } else {
           //Display a success message
-          InfoHandling.set('loginSuccessful', 'Logged in successfully',2000,'bg-calm');
+          InfoHandling.set('loginSuccessful', 'Logged in successfully',2000,'bg-energized');
           //Store the token in localStorage and $rootScope
           localStorage['37-mToken'] = response.Token;
           $rootScope.token = response.Token;
