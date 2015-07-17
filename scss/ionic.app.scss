@@ -407,7 +407,7 @@ ion-content{
 
 .noContainer{
 	height:100%;
-	width:30%;
+	width:35%;
 	background-color: rgba(238,82,79,0.7);
 }
 
@@ -1083,7 +1083,6 @@ ion-content{
 	height:100%;
 	width:40%;
 	background-color: rgba(238,82,79,0.7);
-	opacity: 0.6;
 
 }
 
@@ -1264,18 +1263,18 @@ ion-content{
 		}
 	}
 }
-
+/*
 .activeIcon{
 	display: inline-block;
 	float: right;
-	margin-top: 155px;
+	margin-top: 140px;
 	padding-right: 20px;
 }
 
 .expiredIcon{
 	display: inline-block;
 	float: right;
-	margin-top: 155px;
+	margin-top: 140px;
 	padding-right: 20px;
 }
 
@@ -1289,5 +1288,10 @@ ion-content{
 	display: inline-block;
 	float: right;
 	margin-top: 175px;
-}
+}*/
 
+.cornerIcons{
+	display: inline-block;
+	float: right;
+	width:60%;
+}
