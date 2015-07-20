@@ -1,4 +1,4 @@
-angular.module('controllers.account',[])
+angular.module('account.controllers',[])
 
 
 .controller('LoginController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location) {
@@ -22,7 +22,7 @@ angular.module('controllers.account',[])
           InfoHandling.set('loginSuccessful', 'Logged in successfully',2000,'bg-energized');
           //Store the token in localStorage and $rootScope
           localStorage['37-mToken'] = response.Token;
-          $rootScope.token = response.Token;
+          $rootScope.login.token = response.Token;
           //Redirect user to main screen
           $location.path('/polls');
         }
@@ -52,7 +52,7 @@ angular.module('controllers.account',[])
           InfoHandling.set('signUpSuccessful', 'Logged in successfully',2000,'bg-calm');
           //Store the token in localStorage and $rootScope
           localStorage['37-mToken'] = response.Token;
-          $rootScope.token = response.Token;
+          $rootScope.login.token = response.Token;
           //Redirect user to main screen
           $location.path('/polls');
         }
@@ -60,6 +60,8 @@ angular.module('controllers.account',[])
     });
   };
 
+
+  //*WIP Grab the facebook account info
   $scope.fbLogin = function() {
     ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
       function (response) {

@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view ng-controller='PollsController'>
 
 	<!-- Header -->
 
@@ -36,117 +36,53 @@
 		</div>
 	</div>
 
-<ion-content class="pollsContent" ng-controller="refresher">
+<ion-content class="pollsContent">
 
 	<!-- Refresh page -->
 	<ion-refresher
-		on refresh="doRefresh()"
+		on-refresh="onContentRefresh()"
 		pulling-icon="ion-help-buoy"
 		disable-pulling-rotation="true">
 	</ion-refresher>
 
 <div class="list">
 
-<!-- Active poll -->
-	<div class="item item-avatar">
-		<img src="img/avatar.jpg">
-		<h2 class="userName">ANNE TONG</h2>
+	<!-- Active poll -->
+	<div class="item item-avatar" ng-class="{'overlay':poll.timeLeft === 0}" ng-repeat="poll in $root.data.polls track by $index">
+		<img style="background:url({{poll.authorImage}}) no-repeat center;background-size:cover;">
+		<h2 class="userName">{{poll.authorName}}</h2>
 		<p class="asked">ASKED</p>
-		<p class="timer">25 MIN. LEFT</p>
-		<h2 class="pollQuestion">Should I dye my hair green?</h2>
+		<p class="timer">{{(poll.timeLeft !== 0) ? poll.timeLeft + ' MIN. LEFT' : 'EXPIRED'}}</p>
+		<h2 class="pollQuestion">{{poll.question}}</h2>
 
-	<!-- Poll image -->
-		<div class="imageContainer">
-	<!-- Grey overlay -->
-		<div class="yesGrey">
-		<!-- Yes votes  -->
-			<div class="yesContainer">
-				<p class="yes light">YES</p>
-				<p class="yesNumber light">68</p>
-				<p class="percent light">%</p>
-				<img class="answeredIcon" src="img/answered.png">
-			</div>
-		</div>
-	<!-- Grey overlay -->
-		<div class="noGrey">
-		<!-- No votes -->
-			<div class="noContainer">
-				<p class="no">NO</p>
-				<p class="noNumber">32</p>
-				<p class="percent">%</p>
-			</div>
-		</div>
-		</div>
-		<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
-		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
-		<a href="#/pollDetails"><i class="material-icons pollMore stable">more_horiz</i></a>
-	</div>
-
-
-	<div class="item item-avatar">
-		<img src="img/avatar.jpg">
-		<h2 class="userName">LISA WRIGHT</h2>
-		<p class="asked">ASKED</p>
-		<p class="timer">18 MIN. LEFT</p>
-		<h2 class="pollQuestion">Should I go to the cinema tonight?</h2>
-
-	<!--Poll with default image -->
-		<div class="imageContainerDefault">
-		<div class="yesGrey">
-		<!-- Yes votes -->
-			<div class="yesContainer">
-				<p class="yes light">YES</p>
-				<p class="yesNumber light">68</p>
-				<p class="percent light">%</p>
-			</div>
-		</div>
-		
-		<div class="noGrey">	
-		<!-- No votes -->
-			<div class="noContainer">
-				<p class="no">NO</p>
-				<p class="noNumber">32</p>
-				<p class="percent">%</p>
-			</div>
-		</div>	
-		</div>
-		<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
-		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
-		<i class="material-icons pollMore stable">more_horiz</i>
-	</div>
-
-	<!-- Expired poll -->
-	
-	<div class="item item-avatar overlay">
-			
-			<img src="img/avatar.jpg">
-			<h2 class="userName">MELINDA NIGHT</h2>
-			<p class="asked">ASKED</p>
-			<p class="timer">EXPIRED</p>
-			<h2 class="pollQuestion">Pizza tonight at my place?</h2>
-
-		<div class="imageContainerDefault">
-			
+		<!-- Poll image -->
+		<div ng-class="{'imageContainer':poll.imageUrl !== '','imageContainerDefault':poll.imageUrl === ''}" style="background-image: url({{poll.imageUrl}});">
+			<!-- Grey overlay -->
 			<div class="yesGrey">
-				<div class="yesContainer">
+			<!-- Yes votes  -->
+				<div class="yesContainer" style="width:{{poll.usersVotedYes + 0}}%">
 					<p class="yes light">YES</p>
-					<p class="yesNumber light">68</p>
+					<p class="yesNumber light">{{poll.usersVotedYes + 0}}</p>
 					<p class="percent light">%</p>
+					<img class="answeredIcon" src="img/answered.png">
 				</div>
 			</div>
-			
-			<div class="noGrey">	
-				<div class="noContainer">
+			<!-- Grey overlay -->
+			<div class="noGrey">
+			<!-- No votes -->
+				<div class="noContainer" style="width:{{poll.usersVotedNo + 0}}%">
 					<p class="no">NO</p>
-					<p class="noNumber">32</p>
+					<p class="noNumber">{{poll.usersVotedNo + 0}}</p>
 					<p class="percent">%</p>
 				</div>
-			</div>	
-			<a href="#/pollDetails" class="subdued pollVotes">250 VOTES</a>
-			<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
-			<i class="material-icons pollMore stable">more_horiz</i>
+			</div>
 		</div>
-	</div>	
+
+		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
+		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
+		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
+	</div>
+
 </div>
 
 </ion-content>

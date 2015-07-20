@@ -7,8 +7,6 @@
   <author email="hi@ionicframework" href="http://ionicframework.com/">
       Ionic Framework Team
     </author>
-
-  <qweqwejklasd
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>

@@ -1,6 +1,6 @@
 <ion-view>
 <ion-content class="detailsContent">
-	<div class="imageContainerDetails">
+	<div class="imageContainerDetails"ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
 		<div class="yesGrey">
 			<div class="yesContainerDetails">
 				<a href="#/polls"><button class="button backBtnDetails button-clear button-light button-icon ion-android-arrow-back"></button></a>
@@ -14,17 +14,17 @@
 		<div class="noGrey">
 			<div class="noContainerDetails">
 				<p class="no">NO</p>
-				<p class="noNumber">32</p>
+				<p class="noNumber">30</p>
 				<p class="percent">%</p>
 				<img class="answeredIcon" src="img/answered.png">
 			</div>
-				<div class="col expiredCol">
+				<div class="col expiredCol" ng-if="$root.data.poll.timeLeft === 0">
 					<i class="material-icons expiredIcon light">timer_off</i>
 					<p class="expiredTxt light">EXPIRED</p>
 				</div>
-				<div class="col activeCol">
+				<div class="col activeCol" ng-if="$root.data.poll.timeLeft !== 0">
 					<i class="material-icons activeIcon light">timer</i>
-					<p class="activeTxt light">25 MIN.LEFT</p>
+					<p class="activeTxt light">{{$root.data.poll.timeLeft}} MIN. LEFT</p>
 				</div>
 		</div>
 		
@@ -32,17 +32,17 @@
 
 	<div class="item item-avatar">
 
-		<img src="img/avatar.jpg">
-		<h2 class="detailsName">ANNE TONG</h2>
+		<img style="background:url({{$root.data.poll.authorImage}}) no-repeat center;background-size:cover;">
+		<h2 class="detailsName">{{$root.data.poll.authorName}}</h2>
 		<p class="detailsAsked">ASKED</p>
 		<i class="material-icons detailsComIcon">speaker_notes</i>
-		<p class="detailsComments">27</p>
+		<p class="detailsComments">{{$root.data.poll.commentsCount}}</p>
 		<i class="material-icons detailsAnsweredIcon">done_all</i>
-		<p class="detailsAnswered">250</p>
+		<p class="detailsAnswered">{{$root.data.poll.votesCount}}</p>
 		
 		
 		
-		<h2 class="pollQuestionDetails">Should I dye my hair green?</h2>
+		<h2 class="pollQuestionDetails">{{$root.data.poll.question}}</h2>
 	</div>
 </ion-content>
 

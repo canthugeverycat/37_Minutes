@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','directives','controllers','controllers.account','controllers.poll','canthugeverycat.services','ngOpenFB'])
+angular.module('starter', ['ionic','directives','main.controllers','account.controllers','poll.controllers','canthugeverycat.services','ngOpenFB'])
 
 .run(function($ionicPlatform, ngFB) {
   $ionicPlatform.ready(function() {
