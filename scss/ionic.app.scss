@@ -92,6 +92,31 @@ ion-content{
   }
 }
 
+//Animation for Poll Cards
+.poll-animate {
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.poll-animate.ng-move,
+.poll-animate.ng-enter,
+.poll-animate.ng-leave {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.poll-animate.ng-leave.ng-leave-active,
+.poll-animate.ng-move,
+.poll-animate.ng-enter {
+    opacity:0;
+}
+
+.poll-animate.ng-leave,
+.poll-animate.ng-move.ng-move-active,
+.poll-animate.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
 
 
 .bar-footer{

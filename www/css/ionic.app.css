@@ -12840,23 +12840,51 @@ ion-content {
   opacity: 0;
 }
 
-/* line 97, ../../scss/ionic.app.scss */
+/* line 96, ../../scss/ionic.app.scss */
+.poll-animate {
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+}
+
+/* line 101, ../../scss/ionic.app.scss */
+.poll-animate.ng-move,
+.poll-animate.ng-enter,
+.poll-animate.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+/* line 108, ../../scss/ionic.app.scss */
+.poll-animate.ng-leave.ng-leave-active,
+.poll-animate.ng-move,
+.poll-animate.ng-enter {
+  opacity: 0;
+}
+
+/* line 114, ../../scss/ionic.app.scss */
+.poll-animate.ng-leave,
+.poll-animate.ng-move.ng-move-active,
+.poll-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+/* line 122, ../../scss/ionic.app.scss */
 .bar-footer {
   height: 60px;
 }
 
-/* line 101, ../../scss/ionic.app.scss */
+/* line 126, ../../scss/ionic.app.scss */
 .tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
   border-color: #9bcb64;
 }
 
 /*Onboarding cards*/
-/* line 110, ../../scss/ionic.app.scss */
+/* line 135, ../../scss/ionic.app.scss */
 ion-content .scroll .cardIcon {
   font-size: 96pt;
 }
 
-/* line 116, ../../scss/ionic.app.scss */
+/* line 141, ../../scss/ionic.app.scss */
 .cardIcon {
   font-size: 100px;
   display: inline-block;
@@ -12865,7 +12893,7 @@ ion-content .scroll .cardIcon {
   margin-top: 40px;
 }
 
-/* line 124, ../../scss/ionic.app.scss */
+/* line 149, ../../scss/ionic.app.scss */
 .cardHeader {
   margin-top: 20px;
   font-size: 22pt;
@@ -12878,7 +12906,7 @@ ion-content .scroll .cardIcon {
   margin-left: auto;
 }
 
-/* line 136, ../../scss/ionic.app.scss */
+/* line 161, ../../scss/ionic.app.scss */
 .cardSubheader {
   font-size: 14pt;
   color: #ffffff;
@@ -12889,7 +12917,7 @@ ion-content .scroll .cardIcon {
   margin-right: auto;
 }
 
-/* line 146, ../../scss/ionic.app.scss */
+/* line 171, ../../scss/ionic.app.scss */
 .arrowNext {
   position: relative;
   display: block;
@@ -12899,35 +12927,35 @@ ion-content .scroll .cardIcon {
   margin-top: 150px;
 }
 
-/* line 156, ../../scss/ionic.app.scss */
+/* line 181, ../../scss/ionic.app.scss */
 .cardOne {
   background-color: #9bcb64;
 }
 
-/* line 160, ../../scss/ionic.app.scss */
+/* line 185, ../../scss/ionic.app.scss */
 .cardTwo {
   background-color: #ee524f;
 }
 
-/* line 164, ../../scss/ionic.app.scss */
+/* line 189, ../../scss/ionic.app.scss */
 .cardThree {
   background-color: #1f252e;
 }
 
 /*Sign In screen*/
-/* line 171, ../../scss/ionic.app.scss */
+/* line 196, ../../scss/ionic.app.scss */
 .card, .list-inset {
   background-color: transparent;
 }
 
-/* line 175, ../../scss/ionic.app.scss */
+/* line 200, ../../scss/ionic.app.scss */
 .signInContent {
   background-image: url("../img/login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* line 181, ../../scss/ionic.app.scss */
+/* line 206, ../../scss/ionic.app.scss */
 .signInLogo {
   height: 120px;
   display: block;
@@ -12936,50 +12964,50 @@ ion-content .scroll .cardIcon {
   margin-top: 20px;
 }
 
-/* line 189, ../../scss/ionic.app.scss */
+/* line 214, ../../scss/ionic.app.scss */
 .list-inset {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 195, ../../scss/ionic.app.scss */
+/* line 220, ../../scss/ionic.app.scss */
 .formIcon {
   margin-right: 10px;
 }
 
-/* line 199, ../../scss/ionic.app.scss */
+/* line 224, ../../scss/ionic.app.scss */
 .signInButton {
   width: 100%;
 }
 
-/* line 203, ../../scss/ionic.app.scss */
+/* line 228, ../../scss/ionic.app.scss */
 .signInCorner {
   float: right;
   margin-top: 40px;
   margin-right: 60px;
 }
 
-/* line 209, ../../scss/ionic.app.scss */
+/* line 234, ../../scss/ionic.app.scss */
 .signInNew {
   text-decoration: underline;
 }
 
-/* line 213, ../../scss/ionic.app.scss */
+/* line 238, ../../scss/ionic.app.scss */
 .signInForgot {
   margin-left: 8px;
   opacity: 0.4;
 }
 
 /*Sign Up screen*/
-/* line 220, ../../scss/ionic.app.scss */
+/* line 245, ../../scss/ionic.app.scss */
 .signUpContent {
   background-image: url("../img/signUp.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* line 226, ../../scss/ionic.app.scss */
+/* line 251, ../../scss/ionic.app.scss */
 .fbBtn {
   width: 70%;
   margin-left: auto;
@@ -12987,12 +13015,12 @@ ion-content .scroll .cardIcon {
   display: block;
 }
 
-/* line 233, ../../scss/ionic.app.scss */
+/* line 258, ../../scss/ionic.app.scss */
 .fbIcon {
   margin-right: 20px;
 }
 
-/* line 237, ../../scss/ionic.app.scss */
+/* line 262, ../../scss/ionic.app.scss */
 .signUpAlready {
   display: block;
   text-align: center;
@@ -13000,7 +13028,7 @@ ion-content .scroll .cardIcon {
   font-size: 11pt;
 }
 
-/* line 244, ../../scss/ionic.app.scss */
+/* line 269, ../../scss/ionic.app.scss */
 .signUpLogIn {
   font-size: 11pt;
   display: block;
@@ -13008,7 +13036,7 @@ ion-content .scroll .cardIcon {
   text-decoration: underline;
 }
 
-/* line 251, ../../scss/ionic.app.scss */
+/* line 276, ../../scss/ionic.app.scss */
 .signUpTerms {
   font-size: 10pt;
   margin-top: 30px;
@@ -13017,45 +13045,45 @@ ion-content .scroll .cardIcon {
 }
 
 /*Polls screen*/
-/* line 260, ../../scss/ionic.app.scss */
+/* line 285, ../../scss/ionic.app.scss */
 .ion-help-buoy:before {
   content: url("../img/swipe.png") !important;
 }
 
-/* line 264, ../../scss/ionic.app.scss */
+/* line 289, ../../scss/ionic.app.scss */
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
   color: #9bcb64;
   padding-top: 11px;
 }
 
-/* line 269, ../../scss/ionic.app.scss */
+/* line 294, ../../scss/ionic.app.scss */
 .tab-item {
   padding-top: 5px;
 }
 
-/* line 273, ../../scss/ionic.app.scss */
+/* line 298, ../../scss/ionic.app.scss */
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
   font-size: 25px;
 }
 
-/* line 278, ../../scss/ionic.app.scss */
+/* line 303, ../../scss/ionic.app.scss */
 .bar .title {
   font-size: 18px;
 }
 
-/* line 283, ../../scss/ionic.app.scss */
+/* line 308, ../../scss/ionic.app.scss */
 .pollAvatar {
   height: 30px;
 }
 
-/* line 287, ../../scss/ionic.app.scss */
+/* line 312, ../../scss/ionic.app.scss */
 .pollsContent {
   padding: 0;
   padding-top: 45px;
   background: #ededed;
 }
 
-/* line 293, ../../scss/ionic.app.scss */
+/* line 318, ../../scss/ionic.app.scss */
 .pollImage {
   width: 100%;
   display: block;
@@ -13063,7 +13091,7 @@ ion-content .scroll .cardIcon {
   height: 200px;
 }
 
-/* line 304, ../../scss/ionic.app.scss */
+/* line 329, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .userName {
   font-weight: 500;
   display: inline-block;
@@ -13072,13 +13100,13 @@ ion-content .scroll .list .item .userName {
   padding-top: 20px;
 }
 
-/* line 320, ../../scss/ionic.app.scss */
+/* line 345, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
   padding-left: 72px;
 }
 
-/* line 329, ../../scss/ionic.app.scss */
+/* line 354, ../../scss/ionic.app.scss */
 .asked {
   display: inline-block;
   position: relative;
@@ -13086,7 +13114,7 @@ ion-content .scroll .list .item .pollQuestion {
   top: 1.4px;
 }
 
-/* line 336, ../../scss/ionic.app.scss */
+/* line 361, ../../scss/ionic.app.scss */
 .timer {
   display: inline-block;
   float: right;
@@ -13097,7 +13125,7 @@ ion-content .scroll .list .item .pollQuestion {
   padding-right: 8px;
 }
 
-/* line 346, ../../scss/ionic.app.scss */
+/* line 371, ../../scss/ionic.app.scss */
 .pollComments {
   font-size: 11pt;
   display: inline-block;
@@ -13105,7 +13133,7 @@ ion-content .scroll .list .item .pollQuestion {
   padding-left: 0;
 }
 
-/* line 353, ../../scss/ionic.app.scss */
+/* line 378, ../../scss/ionic.app.scss */
 .pollVotes {
   padding-left: 10px;
   font-size: 11pt;
@@ -13115,26 +13143,26 @@ ion-content .scroll .list .item .pollQuestion {
   margin-right: 0;
 }
 
-/* line 366, ../../scss/ionic.app.scss */
+/* line 391, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item a.subdued {
   padding-right: 5px;
 }
 
-/* line 374, ../../scss/ionic.app.scss */
+/* line 399, ../../scss/ionic.app.scss */
 .pollMore {
   padding: 8px;
   float: right;
   display: inline-block;
 }
 
-/* line 380, ../../scss/ionic.app.scss */
+/* line 405, ../../scss/ionic.app.scss */
 .item-avatar {
   padding: 0;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 386, ../../scss/ionic.app.scss */
+/* line 411, ../../scss/ionic.app.scss */
 .imageContainer {
   margin-top: 10px;
   width: 100%;
@@ -13144,34 +13172,34 @@ ion-content .scroll .list .item a.subdued {
   background-size: cover;
 }
 
-/* line 395, ../../scss/ionic.app.scss */
+/* line 420, ../../scss/ionic.app.scss */
 .yesGrey {
   height: 50%;
   width: 100%;
   background-color: rgba(17, 17, 17, 0.5);
 }
 
-/* line 401, ../../scss/ionic.app.scss */
+/* line 426, ../../scss/ionic.app.scss */
 .noGrey {
   width: 100%;
   height: 50%;
   background-color: rgba(17, 17, 17, 0.3);
 }
 
-/* line 407, ../../scss/ionic.app.scss */
+/* line 432, ../../scss/ionic.app.scss */
 .yesContainer {
   height: 100%;
   background-color: rgba(155, 203, 100, 0.7);
   border-bottom: 1px solid #ffffff;
 }
 
-/* line 413, ../../scss/ionic.app.scss */
+/* line 438, ../../scss/ionic.app.scss */
 .noContainer {
   height: 100%;
   background-color: rgba(238, 82, 79, 0.7);
 }
 
-/* line 424, ../../scss/ionic.app.scss */
+/* line 449, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .noContainer .no {
   width: 100px;
   font-size: 12pt;
@@ -13181,7 +13209,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .no {
   padding-top: 20px;
 }
 
-/* line 445, ../../scss/ionic.app.scss */
+/* line 470, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .noContainer .noNumber {
   font-size: 40pt;
   height: 40px;
@@ -13192,7 +13220,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .noNumber {
   display: inline-block;
 }
 
-/* line 467, ../../scss/ionic.app.scss */
+/* line 492, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .noContainer .percent {
   font-size: 18pt;
   height: 40px;
@@ -13202,7 +13230,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   display: inline-block;
 }
 
-/* line 488, ../../scss/ionic.app.scss */
+/* line 513, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .yesContainer .yes {
   width: 100px;
   font-size: 12pt;
@@ -13212,7 +13240,7 @@ ion-content .scroll .list .item .imageContainer .yesContainer .yes {
   padding-top: 20px;
 }
 
-/* line 509, ../../scss/ionic.app.scss */
+/* line 534, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .yesContainer .yesNumber {
   font-size: 40pt;
   height: 40px;
@@ -13223,7 +13251,7 @@ ion-content .scroll .list .item .imageContainer .yesContainer .yesNumber {
   display: inline-block;
 }
 
-/* line 531, ../../scss/ionic.app.scss */
+/* line 556, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainer .yesContainer .percent {
   font-size: 18pt;
   height: 40px;
@@ -13233,12 +13261,12 @@ ion-content .scroll .list .item .imageContainer .yesContainer .percent {
   display: inline-block;
 }
 
-/* line 546, ../../scss/ionic.app.scss */
+/* line 571, ../../scss/ionic.app.scss */
 .item-avatar {
   margin-top: 10px;
 }
 
-/* line 550, ../../scss/ionic.app.scss */
+/* line 575, ../../scss/ionic.app.scss */
 .imageContainerDefault {
   background-image: url("../img/default.png") !important;
   margin-top: 10px;
@@ -13249,7 +13277,7 @@ ion-content .scroll .list .item .imageContainer .yesContainer .percent {
   background-repeat: no-repeat;
 }
 
-/* line 566, ../../scss/ionic.app.scss */
+/* line 591, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .noContainer .no {
   width: 100px;
   font-size: 12pt;
@@ -13259,7 +13287,7 @@ ion-content .scroll .list .item .imageContainerDefault .noContainer .no {
   padding-top: 20px;
 }
 
-/* line 587, ../../scss/ionic.app.scss */
+/* line 612, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .noContainer .noNumber {
   font-size: 40pt;
   height: 40px;
@@ -13270,7 +13298,7 @@ ion-content .scroll .list .item .imageContainerDefault .noContainer .noNumber {
   display: inline-block;
 }
 
-/* line 609, ../../scss/ionic.app.scss */
+/* line 634, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .noContainer .percent {
   font-size: 18pt;
   height: 40px;
@@ -13280,7 +13308,7 @@ ion-content .scroll .list .item .imageContainerDefault .noContainer .percent {
   display: inline-block;
 }
 
-/* line 630, ../../scss/ionic.app.scss */
+/* line 655, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
   width: 100px;
   font-size: 12pt;
@@ -13290,7 +13318,7 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
   padding-top: 20px;
 }
 
-/* line 651, ../../scss/ionic.app.scss */
+/* line 676, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .yesNumber {
   font-size: 40pt;
   height: 40px;
@@ -13301,7 +13329,7 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .yesNumber 
   display: inline-block;
 }
 
-/* line 673, ../../scss/ionic.app.scss */
+/* line 698, ../../scss/ionic.app.scss */
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   font-size: 18pt;
   height: 40px;
@@ -13311,19 +13339,19 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   display: inline-block;
 }
 
-/* line 688, ../../scss/ionic.app.scss */
+/* line 713, ../../scss/ionic.app.scss */
 .addIcon {
   padding-top: 12px;
 }
 
-/* line 692, ../../scss/ionic.app.scss */
+/* line 717, ../../scss/ionic.app.scss */
 .overlay {
   background-color: #ffffff;
   opacity: 0.6;
   width: 100%;
 }
 
-/* line 698, ../../scss/ionic.app.scss */
+/* line 723, ../../scss/ionic.app.scss */
 .answeredIcon {
   float: right;
   margin-top: 20px;
@@ -13332,12 +13360,12 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
 }
 
 /*Comment screen*/
-/* line 710, ../../scss/ionic.app.scss */
+/* line 735, ../../scss/ionic.app.scss */
 ion-content .scroll .noComments .noComIcon {
   font-size: 48pt;
 }
 
-/* line 717, ../../scss/ionic.app.scss */
+/* line 742, ../../scss/ionic.app.scss */
 .noComIcon {
   display: inline-block;
   width: 100%;
@@ -13345,7 +13373,7 @@ ion-content .scroll .noComments .noComIcon {
   margin-top: 20px;
 }
 
-/* line 724, ../../scss/ionic.app.scss */
+/* line 749, ../../scss/ionic.app.scss */
 .noCom {
   text-align: center;
   width: 100%;
@@ -13353,7 +13381,7 @@ ion-content .scroll .noComments .noComIcon {
   font-size: 18pt;
 }
 
-/* line 731, ../../scss/ionic.app.scss */
+/* line 756, ../../scss/ionic.app.scss */
 .firstCom {
   text-align: center;
   width: 40%;
@@ -13362,26 +13390,26 @@ ion-content .scroll .noComments .noComIcon {
   margin-left: auto;
 }
 
-/* line 739, ../../scss/ionic.app.scss */
+/* line 764, ../../scss/ionic.app.scss */
 .comment {
   padding-left: 72px;
 }
 
-/* line 743, ../../scss/ionic.app.scss */
+/* line 768, ../../scss/ionic.app.scss */
 .yesIcon {
   float: right;
   padding-bottom: 5px;
   padding-right: 5px;
 }
 
-/* line 749, ../../scss/ionic.app.scss */
+/* line 774, ../../scss/ionic.app.scss */
 .noIcon {
   float: right;
   padding-bottom: 5px;
   padding-right: 5px;
 }
 
-/* line 755, ../../scss/ionic.app.scss */
+/* line 780, ../../scss/ionic.app.scss */
 .commentTime {
   display: inline-block;
   float: right;
@@ -13393,19 +13421,19 @@ ion-content .scroll .noComments .noComIcon {
   color: #b6c3c9;
 }
 
-/* line 766, ../../scss/ionic.app.scss */
+/* line 791, ../../scss/ionic.app.scss */
 .comment {
   padding-top: 5px;
   padding-right: 20px;
 }
 
-/* line 771, ../../scss/ionic.app.scss */
+/* line 796, ../../scss/ionic.app.scss */
 .commentsContent {
   padding-top: 50px;
   background-color: #ededed;
 }
 
-/* line 776, ../../scss/ionic.app.scss */
+/* line 801, ../../scss/ionic.app.scss */
 .commentsOnPoll {
   font-size: 9pt;
   font-weight: 500;
@@ -13415,44 +13443,44 @@ ion-content .scroll .noComments .noComIcon {
   margin-bottom: 0;
 }
 
-/* line 788, ../../scss/ionic.app.scss */
+/* line 813, ../../scss/ionic.app.scss */
 .commentsContent .scroll .commentsContainer .item-avatar {
   margin-top: 0px;
 }
 
-/* line 795, ../../scss/ionic.app.scss */
+/* line 820, ../../scss/ionic.app.scss */
 .enterComment {
   width: 100%;
   background-color: #e0e0e0;
 }
 
 /*addPoll screen*/
-/* line 802, ../../scss/ionic.app.scss */
+/* line 827, ../../scss/ionic.app.scss */
 .addPollContent {
   background-color: #171717;
 }
 
-/* line 806, ../../scss/ionic.app.scss */
+/* line 831, ../../scss/ionic.app.scss */
 .addBack {
   margin-top: 20px;
   margin-left: 15px;
 }
 
-/* line 811, ../../scss/ionic.app.scss */
+/* line 836, ../../scss/ionic.app.scss */
 .addCamera {
   margin-top: 20px;
   float: right;
   margin-right: 25px;
 }
 
-/* line 817, ../../scss/ionic.app.scss */
+/* line 842, ../../scss/ionic.app.scss */
 .addConfirm {
   margin-top: 20px;
   margin-right: 20px;
   float: right;
 }
 
-/* line 823, ../../scss/ionic.app.scss */
+/* line 848, ../../scss/ionic.app.scss */
 .addAsk {
   font-weight: 300;
   font-size: 14pt;
@@ -13461,7 +13489,7 @@ ion-content .scroll .noComments .noComIcon {
   color: #757575;
 }
 
-/* line 831, ../../scss/ionic.app.scss */
+/* line 856, ../../scss/ionic.app.scss */
 .addText {
   background-color: transparent;
   font-size: 11pt;
@@ -13471,7 +13499,7 @@ ion-content .scroll .noComments .noComIcon {
   width: 80%;
 }
 
-/* line 842, ../../scss/ionic.app.scss */
+/* line 867, ../../scss/ionic.app.scss */
 .addPollContent .scroll textarea, .addPollContent .scroll input[type="text"], .addPollContent .scroll input[type="password"], .addPollContent .scroll input[type="datetime"], .addPollContent .scroll input[type="datetime-local"], .addPollContent .scroll input[type="date"], .addPollContent .scroll input[type="month"], .addPollContent .scroll input[type="time"], .addPollContent .scroll input[type="week"], .addPollContent .scroll input[type="number"], .addPollContent .scroll input[type="email"], .addPollContent .scroll input[type="url"], .addPollContent .scroll input[type="search"], .addPollContent .scroll input[type="tel"], .addPollContent .scroll input[type="color"] {
   display: block;
   padding-top: 2px;
@@ -13483,7 +13511,7 @@ ion-content .scroll .noComments .noComIcon {
   line-height: 16px;
 }
 
-/* line 854, ../../scss/ionic.app.scss */
+/* line 879, ../../scss/ionic.app.scss */
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
   padding-top: 2px;
@@ -13495,26 +13523,26 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   line-height: 16px;
 }
 
-/* line 864, ../../scss/ionic.app.scss */
+/* line 889, ../../scss/ionic.app.scss */
 .addGroup {
   width: 50%;
   background-color: #c62828;
 }
 
 /*Friends screen*/
-/* line 871, ../../scss/ionic.app.scss */
+/* line 896, ../../scss/ionic.app.scss */
 .friendsContent {
   padding-top: 50px;
   background-color: #ededed;
   color: #62666c;
 }
 
-/* line 877, ../../scss/ionic.app.scss */
+/* line 902, ../../scss/ionic.app.scss */
 .addFriendsBar {
   padding-top: 10px;
 }
 
-/* line 881, ../../scss/ionic.app.scss */
+/* line 906, ../../scss/ionic.app.scss */
 .groupsTitle {
   padding-top: 10px;
   padding-left: 10px;
@@ -13522,32 +13550,32 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   font-size: 9pt;
 }
 
-/* line 888, ../../scss/ionic.app.scss */
+/* line 913, ../../scss/ionic.app.scss */
 .friendsList {
   margin-top: 0;
   min-height: 50px;
   height: 65px;
 }
 
-/* line 894, ../../scss/ionic.app.scss */
+/* line 919, ../../scss/ionic.app.scss */
 .groupName {
   color: #62666c;
 }
 
-/* line 898, ../../scss/ionic.app.scss */
+/* line 923, ../../scss/ionic.app.scss */
 .groupsClose {
   color: #62666c;
   float: right;
   padding-right: 20px;
 }
 
-/* line 904, ../../scss/ionic.app.scss */
+/* line 929, ../../scss/ionic.app.scss */
 .groupsEdit {
   color: #62666c;
   float: right;
 }
 
-/* line 909, ../../scss/ionic.app.scss */
+/* line 934, ../../scss/ionic.app.scss */
 .friendsClose {
   color: #62666c;
   float: right;
@@ -13556,7 +13584,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   padding-top: 20px;
 }
 
-/* line 917, ../../scss/ionic.app.scss */
+/* line 942, ../../scss/ionic.app.scss */
 .friendsName {
   color: #62666c;
   padding-left: 72px;
@@ -13565,13 +13593,13 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 /*Invite friends screen*/
-/* line 926, ../../scss/ionic.app.scss */
+/* line 951, ../../scss/ionic.app.scss */
 .inviteFriendsContent {
   padding-top: 50px;
   background-color: #ededed;
 }
 
-/* line 931, ../../scss/ionic.app.scss */
+/* line 956, ../../scss/ionic.app.scss */
 .importFb {
   margin-top: 10px;
   width: 60%;
@@ -13580,7 +13608,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   display: block;
 }
 
-/* line 939, ../../scss/ionic.app.scss */
+/* line 964, ../../scss/ionic.app.scss */
 .importGoogle {
   margin-top: 10px;
   width: 60%;
@@ -13589,12 +13617,12 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   display: block;
 }
 
-/* line 947, ../../scss/ionic.app.scss */
+/* line 972, ../../scss/ionic.app.scss */
 .googleIcon {
   margin-right: 8px;
 }
 
-/* line 951, ../../scss/ionic.app.scss */
+/* line 976, ../../scss/ionic.app.scss */
 .accepted {
   color: #62666c;
   float: right;
@@ -13602,7 +13630,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   display: inline-block;
 }
 
-/* line 962, ../../scss/ionic.app.scss */
+/* line 987, ../../scss/ionic.app.scss */
 ion-content .scroll .list a p {
   padding-top: 20px;
   font-size: 9pt;
@@ -13613,21 +13641,21 @@ ion-content .scroll .list a p {
 }
 
 /*Edit Group screen*/
-/* line 977, ../../scss/ionic.app.scss */
+/* line 1002, ../../scss/ionic.app.scss */
 .editGroupContent {
   padding-top: 50px;
   background-color: #ededed;
   color: #62666c;
 }
 
-/* line 983, ../../scss/ionic.app.scss */
+/* line 1008, ../../scss/ionic.app.scss */
 .editGroupName {
   width: 100%;
   height: 40px;
 }
 
 /*New Group screen*/
-/* line 990, ../../scss/ionic.app.scss */
+/* line 1015, ../../scss/ionic.app.scss */
 .newGroupContent {
   padding-top: 50px;
   background-color: #ededed;
@@ -13635,14 +13663,14 @@ ion-content .scroll .list a p {
 }
 
 /*Profile screen*/
-/* line 998, ../../scss/ionic.app.scss */
+/* line 1023, ../../scss/ionic.app.scss */
 .profileContent {
   padding-top: 50px;
   background-color: #ededed;
   color: #62666c;
 }
 
-/* line 1004, ../../scss/ionic.app.scss */
+/* line 1029, ../../scss/ionic.app.scss */
 .profileContainer {
   width: 100%;
   height: 300px;
@@ -13651,7 +13679,7 @@ ion-content .scroll .list a p {
   background-size: cover;
 }
 
-/* line 1012, ../../scss/ionic.app.scss */
+/* line 1037, ../../scss/ionic.app.scss */
 .profileAvatar {
   background-color: transparent;
   border: solid transparent;
@@ -13659,34 +13687,34 @@ ion-content .scroll .list a p {
   padding-left: 20px;
 }
 
-/* line 1019, ../../scss/ionic.app.scss */
+/* line 1044, ../../scss/ionic.app.scss */
 .profileImg {
   margin-top: 120px;
 }
 
-/* line 1023, ../../scss/ionic.app.scss */
+/* line 1048, ../../scss/ionic.app.scss */
 .profileName {
   color: #ffffff;
   font-size: 14pt;
 }
 
-/* line 1028, ../../scss/ionic.app.scss */
+/* line 1053, ../../scss/ionic.app.scss */
 .profileQuote {
   color: #ffffff !important;
 }
 
-/* line 1032, ../../scss/ionic.app.scss */
+/* line 1057, ../../scss/ionic.app.scss */
 .commentsContainer {
   margin-bottom: 0;
 }
 
-/* line 1036, ../../scss/ionic.app.scss */
+/* line 1061, ../../scss/ionic.app.scss */
 .commentLine {
   margin-top: 30px;
   margin-left: 75px;
 }
 
-/* line 1041, ../../scss/ionic.app.scss */
+/* line 1066, ../../scss/ionic.app.scss */
 .commentActivity {
   margin-left: 75px;
   font-weight: 500;
@@ -13694,7 +13722,7 @@ ion-content .scroll .list a p {
   font-size: 11pt;
 }
 
-/* line 1048, ../../scss/ionic.app.scss */
+/* line 1073, ../../scss/ionic.app.scss */
 .commentedPoll {
   margin-left: 75px;
   color: #b6c3c9;
@@ -13702,7 +13730,7 @@ ion-content .scroll .list a p {
   font-weight: 500;
 }
 
-/* line 1055, ../../scss/ionic.app.scss */
+/* line 1080, ../../scss/ionic.app.scss */
 .actFeed {
   padding-top: 10px;
   padding-left: 10px;
@@ -13711,7 +13739,7 @@ ion-content .scroll .list a p {
   margin-bottom: 0;
 }
 
-/* line 1063, ../../scss/ionic.app.scss */
+/* line 1088, ../../scss/ionic.app.scss */
 .profileOverlay {
   width: 100%;
   height: 100%;
@@ -13719,13 +13747,13 @@ ion-content .scroll .list a p {
 }
 
 /*poll details screen*/
-/* line 1070, ../../scss/ionic.app.scss */
+/* line 1095, ../../scss/ionic.app.scss */
 .detailsContent {
   padding: 0;
   margin-top: 0;
 }
 
-/* line 1075, ../../scss/ionic.app.scss */
+/* line 1100, ../../scss/ionic.app.scss */
 .imageContainerDetails {
   width: 100%;
   height: 400px;
@@ -13734,12 +13762,12 @@ ion-content .scroll .list a p {
   background-repeat: no-repeat;
 }
 
-/* line 1083, ../../scss/ionic.app.scss */
+/* line 1108, ../../scss/ionic.app.scss */
 .imageContainerDetailsDefault {
   background-image: url("../img/default.png") !important;
 }
 
-/* line 1087, ../../scss/ionic.app.scss */
+/* line 1112, ../../scss/ionic.app.scss */
 .yesContainerDetails {
   height: 100%;
   background-color: rgba(155, 203, 100, 0.7);
@@ -13747,7 +13775,7 @@ ion-content .scroll .list a p {
   border-bottom: 1px solid #ffffff;
 }
 
-/* line 1094, ../../scss/ionic.app.scss */
+/* line 1119, ../../scss/ionic.app.scss */
 .noContainerDetails {
   display: inline-block;
   height: 100%;
@@ -13755,7 +13783,7 @@ ion-content .scroll .list a p {
   background-color: rgba(238, 82, 79, 0.7);
 }
 
-/* line 1106, ../../scss/ionic.app.scss */
+/* line 1131, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
   width: 100px;
   font-size: 14pt;
@@ -13766,7 +13794,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
   font-weight: 500;
 }
 
-/* line 1124, ../../scss/ionic.app.scss */
+/* line 1149, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .yesContainerDetails .yesNumber {
   font-size: 40pt;
   color: #ffffff;
@@ -13775,7 +13803,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .yesNumber {
   padding-top: 30px;
 }
 
-/* line 1140, ../../scss/ionic.app.scss */
+/* line 1165, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   font-size: 20pt;
   color: #ffffff;
@@ -13783,7 +13811,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   padding-top: 10px;
 }
 
-/* line 1156, ../../scss/ionic.app.scss */
+/* line 1181, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .noContainerDetails .no {
   width: 100px;
   font-size: 14pt;
@@ -13794,7 +13822,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .no {
   font-weight: 500;
 }
 
-/* line 1174, ../../scss/ionic.app.scss */
+/* line 1199, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .noContainerDetails .noNumber {
   font-size: 40pt;
   color: #ffffff;
@@ -13803,7 +13831,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .noNumber {
   padding-top: 30px;
 }
 
-/* line 1190, ../../scss/ionic.app.scss */
+/* line 1215, ../../scss/ionic.app.scss */
 ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   font-size: 20pt;
   color: #ffffff;
@@ -13811,19 +13839,19 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   padding-top: 10px;
 }
 
-/* line 1201, ../../scss/ionic.app.scss */
+/* line 1226, ../../scss/ionic.app.scss */
 .detailsName {
   padding-left: 72px;
   padding-top: 20px;
   display: inline-block;
 }
 
-/* line 1207, ../../scss/ionic.app.scss */
+/* line 1232, ../../scss/ionic.app.scss */
 .detailsAsked {
   display: inline-block;
 }
 
-/* line 1211, ../../scss/ionic.app.scss */
+/* line 1236, ../../scss/ionic.app.scss */
 .detailsAnswered {
   display: inline-block;
   float: right;
@@ -13831,14 +13859,14 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   padding-right: 5px;
 }
 
-/* line 1218, ../../scss/ionic.app.scss */
+/* line 1243, ../../scss/ionic.app.scss */
 .detailsAnsweredIcon {
   padding-right: 5px;
   float: right;
   padding-top: 16px;
 }
 
-/* line 1224, ../../scss/ionic.app.scss */
+/* line 1249, ../../scss/ionic.app.scss */
 .detailsComments {
   display: inline-block;
   padding-right: 5px;
@@ -13846,34 +13874,34 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   padding-top: 20px;
 }
 
-/* line 1231, ../../scss/ionic.app.scss */
+/* line 1256, ../../scss/ionic.app.scss */
 .detailsComIcon {
   padding-right: 10px;
   float: right;
   padding-top: 16px;
 }
 
-/* line 1237, ../../scss/ionic.app.scss */
+/* line 1262, ../../scss/ionic.app.scss */
 .pollQuestionDetails {
   padding-left: 72px;
 }
 
-/* line 1246, ../../scss/ionic.app.scss */
+/* line 1271, ../../scss/ionic.app.scss */
 .detailsContent .scroll .imageContainerDetails .yesGrey .yesContainerDetails .answeredIcon {
   margin-top: 90px;
 }
 
-/* line 1260, ../../scss/ionic.app.scss */
+/* line 1285, ../../scss/ionic.app.scss */
 .detailsContent .scroll .imageContainerDetails .noGrey .noContainerDetails .answeredIcon {
   margin-top: 105px;
 }
 
-/* line 1271, ../../scss/ionic.app.scss */
+/* line 1296, ../../scss/ionic.app.scss */
 .detailsContent .scroll .item {
   border-color: transparent;
 }
 
-/* line 1277, ../../scss/ionic.app.scss */
+/* line 1302, ../../scss/ionic.app.scss */
 .expiredCol {
   display: inline-block;
   float: right;
@@ -13882,7 +13910,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   text-align: center;
 }
 
-/* line 1285, ../../scss/ionic.app.scss */
+/* line 1310, ../../scss/ionic.app.scss */
 .activeCol {
   display: inline-block;
   float: right;
@@ -13891,19 +13919,19 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   text-align: center;
 }
 
-/* line 1293, ../../scss/ionic.app.scss */
+/* line 1318, ../../scss/ionic.app.scss */
 .backBtnDetails {
   font-size: 24pt;
 }
 
 /*Settings screen*/
-/* line 1299, ../../scss/ionic.app.scss */
+/* line 1324, ../../scss/ionic.app.scss */
 .settingsContent {
   background-color: #ededed;
   padding-top: 50px;
 }
 
-/* line 1304, ../../scss/ionic.app.scss */
+/* line 1329, ../../scss/ionic.app.scss */
 .settingsName {
   padding-top: 10px;
   padding-left: 10px;
@@ -13911,13 +13939,13 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   font-size: 9pt;
 }
 
-/* line 1311, ../../scss/ionic.app.scss */
+/* line 1336, ../../scss/ionic.app.scss */
 .settingsNameInput {
   width: 100%;
   height: 40px;
 }
 
-/* line 1316, ../../scss/ionic.app.scss */
+/* line 1341, ../../scss/ionic.app.scss */
 .settingsTagline {
   padding-top: 10px;
   padding-left: 10px;
@@ -13925,13 +13953,13 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   font-size: 9pt;
 }
 
-/* line 1323, ../../scss/ionic.app.scss */
+/* line 1348, ../../scss/ionic.app.scss */
 .settingsTaglineInput {
   width: 100%;
   height: 40px;
 }
 
-/* line 1328, ../../scss/ionic.app.scss */
+/* line 1353, ../../scss/ionic.app.scss */
 .settingsNotification {
   padding-top: 10px;
   padding-left: 10px;
@@ -13940,13 +13968,13 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 }
 
 /*Notifications screen*/
-/* line 1337, ../../scss/ionic.app.scss */
+/* line 1362, ../../scss/ionic.app.scss */
 .notificationsContent {
   padding-top: 50px;
   background-color: #ededed;
 }
 
-/* line 1342, ../../scss/ionic.app.scss */
+/* line 1367, ../../scss/ionic.app.scss */
 .answeredNotification {
   margin-left: 75px;
   color: #b6c3c9;
@@ -13954,7 +13982,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   font-weight: 500;
 }
 
-/* line 1349, ../../scss/ionic.app.scss */
+/* line 1374, ../../scss/ionic.app.scss */
 .answeredPollNotification {
   margin-left: 75px;
   font-weight: 500;
@@ -13962,31 +13990,31 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   font-size: 11pt;
 }
 
-/* line 1356, ../../scss/ionic.app.scss */
+/* line 1381, ../../scss/ionic.app.scss */
 .invitationLine {
   margin-top: 10px;
   margin-left: 75px;
 }
 
-/* line 1361, ../../scss/ionic.app.scss */
+/* line 1386, ../../scss/ionic.app.scss */
 .barNotification {
   width: 80%;
   margin-left: 50px;
 }
 
-/* line 1367, ../../scss/ionic.app.scss */
+/* line 1392, ../../scss/ionic.app.scss */
 .ignoreIcon {
   margin-top: 9px;
   padding-right: 15px;
 }
 
-/* line 1372, ../../scss/ionic.app.scss */
+/* line 1397, ../../scss/ionic.app.scss */
 .acceptIcon {
   margin-top: 9px;
   padding-right: 15px;
 }
 
-/* line 1377, ../../scss/ionic.app.scss */
+/* line 1402, ../../scss/ionic.app.scss */
 .newNotification {
   background-color: #e1e8ed;
 }

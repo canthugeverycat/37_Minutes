@@ -37,7 +37,7 @@ angular.module('poll.controllers',[])
         if (response.error) {
           InfoHandling.set('getPollListFailed',response.error.errorMessage,2000);
         } else {
-          delete $rootScope.data.polls;
+          $rootScope.data.polls = [];
           //Place the data from response in rootScope
           $rootScope.data.polls = response.questions;
           console.log('Questions array:');

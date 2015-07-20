@@ -48,7 +48,7 @@
 <div class="list">
 
 	<!-- Active poll -->
-	<div class="item item-avatar" ng-class="{'overlay':poll.timeLeft === 0}" ng-repeat="poll in $root.data.polls track by $index">
+	<div class="item item-avatar poll-animate" ng-class="{'overlay':poll.timeLeft === 0}" ng-repeat="poll in $root.data.polls track by $index">
 		<img style="background:url({{poll.authorImage}}) no-repeat center;background-size:cover;">
 		<h2 class="userName">{{poll.authorName}}</h2>
 		<p class="asked">ASKED</p>
