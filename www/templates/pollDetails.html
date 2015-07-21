@@ -2,21 +2,21 @@
 <ion-content class="detailsContent">
 	<div class="imageContainerDetails"ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
 		<div class="yesGrey">
-			<div class="yesContainerDetails">
+			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%">
 				<a href="#/polls"><button class="button backBtnDetails button-clear button-light button-icon ion-android-arrow-back"></button></a>
 				<p class="yes light">YES</p>
-				<p class="yesNumber light">68</p>
+				<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
 				<p class="percent light">%</p>
-				<img class="answeredIcon" src="img/answered.png">
+				<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedYes !== 0">
 			</div>
 		</div>
 
 		<div class="noGrey">
-			<div class="noContainerDetails">
+			<div class="noContainerDetails" style="width:{{$root.data.poll.votesNo}}%">
 				<p class="no">NO</p>
-				<p class="noNumber">30</p>
+				<p class="noNumber">{{$root.data.poll.votesNo}}</p>
 				<p class="percent">%</p>
-				<img class="answeredIcon" src="img/answered.png">
+				<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedNo !== 0">
 			</div>
 				<div class="col expiredCol" ng-if="$root.data.poll.timeLeft === 0">
 					<i class="material-icons expiredIcon light">timer_off</i>
@@ -39,8 +39,6 @@
 		<p class="detailsComments">{{$root.data.poll.commentsCount}}</p>
 		<i class="material-icons detailsAnsweredIcon">done_all</i>
 		<p class="detailsAnswered">{{$root.data.poll.votesCount}}</p>
-		
-		
 		
 		<h2 class="pollQuestionDetails">{{$root.data.poll.question}}</h2>
 	</div>
