@@ -1,6 +1,6 @@
 angular.module('main.controllers',[])
 
-.controller('MainController', function($scope, $rootScope, $location, $timeout) {
+.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling) {
   //Defining the variables for storage
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
@@ -55,5 +55,24 @@ angular.module('main.controllers',[])
   //Go to the specific page
   $rootScope.navigateGoTo = function(direction) {
   	$location.path('/' + angular.element(document.querySelector(direction)).attr('href').split('/')[1]);
+  };
+
+  //Get comments for the current poll
+  $rootScope.getComments = function(pollId) {
+    RESTFunctions.post({
+      url:'get-comments',
+      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
+      callback: function(response) {
+        if (response.error) {
+          InfoHandling.set('getCommentsFailed',response.error.errorMessage, 2000);
+        } else {
+          $rootScope.data.pollComments = [];
+          $rootScope.data.pollComments = response.comments;
+          $location.path('/comments');
+          console.log('\nComments array for' + pollId + ':');
+          console.log(response.comments);
+        }
+      }
+    });
   };
 });

@@ -64,7 +64,7 @@
 					<p class="yes light">YES</p>
 					<p class="yesNumber light">{{poll.votesYes}}</p>
 					<p class="percent light">%</p>
-					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedYes === 1" style="border:5px solid green;">
+					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedYes === 1">
 				</div>
 			</div>
 			<!-- Grey overlay -->
@@ -74,13 +74,13 @@
 					<p class="no">NO</p>
 					<p class="noNumber">{{poll.votesNo}}</p>
 					<p class="percent">%</p>
-					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedNo === 1" style="border:5px solid red;">
+					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedNo === 1">
 				</div>
 			</div>
 		</div>
 
 		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a href="#/comments" class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}">{{poll.commentsCount}} COMMENTS</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId);">{{poll.commentsCount}} COMMENTS</a>
 		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
 

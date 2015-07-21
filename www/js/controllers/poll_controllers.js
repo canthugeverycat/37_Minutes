@@ -18,7 +18,7 @@ angular.module('poll.controllers',[])
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
           } else {
-            $scope.getPollList();
+            $rootScope.getPollList();
             //Display a success message
             InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
             //Redirect user to main screen
@@ -31,7 +31,7 @@ angular.module('poll.controllers',[])
 
 
   //Grab the list of polls
-  $scope.getPollList = function(page) {
+  $rootScope.getPollList = function(page) {
     RESTFunctions.post({
       url:'get-question-list',
       data:'Token=' + $rootScope.login.token + '&page=' + (page === undefined ? '0' : page),
@@ -72,15 +72,15 @@ angular.module('poll.controllers',[])
 
   
   //If you're on the /poll screen grab the list of polls
-  $location.path() === '/polls' ? $scope.getPollList(0) : null;
+  $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
   setInterval(function () {
-    $location.path() === '/polls' ? $scope.getPollList(0) : null;
+    $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
   },30000);
 
   
   //Triggers when the user pulls down to refresh content
   $scope.onContentRefresh = function() {
-    $scope.getPollList();
+    $rootScope.getPollList();
   };
 
 
@@ -102,7 +102,7 @@ angular.module('poll.controllers',[])
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
       callback: function(response) {
         if (response.error) {
-          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000);
+          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
         } else {
           console.log('Voting ' + vote + ':');
           console.log(response);
@@ -121,8 +121,8 @@ angular.module('poll.controllers',[])
         if (response.error) {
           //There's been an error
         } else {
-          console.log('Grabbed a single poll');
-          console.log(response.question.votesNo + '/' + response.question.votesYes);
+          //Grab the data from the requested poll and update the corresponding poll array item with it
+          //So we can smoothly animate the bars without touching the DOM
           for (i = 0; i < $rootScope.data.polls.length; i++) {
             if ($rootScope.data.polls[i].questionId === pollId) {
               $rootScope.data.polls[i].votesNo = response.question.votesNo;
@@ -133,7 +133,6 @@ angular.module('poll.controllers',[])
               $rootScope.data.polls[i].votesCount = response.question.votesCount;
               $rootScope.data.polls[i].votesNoCount = response.question.votesNoCount;
               $rootScope.data.polls[i].votesYesCount = response.question.votesYesCount;
-              console.log($rootScope.data.polls[i]);
             }
           }
         }

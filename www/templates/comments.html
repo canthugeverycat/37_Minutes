@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view ng-controller="CommentsController">
 
 	<!-- Header -->
 
@@ -38,43 +38,34 @@
 
 <ion-content class="commentsContent">
 
-<!-- Without comments -->
-	<div class="noComments">
+	<!-- Without comments -->
+	<div class="noComments" ng-if="$root.data.pollComments.length === 0">
 		<i class="material-icons noComIcon">speaker_notes</i>
 		<p class="noCom">No comments</p>
 		<p class="firstCom">Be the first to comment on this poll</p>
 	</div>
 
-<p class="commentsOnPoll">COMMENTS ON SHOULD I DYE MY HAIR GREEN</p>
+	<p class="commentsOnPoll" ng-if="$root.data.pollComments.length > 0">COMMENTS ON SHOULD I DYE MY HAIR GREEN</p>
 
-	<div class="list commentsContainer">
+	<div class="list commentsContainer" ng-if="$root.data.pollComments.length > 0">
 
-<!-- Negative comment -->
-		<div class="item item-avatar">
+		<!-- Negative comment -->
+		<div class="item item-avatar" ng-repeat="comment in $root.data.pollComments track by $index">
 			<img src="img/avatar.jpg">
 			<h2 class="userName">ANNE TONG</h2>
 			<p class="commentTime">25 MIN AGO</p>
-			<p class="comment">C’mon, do not dye your hair to green it’s just too baaad!</p>
+			<p class="comment">{{comment.subject}}</p>
 			<img class="noIcon" src="img/no.png">
-		</div>
-
-<!-- Positive comment -->
-		<div class="item item-avatar">
-			<img src="img/avatar.jpg">
-			<h2 class="userName">JENIFFER MALAGURSKY</h2>
-			<p class="commentTime">10 MIN AGO</p>
-			<p class="comment">Why not? I mean if she wants to dye her hair to green.. let’s do it!</p>
 			<img class="yesIcon" src="img/yes.png">
 		</div>
-
 	</div>
 
 </ion-content>
 
 <ion-footer-bar class="bar-stable">
-  <input class="enterComment" type="text" placeholder="Enter your comment">
+  <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)">
  <!-- Send msg button --> 
-  <i class="material-icons">check</i>
+  <i class="material-icons" ng-click="leaveComment($root.data.poll.questionId)">check</i>
 </ion-footer-bar>
 
 </ion-view>
