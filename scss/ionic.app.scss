@@ -430,12 +430,16 @@ ion-content{
 }
 
 .yesContainer{
+	transition:0.5s width ease;
+	-webkit-transition:0.5s width ease;
 	height:100%;
 	background-color: rgba(155,203,100,0.7);
 	border-bottom:1px solid $light;
 }
 
 .noContainer{
+	transition:0.5s width ease;
+	-webkit-transition:0.5s width ease;
 	height:100%;
 	background-color: rgba(238,82,79,0.7);
 }
@@ -722,7 +726,6 @@ ion-content{
 
 .answeredIcon{
 	float:right;
-	margin-top: 20px;
 	display: inline-block;
 	padding-right: 5px;
 }
