@@ -8158,7 +8158,7 @@ ion-content .scroll .noComments .noComIcon {
   display: inline-block;
   width: 100%;
   text-align: center;
-  margin-top: 20px; }
+  margin-top: 40px; }
 
 .noCom {
   text-align: center;
@@ -8214,7 +8214,7 @@ ion-content .scroll .noComments .noComIcon {
   font-weight: 500;
   color: #62666c;
   padding-left: 10px;
-  padding-top: 55px;
+  padding-top: 10px;
   margin-bottom: 0; }
 
 .commentsContent .scroll .commentsContainer .item-avatar {
