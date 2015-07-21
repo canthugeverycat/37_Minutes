@@ -47,7 +47,7 @@ ion-content{
 .info-message{
 	position:absolute;
 	top:0;
-	height:40px;
+	height:45px;
 	width:100%;
 	text-align:center;
 	text-transform:uppercase;
@@ -461,6 +461,7 @@ ion-content{
 	background-color: rgba(155,203,100,0.7);
 	border-bottom:1px solid $light;
 	position: relative;
+	white-space: nowrap;
 }
 
 .noContainer{
@@ -469,6 +470,7 @@ ion-content{
 	height:100%;
 	background-color: rgba(238,82,79,0.7);
 	position: relative;
+	white-space: nowrap;
 }
 
 ion-content{
@@ -504,7 +506,7 @@ ion-content{
 							font-weight: 400;
 							color: $light;
 							padding-left: 16px;
-							padding-top: 10px;
+							padding-top: 9px;
 							display: inline-block;
 						}
 					}
@@ -568,7 +570,7 @@ ion-content{
 							font-weight: 400;
 							color: $light;
 							padding-left: 16px;
-							padding-top: 10px;
+							padding-top: 9px;
 							display: inline-block;
 						}
 					}
@@ -856,6 +858,12 @@ ion-content{
 .enterComment{
 	width: 100%;
 	background-color: $stable;
+	margin-top: 5px;
+}
+
+.enterIcon{
+	margin-top: 10px;
+	margin-right: 10px;
 }
 
 
