@@ -117,6 +117,31 @@ ion-content{
     opacity:1;
 }
 
+//Animation for Comments
+.comment-animate {
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.comment-animate.ng-move,
+.comment-animate.ng-enter,
+.comment-animate.ng-leave {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.comment-animate.ng-leave.ng-leave-active,
+.comment-animate.ng-move,
+.comment-animate.ng-enter {
+    opacity:0;
+}
+
+.comment-animate.ng-leave,
+.comment-animate.ng-move.ng-move-active,
+.comment-animate.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
 
 
 .bar-footer{
