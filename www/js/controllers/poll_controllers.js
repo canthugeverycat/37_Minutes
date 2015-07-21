@@ -3,6 +3,7 @@ angular.module('poll.controllers',[])
 
 .controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location) {
   
+
   //Create a new poll
   $scope.createPoll = function() {
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
@@ -28,7 +29,8 @@ angular.module('poll.controllers',[])
     }
   };
 
-  //Grab the list of polls from the database
+
+  //Grab the list of polls
   $scope.getPollList = function(page) {
     RESTFunctions.post({
       url:'get-question-list',
@@ -49,6 +51,7 @@ angular.module('poll.controllers',[])
     });
   };
 
+  
   //Grab a single poll item
   $scope.getPollItem = function(questionId) {
     $location.path('/pollDetails');
@@ -57,7 +60,7 @@ angular.module('poll.controllers',[])
       data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
       callback: function(response) {
         if (response.error) {
-          InfoHandling.set('getPollItemFailed',response.error.errrorMessage,2000);
+          InfoHandling.set('getPollItemFailed',response.error.errorMessage,2000);
         } else {
           console.log('Question object:')
           console.log(response.question);
@@ -67,17 +70,18 @@ angular.module('poll.controllers',[])
     });
   };
 
+  
   //If you're on the /poll screen grab the list of polls
   $location.path() === '/polls' ? $scope.getPollList(0) : null;
   setInterval(function () {
     $location.path() === '/polls' ? $scope.getPollList(0) : null;
   },30000);
 
+  
   //Triggers when the user pulls down to refresh content
   $scope.onContentRefresh = function() {
     $scope.getPollList();
   };
-
 
 
   // //Testing infinite scroll
@@ -90,4 +94,50 @@ angular.module('poll.controllers',[])
   // $scope.$on('$stateChangeSuccess', function() {
   //   $scope.loadMore();
   // });
+
+  //Vote on a specific poll
+  $scope.voteOnPoll = function(pollId, vote) {
+    RESTFunctions.post({
+      url:'vote',
+      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
+      callback: function(response) {
+        if (response.error) {
+          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000);
+        } else {
+          console.log('Voting ' + vote + ':');
+          console.log(response);
+          $scope.pollTransitionBars(pollId);
+        }
+      }
+    });
+  };
+
+  //Get a specific poll and transition its' bars
+  $scope.pollTransitionBars = function(pollId) {
+    RESTFunctions.post({
+      url:'get-question',
+      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
+      callback: function(response) {
+        if (response.error) {
+          //There's been an error
+        } else {
+          console.log('Grabbed a single poll');
+          console.log(response.question.votesNo + '/' + response.question.votesYes);
+          for (i = 0; i < $rootScope.data.polls.length; i++) {
+            if ($rootScope.data.polls[i].questionId === pollId) {
+              $rootScope.data.polls[i].votesNo = response.question.votesNo;
+              $rootScope.data.polls[i].votesYes = response.question.votesYes;
+              $rootScope.data.polls[i].userVoted = response.question.userVoted;
+              $rootScope.data.polls[i].userVotedNo = response.question.userVotedNo;
+              $rootScope.data.polls[i].userVotedYes = response.question.userVotedYes;
+              $rootScope.data.polls[i].votesCount = response.question.votesCount;
+              $rootScope.data.polls[i].votesNoCount = response.question.votesNoCount;
+              $rootScope.data.polls[i].votesYesCount = response.question.votesYesCount;
+              console.log($rootScope.data.polls[i]);
+            }
+          }
+        }
+      }
+    });
+  };
 })

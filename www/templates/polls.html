@@ -58,28 +58,29 @@
 		<!-- Poll image -->
 		<div ng-class="{'imageContainer':poll.imageUrl !== '','imageContainerDefault':poll.imageUrl === ''}" style="background-image: url({{poll.imageUrl}});">
 			<!-- Grey overlay -->
-			<div class="yesGrey">
+			<div class="yesGrey" ng-click="voteOnPoll(poll.questionId,1)">
 			<!-- Yes votes  -->
-				<div class="yesContainer" style="width:{{poll.usersVotedYes + 0}}%">
+				<div class="yesContainer" style="width:{{poll.votesYes}}%">
 					<p class="yes light">YES</p>
-					<p class="yesNumber light">{{poll.usersVotedYes + 0}}</p>
+					<p class="yesNumber light">{{poll.votesYes}}</p>
 					<p class="percent light">%</p>
-					<img class="answeredIcon" src="img/answered.png">
+					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedYes === 1" style="border:5px solid green;">
 				</div>
 			</div>
 			<!-- Grey overlay -->
-			<div class="noGrey">
+			<div class="noGrey" ng-click="voteOnPoll(poll.questionId,0)">
 			<!-- No votes -->
-				<div class="noContainer" style="width:{{poll.usersVotedNo + 0}}%">
+				<div class="noContainer" style="width:{{poll.votesNo}}%">
 					<p class="no">NO</p>
-					<p class="noNumber">{{poll.usersVotedNo + 0}}</p>
+					<p class="noNumber">{{poll.votesNo}}</p>
 					<p class="percent">%</p>
+					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedNo === 1" style="border:5px solid red;">
 				</div>
 			</div>
 		</div>
 
 		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a href="#/comments" class="subdued pollComments">24 COMMENTS</a>
+		<a href="#/comments" class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}">{{poll.commentsCount}} COMMENTS</a>
 		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
 
