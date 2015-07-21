@@ -435,6 +435,7 @@ ion-content{
 	height:100%;
 	background-color: rgba(155,203,100,0.7);
 	border-bottom:1px solid $light;
+	position: relative;
 }
 
 .noContainer{
@@ -442,6 +443,7 @@ ion-content{
 	-webkit-transition:0.5s width ease;
 	height:100%;
 	background-color: rgba(238,82,79,0.7);
+	position: relative;
 }
 
 ion-content{
@@ -725,9 +727,9 @@ ion-content{
 }
 
 .answeredIcon{
-	float:right;
-	display: inline-block;
-	padding-right: 5px;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
 }
 
 /*Comment screen*/
@@ -1113,6 +1115,7 @@ ion-content{
 	background-size:cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	position: relative;
 }
 
 .imageContainerDetailsDefault{
@@ -1121,6 +1124,7 @@ ion-content{
 
 .yesContainerDetails{
 	white-space: nowrap;
+	position: relative;
 	height:100%;
 	background-color: rgba(155,203,100,0.7);
 	width:70%;
@@ -1128,6 +1132,7 @@ ion-content{
 }
 
 .noContainerDetails{
+	position: relative;
 	white-space: nowrap;
 	display: inline-block;
 	height:100%;
@@ -1312,18 +1317,18 @@ ion-content{
 }
 
 .expiredCol{
-	display: inline-block;
-	float: right;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
 	width: 20%;
-	margin-top: 130px;
 	text-align: center;
 }
 
 .activeCol{
-	display: inline-block;
-	float: right;
+	position: absolute;
+	right: 5px;
+	bottom:5px;
 	width: 30%;
-	margin-top: 130px;
 	text-align: center;
 }
 

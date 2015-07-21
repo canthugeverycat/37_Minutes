@@ -7999,13 +7999,15 @@ ion-content .scroll .list .item a.subdued {
   -webkit-transition: 0.5s width ease;
   height: 100%;
   background-color: rgba(155, 203, 100, 0.7);
-  border-bottom: 1px solid #ffffff; }
+  border-bottom: 1px solid #ffffff;
+  position: relative; }
 
 .noContainer {
   transition: 0.5s width ease;
   -webkit-transition: 0.5s width ease;
   height: 100%;
-  background-color: rgba(238, 82, 79, 0.7); }
+  background-color: rgba(238, 82, 79, 0.7);
+  position: relative; }
 
 ion-content .scroll .list .item .imageContainer .noContainer .no {
   width: 100px;
@@ -8128,9 +8130,9 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   width: 100%; }
 
 .answeredIcon {
-  float: right;
-  display: inline-block;
-  padding-right: 5px; }
+  position: absolute;
+  right: 5px;
+  bottom: 5px; }
 
 /*Comment screen*/
 ion-content .scroll .noComments .noComIcon {
@@ -8429,19 +8431,22 @@ ion-content .scroll .list a p {
   height: 400px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  position: relative; }
 
 .imageContainerDetailsDefault {
   background-image: url('../img/default.png') !important; }
 
 .yesContainerDetails {
   white-space: nowrap;
+  position: relative;
   height: 100%;
   background-color: rgba(155, 203, 100, 0.7);
   width: 70%;
   border-bottom: 1px solid #ffffff; }
 
 .noContainerDetails {
+  position: relative;
   white-space: nowrap;
   display: inline-block;
   height: 100%;
@@ -8535,17 +8540,17 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   border-color: transparent; }
 
 .expiredCol {
-  display: inline-block;
-  float: right;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
   width: 20%;
-  margin-top: 130px;
   text-align: center; }
 
 .activeCol {
-  display: inline-block;
-  float: right;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
   width: 30%;
-  margin-top: 130px;
   text-align: center; }
 
 .backBtnDetails {
