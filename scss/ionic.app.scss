@@ -143,10 +143,6 @@ ion-content{
 }
 
 
-.has-footer {
-  bottom: 60px;
-}
-
 .bar-footer{
 	height:60px;
 }
@@ -319,12 +315,14 @@ ion-content{
 }
 
 .doubleTapTxt{
+	z-index: 100;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 180px;
 	font-size: 13pt;
 }
 
 .doubleTapIcon{
+	z-index: 11;
 	margin-top: 30px;
 	display: block;
 	margin-left: auto;
@@ -1487,5 +1485,5 @@ ion-content{
 }
 
 .userCommented{
-	text-decoration: underline;
+	text-decoration: underline !important;
 }

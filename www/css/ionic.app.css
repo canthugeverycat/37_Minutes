@@ -7780,9 +7780,6 @@ ion-content {
 .comment-animate.ng-leave, .comment-animate.ng-move.ng-move-active, .comment-animate.ng-enter.ng-enter-active {
   opacity: 1; }
 
-.has-footer {
-  bottom: 60px; }
-
 .bar-footer {
   height: 60px; }
 
@@ -7918,11 +7915,13 @@ ion-content .scroll .cardIcon {
   background-color: rgba(17, 17, 17, 0.7); }
 
 .doubleTapTxt {
+  z-index: 100;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 180px;
   font-size: 13pt; }
 
 .doubleTapIcon {
+  z-index: 11;
   margin-top: 30px;
   display: block;
   margin-left: auto;
@@ -8673,4 +8672,4 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   background-color: #e1e8ed; }
 
 .userCommented {
-  text-decoration: underline; }
+  text-decoration: underline !important; }
