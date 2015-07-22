@@ -2,6 +2,26 @@ angular.module('account.controllers',[])
 
 
 .controller('LoginController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location) {
+
+  //Check if the existing token is valid
+  $scope.verifyToken = function() {
+    RESTFunctions.post({
+      url:'login/verify',
+      data:'Token=' + localStorage['37-mToken'],
+      callback: function(response) {
+        $rootScope.checkingLogin = false;
+        if (response.status === 0) {
+          //If token isn't valid, remove it from localStorage
+          localStorage.removeItem('37-mToken');
+        } else {
+          //If token is valid proceed to the main screen
+          $rootScope.login.token = localStorage['37-mToken'];
+          $location.path('/polls');
+        }
+      }
+    });
+  };
+  $scope.verifyToken();
   
   //Give focus to the password field
   $scope.focusPassword = function() {

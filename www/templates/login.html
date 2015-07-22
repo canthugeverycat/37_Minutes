@@ -19,10 +19,12 @@
 			<input id="login-password-input" type="password" placeholder="Password" ng-model="$root.inputs.loginPass" ng-enter="login()">
 		</label>
 
-	<!-- Sign In button #/polls -->
+		
+		<!-- Sign In button #/polls -->
 
 		<a ng-click="login()"><button class="button button-royal signInButton">
-			SIGN IN
+			SIGN IN 
+			<ion-spinner icon="ios-small" class="spinner-light" style="position:absolute;top:8px;" ng-if="$root.checkingLogin === true;"></ion-spinner>
 		</button></a>
 	</div>
 
