@@ -1,4 +1,4 @@
-<ion-view ng-controller="FriendsController" ng-init="getFriendsList()">
+<ion-view ng-controller="FriendsController" ng-init="getFriendsList();getGroups()">
 
 	<!-- Header -->
 
@@ -41,23 +41,9 @@
 	<p class="groupsTitle">GROUPS</p>
 
 		<ul class="list">
-			<li class="item groupName">Co-wokers
+			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">{{group.groupName}}
 			<!-- Delete button -->
-				<a href="#/editGroup"><i class="material-icons groupsEdit">mode_edit</i></a>	
-			<!-- Edit group button -->
-				<i class="material-icons groupsClose">close</i>				
-			</li>
-
-			<li class="item groupName">Friends
-			<!-- Delete button -->
-				<i class="material-icons groupsEdit">mode_edit</i>	
-			<!-- Edit group button -->
-				<i class="material-icons groupsClose">close</i>	
-			</li>
-
-			<li class="item groupName">Poker-friends
-			<!-- Delete button -->
-				<i class="material-icons groupsEdit">mode_edit</i>	
+				<a href="#/editGroup"><i class="material-icons groupsEdit">mode_edit</i></a>
 			<!-- Edit group button -->
 				<i class="material-icons groupsClose">close</i>	
 			</li>
@@ -81,18 +67,16 @@
    			</a>
 		</div>
 
-	<p class="groupsTitle">A</p>
+	<p class="groupsTitle">YOUR FRIENDS</p>
 
 		<div class="list">
-    		<a class="item item-avatar friendsList" href="#">
-      			<img src="img/avatar.jpg">
-      			<h2 class="friendsName">Aronda Doe</h2>
-      			<!-- Delete button -->	
+    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index">
+      			<img ng-src="{{friend.friendImage}}">
+      			<h2 class="friendsName">{{friend.friendName}}</h2>
+      			<!-- Delete button -->
       			<i class="material-icons friendsClose">close</i>
    			</a>
 		</div>
-
-
 
 </ion-content>
 

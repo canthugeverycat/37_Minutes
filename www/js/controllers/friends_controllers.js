@@ -9,9 +9,9 @@ angular.module('friends.controllers',[])
 			data:'Token=' + $rootScope.login.token,
 			callback: function(response) {
 				if (response.error) {
-					InfoHandling.set('getFriendsListFailed', response.error.errorMessage, 2000);
 				} else {
-					console.log(response);
+					$rootScope.data.friendsList = response.Friends;
+					console.log(response.Friends);
 				}
 			}
 		});
@@ -24,6 +24,21 @@ angular.module('friends.controllers',[])
 			data:'Token=' + $rootScope.login.token + '&friendsMail=nini.grbic@gmail.com',
 			callback: function(response) {
 				console.log(response);
+			}
+		});
+	};
+
+	//Get the user's groups
+	$scope.getGroups = function() {
+		RESTFunctions.post({
+			url:'get-groups',
+			data:'Token=' + $rootScope.login.token,
+			callback: function(response) {
+				if (response.error) {
+				} else {
+					$rootScope.data.groups = response.Groups;
+					console.log(response.Groups);
+				}
 			}
 		});
 	};

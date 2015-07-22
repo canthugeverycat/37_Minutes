@@ -8,7 +8,7 @@ angular.module('main.controllers',[])
 
   //Store the token from localStorage in rootScope
   $rootScope.login.token = localStorage['37-mToken'];
-  $rootScope.login.firstTime = localStorage['firstTime'];
+  $rootScope.login.firstTime = localStorage['37-mFirstTime'];
 
   //Storing the navigation tab urls
   $scope.navigationUrls = ['/polls','/notifications','/friends','/profile','/settings'];

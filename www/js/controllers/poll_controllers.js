@@ -2,7 +2,12 @@ angular.module('poll.controllers',[])
 
 
 .controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location) {
-  
+
+  //Remove the first time user overlay
+  $scope.removeOverlay = function() {
+    $rootScope.login.firstTime = '0';
+    localStorage['37-mFirstTime'] = '0';
+  };
 
   //Create a new poll
   $scope.createPoll = function() {

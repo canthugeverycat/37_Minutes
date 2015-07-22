@@ -77,8 +77,8 @@ angular.module('account.controllers',[])
           localStorage['37-mToken'] = response.Token;
           $rootScope.login.token = response.Token;
           //Set the user to firstTime user
-          localStorage['firstTime'] = 1;
-          $rootScope.login.firstTime = localStorage['firstTime'];
+          localStorage['37-mFirstTime'] = '1';
+          $rootScope.login.firstTime = localStorage['37-mFirstTime'];
           //Redirect user to main screen
           $location.path('/polls');
         }
