@@ -17,7 +17,7 @@ angular.module('comments.controllers',[])
 					InfoHandling.set('leaveCommentFailed',response.error.errorMessage, 2000);
 				} else {
 					delete $rootScope.inputs.newComment;
-					$rootScope.getComments(pollId);
+					$rootScope.getComments(pollId, true);
 					$rootScope.getPollList();
 				}
 			}

@@ -53,8 +53,8 @@ angular.module('poll.controllers',[])
 
   
   //Grab a single poll item
-  $scope.getPollItem = function(questionId) {
-    $location.path('/pollDetails');
+  $scope.getPollItem = function(questionId, redirect) {
+    redirect === true ? null : $location.path('/pollDetails');
     RESTFunctions.post({
       url:'get-question',
       data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,

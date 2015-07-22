@@ -1,10 +1,11 @@
 angular.module('main.controllers',[])
 
-.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling) {
+.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate) {
   //Defining the variables for storage
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
   $rootScope.login === undefined ? $rootScope.login = {} : null;
+  $rootScope.checkingLogin = true;
 
   //Store the token from localStorage in rootScope
   $rootScope.login.token = localStorage['37-mToken'];
@@ -58,7 +59,7 @@ angular.module('main.controllers',[])
   };
 
   //Get comments for the current poll
-  $rootScope.getComments = function(pollId) {
+  $rootScope.getComments = function(pollId, scrollBottom) {
     RESTFunctions.post({
       url:'get-comments',
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
@@ -71,6 +72,7 @@ angular.module('main.controllers',[])
           $location.path('/comments');
           console.log('\nComments array for' + pollId + ':');
           console.log(response.comments);
+          scrollBottom === true ? $ionicScrollDelegate.scrollBottom(true) : null;
         }
       }
     });

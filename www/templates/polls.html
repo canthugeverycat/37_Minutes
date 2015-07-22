@@ -86,7 +86,7 @@
 		</div>
 
 		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId);">{{poll.commentsCount}} COMMENTS</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId, true);">{{poll.commentsCount}} COMMENTS</a>
 		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
 
