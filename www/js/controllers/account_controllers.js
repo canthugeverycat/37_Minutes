@@ -5,6 +5,7 @@ angular.module('account.controllers',[])
 
   //Check if the existing token is valid
   $scope.verifyToken = function() {
+    $rootScope.checkingLogin = true;
     RESTFunctions.post({
       url:'login/verify',
       data:'Token=' + localStorage['37-mToken'],
@@ -30,10 +31,12 @@ angular.module('account.controllers',[])
 
   //Sends a login request to the API with mail and pass as parameters
   $scope.login = function() {
+    $rootScope.checkingLogin = true;
     RESTFunctions.post({
       url:'login',
       data:'mail=' + $rootScope.inputs.loginMail + '&pass=' + $rootScope.inputs.loginPass,
       callback: function(response) {
+        $rootScope.checkingLogin = false;
         if (response.error) {
           //Display an error message
           InfoHandling.set('loginFailed',response.error.errorMessage,2000);
@@ -73,6 +76,9 @@ angular.module('account.controllers',[])
           //Store the token in localStorage and $rootScope
           localStorage['37-mToken'] = response.Token;
           $rootScope.login.token = response.Token;
+          //Set the user to firstTime user
+          localStorage['firstTime'] = 1;
+          $rootScope.login.firstTime = localStorage['firstTime'];
           //Redirect user to main screen
           $location.path('/polls');
         }

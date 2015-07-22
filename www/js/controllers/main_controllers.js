@@ -5,10 +5,10 @@ angular.module('main.controllers',[])
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
   $rootScope.login === undefined ? $rootScope.login = {} : null;
-  $rootScope.checkingLogin = true;
 
   //Store the token from localStorage in rootScope
   $rootScope.login.token = localStorage['37-mToken'];
+  $rootScope.login.firstTime = localStorage['firstTime'];
 
   //Storing the navigation tab urls
   $scope.navigationUrls = ['/polls','/notifications','/friends','/profile','/settings'];
