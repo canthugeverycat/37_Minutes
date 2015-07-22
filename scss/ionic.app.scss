@@ -143,6 +143,9 @@ ion-content{
 }
 
 
+.has-footer {
+  bottom: 60px;
+}
 
 .bar-footer{
 	height:60px;
@@ -379,6 +382,7 @@ ion-content{
 					font-size: 11pt;
 					padding-left: 72px;
 					padding-top: 20px;
+					text-transform: uppercase;
 				}
 			}
 		}
@@ -892,6 +896,7 @@ ion-content{
 
 /*addPoll screen*/
 
+
 .addPollContent{
 	background-color: #171717;
 }
@@ -926,8 +931,9 @@ ion-content{
 	font-size: 11pt;
 	margin-left: 40px;
 	color: $light;
-	height:400px;
+	height:200px !important;
 	width:80%;
+	resize:none !important;
 }
 
 .addPollContent{
@@ -1091,6 +1097,7 @@ ion-content{
 .profileContent{
 	background-color: #ededed;
 	color: #62666c;
+	padding-bottom: 50px !important;
 }
 
 .profileContainer{

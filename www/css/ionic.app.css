@@ -7780,6 +7780,9 @@ ion-content {
 .comment-animate.ng-leave, .comment-animate.ng-move.ng-move-active, .comment-animate.ng-enter.ng-enter-active {
   opacity: 1; }
 
+.has-footer {
+  bottom: 60px; }
+
 .bar-footer {
   height: 60px; }
 
@@ -7961,7 +7964,8 @@ ion-content .scroll .list .item .userName {
   display: inline-block;
   font-size: 11pt;
   padding-left: 72px;
-  padding-top: 20px; }
+  padding-top: 20px;
+  text-transform: uppercase; }
 
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
@@ -8278,8 +8282,9 @@ ion-content .scroll .noComments .noComIcon {
   font-size: 11pt;
   margin-left: 40px;
   color: #ffffff;
-  height: 400px;
-  width: 80%; }
+  height: 200px !important;
+  width: 80%;
+  resize: none !important; }
 
 .addPollContent .scroll textarea, .addPollContent .scroll input[type="text"], .addPollContent .scroll input[type="password"], .addPollContent .scroll input[type="datetime"], .addPollContent .scroll input[type="datetime-local"], .addPollContent .scroll input[type="date"], .addPollContent .scroll input[type="month"], .addPollContent .scroll input[type="time"], .addPollContent .scroll input[type="week"], .addPollContent .scroll input[type="number"], .addPollContent .scroll input[type="email"], .addPollContent .scroll input[type="url"], .addPollContent .scroll input[type="search"], .addPollContent .scroll input[type="tel"], .addPollContent .scroll input[type="color"] {
   display: block;
@@ -8405,7 +8410,8 @@ ion-content .scroll .list a p {
 /*Profile screen*/
 .profileContent {
   background-color: #ededed;
-  color: #62666c; }
+  color: #62666c;
+  padding-bottom: 50px !important; }
 
 .profileContainer {
   width: 100%;
