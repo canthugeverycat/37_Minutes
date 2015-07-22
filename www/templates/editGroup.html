@@ -39,40 +39,29 @@
 <ion-content class="editGroupContent">
 
 	<p class="groupsTitle">GROUP NAME</p>
-	<input class="editGroupName" type="text" placeholder="Enter group name here"> 
+	<input class="editGroupName" type="text" placeholder="Enter group name here" ng-model="$root.data.selectedGroup.groupName"> 
 
 	<p class="groupsTitle">PEOPLE IN THIS GROUP</p>
 
 	<div class="list">
 
-    		<a class="item item-avatar friendsList" href="#">
-      			<img src="img/avatar.jpg">
-      			<h2 class="friendsName">Tiffany Jones</h2>	
-      			<i class="material-icons friendsClose">check</i>
-   			</a>
+		<a class="item item-avatar friendsList" href="" ng-repeat="groupFriend in $root.data.selectedGroupFriends track by $index">
+  			<img ng-src="{{groupFriend.friendImage}}">
+  			<h2 class="friendsName">{{groupFriend.friendName}}</h2>
+  			<i class="material-icons friendsClose" ng-click="$root.removeFriendFromGroup($root.data.selectedGroup.groupId, groupFriend.friendId)">remove</i>
+		</a>
+	</div>
 
-   			<a class="item item-avatar friendsList" href="#">
-      			<img src="img/avatar.jpg">
-      			<h2  class="friendsName">Melinda Hayek</h2>
-      			<i class="material-icons friendsClose">check</i>
-   			</a>
-		</div>
-
-	<p class="groupsTitle">A</p>
+	<p class="groupsTitle">ADD FRIENDS TO GROUP</p>
 
 	<div class="list">
 
-    	<a class="item item-avatar friendsList" href="#">
-      		<img src="img/avatar.jpg">
-      		<h2 class="friendsName">Aronda Doe</h2>	
-      		<i class="material-icons friendsClose">add</i>
-   			</a>
-
-   		<a class="item item-avatar friendsList" href="#">
-      		<img src="img/avatar.jpg">
-      		<h2  class="friendsName">Amanda Ipsum</h2>
-      		<i class="material-icons friendsClose">add</i>
+    	<a class="item item-avatar friendsList" href="" ng-repeat="friend in $root.data.friendsList">
+      		<img ng-src="{{friend.friendImage}}">
+      		<h2 class="friendsName">{{friend.friendName}}</h2>
+      		<i class="material-icons friendsClose" ng-click="$root.addFriendToGroup($root.data.selectedGroup.groupId, null, friend.friendId)">add</i>
    		</a>
+
 	</div>
 </ion-content>
 </ion-view>

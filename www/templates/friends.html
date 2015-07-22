@@ -41,11 +41,12 @@
 	<p class="groupsTitle">GROUPS</p>
 
 		<ul class="list">
-			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">{{group.groupName}}
-			<!-- Delete button -->
-				<a href="#/editGroup"><i class="material-icons groupsEdit">mode_edit</i></a>
-			<!-- Edit group button -->
-				<i class="material-icons groupsClose">close</i>	
+			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">
+				{{group.groupName}}
+				<!-- Delete button -->
+				<a ng-click="getGroupItem(group)"><i class="material-icons groupsEdit">mode_edit</i></a>
+				<!-- Edit group button -->
+				<i class="material-icons groupsClose">close</i>
 			</li>
 		</ul>
 
