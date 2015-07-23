@@ -51,12 +51,12 @@
 
 		<!-- Negative comment -->
 		<div class="item item-avatar comment-animate" ng-repeat="comment in $root.data.pollComments track by $index">
-			<img src="img/avatar.jpg">
-			<h2 class="userName">ANNE TONG</h2>
-			<p class="commentTime">25 MIN AGO</p>
-			<p class="comment">{{comment.subject}}</p>
-			<img class="noIcon" src="img/no.png">
-			<img class="yesIcon" src="img/yes.png">
+			<img style="background:url({{comment.userImage}}) no-repeat center;background-size:cover;">
+			<h2 class="userName">{{comment.userName}}</h2>
+			<p class="commentTime">{{comment.time}}</p>
+			<p class="comment">{{comment.comment}}</p>
+			<img class="noIcon" src="img/no.png" ng-if="comment.userVotedNo === 1">
+			<img class="yesIcon" src="img/yes.png" ng-if="comment.userVotedYes === 1">
 		</div>
 	</div>
 

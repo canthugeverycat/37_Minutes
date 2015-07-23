@@ -5,6 +5,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a href="#/friends"><button class="button backBtn button-clear button-light button-icon ion-android-arrow-back"></button></a>
 		<h1 class="title light">Group Details</h1>
+		<button class="button button-clear button-light button-icon settingsDoneBtn" ng-click="$root.createNewGroup()"><i class="material-icons">check</i></button>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -38,7 +39,7 @@
 
 <ion-content class="newGroupContent">
 	<p class="groupsTitle">GROUP NAME</p>
-	<input class="editGroupName" type="text" placeholder="Enter the name of the group"> 
+	<input class="editGroupName" type="text" placeholder="Enter the name of the group" ng-model="$root.inputs.newGroupName" ng-enter="$root.createNewGroup()">
 
 	<p class="groupsTitle">A</p>
 
