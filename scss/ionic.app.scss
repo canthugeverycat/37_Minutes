@@ -896,6 +896,17 @@ ion-content{
 
 .addPollContent{
 	background-color: #171717;
+	.scroll{
+		height:100%;
+
+		.addPollImage{
+		    opacity: 0.2;
+		    position: absolute;
+		    z-index: -999999999;
+		    width: 100%;
+		    bottom: 0;
+		}
+	}
 }
 
 .addBack{

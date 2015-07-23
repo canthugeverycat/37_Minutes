@@ -1,8 +1,9 @@
 angular.module('poll.controllers',[])
 
 
-.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location) {
+.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload) {
 
+  
   //Remove the first time user overlay
   $scope.removeOverlay = function() {
     $rootScope.login.firstTime = '0';
@@ -10,13 +11,15 @@ angular.module('poll.controllers',[])
   };
 
   //Create a new poll
-  $scope.createPoll = function() {
-
+  $scope.createPoll = function (files) {
     //Check if the input is empty
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
       //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
     } else {
+      console.log('files');
+      console.log(files);
+
       //Iterate through selected groups of friends and pull the ids out
       for (x in $rootScope.data.addPoll.friends){
         //Push the id to ids array
@@ -29,10 +32,16 @@ angular.module('poll.controllers',[])
         $rootScope.data.addPoll.groupIds.push($rootScope.data.addPoll.groups[y].groupId);
       }
 
-      RESTFunctions.post({
-        url:'leave-question',
-        data:'Token=' + $rootScope.login.token + '&Title=' + $rootScope.inputs.createPollTitle + '&Groups=' + $rootScope.data.addPoll.groupIds.toString() + '&Users=' + $rootScope.data.addPoll.friendIds.toString(),
-        callback: function(response) {
+      if (files && files.length) {
+
+        //Execute Upload service if there is a file in the file model
+        var file = files[0];
+        Upload.upload({
+            url: 'http://p.vz301.verteez.net/mobile-api/v1/leave-question',
+            fields: {'Token': $rootScope.login.token,'Title':$rootScope.inputs.createPollTitle,'Groups':$rootScope.data.addPoll.groupIds.toString(),'Users':$rootScope.data.addPoll.friendIds.toString()},
+            file:file,
+            fileFormDataName:'photo'
+        }).success(function (response) {
           if (response.error) {
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
@@ -46,8 +55,33 @@ angular.module('poll.controllers',[])
             //Redirect user to main screen
             $location.path('/polls');
           }
-        }
-      });
+        }).error(function (response) {
+            console.log('Error:');
+            console.log(data);
+        })
+      } else {
+
+        //Execute RESTFunctions if there is no file in the file model
+        RESTFunctions.post({
+          url:'leave-question',
+          data:'Token=' + $rootScope.login.token + '&Title=' + $rootScope.inputs.createPollTitle + '&Groups=' + $rootScope.data.addPoll.groupIds.toString() + '&Users=' + $rootScope.data.addPoll.friendIds.toString(),
+          callback: function(response) {
+            if (response.error) {
+              //Display an error message
+              InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
+            } else {
+              //Display a success message
+              InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
+
+              //Refresh the list of polls to properly display the newly created one
+              $rootScope.getPollList();
+              
+              //Redirect user to main screen
+              $location.path('/polls');
+            }
+          }
+        });
+      }
     }
   };
 

@@ -190,11 +190,13 @@ angular.module('friends.controllers',[])
 
 		//Iterate through friends
 		for (x in $rootScope.data.addPoll.friends) {
+			//And push their ids
 			$rootScope.data.addPoll.names.push($rootScope.data.addPoll.friends[x].friendName);
 		}
 
 		//Iterate through groups
 		for (y in $rootScope.data.addPoll.groups) {
+			//And push their ids
 			$rootScope.data.addPoll.names.push($rootScope.data.addPoll.groups[y].groupName);
 		}
 	};

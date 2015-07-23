@@ -3,12 +3,11 @@
 <ion-content class="addPollContent">
 
 <a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
-<i class="material-icons addConfirm light" ng-click="createPoll()">check</i>
-<i class="material-icons addCamera light">camera_alt</i>
-
+<i class="material-icons addConfirm light" ng-click="createPoll(files)">check</i>
+<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
 <p class="addAsk">Ask your question</p>
-<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle"></textarea>
-
+<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
+<img class="addPollImage" ngf-src="files[0]" ngf-accept="'image/*'">
 </ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">

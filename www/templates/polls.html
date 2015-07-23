@@ -46,7 +46,7 @@
 <ion-content class="pollsContent has-header has-tabs-top">
 
 	<!-- Without polls -->
-	<div class="noContent">
+	<div class="noContent" ng-if="$root.data.polls.length === 0">
 		<i class="material-icons noContentIcon">view_list</i>
 		<p class="noContentTitle">There are no polls to show</p>
 		<p class="noContentSubtitle">Post new poll or invite friends to see theirs</p>
@@ -95,7 +95,7 @@
 		</div>
 
 		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId, true);">{{poll.commentsCount}} COMMENTS</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId, true);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
 		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
 

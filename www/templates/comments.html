@@ -45,15 +45,15 @@
 		<p class="noContentSubtitle">Be the first to comment on this poll</p>
 	</div>
 
-	<p class="commentsOnPoll" ng-if="$root.data.pollComments.length > 0">COMMENTS ON SHOULD I DYE MY HAIR GREEN</p>
+	<p class="commentsOnPoll" ng-if="$root.data.pollComments.length > 0">COMMENTS ON {{$root.data.commentsTitle}}</p>
 
 	<div class="list commentsContainer" ng-if="$root.data.pollComments.length > 0">
 
 		<!-- Negative comment -->
-		<div class="item item-avatar comment-animate" ng-repeat="comment in $root.data.pollComments track by $index">
+		<div class="item item-avatar" ng-repeat="comment in $root.data.pollComments track by $index" ng-class="{'new-comment-animate':comment.time.split(' ')[1] === 'sec' && $index === 0}">
 			<img style="background:url({{comment.userImage}}) no-repeat center;background-size:cover;">
 			<h2 class="userName">{{comment.userName}}</h2>
-			<p class="commentTime">{{comment.time}}</p>
+			<p class="commentTime">{{comment.time.split(' ')[1] === 'sec' ? 'Just now' : comment.time}}</p>
 			<p class="comment">{{comment.comment}}</p>
 			<img class="noIcon" src="img/no.png" ng-if="comment.userVotedNo === 1">
 			<img class="yesIcon" src="img/yes.png" ng-if="comment.userVotedYes === 1">
@@ -63,7 +63,7 @@
 </ion-content>
 
 <ion-footer-bar class="bar-stable commentsFooter">
-  <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)">
+  <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)" autofocus>
  <!-- Send msg button --> 
   <i class="material-icons enterIcon" ng-click="leaveComment($root.data.poll.questionId)">check</i>
 </ion-footer-bar>

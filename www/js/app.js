@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','directives','main.controllers','account.controllers','poll.controllers','comments.controllers','friends.controllers','canthugeverycat.services','ngOpenFB','ngAnimate'])
+angular.module('starter', ['ionic','directives','main.controllers','account.controllers','poll.controllers','comments.controllers','friends.controllers','canthugeverycat.services','ngOpenFB','ngAnimate','ngFileUpload'])
 
 .run(function($ionicPlatform, ngFB) {
   $ionicPlatform.ready(function() {
@@ -113,3 +113,11 @@ angular.module('starter', ['ionic','directives','main.controllers','account.cont
 
   $urlRouterProvider.otherwise('/login');
 })
+
+
+//Converts an angular string to int
+.filter('int', function() {
+    return function(input) {
+      return parseInt(input, 10);
+    }
+});
