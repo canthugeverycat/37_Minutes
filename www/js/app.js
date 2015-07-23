@@ -71,6 +71,11 @@ angular.module('starter', ['ionic','directives','main.controllers','account.cont
     templateUrl:'/templates/friends.html'
   })
 
+  .state('addFriends', {
+    url:'/addFriends',
+    templateUrl:'/templates/addFriends.html'
+  })
+
   .state('inviteFriends', {
     url:'/inviteFriends',
     templateUrl:'/templates/inviteFriends.html'

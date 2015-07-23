@@ -5,6 +5,12 @@ angular.module('main.controllers',[])
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
   $rootScope.login === undefined ? $rootScope.login = {} : null;
+  $rootScope.data.addPoll === undefined ? $rootScope.data.addPoll = {} : null;
+  $rootScope.data.addPoll.names === undefined ? $rootScope.data.addPoll.names = [] : null;
+  $rootScope.data.addPoll.friends === undefined ? $rootScope.data.addPoll.friends = [] : null;
+  $rootScope.data.addPoll.friendIds === undefined ? $rootScope.data.addPoll.friendIds = [] : null;
+  $rootScope.data.addPoll.groups === undefined ? $rootScope.data.addPoll.groups = [] : null;
+  $rootScope.data.addPoll.groupIds === undefined ? $rootScope.data.addPoll.groupIds = [] : null;
 
   //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];
@@ -55,6 +61,13 @@ angular.module('main.controllers',[])
     //Grab the url from href attribute of an <a> tag
   	$location.path('/' + angular.element(document.querySelector(direction)).attr('href').split('/')[1]);
   };
+
+
+  //Navigate to the passed screen
+  $rootScope.navigate = function(url) {
+    $location.path(url);
+  };
+
 
   //Get comments for the current poll
   $rootScope.getComments = function(pollId) {

@@ -1,10 +1,11 @@
-<ion-view ng-controller="FriendsController" ng-init="getFriendsList();getGroups()">
+<ion-view ng-controller="FriendsController" ng-init="getFriendsList();getGroups();">
 
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<button class="button backBtn button-clear button-light button-icon ion-android-arrow-back"></button>
-		<h1 class="title light">Friends</h1>
+		<h1 class="title light">Add Friends</h1>
+		<button class="button button-clear button-light button-icon settingsDoneBtn" ng-click="$root.navigate('/addPoll')"><i class="material-icons">check</i></button>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -48,12 +49,10 @@
 		</div>
 
 		<ul class="list">
-			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">
+			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index" ng-click="addFriendsToPoll(null, group)">
 				{{group.groupName}}
 				<!-- Edit group button -->
-				<a ng-click="getGroupItem(group)"><i class="material-icons groupsEdit">mode_edit</i></a>
-				<!-- Delete button -->
-				<i class="material-icons groupsClose" ng-click="deleteGroup(group.groupId)">close</i>
+				<a><i class="material-icons groupsEdit" ng-if="$root.data.addPoll.groups.indexOf(group) !== -1">check</i></a>
 			</li>
 		</ul>
 
@@ -85,23 +84,14 @@
 		</div>
 
 		<div class="list">
-    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index">
+    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="addFriendsToPoll(friend)">
       			<img ng-src="{{friend.friendImage}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="material-icons friendsClose">close</i>
+      			<i class="material-icons friendsClose" ng-if="$root.data.addPoll.friends.indexOf(friend) !== -1">check</i>
    			</a>
 		</div>
 
 </ion-content>
-
-<ion-footer-bar class="bar-royal">
-	<div class="button-bar addFriendsBar">
-	<!-- Add Group button -->
-  		<a class="button button-clear" href="#/newGroup"><i class="material-icons">group_add</i></a>
-  	<!-- Invite friends button -->
-  		<a class="button button-clear" href="#/inviteFriends" ng-click="inviteFriend()"><i class="material-icons">person_add</i></a>
-	</div>
-</ion-footer-bar>
 
 </ion-view>

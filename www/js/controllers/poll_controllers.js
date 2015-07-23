@@ -17,9 +17,21 @@ angular.module('poll.controllers',[])
       //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
     } else {
+      //Iterate through selected groups of friends and pull the ids out
+      for (x in $rootScope.data.addPoll.friends){
+        //Push the id to ids array
+        $rootScope.data.addPoll.friendIds.push($rootScope.data.addPoll.friends[x].friendId);
+      }
+
+      //Iterate through selected groups of friends and pull the ids out
+      for (y in $rootScope.data.addPoll.groups){
+        //Push the id to ids array
+        $rootScope.data.addPoll.groupIds.push($rootScope.data.addPoll.groups[y].groupId);
+      }
+
       RESTFunctions.post({
         url:'leave-question',
-        data:'Token=' + $rootScope.login.token + '&Title=' + $rootScope.inputs.createPollTitle,
+        data:'Token=' + $rootScope.login.token + '&Title=' + $rootScope.inputs.createPollTitle + '&Groups=' + $rootScope.data.addPoll.groupIds.toString() + '&Users=' + $rootScope.data.addPoll.friendIds.toString(),
         callback: function(response) {
           if (response.error) {
             //Display an error message

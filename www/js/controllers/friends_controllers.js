@@ -17,11 +17,11 @@ angular.module('friends.controllers',[])
 		});
 	};
 
-	//*WIP Invite a friend
+	//Invite a friend
 	$scope.inviteFriend = function() {
 		RESTFunctions.post({
 			url:'invite-friend',
-			data:'Token=' + $rootScope.login.token + '&friendsMail=nini.grbic@gmail.com',
+			data:'Token=' + $rootScope.login.token + '&friendId=14',
 			callback: function(response) {
 				console.log(response);
 			}
@@ -129,9 +129,13 @@ angular.module('friends.controllers',[])
 					//Go back to friends screen
 					$location.path('/friends');
 				}
+
+				//Clear the group name input
+				$rootScope.inputs.newGroupName = '';
 			}
 		});
 	};
+
 
 	//Delete a group from the list
 	$rootScope.deleteGroup = function(groupId) {
@@ -145,12 +149,53 @@ angular.module('friends.controllers',[])
 					InfoHandling.set('deleteGroupFailed', response.error.errorMessage, 2000);
 				} else {
 					//Display a success message
-					InfoHandling.set('deleteGroupSuccessful', response.Message, 2000);
+					InfoHandling.set('deleteGroupSuccessful', response.Message, 2000, 'bg-energized');
 
 					//Refresh the group list to properly display the deleted group
 					$scope.getGroups();
 				}
 			}
 		});
+	};
+
+
+	//Add friends and groups to addPoll arrays
+	$scope.addFriendsToPoll = function(friend, group) {
+		if (friend !== null) {
+			//If selected friend is already in the array
+			if ($rootScope.data.addPoll.friends.indexOf(friend) === -1) {
+				console.log('Friend not in array');
+				//Add him to the array
+				$rootScope.data.addPoll.friends.push(friend);
+			} else {
+				console.log('Friend in array');
+				//Remove him from the array
+				$rootScope.data.addPoll.friends.splice($rootScope.data.addPoll.friends.indexOf(friend),1);
+			}
+		} else {
+			//If selected group is already in the array
+			if ($rootScope.data.addPoll.groups.indexOf(group) === -1) {
+				console.log('Group not in array');
+				//Add him to the array
+				$rootScope.data.addPoll.groups.push(group);
+			} else {
+				console.log('Group in array');
+				//Remove him from the array
+				$rootScope.data.addPoll.groups.splice($rootScope.data.addPoll.groups.indexOf(group),1);
+			}
+		}
+
+		//Clear the names array and push updated values into it
+		$rootScope.data.addPoll.names = [];
+
+		//Iterate through friends
+		for (x in $rootScope.data.addPoll.friends) {
+			$rootScope.data.addPoll.names.push($rootScope.data.addPoll.friends[x].friendName);
+		}
+
+		//Iterate through groups
+		for (y in $rootScope.data.addPoll.groups) {
+			$rootScope.data.addPoll.names.push($rootScope.data.addPoll.groups[y].groupName);
+		}
 	};
 });
