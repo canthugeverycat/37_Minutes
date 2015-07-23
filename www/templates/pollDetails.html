@@ -3,7 +3,7 @@
 	<div class="imageContainerDetails"ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
 		<div class="yesGrey">
 			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%">
-				<a href="#/polls"><button class="button backBtnDetails button-clear button-light button-icon ion-android-arrow-back"></button></a>
+				<a href="#/polls" class="button backBtnDetails light button-icon ion-android-arrow-back"></a>
 				<p class="yes light">YES</p>
 				<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
 				<p class="percent light">%</p>
@@ -18,16 +18,16 @@
 				<p class="percent">%</p>
 				<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedNo !== 0">
 			</div>
-				<div class="col expiredCol" ng-if="$root.data.poll.timeLeft === 0">
-					<i class="material-icons expiredIcon light">timer_off</i>
-					<p class="expiredTxt light">EXPIRED</p>
-				</div>
-				<div class="col activeCol" ng-if="$root.data.poll.timeLeft !== 0">
-					<i class="material-icons activeIcon light">timer</i>
-					<p class="activeTxt light">{{$root.data.poll.timeLeft}} MIN. LEFT</p>
-				</div>
+			
+			<div class="col expiredCol" ng-if="$root.data.poll.timeLeft === 0">
+				<i class="material-icons expiredIcon light">timer_off</i>
+				<p class="expiredTxt light">EXPIRED</p>
+			</div>
+			<div class="col activeCol" ng-if="$root.data.poll.timeLeft !== 0">
+				<i class="material-icons activeIcon light">timer</i>
+				<p class="activeTxt light">{{$root.data.poll.timeLeft}} MIN. LEFT</p>
+			</div>
 		</div>
-		
 	</div>
 
 	<div class="item item-avatar">

@@ -7688,6 +7688,9 @@ ion-content {
 .has-footer {
   bottom: 60px; }
 
+.button:hover {
+  color: #ffffff; }
+
 .bg-light {
   background-color: #ffffff; }
 
@@ -7793,11 +7796,8 @@ ion-content {
   padding: 0; }
 
 /*Onboarding cards*/
-ion-content .scroll .cardIcon {
-  font-size: 96pt; }
-
 .cardIcon {
-  font-size: 100px;
+  font-size: 96pt !important;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -7828,8 +7828,9 @@ ion-content .scroll .cardIcon {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  font-size: 60px;
-  margin-top: 150px; }
+  font-size: 40pt;
+  margin-top: 120px;
+  color: #ffffff; }
 
 .cardOne {
   background-color: #9bcb64; }
@@ -7947,8 +7948,9 @@ ion-content .scroll .cardIcon {
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
   font-size: 20pt; }
 
-.bar .title {
-  font-size: 16pt; }
+.title {
+  font-size: 16pt !important;
+  left: 40px !important; }
 
 .pollAvatar {
   height: 30px; }
@@ -8177,7 +8179,10 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   right: 5px;
   bottom: 5px; }
 
-/*Comment screen*/
+/*Comments screen*/
+.commentsFooter {
+  padding: 0; }
+
 ion-content .scroll .noContent .noContentIcon {
   font-size: 48pt;
   display: inline-block;
@@ -8246,12 +8251,12 @@ ion-content .scroll .noContent .noContentIcon {
 
 .enterComment {
   width: 100%;
-  background-color: #e0e0e0;
-  margin-top: 5px; }
+  background-color: transparent;
+  height: 100% !important; }
 
 .enterIcon {
-  margin-top: 10px;
-  margin-right: 10px; }
+  margin-top: 18px;
+  margin-right: 15px; }
 
 /*addPoll screen*/
 .addPollContent {

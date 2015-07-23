@@ -32,6 +32,9 @@ ion-content{
 	bottom:60px;
 }
 
+.button:hover{
+	color: $light;
+}
 
 //Defining background colors for info messages
 
@@ -162,16 +165,8 @@ ion-content{
 
 /*Onboarding cards*/
 
-ion-content{
-	.scroll{
-		.cardIcon{
-			font-size: 96pt;
-		}
-	}
-}
-
 .cardIcon{
-	font-size: 100px;
+	font-size: 96pt !important;
 	display: inline-block;
 	width:100%;
 	text-align: center;
@@ -205,9 +200,9 @@ ion-content{
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 60px;
-	margin-top: 150px;
-
+	font-size: 40pt;
+	margin-top: 120px;
+	color: $light;
 }
 
 .cardOne{
@@ -352,13 +347,12 @@ ion-content{
 }
 
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
-  font-size: 20pt;
+  	font-size: 20pt;
 }
 
-.bar{
-	.title{
-		font-size: 16pt;
-	}
+.title{
+	font-size: 16pt !important;
+	left: 40px !important;
 }
 
 .pollAvatar{
@@ -790,7 +784,11 @@ ion-content{
 	bottom: 5px;
 }
 
-/*Comment screen*/
+/*Comments screen*/
+
+.commentsFooter{
+	padding:0;
+}
 
 ion-content{
 	.scroll{
@@ -884,16 +882,14 @@ ion-content{
 
 .enterComment{
 	width: 100%;
-	background-color: $stable;
-	margin-top: 5px;
+	background-color: transparent;
+	height: 100% !important;
 }
 
 .enterIcon{
-	margin-top: 10px;
-	margin-right: 10px;
+	margin-top: 18px;
+	margin-right: 15px;
 }
-
-
 
 /*addPoll screen*/
 
