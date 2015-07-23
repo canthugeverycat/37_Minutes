@@ -40,6 +40,13 @@
 
 	<p class="groupsTitle">GROUPS</p>
 
+		<!-- Without groups -->
+		<div class="noContent">
+			<i class="material-icons noContentIcon">group</i>
+			<p class="noContentTitle">You haven't created a group yet</p>
+			<p class="noContentSubtitle">After you create one it will be shown here</p>
+		</div>
+
 		<ul class="list">
 			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">
 				{{group.groupName}}
@@ -69,6 +76,13 @@
 		</div>
 
 	<p class="groupsTitle">YOUR FRIENDS</p>
+
+		<!-- Without friends -->
+		<div class="noContent">
+			<i class="material-icons noContentIcon">person</i>
+			<p class="noContentTitle">You have no friends</p>
+			<p class="noContentSubtitle">Invite friends so you can share polls with them</p>
+		</div>
 
 		<div class="list">
     		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index">

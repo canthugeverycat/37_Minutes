@@ -7786,6 +7786,9 @@ ion-content {
 .tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
   border-color: #9bcb64; }
 
+.scroll {
+  padding: 0; }
+
 /*Onboarding cards*/
 ion-content .scroll .cardIcon {
   font-size: 96pt; }
@@ -7907,6 +7910,28 @@ ion-content .scroll .cardIcon {
   margin-left: 10px; }
 
 /*Polls screen*/
+ion-content .scroll .noPolls .noPollIcon {
+  font-size: 48pt; }
+
+.noPollIcon {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px; }
+
+.noPoll {
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 18pt; }
+
+.firstPoll {
+  text-align: center;
+  width: 40%;
+  font-size: 12pt;
+  margin-right: auto;
+  margin-left: auto; }
+
 .doubleTapOverlay {
   z-index: 10;
   position: absolute;
@@ -8173,22 +8198,20 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   bottom: 5px; }
 
 /*Comment screen*/
-ion-content .scroll .noComments .noComIcon {
-  font-size: 48pt; }
-
-.noComIcon {
+ion-content .scroll .noContent .noContentIcon {
+  font-size: 48pt;
   display: inline-block;
   width: 100%;
   text-align: center;
   margin-top: 40px; }
 
-.noCom {
+.noContentTitle {
   text-align: center;
   width: 100%;
   font-weight: 500;
   font-size: 18pt; }
 
-.firstCom {
+.noContentSubtitle {
   text-align: center;
   width: 40%;
   font-size: 12pt;
@@ -8310,6 +8333,50 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   background-color: #c62828; }
 
 /*Friends screen*/
+ion-content .scroll .noGroups .noGroupIcon {
+  font-size: 48pt; }
+
+.noGroupIcon {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px; }
+
+.noGroup {
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 18pt; }
+
+.firstGroup {
+  text-align: center;
+  width: 40%;
+  font-size: 12pt;
+  margin-right: auto;
+  margin-left: auto; }
+
+ion-content .scroll .noFriends .noFriendIcon {
+  font-size: 48pt; }
+
+.noFriendIcon {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px; }
+
+.noFriend {
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 18pt; }
+
+.firstFriend {
+  text-align: center;
+  width: 40%;
+  font-size: 12pt;
+  margin-right: auto;
+  margin-left: auto; }
+
 .friendsContent {
   padding-top: 50px;
   background-color: #ededed;
