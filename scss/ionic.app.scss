@@ -23,6 +23,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
+.numberBubble{
+
+}
+
 ion-content{
 
 	color:$dark;
@@ -352,7 +356,6 @@ ion-content{
 
 .title{
 	font-size: 16pt !important;
-	left: 40px !important;
 }
 
 .pollAvatar{
@@ -896,17 +899,6 @@ ion-content{
 
 .addPollContent{
 	background-color: #171717;
-	.scroll{
-		height:100%;
-
-		.addPollImage{
-		    opacity: 0.2;
-		    position: absolute;
-		    z-index: -999999999;
-		    width: 100%;
-		    bottom: 0;
-		}
-	}
 }
 
 .addBack{
@@ -1025,6 +1017,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	padding-left: 72px;
 	display: inline-block;
 	padding-top: 20px;
+}
+
+.friendsName:first-letter{
+	font-weight: 600;
 }
 
 /*Invite friends screen*/
