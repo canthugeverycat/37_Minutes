@@ -3,7 +3,7 @@
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
-		<a href="#/polls"><button class="button backBtn button-clear button-light button-icon ion-android-arrow-back"></button></a>
+		<a href="#/polls" class="button backBtn button-icon ion-android-arrow-back"></a>
 		<h1 class="title light">Comments </h1>
 	</ion-header-bar>
 
@@ -62,7 +62,7 @@
 
 </ion-content>
 
-<ion-footer-bar class="bar-stable">
+<ion-footer-bar class="bar-stable commentsFooter">
   <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)">
  <!-- Send msg button --> 
   <i class="material-icons enterIcon" ng-click="leaveComment($root.data.poll.questionId)">check</i>
