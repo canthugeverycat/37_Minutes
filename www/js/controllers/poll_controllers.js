@@ -11,9 +11,11 @@ angular.module('poll.controllers',[])
 
   //Create a new poll
   $scope.createPoll = function() {
+
+    //Check if the input is empty
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
+      //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
-      console.log('poll empty');
     } else {
       RESTFunctions.post({
         url:'leave-question',
@@ -23,9 +25,12 @@ angular.module('poll.controllers',[])
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
           } else {
-            $rootScope.getPollList();
             //Display a success message
             InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
+
+            //Refresh the list of polls to properly display the newly created one
+            $rootScope.getPollList();
+            
             //Redirect user to main screen
             $location.path('/polls');
           }
@@ -35,21 +40,22 @@ angular.module('poll.controllers',[])
   };
 
 
-  //Grab the list of polls
+  //Grab the list of polls (can also trigger on pull-to-refresh)
   $rootScope.getPollList = function(page) {
+
     RESTFunctions.post({
       url:'get-question-list',
       data:'Token=' + $rootScope.login.token + '&page=' + (page === undefined ? '0' : page),
       callback: function(response) {
         if (response.error) {
+          //Dispaly an error message
           InfoHandling.set('getPollListFailed',response.error.errorMessage,2000);
         } else {
+          //Clear the old polls and display new ones
           $rootScope.data.polls = [];
-          //Place the data from response in rootScope
           $rootScope.data.polls = response.questions;
-          console.log('Questions array:');
-          console.log(response.questions);
-          // Stop the ion-refresher from spinning
+          
+          //Stop the ion-refresher (pull-to-refresh) from spinning
           $scope.$broadcast('scroll.refreshComplete');
         }
       }
@@ -59,16 +65,19 @@ angular.module('poll.controllers',[])
   
   //Grab a single poll item
   $scope.getPollItem = function(questionId, redirect) {
+
+    //If we are supposed to navigate to pollDetails screen
     redirect === true ? null : $location.path('/pollDetails');
+
     RESTFunctions.post({
       url:'get-question',
       data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
       callback: function(response) {
         if (response.error) {
+          //Display an error message
           InfoHandling.set('getPollItemFailed',response.error.errorMessage,2000);
         } else {
-          console.log('Question object:')
-          console.log(response.question);
+          //Store the poll details
           $rootScope.data.poll = response.question;
         }
       }
@@ -78,6 +87,8 @@ angular.module('poll.controllers',[])
   
   //If you're on the /poll screen grab the list of polls
   $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
+
+  //Grab the list of polls every 30 seconds (if you're on the poll screen)
   setInterval(function () {
     $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
   },30000);
@@ -85,47 +96,38 @@ angular.module('poll.controllers',[])
   
   //Triggers when the user pulls down to refresh content
   $scope.onContentRefresh = function() {
+
+    //Grab the list of polls
     $rootScope.getPollList();
   };
 
 
-  // //Testing infinite scroll
-  // $scope.items = [];
-  // $scope.loadMore = function() {
-  //   console.log('infinite triggered');
-  //     $scope.$broadcast('scroll.infiniteScrollComplete');
-  // };
-
-  // $scope.$on('$stateChangeSuccess', function() {
-  //   $scope.loadMore();
-  // });
-
   //Vote on a specific poll
   $scope.voteOnPoll = function(pollId, vote) {
+
     RESTFunctions.post({
       url:'vote',
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
       callback: function(response) {
         if (response.error) {
+          //Display an error message
           InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
         } else {
-          console.log('Voting ' + vote + ':');
-          console.log(response);
+          //Properly transition the voting options bars
           $scope.pollTransitionBars(pollId);
         }
       }
     });
   };
 
-  //Get a specific poll and transition its' bars
+  //Get a specific poll and transition its' bars smoothy
   $scope.pollTransitionBars = function(pollId) {
+
     RESTFunctions.post({
       url:'get-question',
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
       callback: function(response) {
-        if (response.error) {
-          //There's been an error
-        } else {
+        if (!response.error) {
           //Grab the data from the requested poll and update the corresponding poll array item with it
           //So we can smoothly animate the bars without touching the DOM
           for (i = 0; i < $rootScope.data.polls.length; i++) {

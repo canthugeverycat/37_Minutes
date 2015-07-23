@@ -1,78 +1,78 @@
 angular.module('main.controllers',[])
 
 .controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate) {
-  //Defining the variables for storage
+  //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
   $rootScope.login === undefined ? $rootScope.login = {} : null;
 
-  //Store the token from localStorage in rootScope
+  //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];
   $rootScope.login.firstTime = localStorage['37-mFirstTime'];
 
-  //Storing the navigation tab urls
+  //Storing the navigation tab urls (for navigating through them)
   $scope.navigationUrls = ['/polls','/notifications','/friends','/profile','/settings'];
 
-  //Navigate to the left
+  //Navigate to the left (triggers on swipe)
   $scope.navigateLeft = function() {
+
   	//Store the current screen
   	navigationIndex = $scope.navigationUrls.indexOf($location.path());
+
   	//If the current screen is first
   	if (navigationIndex === 0) {
   		//Set the href attribute of the invisible <a> tag to the next tab location
   		angular.element(document.querySelector('.navGoLeft')).attr('href','#' + $scope.navigationUrls[$scope.navigationUrls.length - 1]);
-  		$timeout(function() {
-  			angular.element(document.querySelector('.navGoLeft')).triggerHandler('click');
-		}, 0);
+  		$timeout(function() {angular.element(document.querySelector('.navGoLeft')).triggerHandler('click')}, 0);
   	} else {
   		//Set the href attribute of the invisible <a> tag to the next tab location
   		angular.element(document.querySelector('.navGoLeft')).attr('href','#' + $scope.navigationUrls[navigationIndex - 1]);
-  		$timeout(function() {
-  			angular.element(document.querySelector('.navGoLeft')).triggerHandler('click');
-		}, 0);
+  		$timeout(function() {angular.element(document.querySelector('.navGoLeft')).triggerHandler('click')}, 0);
   	}
   };
 
-  //Navigate to the right
+  //Navigate to the right (triggers on swipe)
   $scope.navigateRight = function() {
+
   	//Store the current screen
   	navigationIndex = $scope.navigationUrls.indexOf($location.path());
+
   	//If the current screen is last
   	if (navigationIndex === $scope.navigationUrls.length - 1) {
   		//Set the href attribute of the invisible <a> tag to the next tab location
   		angular.element(document.querySelector('.navGoRight')).attr('href','#' + $scope.navigationUrls[0]);
-  		$timeout(function() {
-  			angular.element(document.querySelector('.navGoRight')).triggerHandler('click');
-		}, 0);
+  		$timeout(function() {angular.element(document.querySelector('.navGoRight')).triggerHandler('click')}, 0);
   	} else {
   		//Set the href attribute of the invisible <a> tag to the next tab location
   		angular.element(document.querySelector('.navGoRight')).attr('href','#' + $scope.navigationUrls[navigationIndex + 1]);
-  		$timeout(function() {
-  			angular.element(document.querySelector('.navGoRight')).triggerHandler('click');
-		}, 0);
+  		$timeout(function() {angular.element(document.querySelector('.navGoRight')).triggerHandler('click')}, 0);
   	}
   };
 
-  //Go to the specific page
+  //Go to the specific page (triggers on swipe function)
   $rootScope.navigateGoTo = function(direction) {
+
+    //Grab the url from href attribute of an <a> tag
   	$location.path('/' + angular.element(document.querySelector(direction)).attr('href').split('/')[1]);
   };
 
   //Get comments for the current poll
-  $rootScope.getComments = function(pollId, scrollBottom) {
+  $rootScope.getComments = function(pollId) {
+
+    //Navigate to comments screen
+    $location.path('/comments');
+
     RESTFunctions.post({
       url:'get-comments',
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
       callback: function(response) {
         if (response.error) {
+          //Display an error message
           InfoHandling.set('getCommentsFailed',response.error.errorMessage, 2000);
         } else {
+          //Clear the old comments and display new ones
           $rootScope.data.pollComments = [];
           $rootScope.data.pollComments = response.comments;
-          $location.path('/comments');
-          console.log('\nComments array for' + pollId + ':');
-          console.log(response.comments);
-          scrollBottom === true ? $ionicScrollDelegate.scrollBottom(true) : null;
         }
       }
     });

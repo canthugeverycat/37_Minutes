@@ -41,7 +41,7 @@
 	<p class="groupsTitle">GROUPS</p>
 
 		<!-- Without groups -->
-		<div class="noContent">
+		<div class="noContent" ng-if="$root.data.groups.length === 0">
 			<i class="material-icons noContentIcon">group</i>
 			<p class="noContentTitle">You haven't created a group yet</p>
 			<p class="noContentSubtitle">After you create one it will be shown here</p>
@@ -50,10 +50,10 @@
 		<ul class="list">
 			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">
 				{{group.groupName}}
-				<!-- Delete button -->
-				<a ng-click="getGroupItem(group)"><i class="material-icons groupsEdit">mode_edit</i></a>
 				<!-- Edit group button -->
-				<i class="material-icons groupsClose">close</i>
+				<a ng-click="getGroupItem(group)"><i class="material-icons groupsEdit">mode_edit</i></a>
+				<!-- Delete button -->
+				<i class="material-icons groupsClose" ng-click="deleteGroup(group.groupId)">close</i>
 			</li>
 		</ul>
 
@@ -78,7 +78,7 @@
 	<p class="groupsTitle">YOUR FRIENDS</p>
 
 		<!-- Without friends -->
-		<div class="noContent">
+		<div class="noContent" ng-if="$root.data.friendsList.length === 0">
 			<i class="material-icons noContentIcon">person</i>
 			<p class="noContentTitle">You have no friends</p>
 			<p class="noContentSubtitle">Invite friends so you can share polls with them</p>
