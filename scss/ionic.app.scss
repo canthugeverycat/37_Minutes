@@ -28,6 +28,10 @@ ion-content{
 	color:$dark;
 }
 
+.has-footer{
+	bottom:60px;
+}
+
 
 //Defining background colors for info messages
 
@@ -310,38 +314,6 @@ ion-content{
 
 /*Polls screen*/
 
-ion-content{
-	.scroll{
-		.noPolls{
-			.noPollIcon{
-				font-size: 48pt;
-			}
-		}
-	}
-}
-
-.noPollIcon{
-	display: inline-block;
-	width:100%;
-	text-align: center;
-	margin-top: 40px;
-}
-
-.noPoll{
-	text-align: center;
-	width: 100%;
-	font-weight: 500;
-	font-size: 18pt;
-}
-
-.firstPoll{
-	text-align: center;
-	width: 40%;
-	font-size: 12pt;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .doubleTapOverlay{
 	z-index:10;
 	position: absolute;
@@ -380,12 +352,12 @@ ion-content{
 }
 
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
-  font-size: 25px;
+  font-size: 20pt;
 }
 
 .bar{
 	.title{
-		font-size: 18px;
+		font-size: 16pt;
 	}
 }
 
@@ -395,7 +367,6 @@ ion-content{
 
 .pollsContent{
 	padding: 0;
-	padding-top: 45px;
 	background:#ededed;
 }
 
@@ -889,7 +860,6 @@ ion-content{
 }
 
 .commentsContent{
-	padding-top: 50px;
 	background-color: #ededed;
 }
 
@@ -998,72 +968,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 /*Friends screen*/
 
-ion-content{
-	.scroll{
-		.noGroups{
-			.noGroupIcon{
-				font-size: 48pt;
-			}
-		}
-	}
-}
-
-.noGroupIcon{
-	display: inline-block;
-	width:100%;
-	text-align: center;
-	margin-top: 40px;
-}
-
-.noGroup{
-	text-align: center;
-	width: 100%;
-	font-weight: 500;
-	font-size: 18pt;
-}
-
-.firstGroup{
-	text-align: center;
-	width: 40%;
-	font-size: 12pt;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-ion-content{
-	.scroll{
-		.noFriends{
-			.noFriendIcon{
-				font-size: 48pt;
-			}
-		}
-	}
-}
-
-.noFriendIcon{
-	display: inline-block;
-	width:100%;
-	text-align: center;
-	margin-top: 40px;
-}
-
-.noFriend{
-	text-align: center;
-	width: 100%;
-	font-weight: 500;
-	font-size: 18pt;
-}
-
-.firstFriend{
-	text-align: center;
-	width: 40%;
-	font-size: 12pt;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .friendsContent{
-	padding-top: 50px;
 	background-color: #ededed;
 	color: #62666c;
 }
@@ -1118,7 +1023,6 @@ ion-content{
 /*Invite friends screen*/
 
 .inviteFriendsContent{
-	padding-top: 50px;
 	background-color: #ededed;
 }
 
@@ -1169,7 +1073,6 @@ ion-content{
 /*Edit Group screen*/
 
 .editGroupContent{
-	padding-top: 50px;
 	background-color: #ededed;
 	color: #62666c;
 }
@@ -1182,7 +1085,6 @@ ion-content{
 /*New Group screen*/
 
 .newGroupContent{
-	padding-top: 50px;
 	background-color: #ededed;
 	color: #62666c;
 }
@@ -1497,7 +1399,6 @@ ion-content{
 
 .settingsContent{
 	background-color: #ededed;
-	padding-top: 50px;
 }
 
 .settingsName{
@@ -1538,7 +1439,6 @@ ion-content{
 /*Notifications screen*/
 
 .notificationsContent{
-	padding-top: 50px;
 	background-color: #ededed;
 }
 

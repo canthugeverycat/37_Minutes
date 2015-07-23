@@ -7685,6 +7685,9 @@ a.button {
 ion-content {
   color: #444; }
 
+.has-footer {
+  bottom: 60px; }
+
 .bg-light {
   background-color: #ffffff; }
 
@@ -7910,28 +7913,6 @@ ion-content .scroll .cardIcon {
   margin-left: 10px; }
 
 /*Polls screen*/
-ion-content .scroll .noPolls .noPollIcon {
-  font-size: 48pt; }
-
-.noPollIcon {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  margin-top: 40px; }
-
-.noPoll {
-  text-align: center;
-  width: 100%;
-  font-weight: 500;
-  font-size: 18pt; }
-
-.firstPoll {
-  text-align: center;
-  width: 40%;
-  font-size: 12pt;
-  margin-right: auto;
-  margin-left: auto; }
-
 .doubleTapOverlay {
   z-index: 10;
   position: absolute;
@@ -7964,17 +7945,16 @@ ion-content .scroll .noPolls .noPollIcon {
   padding-top: 5px; }
 
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
-  font-size: 25px; }
+  font-size: 20pt; }
 
 .bar .title {
-  font-size: 18px; }
+  font-size: 16pt; }
 
 .pollAvatar {
   height: 30px; }
 
 .pollsContent {
   padding: 0;
-  padding-top: 45px;
   background: #ededed; }
 
 .pollImage {
@@ -8251,7 +8231,6 @@ ion-content .scroll .noContent .noContentIcon {
   padding-right: 20px; }
 
 .commentsContent {
-  padding-top: 50px;
   background-color: #ededed; }
 
 .commentsOnPoll {
@@ -8333,52 +8312,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   background-color: #c62828; }
 
 /*Friends screen*/
-ion-content .scroll .noGroups .noGroupIcon {
-  font-size: 48pt; }
-
-.noGroupIcon {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  margin-top: 40px; }
-
-.noGroup {
-  text-align: center;
-  width: 100%;
-  font-weight: 500;
-  font-size: 18pt; }
-
-.firstGroup {
-  text-align: center;
-  width: 40%;
-  font-size: 12pt;
-  margin-right: auto;
-  margin-left: auto; }
-
-ion-content .scroll .noFriends .noFriendIcon {
-  font-size: 48pt; }
-
-.noFriendIcon {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  margin-top: 40px; }
-
-.noFriend {
-  text-align: center;
-  width: 100%;
-  font-weight: 500;
-  font-size: 18pt; }
-
-.firstFriend {
-  text-align: center;
-  width: 40%;
-  font-size: 12pt;
-  margin-right: auto;
-  margin-left: auto; }
-
 .friendsContent {
-  padding-top: 50px;
   background-color: #ededed;
   color: #62666c; }
 
@@ -8423,7 +8357,6 @@ ion-content .scroll .noFriends .noFriendIcon {
 
 /*Invite friends screen*/
 .inviteFriendsContent {
-  padding-top: 50px;
   background-color: #ededed; }
 
 .importFb {
@@ -8459,7 +8392,6 @@ ion-content .scroll .list a p {
 
 /*Edit Group screen*/
 .editGroupContent {
-  padding-top: 50px;
   background-color: #ededed;
   color: #62666c; }
 
@@ -8469,7 +8401,6 @@ ion-content .scroll .list a p {
 
 /*New Group screen*/
 .newGroupContent {
-  padding-top: 50px;
   background-color: #ededed;
   color: #62666c; }
 
@@ -8670,8 +8601,7 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 
 /*Settings screen*/
 .settingsContent {
-  background-color: #ededed;
-  padding-top: 50px; }
+  background-color: #ededed; }
 
 .settingsName {
   padding-top: 10px;
@@ -8704,7 +8634,6 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 
 /*Notifications screen*/
 .notificationsContent {
-  padding-top: 50px;
   background-color: #ededed; }
 
 .answeredNotification {

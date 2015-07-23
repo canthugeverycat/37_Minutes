@@ -36,13 +36,13 @@
 		</div>
 	</div>
 
-<ion-content class="commentsContent">
+<ion-content class="commentsContent has-header has-tabs-top">
 
 	<!-- Without comments -->
-	<div class="noComments" ng-if="$root.data.pollComments.length === 0">
-		<i class="material-icons noComIcon">speaker_notes</i>
-		<p class="noCom">No comments</p>
-		<p class="firstCom">Be the first to comment on this poll</p>
+	<div class="noContent" ng-if="$root.data.pollComments.length === 0">
+		<i class="material-icons noContentIcon">speaker_notes</i>
+		<p class="noContentTitle">No comments</p>
+		<p class="noContentSubtitle">Be the first to comment on this poll</p>
 	</div>
 
 	<p class="commentsOnPoll" ng-if="$root.data.pollComments.length > 0">COMMENTS ON SHOULD I DYE MY HAIR GREEN</p>
