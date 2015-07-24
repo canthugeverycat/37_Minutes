@@ -8258,8 +8258,23 @@ ion-content .scroll .noContent .noContentIcon {
   margin-right: 15px; }
 
 /*addPoll screen*/
+.numberBubble {
+  height: 16px;
+  background-color: #880e4f;
+  border-radius: 36px;
+  width: 16px;
+  display: inline-block;
+  text-align: center;
+  font-size: 8pt; }
+
 .addPollContent {
   background-color: #171717; }
+  .addPollContent .scroll {
+    height: 100%; }
+    .addPollContent .scroll .addPollImage {
+      width: 100%;
+      bottom: 0;
+      position: absolute; }
 
 .addBack {
   margin-top: 20px;

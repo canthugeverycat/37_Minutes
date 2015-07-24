@@ -8,10 +8,11 @@
 <p class="addAsk">Ask your question</p>
 <textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
 <img class="addPollImage" ngf-src="files[0]" ngf-accept="'image/*'">
+
 </ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">
-	<a href="#/addFriends"><h1 class="title addIcon"><i class="material-icons">group_add</i><i class="numberBubble">{{$root.data.addPoll.names.length}}</i></h1></a>
+	<a href="#/addFriends"><h1 class="title addIcon"><i class="material-icons">group_add</i><div class="numberBubble"><p class="numberInBubble">{{$root.data.addPoll.names.length}}</p></div></h1></a>
 </ion-footer-bar>
 
 </ion-view>
