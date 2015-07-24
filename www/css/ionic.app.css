@@ -7689,7 +7689,10 @@ ion-content {
   bottom: 60px; }
 
 .button:hover {
-  color: #ffffff; }
+  color: none !important; }
+
+.arrowNext:hover {
+  color: #ffffff !important; }
 
 .bg-light {
   background-color: #ffffff; }
@@ -8203,7 +8206,8 @@ ion-content .scroll .noContent .noContentIcon {
   margin-left: auto; }
 
 .comment {
-  padding-left: 72px; }
+  padding-left: 72px;
+  padding-bottom: 10px; }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
   overflow: hidden;
@@ -8588,7 +8592,8 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
   display: inline-block; }
 
 .detailsAsked {
-  display: inline-block; }
+  display: inline-block;
+  margin-bottom: 0px !important; }
 
 .detailsAnswered {
   display: inline-block;
