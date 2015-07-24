@@ -1,3 +1,4 @@
+
 /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
@@ -904,10 +905,15 @@ ion-content{
     width: 16px;
     display: inline-block;
     text-align: center;
-    font-size: 8pt;
+    font-size: 6pt;
+    position: absolute;
 }
 
-
+.numberInBubble{
+	position: absolute !important;
+	top:-14px;
+	left:6px;
+}
 
 .addPollContent{
 	background-color: #171717;
@@ -987,6 +993,27 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 /*Friends screen*/
 
+.footerFriends{
+	padding:0 !important;
+}
+
+.barGroup{
+	background-color: #c62828;
+	height: 100%;
+	width: 50%;
+	text-align: center;
+}
+
+.barFriend{
+	height: 100%;
+	width: 50%;
+	text-align: center;
+}
+
+.barIcon{ 
+	margin-top: 15px;
+}
+
 .friendsContent{
 	background-color: #ededed;
 	color: #62666c;
@@ -1037,10 +1064,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	padding-left: 72px;
 	display: inline-block;
 	padding-top: 20px;
-}
-
-.friendsName:first-letter{
-	font-weight: 600;
 }
 
 /*Invite friends screen*/
