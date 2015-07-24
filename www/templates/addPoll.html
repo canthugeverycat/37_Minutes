@@ -1,15 +1,17 @@
 <ion-view ng-controller="PollsController">
 
-<ion-content class="addPollContent">
+	<ion-content class="addPollContent">
 
-<a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
-<i class="material-icons addConfirm light" ng-click="createPoll(files)">check</i>
-<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
-<p class="addAsk">Ask your question</p>
-<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
-<img class="addPollImage" ngf-src="files[0]" ngf-accept="'image/*'">
+		<a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
+		<i class="material-icons addConfirm light" ng-click="createPoll(files)">check</i>
+		<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
+		<p class="addAsk">Ask your question</p>
+		<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
+		<div class="add-poll-image-preview" style="position: absolute;top: 0;height: 100%;z-index: -100;opacity:0.2;">
+			<img ngf-src="files[0]" ngf-accept="'image/*'" ngf-default-src="img/default.png" style="height:100%;position:absolute;left:-100px;">
+		</div>
 
-</ion-content>
+	</ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">
 	<a href="#/addFriends"><h1 class="title addIcon"><i class="material-icons">group_add</i><div class="numberBubble"><p class="numberInBubble">{{$root.data.addPoll.names.length}}</p></div></h1></a>
