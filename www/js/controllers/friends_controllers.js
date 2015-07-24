@@ -62,6 +62,13 @@ angular.module('friends.controllers',[])
 				} else {
 					//Store friends as friends that are in current group
 					$rootScope.data.selectedGroupFriends = response.Friends;
+
+					//Store all friend ids in an array
+					$rootScope.data.friendsInGroup = [];
+					for (i = 0; i < $rootScope.data.selectedGroupFriends.length; i++) {
+						//Iterate and push into the new array
+						$rootScope.data.friendsInGroup.push($rootScope.data.selectedGroupFriends[i].friendId);
+					}
 				}
 			}
 		});

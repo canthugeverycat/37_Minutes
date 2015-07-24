@@ -45,7 +45,7 @@
 
 	<div class="list">
 
-		<a class="item item-avatar friendsList" href="" ng-repeat="groupFriend in $root.data.selectedGroupFriends track by $index">
+		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="groupFriend in $root.data.selectedGroupFriends track by $index">
   			<img ng-src="{{groupFriend.friendImage}}">
   			<h2 class="friendsName">{{groupFriend.friendName}}</h2>
   			<i class="material-icons friendsClose" ng-click="$root.removeFriendFromGroup($root.data.selectedGroup.groupId, groupFriend.friendId)">remove</i>
@@ -59,7 +59,7 @@
     	<a class="item item-avatar friendsList" href="" ng-repeat="friend in $root.data.friendsList">
       		<img ng-src="{{friend.friendImage}}">
       		<h2 class="friendsName">{{friend.friendName}}</h2>
-      		<i class="material-icons friendsClose" ng-click="$root.addFriendToGroup($root.data.selectedGroup.groupId, null, friend.friendId)">add</i>
+      		<i class="material-icons friendsClose" ng-click="$root.addFriendToGroup($root.data.selectedGroup.groupId, null, friend.friendId)" ng-if="$root.data.friendsInGroup.indexOf(friend.friendId) === -1">add</i>
    		</a>
 
 	</div>
