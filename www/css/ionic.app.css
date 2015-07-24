@@ -12734,17 +12734,6 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   transition-duration: 0s;
 }
 
-/* line 1, ../../scss/_ionicdejan.scss */
-.title {
-  color: red !important;
-  border: 1px solid red;
-}
-
-/* line 6, ../../scss/_ionicdejan.scss */
-.molim {
-  color: blue;
-}
-
 /* line 31, ../../scss/ionic.app.scss */
 ion-content {
   color: #444;
