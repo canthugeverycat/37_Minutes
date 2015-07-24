@@ -98,7 +98,7 @@ angular.module('account.controllers',[])
           $rootScope.login.firstTime = localStorage['37-mFirstTime'];
           
           //Redirect user to main screen
-          $location.path('/polls');
+          $location.path('/cardOne');
         }
       }
     });
