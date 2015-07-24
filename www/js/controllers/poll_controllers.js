@@ -41,6 +41,9 @@ angular.module('poll.controllers',[])
             fields: {'Token': $rootScope.login.token,'Title':$rootScope.inputs.createPollTitle,'Groups':$rootScope.data.addPoll.groupIds.toString(),'Users':$rootScope.data.addPoll.friendIds.toString()},
             file:file,
             fileFormDataName:'photo'
+        }).progress(function(evt) {
+          //Store the current state of uploaded image
+          $rootScope.imageUploadPercent = parseInt((evt.loaded/evt.total) * 100);
         }).success(function (response) {
           if (response.error) {
             //Display an error message
