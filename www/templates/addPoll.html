@@ -1,7 +1,7 @@
 <ion-view ng-controller="PollsController">
 	
-	<div class="image-loading-bar" style="width: 100%;height: 5px;position: absolute;top: 5px;z-index: 99999999;">
-		<span style="transition: width 0.5s;-webkit-transition: width 0.5s;z-index: 99999999999999;background-color: red;width: 0;height: 5px;position: absolute;border-right: 2px solid green;border-radius: 2px;"></span>
+	<div class="image-loading-bar">
+		<span></span>
 	</div>
 
 	<ion-content class="addPollContent">
@@ -11,8 +11,8 @@
 		<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
 		<p class="addAsk">Ask your question</p>
 		<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
-		<div class="add-poll-image-preview" style="position: absolute;top: 0;height: 100%;z-index: -100;opacity:0.2;">
-			<img ngf-src="files[0]" ngf-accept="'image/*'" ngf-default-src="img/default.png" style="height:100%;position:absolute;left:-100px;">
+		<div class="add-poll-image-preview">
+			<img ngf-src="files[0]" ngf-accept="'image/*'" ngf-default-src="img/default.png">
 		</div>
 
 	</ion-content>

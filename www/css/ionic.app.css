@@ -8206,8 +8206,7 @@ ion-content .scroll .noContent .noContentIcon {
   margin-left: auto; }
 
 .comment {
-  padding-left: 72px;
-  padding-bottom: 10px; }
+  padding-left: 72px; }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
   overflow: hidden;
@@ -8262,6 +8261,34 @@ ion-content .scroll .noContent .noContentIcon {
   margin-right: 15px; }
 
 /*addPoll screen*/
+.image-loading-bar {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  top: 5px;
+  z-index: 99999999; }
+  .image-loading-bar span {
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    z-index: 99999999999999;
+    background-color: red;
+    width: 0;
+    height: 5px;
+    position: absolute;
+    border-right: 2px solid green;
+    border-radius: 2px; }
+
+.add-poll-image-preview {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: -100;
+  opacity: 0.2; }
+  .add-poll-image-preview img {
+    height: 100%;
+    position: absolute;
+    left: -100px; }
+
 .numberBubble {
   height: 16px;
   background-color: #880e4f;
