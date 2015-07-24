@@ -48,6 +48,12 @@ angular.module('poll.controllers',[])
           if (response.error) {
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
+
+            //Clear the data
+            $rootScope.imageUploadPercent = 0;
+            $rootScope.inputs.createPollTitle = '';
+            $rootScope.data.addPoll.groupIds = [];
+            $rootScope.data.addPoll.friendIds = [];
           } else {
             //Display a success message
             InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
@@ -57,10 +63,22 @@ angular.module('poll.controllers',[])
             
             //Redirect user to main screen
             $location.path('/polls');
+
+            //Clear the data
+            $rootScope.imageUploadPercent = 0;
+            $rootScope.inputs.createPollTitle = '';
+            $rootScope.data.addPoll.groupIds = [];
+            $rootScope.data.addPoll.friendIds = [];
           }
         }).error(function (response) {
             console.log('Error:');
             console.log(data);
+
+            //Clear the data
+            $rootScope.imageUploadPercent = 0;
+            $rootScope.inputs.createPollTitle = '';
+            $rootScope.data.addPoll.groupIds = [];
+            $rootScope.data.addPoll.friendIds = [];
         })
       } else {
 
@@ -72,6 +90,12 @@ angular.module('poll.controllers',[])
             if (response.error) {
               //Display an error message
               InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
+
+              //Clear the data
+              $rootScope.imageUploadPercent = 0;
+              $rootScope.inputs.createPollTitle = '';
+              $rootScope.data.addPoll.groupIds = [];
+              $rootScope.data.addPoll.friendIds = [];
             } else {
               //Display a success message
               InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
@@ -81,6 +105,12 @@ angular.module('poll.controllers',[])
               
               //Redirect user to main screen
               $location.path('/polls');
+
+              //Clear the data
+              $rootScope.imageUploadPercent = 0;
+              $rootScope.inputs.createPollTitle = '';
+              $rootScope.data.addPoll.groupIds = [];
+              $rootScope.data.addPoll.friendIds = [];
             }
           }
         });
