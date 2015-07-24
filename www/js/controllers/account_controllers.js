@@ -64,6 +64,7 @@ angular.module('account.controllers',[])
       }
     });
   };
+
 })
 
 .controller('SignupController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, ngFB) {

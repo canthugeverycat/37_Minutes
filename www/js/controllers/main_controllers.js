@@ -91,4 +91,28 @@ angular.module('main.controllers',[])
       }
     });
   };
+
+
+  //Logs the user out and clears the data
+  $rootScope.logout = function() {
+    console.log('triggered');
+    RESTFunctions.post({
+      url:'logout',
+      data:'Token=' + $rootScope.login.token,
+      callback: function(response) {
+        if (response.error) {
+          //Display an error message
+          InfoHandling.set('logoutFailed', response.error.errorMessage, 2000);
+        } else {
+
+          //Clear the login data
+          localStorage.removeItem('37-mToken');
+          $rootScope.login.token = '';
+
+          //Navigate to login screen
+          $location.path('/login');
+        }
+      }
+    });
+  };
 });
