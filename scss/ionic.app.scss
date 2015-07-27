@@ -24,10 +24,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
-.numberBubble{
-
-}
-
 ion-content{
 
 	color:$dark;
@@ -379,36 +375,6 @@ ion-content{
 	height:200px;
 }
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.userName{
-					font-weight: 500;
-					display: inline-block;
-					font-size: 11pt;
-					padding-left: 72px;
-					padding-top: 20px;
-					text-transform: uppercase;
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.pollQuestion{
-					font-size: 13pt;
-					padding-left:72px; 
-				}
-			}
-		}
-	}
-}
-
 .asked{
 	display: inline-block;
 	position: relative;
@@ -440,18 +406,6 @@ ion-content{
 	border-right: 2px solid #e0e0e0;
 	height: 20px;
 	margin-right: 0;
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				a.subdued{
-					padding-right: 5px;
-				}
-			}
-		}
-	}
 }
 
 .pollMore{
@@ -510,7 +464,51 @@ ion-content{
 	.scroll{
 		.list{
 			.item{
-				.imageContainer{
+				.userName{
+					font-weight: 500;
+					display: inline-block;
+					font-size: 11pt;
+					padding-left: 72px;
+					padding-top: 20px;
+					text-transform: uppercase;
+				}
+				.pollQuestion{
+					font-size: 13pt;
+					padding-left:72px; 
+				}
+				a.subdued{
+					padding-right: 5px;
+				}
+				.imageContainerDefault{
+					.yesContainer{
+						.yes{
+							width:100px;
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+
+						.yesNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 9px;
+							display: inline-block;
+						}
+
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}
 					.noContainer{
 						.no{
 							width:100px;
@@ -520,19 +518,7 @@ ion-content{
 							padding-left: 20px;
 							padding-top: 20px;
 						}
-					}
-				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainer{
-					.noContainer{
 						.noNumber{
 							font-size: 40pt;
 							height:40px;
@@ -542,19 +528,7 @@ ion-content{
 							padding-top: 9px;
 							display: inline-block;
 						}
-					}
-				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainer{
-					.noContainer{
 						.percent{
 							font-size: 18pt;
 							height:40px;
@@ -565,15 +539,7 @@ ion-content{
 						}
 					}
 				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
 				.imageContainer{
 					.yesContainer{
 						.yes{
@@ -584,19 +550,7 @@ ion-content{
 							padding-left: 20px;
 							padding-top: 20px;
 						}
-					}
-				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainer{
-					.yesContainer{
 						.yesNumber{
 							font-size: 40pt;
 							height:40px;
@@ -606,19 +560,37 @@ ion-content{
 							padding-top: 9px;
 							display: inline-block;
 						}
-					}
-				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainer{
-					.yesContainer{
+						.percent{
+							font-size: 18pt;
+							height:40px;
+							font-weight: 300;
+							color: $light;
+							padding-top: 20px;
+							display: inline-block;
+						}
+					}	
+
+					.noContainer{
+						.no{
+							width:100px;
+							font-size: 12pt;
+							font-weight: 600;
+							color: $light;
+							padding-left: 20px;
+							padding-top: 20px;
+						}
+
+						.noNumber{
+							font-size: 40pt;
+							height:40px;
+							font-weight: 400;
+							color: $light;
+							padding-left: 16px;
+							padding-top: 9px;
+							display: inline-block;
+						}
+
 						.percent{
 							font-size: 18pt;
 							height:40px;
@@ -633,6 +605,7 @@ ion-content{
 		}
 	}
 }
+
 
 .item-avatar{
 	margin-top: 10px;
@@ -646,134 +619,6 @@ ion-content{
 	background-position: center;
 	background-size:cover;
 	background-repeat: no-repeat;
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.noContainer{
-						.no{
-							width:100px;
-							font-size: 12pt;
-							font-weight: 600;
-							color: $light;
-							padding-left: 20px;
-							padding-top: 20px;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.noContainer{
-						.noNumber{
-							font-size: 40pt;
-							height:40px;
-							font-weight: 400;
-							color: $light;
-							padding-left: 16px;
-							padding-top: 10px;
-							display: inline-block;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.noContainer{
-						.percent{
-							font-size: 18pt;
-							height:40px;
-							font-weight: 300;
-							color: $light;
-							padding-top: 20px;
-							display: inline-block;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.yesContainer{
-						.yes{
-							width:100px;
-							font-size: 12pt;
-							font-weight: 600;
-							color: $light;
-							padding-left: 20px;
-							padding-top: 20px;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.yesContainer{
-						.yesNumber{
-							font-size: 40pt;
-							height:40px;
-							font-weight: 400;
-							color: $light;
-							padding-left: 16px;
-							padding-top: 10px;
-							display: inline-block;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.list{
-			.item{
-				.imageContainerDefault{
-					.yesContainer{
-						.percent{
-							font-size: 18pt;
-							height:40px;
-							font-weight: 300;
-							color: $light;
-							padding-top: 20px;
-							display: inline-block;
-						}
-					}
-				}
-			}
-		}
-	}
 }
 
 .addIcon{
@@ -798,18 +643,12 @@ ion-content{
 	padding:0;
 }
 
-ion-content{
-	.scroll{
-		.noContent{
-			.noContentIcon{
-				font-size: 48pt;
-				display: inline-block;
-				width:100%;
-				text-align: center;
-				margin-top: 40px;
-			}
-		}
-	}
+.noContentIcon{
+	font-size: 48pt !important;
+	display: inline-block;
+	width:100%;
+	text-align: center;
+	margin-top: 40px;
 }
 
 .noContentTitle{
@@ -1019,7 +858,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   color: #111;
   vertical-align: middle;
   font-size: 14px;
-  line-height: 16px; }
+  line-height: 16px; 
+}
 
 .addGroup{
 	width: 50%;
@@ -1144,12 +984,12 @@ ion-content{
 		.list{
 			a{
 				p{	
-						padding-top: 20px;
-						font-size: 9pt;
-						color: #62666c;
-						float: right;
-						padding-right: 20px;
-						display: inline-block;
+					padding-top: 20px;
+					font-size: 9pt;
+					color: #62666c;
+					float: right;
+					padding-right: 20px;
+					display: inline-block;
 				}
 			}
 		}
@@ -1289,56 +1129,22 @@ ion-content{
 ion-content{
 	.scroll{
 		.imageContainerDetails{
-			.yesContainerDetails{
-				.yes{
-					width:100px;
-					font-size: 14pt;
-					color: $light;
-					padding-top: 20px;
-					padding-left:35px; 
-					margin-bottom: -15px;
-					font-weight: 500;
+			.yesGrey{
+				.yesContainerDetails{
+					.answeredIcon{
+						margin-top:90px;
+					}
 				}
 			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.imageContainerDetails{
-			.yesContainerDetails{
-				.yesNumber{
-					font-size: 40pt;
-					color: $light;
-					padding-left:30px; 
-					display: inline-block;
-					padding-top: 30px;
+			.noGrey{
+				.noContainerDetails{
+					.answeredIcon{
+						margin-top:105px;
+					}
 				}
 			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.imageContainerDetails{
-			.yesContainerDetails{
-				.percent{
-					font-size: 20pt;
-					color: $light;
-					display: inline-block;
-					padding-top: 10px;
-
-				}
-			}
-		}
-	}
-}
-
-ion-content{
-	.scroll{
-		.imageContainerDetails{
 			.noContainerDetails{
 				.no{
 					width:100px;
@@ -1349,15 +1155,7 @@ ion-content{
 					margin-bottom: -15px;
 					font-weight: 500;
 				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.imageContainerDetails{
-			.noContainerDetails{
 				.noNumber{
 					font-size: 40pt;
 					color: $light;
@@ -1365,20 +1163,40 @@ ion-content{
 					display: inline-block;
 					padding-top: 30px;
 				}
-			}
-		}
-	}
-}
 
-ion-content{
-	.scroll{
-		.imageContainerDetails{
-			.noContainerDetails{
 				.percent{
 					font-size: 20pt;
 					color: $light; 
 					display: inline-block;
 					padding-top: 10px;
+				}
+			}
+
+			.yesContainerDetails{
+				.yes{
+					width:100px;
+					font-size: 14pt;
+					color: $light;
+					padding-top: 20px;
+					padding-left:35px; 
+					margin-bottom: -15px;
+					font-weight: 500;
+				}
+
+				.yesNumber{
+					font-size: 40pt;
+					color: $light;
+					padding-left:30px; 
+					display: inline-block;
+					padding-top: 30px;
+				}
+
+				.percent{
+					font-size: 20pt;
+					color: $light;
+					display: inline-block;
+					padding-top: 10px;
+
 				}
 			}
 		}
@@ -1428,34 +1246,6 @@ ion-content{
 
 .detailsContent{
 	.scroll{
-		.imageContainerDetails{
-			.yesGrey{
-				.yesContainerDetails{
-					.answeredIcon{
-						margin-top:90px;
-					}
-				}
-			}
-		}
-	}
-}
-
-.detailsContent{
-	.scroll{
-		.imageContainerDetails{
-			.noGrey{
-				.noContainerDetails{
-					.answeredIcon{
-						margin-top:105px;
-					}
-				}
-			}
-		}
-	}
-}
-
-.detailsContent{
-	.scroll{
 		.item{
 			border-color: transparent;
 		}
@@ -1480,6 +1270,19 @@ ion-content{
 
 .backBtnDetails{
 	font-size: 24pt;
+}
+
+.backBtnDetails:hover{
+	color:$light;
+}
+
+.itemDetails{
+	width: 100%;
+	border-color: transparent;
+}
+
+.detailsFooter{
+	height:100px !important;
 }
 
 /*Settings screen*/

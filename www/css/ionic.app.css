@@ -7967,18 +7967,6 @@ ion-content {
   margin-top: 15px;
   height: 200px; }
 
-ion-content .scroll .list .item .userName {
-  font-weight: 500;
-  display: inline-block;
-  font-size: 11pt;
-  padding-left: 72px;
-  padding-top: 20px;
-  text-transform: uppercase; }
-
-ion-content .scroll .list .item .pollQuestion {
-  font-size: 13pt;
-  padding-left: 72px; }
-
 .asked {
   display: inline-block;
   position: relative;
@@ -8007,9 +7995,6 @@ ion-content .scroll .list .item .pollQuestion {
   border-right: 2px solid #e0e0e0;
   height: 20px;
   margin-right: 0; }
-
-ion-content .scroll .list .item a.subdued {
-  padding-right: 5px; }
 
 .pollMore {
   padding: 8px;
@@ -8056,15 +8041,26 @@ ion-content .scroll .list .item a.subdued {
   position: relative;
   white-space: nowrap; }
 
-ion-content .scroll .list .item .imageContainer .noContainer .no {
+ion-content .scroll .list .item .userName {
+  font-weight: 500;
+  display: inline-block;
+  font-size: 11pt;
+  padding-left: 72px;
+  padding-top: 20px;
+  text-transform: uppercase; }
+ion-content .scroll .list .item .pollQuestion {
+  font-size: 13pt;
+  padding-left: 72px; }
+ion-content .scroll .list .item a.subdued {
+  padding-right: 5px; }
+ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
   width: 100px;
   font-size: 12pt;
   font-weight: 600;
   color: #ffffff;
   padding-left: 20px;
   padding-top: 20px; }
-
-ion-content .scroll .list .item .imageContainer .noContainer .noNumber {
+ion-content .scroll .list .item .imageContainerDefault .yesContainer .yesNumber {
   font-size: 40pt;
   height: 40px;
   font-weight: 400;
@@ -8072,15 +8068,35 @@ ion-content .scroll .list .item .imageContainer .noContainer .noNumber {
   padding-left: 16px;
   padding-top: 9px;
   display: inline-block; }
-
-ion-content .scroll .list .item .imageContainer .noContainer .percent {
+ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
   font-size: 18pt;
   height: 40px;
   font-weight: 300;
   color: #ffffff;
   padding-top: 20px;
   display: inline-block; }
-
+ion-content .scroll .list .item .imageContainerDefault .noContainer .no {
+  width: 100px;
+  font-size: 12pt;
+  font-weight: 600;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-top: 20px; }
+ion-content .scroll .list .item .imageContainerDefault .noContainer .noNumber {
+  font-size: 40pt;
+  height: 40px;
+  font-weight: 400;
+  color: #ffffff;
+  padding-left: 16px;
+  padding-top: 9px;
+  display: inline-block; }
+ion-content .scroll .list .item .imageContainerDefault .noContainer .percent {
+  font-size: 18pt;
+  height: 40px;
+  font-weight: 300;
+  color: #ffffff;
+  padding-top: 20px;
+  display: inline-block; }
 ion-content .scroll .list .item .imageContainer .yesContainer .yes {
   width: 100px;
   font-size: 12pt;
@@ -8088,7 +8104,6 @@ ion-content .scroll .list .item .imageContainer .yesContainer .yes {
   color: #ffffff;
   padding-left: 20px;
   padding-top: 20px; }
-
 ion-content .scroll .list .item .imageContainer .yesContainer .yesNumber {
   font-size: 40pt;
   height: 40px;
@@ -8097,8 +8112,29 @@ ion-content .scroll .list .item .imageContainer .yesContainer .yesNumber {
   padding-left: 16px;
   padding-top: 9px;
   display: inline-block; }
-
 ion-content .scroll .list .item .imageContainer .yesContainer .percent {
+  font-size: 18pt;
+  height: 40px;
+  font-weight: 300;
+  color: #ffffff;
+  padding-top: 20px;
+  display: inline-block; }
+ion-content .scroll .list .item .imageContainer .noContainer .no {
+  width: 100px;
+  font-size: 12pt;
+  font-weight: 600;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-top: 20px; }
+ion-content .scroll .list .item .imageContainer .noContainer .noNumber {
+  font-size: 40pt;
+  height: 40px;
+  font-weight: 400;
+  color: #ffffff;
+  padding-left: 16px;
+  padding-top: 9px;
+  display: inline-block; }
+ion-content .scroll .list .item .imageContainer .noContainer .percent {
   font-size: 18pt;
   height: 40px;
   font-weight: 300;
@@ -8118,56 +8154,6 @@ ion-content .scroll .list .item .imageContainer .yesContainer .percent {
   background-size: cover;
   background-repeat: no-repeat; }
 
-ion-content .scroll .list .item .imageContainerDefault .noContainer .no {
-  width: 100px;
-  font-size: 12pt;
-  font-weight: 600;
-  color: #ffffff;
-  padding-left: 20px;
-  padding-top: 20px; }
-
-ion-content .scroll .list .item .imageContainerDefault .noContainer .noNumber {
-  font-size: 40pt;
-  height: 40px;
-  font-weight: 400;
-  color: #ffffff;
-  padding-left: 16px;
-  padding-top: 10px;
-  display: inline-block; }
-
-ion-content .scroll .list .item .imageContainerDefault .noContainer .percent {
-  font-size: 18pt;
-  height: 40px;
-  font-weight: 300;
-  color: #ffffff;
-  padding-top: 20px;
-  display: inline-block; }
-
-ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
-  width: 100px;
-  font-size: 12pt;
-  font-weight: 600;
-  color: #ffffff;
-  padding-left: 20px;
-  padding-top: 20px; }
-
-ion-content .scroll .list .item .imageContainerDefault .yesContainer .yesNumber {
-  font-size: 40pt;
-  height: 40px;
-  font-weight: 400;
-  color: #ffffff;
-  padding-left: 16px;
-  padding-top: 10px;
-  display: inline-block; }
-
-ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
-  font-size: 18pt;
-  height: 40px;
-  font-weight: 300;
-  color: #ffffff;
-  padding-top: 20px;
-  display: inline-block; }
-
 .addIcon {
   padding-top: 12px; }
 
@@ -8185,8 +8171,8 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .percent {
 .commentsFooter {
   padding: 0; }
 
-ion-content .scroll .noContent .noContentIcon {
-  font-size: 48pt;
+.noContentIcon {
+  font-size: 48pt !important;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -8573,28 +8559,10 @@ ion-content .scroll .list a p {
   width: 40%;
   background-color: rgba(238, 82, 79, 0.7); }
 
-ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
-  width: 100px;
-  font-size: 14pt;
-  color: #ffffff;
-  padding-top: 20px;
-  padding-left: 35px;
-  margin-bottom: -15px;
-  font-weight: 500; }
-
-ion-content .scroll .imageContainerDetails .yesContainerDetails .yesNumber {
-  font-size: 40pt;
-  color: #ffffff;
-  padding-left: 30px;
-  display: inline-block;
-  padding-top: 30px; }
-
-ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
-  font-size: 20pt;
-  color: #ffffff;
-  display: inline-block;
-  padding-top: 10px; }
-
+ion-content .scroll .imageContainerDetails .yesGrey .yesContainerDetails .answeredIcon {
+  margin-top: 90px; }
+ion-content .scroll .imageContainerDetails .noGrey .noContainerDetails .answeredIcon {
+  margin-top: 105px; }
 ion-content .scroll .imageContainerDetails .noContainerDetails .no {
   width: 100px;
   font-size: 14pt;
@@ -8603,15 +8571,32 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .no {
   padding-left: 35px;
   margin-bottom: -15px;
   font-weight: 500; }
-
 ion-content .scroll .imageContainerDetails .noContainerDetails .noNumber {
   font-size: 40pt;
   color: #ffffff;
   padding-left: 30px;
   display: inline-block;
   padding-top: 30px; }
-
 ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
+  font-size: 20pt;
+  color: #ffffff;
+  display: inline-block;
+  padding-top: 10px; }
+ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
+  width: 100px;
+  font-size: 14pt;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-left: 35px;
+  margin-bottom: -15px;
+  font-weight: 500; }
+ion-content .scroll .imageContainerDetails .yesContainerDetails .yesNumber {
+  font-size: 40pt;
+  color: #ffffff;
+  padding-left: 30px;
+  display: inline-block;
+  padding-top: 30px; }
+ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   font-size: 20pt;
   color: #ffffff;
   display: inline-block;
@@ -8651,12 +8636,6 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 .pollQuestionDetails {
   padding-left: 72px; }
 
-.detailsContent .scroll .imageContainerDetails .yesGrey .yesContainerDetails .answeredIcon {
-  margin-top: 90px; }
-
-.detailsContent .scroll .imageContainerDetails .noGrey .noContainerDetails .answeredIcon {
-  margin-top: 105px; }
-
 .detailsContent .scroll .item {
   border-color: transparent; }
 
@@ -8676,6 +8655,16 @@ ion-content .scroll .imageContainerDetails .noContainerDetails .percent {
 
 .backBtnDetails {
   font-size: 24pt; }
+
+.backBtnDetails:hover {
+  color: #ffffff; }
+
+.itemDetails {
+  width: 100%;
+  border-color: transparent; }
+
+.detailsFooter {
+  height: 100px !important; }
 
 /*Settings screen*/
 .settingsContent {
