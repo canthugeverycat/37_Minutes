@@ -46,37 +46,21 @@
 
 	<div class="list commentsContainer">
 		<!-- New notifications (different background color) -->
-		<div class="item item-avatar newNotification">
+		<div class="item item-avatar" ng-repeat="notification in $root.data.notifications">
 		<!-- Notification for answers on poll -->
-			<img src="img/avatar.jpg">
-			<h2 class="userName">PETER JACKSON</h2>
+			<img style="background:url({{notification.activityAuthorImage}}) no-repeat center;background-size:cover;">
+			<h2 class="userName">{{notification.activityAuthorName}}</h2>
 			<p class="commentTime">25 MIN AGO</p>
-			<p class="answeredNotification">ANSWERED NO ON YOUR QUESTION:</p>
-			<p class="answeredPollNotification">A POKKER TONIGHT AT MY PLACE?</p>
-			<img class="noIcon" src="img/no.png">
+			<p class="answeredNotification">ANSWERED {{(notification.userVotedYes === 1 ? 'YES' : 'NO')}} ON QUESTION:</p>
+			<p class="answeredPollNotification">{{notification.question}}</p>
+			<img class="noIcon" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
 		</div>
 		
-		<div class="item item-avatar newNotification">
-			<img src="img/avatar.jpg">
-			<h2 class="userName">PETER JACKSON</h2>
-			<p class="commentTime">25 MIN AGO</p>
-			<p class="answeredNotification">ANSWERED YES ON YOUR QUESTION:</p>
-			<p class="answeredPollNotification">A POKKER TONIGHT AT MY PLACE?</p>
-			<img class="noIcon" src="img/yes.png">
-		</div>
-
 		<!-- Old notifications -->
-		<div class="item item-avatar">
-		<!-- Notification for comment on poll -->
-			<img src="img/avatar.jpg">
-			<h2 class="userName">PETER JACKSON</h2>
-			<p class="commentTime">25 MIN AGO</p>
-			<p class="answeredNotification">COMMENTED ON YOUR QUESTION:</p>
-			<p class="answeredPollNotification">A POKKER TONIGHT AT MY PLACE?</p>
-		</div>
-
-		<div class="item item-avatar">
+		
 		<!-- Invitation to a poll -->
+
+		<!-- <div class="item item-avatar">
 			<img src="img/avatar.jpg">
 			<h2 class="userName">PETER JACKSON</h2>
 			<p class="commentTime">25 MIN AGO</p>
@@ -87,7 +71,7 @@
 				<a class="button button-clear"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
 				<a class="button button-clear"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </ion-content>
