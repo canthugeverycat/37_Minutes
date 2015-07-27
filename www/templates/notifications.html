@@ -36,24 +36,26 @@
 		</div>
 	</div>
 
-<ion-content class="notificationsContent has-header has-tabs-top">
+<ion-content class="notificationsContent has-header has-tabs-top" ng-controller="NotificationsController" ng-init="getNotifications()">
 
 	<!-- Without notifications -->
-	<div class="noContent">
+	<div class="noContent" ng-if="$root.data.notifications.length === 0">
 		<i class="material-icons noContentIcon">notifications_active</i>
 		<p class="noContentTitle">No notifications</p>
 	</div>
 
 	<div class="list commentsContainer">
 		<!-- New notifications (different background color) -->
-		<div class="item item-avatar" ng-repeat="notification in $root.data.notifications">
+		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId)">
 		<!-- Notification for answers on poll -->
-			<img style="background:url({{notification.activityAuthorImage}}) no-repeat center;background-size:cover;">
-			<h2 class="userName">{{notification.activityAuthorName}}</h2>
-			<p class="commentTime">25 MIN AGO</p>
-			<p class="answeredNotification">ANSWERED {{(notification.userVotedYes === 1 ? 'YES' : 'NO')}} ON QUESTION:</p>
-			<p class="answeredPollNotification">{{notification.question}}</p>
-			<img class="noIcon" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
+			<img style="background:url({{notification.authorImage}}) no-repeat center;background-size:cover;">
+			<h2 class="userName">{{notification.authorName}}</h2>
+			<p class="commentTime">{{notification.time | uppercase}}</p>
+			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>
+			<p class="answeredNotification" ng-if="notification.notificationType === 'question'">INVITED YOU TO ANSWER ON QUESTION:</p>
+			<p class="answeredNotification" ng-if="notification.notificationType === 'comment'">COMMENTED ON QUESTION:</p>
+			<p class="answeredPollNotification">{{notification.question | uppercase}}</p>
+			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
 		</div>
 		
 		<!-- Old notifications -->

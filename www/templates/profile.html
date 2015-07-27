@@ -1,8 +1,8 @@
 <ion-view>
 
-<ion-content class="profileContent" has-footer="true" ng-controller="ProfileController" ng-init="getActivityFeed()">
+<ion-content class="profileContent" has-footer="true" ng-controller="ProfileController" ng-init="getActivityFeed();getUserProfile();">
 	
-	<div class="profileContainer">
+	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
 			<a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
 			<a href="#/settings"><i class="material-icons addConfirm light">settings</i></a>
@@ -10,8 +10,8 @@
 			<a href="#/friends"><i class="material-icons addCamera light">group</i></a>
 
 			<div class="item item-avatar profileAvatar">
-				<img class="profileImg" src="img/avatar.jpg">
-				<h2 class="profileName">Peter Jackson</h2>
+				<img class="profileImg" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
+				<h2 class="profileName">{{$root.data.userProfile.profileName}}</h2>
 				<p class="profileQuote light">A truth seeker</p>
 			</div>
 		</div>
