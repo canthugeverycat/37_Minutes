@@ -1,6 +1,7 @@
 <ion-view>
+
 <ion-content class="detailsContent">
-	<div class="imageContainerDetails"ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
+	<div class="imageContainerDetails" ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
 		<div class="yesGrey">
 			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%">
 				<a href="#/polls" class="button backBtnDetails light button-icon ion-android-arrow-back"></a>
@@ -30,7 +31,23 @@
 		</div>
 	</div>
 
-	<div class="item item-avatar">
+	<!-- <div class="item item-avatar itemDetails">
+
+		<img style="background:url({{$root.data.poll.authorImage}}) no-repeat center;background-size:cover;">
+		<h2 class="detailsName">{{$root.data.poll.authorName}}</h2>
+		<p class="detailsAsked">ASKED</p>
+		<i class="material-icons detailsComIcon">speaker_notes</i>
+		<p class="detailsComments">{{$root.data.poll.commentsCount}}</p>
+		<i class="material-icons detailsAnsweredIcon">done_all</i>
+		<p class="detailsAnswered">{{$root.data.poll.votesCount}}</p>
+		
+		<h2 class="pollQuestionDetails">{{$root.data.poll.question}}</h2>
+	</div> -->
+</ion-content>
+
+<ion-footer-bar class="detailsFooter">
+
+	<div class="item item-avatar itemDetails">
 
 		<img style="background:url({{$root.data.poll.authorImage}}) no-repeat center;background-size:cover;">
 		<h2 class="detailsName">{{$root.data.poll.authorName}}</h2>
@@ -42,6 +59,5 @@
 		
 		<h2 class="pollQuestionDetails">{{$root.data.poll.question}}</h2>
 	</div>
-</ion-content>
-
+</ion-footer-bar>
 </ion-view>
