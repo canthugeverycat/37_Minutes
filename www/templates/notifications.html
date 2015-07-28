@@ -54,30 +54,13 @@
 			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'question'">INVITED YOU TO ANSWER ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'comment'">COMMENTED ON QUESTION:</p>
-			<p class="answeredPollNotification">{{notification.question | uppercase}}</p>
+			<p class="answeredPollNotification commentMargin">{{notification.question | uppercase}}</p>
 			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
 			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question'">
 				<a class="button button-clear button-royal"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
 				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false)"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
 			</div>
 		</div>
-		
-		<!-- Old notifications -->
-		
-		<!-- Invitation to a poll -->
-
-		<!-- <div class="item item-avatar">
-			<img src="img/avatar.jpg">
-			<h2 class="userName">PETER JACKSON</h2>
-			<p class="commentTime">25 MIN AGO</p>
-			<p class="answeredNotification">INVITED YOU TO ANSWER ON:</p>
-			<p class="answeredPollNotification">LAS VEGAS FOR THE WEEKEND?</p>
-			<hr class="invitationLine">
-			<div class="button-bar barNotification">
-				<a class="button button-clear"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
-				<a class="button button-clear"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
-			</div>
-		</div> -->
 	</div>
 
 </ion-content>

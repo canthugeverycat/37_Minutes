@@ -384,8 +384,8 @@ ion-content{
 
 .timer{
 	display: inline-block;
-	float: right;
-	position: relative;
+	position: absolute;
+	right: 5px;
 	font-size: 11pt;
 	top:1.4px;
 	padding-top: 20px;
@@ -1300,7 +1300,7 @@ ion-content{
 
 .settingsNameInput{
 	width:100%;
-	height:40px;
+	height:50px !important;
 }
 
 .settingsTagline{
@@ -1312,7 +1312,7 @@ ion-content{
 
 .settingsTaglineInput{
 	width:100%;
-	heighpt:40px;
+	height:50px !important;
 }
 
 .settingsNotification{
@@ -1327,6 +1327,10 @@ ion-content{
 }
 
 /*Notifications screen*/
+
+.commentMargin{
+	margin-bottom: 10px !important;
+}
 
 .notificationsContent{
 	background-color: #ededed;
