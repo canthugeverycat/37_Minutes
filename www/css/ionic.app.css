@@ -7975,8 +7975,8 @@ ion-content {
 
 .timer {
   display: inline-block;
-  float: right;
-  position: relative;
+  position: absolute;
+  right: 5px;
   font-size: 11pt;
   top: 1.4px;
   padding-top: 20px;
@@ -8678,7 +8678,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
 
 .settingsNameInput {
   width: 100%;
-  height: 40px; }
+  height: 50px !important; }
 
 .settingsTagline {
   padding-top: 10px;
@@ -8688,7 +8688,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
 
 .settingsTaglineInput {
   width: 100%;
-  heighpt: 40px; }
+  height: 50px !important; }
 
 .settingsNotification {
   padding-top: 10px;
@@ -8700,6 +8700,9 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   top: 10px; }
 
 /*Notifications screen*/
+.commentMargin {
+  margin-bottom: 10px !important; }
+
 .notificationsContent {
   background-color: #ededed; }
 
