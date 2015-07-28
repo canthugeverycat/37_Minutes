@@ -8,7 +8,7 @@ angular.module('poll.controllers',[])
       $rootScope.data.polls === undefined ? null : $rootScope.getPollList(($rootScope.data.polls.length / 10), true);
       $scope.$broadcast('scroll.infiniteScrollComplete');
 
-      console.log('scrollEnd');
+      //console.log('scrollEnd');
     };
 
     $scope.$on('$stateChangeSuccess', function() {
@@ -28,8 +28,8 @@ angular.module('poll.controllers',[])
       //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
     } else {
-      console.log('files');
-      console.log(files);
+      //console.log('files');
+      //console.log(files);
 
       //Iterate through selected groups of friends and pull the ids out
       for (x in $rootScope.data.addPoll.friends){
@@ -82,8 +82,8 @@ angular.module('poll.controllers',[])
             $rootScope.data.addPoll.friendIds = [];
           }
         }).error(function (response) {
-            console.log('Error:');
-            console.log(data);
+            //console.log('Error:');
+            //console.log(data);
 
             //Clear the data
             $rootScope.imageUploadPercent = 0;
@@ -132,9 +132,9 @@ angular.module('poll.controllers',[])
 
   //Grab the list of polls (can also trigger on pull-to-refresh)
   $rootScope.getPollList = function(page, pushBool) {
-    console.log(page);
-    console.log('pushBool: ' + pushBool);
-    console.log('entered fn');
+    //console.log(page);
+    //console.log('pushBool: ' + pushBool);
+    //console.log('entered fn');
 
     //Stop ionic infinite scroll from loading
     $rootScope.loadingPolls = true;
@@ -147,14 +147,14 @@ angular.module('poll.controllers',[])
           //Dispaly an error message
           InfoHandling.set('getPollListFailed',response.error.errorMessage,2000);
         } else {
-          console.log('pushBool' + pushBool);
+          //console.log('pushBool' + pushBool);
           if (pushBool === true) {
-            console.log($rootScope.data.polls);
-            console.log(response.questions);
+            //console.log($rootScope.data.polls);
+            //console.log(response.questions);
             //Push the new data to polls array
             for (i = 0; i < response.questions.length; i++){
               $rootScope.data.polls.push(response.questions[i]);
-              console.log('pushing');
+              //console.log('pushing');
             }
           } else if (pushBool === undefined || pushBool === false) {
             //Clear the old polls and display new ones
