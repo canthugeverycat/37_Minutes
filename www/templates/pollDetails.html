@@ -4,7 +4,7 @@
 	<div class="imageContainerDetails" ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
 		<div class="yesGrey">
 			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%">
-				<a href="#/polls" class="button backBtnDetails light button-icon ion-android-arrow-back"></a>
+				<a class="button backBtnDetails light button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 				<p class="yes light">YES</p>
 				<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
 				<p class="percent light">%</p>

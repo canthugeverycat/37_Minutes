@@ -2,7 +2,7 @@
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
-		<a href="#" class="button backBtn button-icon ion-android-arrow-back"></a>
+		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Profile</h1>
 		<a href="#" class="button settingsDoneBtn button-icon"><i class="material-icons">check</i></a>
 	</ion-header-bar>
@@ -18,7 +18,7 @@
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="material-icons" ng-class="{'royal':$root.data.newNotifications}">notifications_active</i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">

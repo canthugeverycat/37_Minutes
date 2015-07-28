@@ -4,7 +4,7 @@
 	
 	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
-			<a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
+			<a><i class="material-icons addBack light" ng-click="$root.goBack()">arrow_back</i></a>
 			<a href="#/settings"><i class="material-icons addConfirm light">settings</i></a>
 			<i class="material-icons addCamera light">camera_alt</i>
 			<a href="#/friends"><i class="material-icons addCamera light">group</i></a>

@@ -2,7 +2,7 @@
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
-		<a href="#" class="button backBtn button-icon ion-android-arrow-back"></a>
+		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Notifications</h1>
 		<a ng-click="$root.logout()" class="button" style="border:none;top:6px;font-size:14px;">Logout</a>
 	</ion-header-bar>
@@ -54,7 +54,7 @@
 			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'question'">INVITED YOU TO ANSWER ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'comment'">COMMENTED ON QUESTION:</p>
-			<p class="answeredPollNotification commentMargin">{{notification.question | uppercase}}</p>
+			<p class="answeredPollNotification" ng-class="{'commentMargin':notification.notificationType === 'comment'}">{{notification.question | uppercase}}</p>
 			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
 			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question'">
 				<a class="button button-clear button-royal"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>

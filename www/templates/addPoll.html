@@ -6,7 +6,7 @@
 
 	<ion-content class="addPollContent">
 
-		<a href="#/polls"><i class="material-icons addBack light">arrow_back</i></a>
+		<a><i class="material-icons addBack light" ng-click="$root.goBack()">arrow_back</i></a>
 		<i class="material-icons addConfirm light" ng-click="createPoll(files)" ng-if="$root.imageUploadPercent === 0">check</i>
 		<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
 		<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>

@@ -11,6 +11,13 @@ angular.module('notifications.controllers',[])
 				if (!response.error) {
 					//Store the data
 					$rootScope.data.notifications = response.notifications;
+
+					$rootScope.data.newNotifications = 0;
+					//Iterate over received data and check for new notifications
+					for (i = 0; i < response.notifications.length; i++) {
+						//Increase the integer up
+						response.notifications[i].read === 0 ? $rootScope.data.newNotifications ++ : null;
+					}
 				} else {
 					//Display an error message
 					InfoHandling.set('getNotificationsFailed', response.error.errorMessage, 2000);

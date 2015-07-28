@@ -1,6 +1,6 @@
 angular.module('main.controllers',[])
 
-.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate) {
+.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate, $ionicHistory) {
   //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
@@ -67,6 +67,12 @@ angular.module('main.controllers',[])
   //Navigate to the passed screen
   $rootScope.navigate = function(url) {
     $location.path(url);
+  };
+
+  //Go back one screen
+  $rootScope.goBack = function() {
+    $ionicHistory.goBack();
+    console.log('going back');
   };
 
 

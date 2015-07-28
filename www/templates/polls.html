@@ -2,7 +2,7 @@
 
 	<!-- First time user tutorial -->
  
- 	<div class="doubleTapOverlay overlay-animate" ng-dblclick="removeOverlay()" ng-if="$root.login.firstTime === '1'">
+ 	<div class="doubleTapOverlay comment-animate" ng-dblclick="removeOverlay()" ng-if="$root.login.firstTime === '1'">
 		<p class="doubleTapTxt light">Double tap on YES or NO to vote</p>
 		<img class="doubleTapIcon" src="img/doubleTap.png">
 	</div>
@@ -10,7 +10,7 @@
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
-		<a href="#" class="button backBtn button-icon ion-android-arrow-back"></a>
+		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Polls</h1>
 		<a ng-click="$root.logout()" class="button" style="border:none;top:6px;font-size:14px;">Logout</a>
 	</ion-header-bar>
@@ -26,7 +26,7 @@
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="material-icons" ng-class="{'royal':$root.data.newNotifications}">notifications_active</i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">
