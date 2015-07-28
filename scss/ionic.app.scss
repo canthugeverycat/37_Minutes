@@ -167,6 +167,9 @@ ion-content{
 	padding: 0;
 }
 
+.userRow{
+	margin-top: 15px;
+}
 
 /*Onboarding cards*/
 
@@ -379,18 +382,12 @@ ion-content{
 	display: inline-block;
 	position: relative;
 	font-size: 11pt;
-	top:2.3px;
+	bottom:0.4px;
 }
 
 .timer{
-	border:1px solid black;
-	display:block;
-	position: absolute;
-	right: 5px;
 	font-size: 11pt;
-	top:0.4px;
-	padding-top: 20px;
-	padding-right: 8px;
+	float: right;
 }
 
 .pollComments{
@@ -470,7 +467,6 @@ ion-content{
 					display: inline-block;
 					font-size: 11pt;
 					padding-left: 72px;
-					padding-top: 20px;
 					text-transform: uppercase;
 				}
 				.pollQuestion{
@@ -1328,6 +1324,10 @@ ion-content{
 }
 
 /*Notifications screen*/
+
+.userNameMargin{
+	margin-top: 22px !important;
+}
 
 .commentMargin{
 	margin-bottom: 10px !important;
