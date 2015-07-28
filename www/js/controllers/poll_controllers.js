@@ -2,7 +2,18 @@ angular.module('poll.controllers',[])
 
 
 .controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload) {
+    $rootScope.loadingPolls = false;
 
+    $scope.loadMorePolls = function() {
+      $rootScope.data.polls === undefined ? null : $rootScope.getPollList(($rootScope.data.polls.length / 10), true);
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+
+      console.log('scrollEnd');
+    };
+
+    $scope.$on('$stateChangeSuccess', function() {
+      $scope.loadMorePolls();
+    });
   
   //Remove the first time user overlay
   $scope.removeOverlay = function() {
@@ -120,7 +131,13 @@ angular.module('poll.controllers',[])
 
 
   //Grab the list of polls (can also trigger on pull-to-refresh)
-  $rootScope.getPollList = function(page) {
+  $rootScope.getPollList = function(page, pushBool) {
+    console.log(page);
+    console.log('pushBool: ' + pushBool);
+    console.log('entered fn');
+
+    //Stop ionic infinite scroll from loading
+    $rootScope.loadingPolls = true;
 
     RESTFunctions.post({
       url:'get-question-list',
@@ -130,9 +147,23 @@ angular.module('poll.controllers',[])
           //Dispaly an error message
           InfoHandling.set('getPollListFailed',response.error.errorMessage,2000);
         } else {
-          //Clear the old polls and display new ones
-          $rootScope.data.polls = [];
-          $rootScope.data.polls = response.questions;
+          console.log('pushBool' + pushBool);
+          if (pushBool === true) {
+            console.log($rootScope.data.polls);
+            console.log(response.questions);
+            //Push the new data to polls array
+            for (i = 0; i < response.questions.length; i++){
+              $rootScope.data.polls.push(response.questions[i]);
+              console.log('pushing');
+            }
+          } else if (pushBool === undefined || pushBool === false) {
+            //Clear the old polls and display new ones
+            $rootScope.data.polls = [];
+            $rootScope.data.polls = response.questions;
+          }
+
+          //Enable ionic infinite scroll
+          $rootScope.loadingPolls = false;
           
           //Stop the ion-refresher (pull-to-refresh) from spinning
           $scope.$broadcast('scroll.refreshComplete');
@@ -140,30 +171,7 @@ angular.module('poll.controllers',[])
       }
     });
   };
-
-  
-  //Grab a single poll item
-  $scope.getPollItem = function(questionId, redirect) {
-
-    //If we are supposed to navigate to pollDetails screen
-    redirect === true ? null : $location.path('/pollDetails');
-
-    RESTFunctions.post({
-      url:'get-question',
-      data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
-      callback: function(response) {
-        if (response.error) {
-          //Display an error message
-          InfoHandling.set('getPollItemFailed',response.error.errorMessage,2000);
-        } else {
-          //Store the poll details
-          $rootScope.data.poll = response.question;
-        }
-      }
-    });
-  };
-
-  
+ 
   //If you're on the /poll screen grab the list of polls
   $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
 

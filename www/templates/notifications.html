@@ -46,7 +46,7 @@
 
 	<div class="list commentsContainer">
 		<!-- New notifications (different background color) -->
-		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId)">
+		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId);notification.notificationType === 'vote' ? $root.getPollItem(notification.questionId, false) : null">
 		<!-- Notification for answers on poll -->
 			<img style="background:url({{notification.authorImage}}) no-repeat center;background-size:cover;">
 			<h2 class="userName">{{notification.authorName}}</h2>
@@ -56,6 +56,10 @@
 			<p class="answeredNotification" ng-if="notification.notificationType === 'comment'">COMMENTED ON QUESTION:</p>
 			<p class="answeredPollNotification">{{notification.question | uppercase}}</p>
 			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
+			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question'">
+				<a class="button button-clear button-royal"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
+				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false)"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
+			</div>
 		</div>
 		
 		<!-- Old notifications -->

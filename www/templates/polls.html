@@ -95,10 +95,16 @@
 			</div>
 		</div>
 
-		<a class="subdued pollVotes" ng-click="getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);getPollItem(poll.questionId, true);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
-		<a><i class="material-icons pollMore stable" ng-click="getPollItem(poll.questionId)">more_horiz</i></a>
+		<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, true);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
+		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
+
+	<ion-infinite-scroll
+		ng-if="$root.loadingPolls === false"
+		immediate-check="false" 
+		on-infinite="loadMorePolls()">
+	</ion-infinite-scroll>
 
 </div>
 

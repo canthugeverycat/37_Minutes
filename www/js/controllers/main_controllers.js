@@ -95,7 +95,6 @@ angular.module('main.controllers',[])
 
   //Logs the user out and clears the data
   $rootScope.logout = function() {
-    console.log('triggered');
     RESTFunctions.post({
       url:'logout',
       data:'Token=' + $rootScope.login.token,
@@ -111,6 +110,27 @@ angular.module('main.controllers',[])
 
           //Navigate to login screen
           $location.path('/login');
+        }
+      }
+    });
+  };
+
+  //Grab a single poll item
+  $rootScope.getPollItem = function(questionId, redirect) {
+
+    //If we are supposed to navigate to pollDetails screen
+    redirect === true ? null : $location.path('/pollDetails');
+
+    RESTFunctions.post({
+      url:'get-question',
+      data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
+      callback: function(response) {
+        if (response.error) {
+          //Display an error message
+          InfoHandling.set('getPollItemFailed',response.error.errorMessage,2000);
+        } else {
+          //Store the poll details
+          $rootScope.data.poll = response.question;
         }
       }
     });
