@@ -7971,14 +7971,15 @@ ion-content {
   display: inline-block;
   position: relative;
   font-size: 11pt;
-  top: 1.4px; }
+  top: 2.3px; }
 
 .timer {
-  display: inline-block;
+  border: 1px solid black;
+  display: block;
   position: absolute;
   right: 5px;
   font-size: 11pt;
-  top: 1.4px;
+  top: 0.4px;
   padding-top: 20px;
   padding-right: 8px; }
 
