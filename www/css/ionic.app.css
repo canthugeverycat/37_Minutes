@@ -7682,6 +7682,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.col {
+  border: 1px solid red; }
+
 ion-content {
   color: #444; }
 
