@@ -24,7 +24,7 @@
 	<div class="item item-avatar" ng-repeat="activity in $root.data.activityFeed">
 		<img style="background:url({{activity.activityAuthorImage}}) no-repeat center;background-size:cover;">
 		<div class="row userRow">
-			<div class="col">
+			<div class="col col-offset-10">
 				<h2 class="userName">{{activity.activityAuthorName}}</h2>
 				<p class="asked">{{activity.activityType === 'vote' ? 'VOTED ON' : ''}}{{activity.activityType === 'question' ? 'ASKED' : ''}}{{activity.activityType === 'comment' ? 'COMMENTED ON' : ''}}</p>
 			</div>

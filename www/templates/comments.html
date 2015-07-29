@@ -60,7 +60,7 @@
 					<p class="commentTime">{{comment.time.split(' ')[1] === 'sec' ? 'Just now' : comment.time}}</p>
 				</div>
 			</div>
-			<p class="comment">{{comment.comment}}</p>
+			<p class="comment commentMargin">{{comment.comment}}</p>
 			<img class="noIcon" src="img/no.png" ng-if="comment.userVotedNo === 1">
 			<img class="yesIcon" src="img/yes.png" ng-if="comment.userVotedYes === 1">
 		</div>

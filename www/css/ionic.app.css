@@ -7804,6 +7804,9 @@ ion-content {
 .col-offset-10 {
   margin-left: 16%; }
 
+.bar .title.title-left {
+  left: 40px !important; }
+
 /*Onboarding cards*/
 .cardIcon {
   font-size: 96pt !important;
@@ -8049,7 +8052,8 @@ ion-content .scroll .list .item .userName {
   text-transform: uppercase; }
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
-  padding-left: 72px; }
+  padding-left: 72px;
+  margin-top: -5px; }
 ion-content .scroll .list .item a.subdued {
   padding-right: 5px; }
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
@@ -8191,7 +8195,6 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   margin-left: auto; }
 
 .comment {
-  margin-bottom: 10px !important;
   padding-left: 72px; }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
@@ -8214,9 +8217,6 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   font-size: 11pt;
   padding-right: 10px;
   color: #b6c3c9; }
-
-.comment {
-  padding-right: 20px; }
 
 .commentsContent {
   background-color: #ededed; }

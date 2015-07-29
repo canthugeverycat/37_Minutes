@@ -176,6 +176,10 @@ ion-content{
     padding-right: 
 }
 
+.bar .title.title-left {
+    left:40px !important;
+}
+
 /*Onboarding cards*/
 
 .cardIcon{
@@ -476,6 +480,7 @@ ion-content{
 				.pollQuestion{
 					font-size: 13pt;
 					padding-left:72px; 
+					margin-top: -5px;
 				}
 				a.subdued{
 					padding-right: 5px;
@@ -668,7 +673,6 @@ ion-content{
 }
 
 .comment{
-	margin-bottom: 10px !important;
 	padding-left: 72px;
 }
 
@@ -695,10 +699,6 @@ ion-content{
 	font-size: 11pt;
 	padding-right: 10px;
 	color: #b6c3c9;
-}
-
-.comment{
-	padding-right: 20px;
 }
 
 .commentsContent{
