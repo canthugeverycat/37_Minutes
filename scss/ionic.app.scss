@@ -24,10 +24,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
-.col{
-	border:1px solid red;
-}
-
 ion-content{
 
 	color:$dark;
@@ -173,6 +169,11 @@ ion-content{
 
 .userRow{
 	margin-top: 15px;
+}
+
+.col-offset-10 {
+    margin-left: 16%;
+    padding-right: 
 }
 
 /*Onboarding cards*/
@@ -470,7 +471,6 @@ ion-content{
 					font-weight: 500;
 					display: inline-block;
 					font-size: 11pt;
-					padding-left: 72px;
 					text-transform: uppercase;
 				}
 				.pollQuestion{
@@ -668,6 +668,7 @@ ion-content{
 }
 
 .comment{
+	margin-bottom: 10px !important;
 	padding-left: 72px;
 }
 
@@ -690,18 +691,13 @@ ion-content{
 }
 
 .commentTime{
-	display: inline-block;
 	float: right;
-	position: relative;
 	font-size: 11pt;
-	top:1.4px;
-	padding-top: 20px;
-	padding-right: 8px;
+	padding-right: 10px;
 	color: #b6c3c9;
 }
 
 .comment{
-	padding-top: 5px;
 	padding-right: 20px;
 }
 
@@ -1329,9 +1325,9 @@ ion-content{
 
 /*Notifications screen*/
 
-.userNameMargin{
+/*.userNameMargin{
 	margin-top: 22px !important;
-}
+}*/
 
 .commentMargin{
 	margin-bottom: 10px !important;

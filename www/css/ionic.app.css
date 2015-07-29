@@ -7682,9 +7682,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.col {
-  border: 1px solid red; }
-
 ion-content {
   color: #444; }
 
@@ -7803,6 +7800,9 @@ ion-content {
 
 .userRow {
   margin-top: 15px; }
+
+.col-offset-10 {
+  margin-left: 16%; }
 
 /*Onboarding cards*/
 .cardIcon {
@@ -8046,7 +8046,6 @@ ion-content .scroll .list .item .userName {
   font-weight: 500;
   display: inline-block;
   font-size: 11pt;
-  padding-left: 72px;
   text-transform: uppercase; }
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
@@ -8192,6 +8191,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   margin-left: auto; }
 
 .comment {
+  margin-bottom: 10px !important;
   padding-left: 72px; }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
@@ -8210,17 +8210,12 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   padding-right: 5px; }
 
 .commentTime {
-  display: inline-block;
   float: right;
-  position: relative;
   font-size: 11pt;
-  top: 1.4px;
-  padding-top: 20px;
-  padding-right: 8px;
+  padding-right: 10px;
   color: #b6c3c9; }
 
 .comment {
-  padding-top: 5px;
   padding-right: 20px; }
 
 .commentsContent {
@@ -8700,9 +8695,9 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   top: 10px; }
 
 /*Notifications screen*/
-.userNameMargin {
-  margin-top: 22px !important; }
-
+/*.userNameMargin{
+	margin-top: 22px !important;
+}*/
 .commentMargin {
   margin-bottom: 10px !important; }
 
