@@ -72,7 +72,6 @@ angular.module('main.controllers',[])
   //Go back one screen
   $rootScope.goBack = function() {
     $ionicHistory.goBack();
-    console.log('going back');
   };
 
 
