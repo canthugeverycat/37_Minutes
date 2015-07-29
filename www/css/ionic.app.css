@@ -7682,6 +7682,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.col {
+  border: 1px solid red; }
+
 ion-content {
   color: #444; }
 
@@ -7797,6 +7800,9 @@ ion-content {
 
 .scroll {
   padding: 0; }
+
+.userRow {
+  margin-top: 15px; }
 
 /*Onboarding cards*/
 .cardIcon {
@@ -7971,17 +7977,11 @@ ion-content {
   display: inline-block;
   position: relative;
   font-size: 11pt;
-  top: 2.3px; }
+  bottom: 0.4px; }
 
 .timer {
-  border: 1px solid black;
-  display: block;
-  position: absolute;
-  right: 5px;
   font-size: 11pt;
-  top: 0.4px;
-  padding-top: 20px;
-  padding-right: 8px; }
+  float: right; }
 
 .pollComments {
   font-size: 11pt;
@@ -8047,7 +8047,6 @@ ion-content .scroll .list .item .userName {
   display: inline-block;
   font-size: 11pt;
   padding-left: 72px;
-  padding-top: 20px;
   text-transform: uppercase; }
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
@@ -8701,6 +8700,9 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   top: 10px; }
 
 /*Notifications screen*/
+.userNameMargin {
+  margin-top: 22px !important; }
+
 .commentMargin {
   margin-bottom: 10px !important; }
 

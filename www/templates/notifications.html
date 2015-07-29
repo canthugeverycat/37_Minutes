@@ -49,7 +49,7 @@
 		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId);notification.notificationType === 'vote' ? $root.getPollItem(notification.questionId, false) : null">
 		<!-- Notification for answers on poll -->
 			<img style="background:url({{notification.authorImage}}) no-repeat center;background-size:cover;">
-			<h2 class="userName">{{notification.authorName}}</h2>
+			<h2 class="userName userNameMargin">{{notification.authorName}}</h2>
 			<p class="commentTime">{{notification.time | uppercase}}</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'question'">INVITED YOU TO ANSWER ON QUESTION:</p>
