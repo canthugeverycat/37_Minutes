@@ -321,7 +321,6 @@ ion-content{
 	font-size: 10pt;
 	margin-top: 30px;
 	text-align: center;
-	margin-left: 10px;
 }
 
 /*Polls screen*/
@@ -865,6 +864,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 /*Friends screen*/
 
+.noContentIconMargin{
+	margin-top: 0px !important;
+}
+
 .footerFriends{
 	padding:0 !important;
 }
@@ -950,16 +953,21 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .importFb{
-	margin-top: 10px;
-	width:60%;
+	margin-top: 20px;
+	width:70%;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	border: none;
+	border-radius: 0;
+
 }
 
 .importGoogle{
+	border: none;
+	border-radius: 0;
 	margin-top: 10px;
-	width:60%;
+	width:70%;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -1342,6 +1350,7 @@ ion-content{
 	color:#b6c3c9;
 	opacity: 0.6;
 	font-weight: 500;
+	margin-bottom: 5px !important;
 }
 
 .answeredPollNotification{
@@ -1349,6 +1358,7 @@ ion-content{
 	font-weight: 500;
 	color:$dark;
 	font-size: 11pt;
+	margin-bottom: 5px !important;
 }
 
 .invitationLine{
