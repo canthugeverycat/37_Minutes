@@ -26,7 +26,7 @@
 				<i class="material-icons">group</i>
 			</a>
 		
-			<a class="tab-item" href="#/profile">
+			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed()">
 				<i class="material-icons">person</i>
 			</a>
 		
@@ -86,7 +86,7 @@
 		</div>
 
 		<div class="list">
-    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index">
+    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId)">
       			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->

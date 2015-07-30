@@ -137,7 +137,7 @@ angular.module('poll.controllers',[])
     //console.log('entered fn');
 
     //Stop ionic infinite scroll from loading
-    $rootScope.loadingPolls = true;
+    $rootScope.loaders.polls = true;
 
     RESTFunctions.post({
       url:'get-question-list',
@@ -163,7 +163,7 @@ angular.module('poll.controllers',[])
           }
 
           //Enable ionic infinite scroll
-          $rootScope.loadingPolls = false;
+          $rootScope.loaders.polls = false;
           
           //Stop the ion-refresher (pull-to-refresh) from spinning
           $scope.$broadcast('scroll.refreshComplete');
@@ -186,25 +186,6 @@ angular.module('poll.controllers',[])
 
     //Grab the list of polls
     $rootScope.getPollList();
-  };
-
-
-  //Vote on a specific poll
-  $scope.voteOnPoll = function(pollId, vote) {
-
-    RESTFunctions.post({
-      url:'vote',
-      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
-      callback: function(response) {
-        if (response.error) {
-          //Display an error message
-          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
-        } else {
-          //Properly transition the voting options bars
-          $scope.pollTransitionBars(pollId);
-        }
-      }
-    });
   };
 
   //Get a specific poll and transition its' bars smoothy

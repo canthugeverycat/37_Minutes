@@ -21,7 +21,7 @@ angular.module('friends.controllers',[])
 	$scope.inviteFriend = function() {
 		RESTFunctions.post({
 			url:'invite-friend',
-			data:'Token=' + $rootScope.login.token + '&friendsMail=testotron@gmail.com',
+			data:'Token=' + $rootScope.login.token + '&friendsMail=nini.grbic@gmail.com',
 			callback: function(response) {
 				console.log(response);
 			}

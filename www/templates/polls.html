@@ -33,7 +33,7 @@
 				<i class="material-icons">group</i>
 			</a>
 		
-			<a class="tab-item" href="#/profile">
+			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed()">
 				<i class="material-icons">person</i>
 			</a>
 		
@@ -62,7 +62,7 @@
 	</ion-refresher>
 
 <div class="list">
-
+		
 	<!-- Active poll -->
 	<div class="item item-avatar poll-animate" ng-class="{'overlay':poll.timeLeft === 0}" ng-repeat="poll in $root.data.polls track by $index">
 		<img style="background:url({{poll.authorImage}}) no-repeat center;background-size:cover;">
@@ -100,7 +100,7 @@
 		</div>
 
 		<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, true);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
 		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(poll.questionId)">more_horiz</i></a>
 	</div>
 

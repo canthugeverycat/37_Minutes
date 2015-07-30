@@ -12,6 +12,7 @@ angular.module('main.controllers',[])
   $rootScope.data.addPoll.groups === undefined ? $rootScope.data.addPoll.groups = [] : null;
   $rootScope.data.addPoll.groupIds === undefined ? $rootScope.data.addPoll.groupIds = [] : null;
   $rootScope.imageUploadPercent = 0;
+  $rootScope.loaders === undefined ? $rootScope.loaders = {} : null;
 
   //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];
@@ -81,6 +82,7 @@ angular.module('main.controllers',[])
     //Navigate to comments screen
     $location.path('/comments');
 
+    $rootScope.getPollItem(pollId);
     RESTFunctions.post({
       url:'get-comments',
       data:'Token=' + $rootScope.login.token + '&questionId=' + pollId,
@@ -178,6 +180,62 @@ angular.module('main.controllers',[])
         } else {
           //Display an info message
           InfoHandling.set('acceptFriendRequestFailed', response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
+
+  //Get the user's profile info
+  $rootScope.getUserProfile = function(profileId) {
+    console.log('getUserProfile ' + profileId);
+    //Redirect the user
+    profileId !== undefined ? $rootScope.navigate('/profile') : null;
+
+    RESTFunctions.post({
+      url:'profile',
+      data:'Token=' + $rootScope.login.token + '&userId=' + profileId,
+      callback: function(response) {
+        if (!response.error) {
+          //Store the data
+          $rootScope.data.userProfile = response.profile;
+        } else {
+          //Display an error
+          InfoHandling.set('getUserProfileFailed', response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
+
+  //Get the user's activity feed
+  $rootScope.getActivityFeed = function(userId) {
+    RESTFunctions.post({
+      url:'activity-feed',
+      data:'Token=' + $rootScope.login.token + '&userId=' + userId,
+      callback: function(response) {
+        if (!response.error) {
+          //Store the data
+          $rootScope.data.activityFeed = response.activity;
+        } else {
+          //Display an error
+          InfoHandling.set('getActivityFeed', response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
+
+  //Vote on a specific poll
+  $rootScope.voteOnPoll = function(pollId, vote) {
+
+    RESTFunctions.post({
+      url:'vote',
+      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
+      callback: function(response) {
+        if (response.error) {
+          //Display an error message
+          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
+        } else {
+          //Properly transition the voting options bars
+          $scope.pollTransitionBars(pollId);
         }
       }
     });
