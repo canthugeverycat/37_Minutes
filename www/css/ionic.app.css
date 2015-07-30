@@ -7922,8 +7922,7 @@ ion-content {
 .signUpTerms {
   font-size: 10pt;
   margin-top: 30px;
-  text-align: center;
-  margin-left: 10px; }
+  text-align: center; }
 
 /*Polls screen*/
 .doubleTapOverlay {
@@ -8349,6 +8348,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   background-color: #c62828; }
 
 /*Friends screen*/
+.noContentIconMargin {
+  margin-top: 0px !important; }
+
 .footerFriends {
   padding: 0 !important; }
 
@@ -8418,15 +8420,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   background-color: #ededed; }
 
 .importFb {
-  margin-top: 10px;
-  width: 60%;
+  margin-top: 20px;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  display: block; }
+  display: block;
+  border: none;
+  border-radius: 0; }
 
 .importGoogle {
+  border: none;
+  border-radius: 0;
   margin-top: 10px;
-  width: 60%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   display: block; }
@@ -8708,13 +8714,15 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   margin-left: 75px;
   color: #b6c3c9;
   opacity: 0.6;
-  font-weight: 500; }
+  font-weight: 500;
+  margin-bottom: 5px !important; }
 
 .answeredPollNotification {
   margin-left: 75px;
   font-weight: 500;
   color: #444;
-  font-size: 11pt; }
+  font-size: 11pt;
+  margin-bottom: 5px !important; }
 
 .invitationLine {
   margin-top: 10px;
