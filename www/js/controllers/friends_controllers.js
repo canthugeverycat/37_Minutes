@@ -21,7 +21,7 @@ angular.module('friends.controllers',[])
 	$scope.inviteFriend = function() {
 		RESTFunctions.post({
 			url:'invite-friend',
-			data:'Token=' + $rootScope.login.token + '&friendId=14',
+			data:'Token=' + $rootScope.login.token + '&friendsMail=testotron@gmail.com',
 			callback: function(response) {
 				console.log(response);
 			}
@@ -144,7 +144,6 @@ angular.module('friends.controllers',[])
 		});
 	};
 
-
 	//Delete a group from the list
 	$rootScope.deleteGroup = function(groupId) {
 
@@ -166,28 +165,23 @@ angular.module('friends.controllers',[])
 		});
 	};
 
-
 	//Add friends and groups to addPoll arrays
 	$scope.addFriendsToPoll = function(friend, group) {
 		if (friend !== null) {
 			//If selected friend is already in the array
 			if ($rootScope.data.addPoll.friends.indexOf(friend) === -1) {
-				console.log('Friend not in array');
 				//Add him to the array
 				$rootScope.data.addPoll.friends.push(friend);
 			} else {
-				console.log('Friend in array');
 				//Remove him from the array
 				$rootScope.data.addPoll.friends.splice($rootScope.data.addPoll.friends.indexOf(friend),1);
 			}
 		} else {
 			//If selected group is already in the array
 			if ($rootScope.data.addPoll.groups.indexOf(group) === -1) {
-				console.log('Group not in array');
 				//Add him to the array
 				$rootScope.data.addPoll.groups.push(group);
 			} else {
-				console.log('Group in array');
 				//Remove him from the array
 				$rootScope.data.addPoll.groups.splice($rootScope.data.addPoll.groups.indexOf(group),1);
 			}
@@ -207,5 +201,25 @@ angular.module('friends.controllers',[])
 			//And push their ids
 			$rootScope.data.addPoll.names.push($rootScope.data.addPoll.groups[y].groupName);
 		}
+	};
+
+	//Remove a friend from friend list
+	$scope.removeFriend = function(friendId) {
+		RESTFunctions.post({
+			url:'remove-friend',
+			data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,
+			callback: function(response) {
+				if (!response.error) {
+					//Display an info message
+					InfoHandling.set('removeFriendSuccessful', response.Message, 2000, 'bg-energized');
+
+					//Update the friends list
+					$scope.getFriendsList();
+				} else {
+					//Display an error message
+					InfoHandling.set('removeFriendFailed', response.error.errorMessage, 2000);
+				}
+			}
+		});
 	};
 });

@@ -87,10 +87,10 @@
 
 		<div class="list">
     		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index">
-      			<img ng-src="{{friend.friendImage}}">
+      			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="material-icons friendsClose">close</i>
+      			<i class="material-icons friendsClose" ng-click="removeFriend(friend.friendId);">close</i>
    			</a>
 		</div>
 
@@ -100,7 +100,7 @@
 	<div class="barGroup">
 		<a class="button button-clear barButton" href="#/newGroup"><i class="material-icons barIcon">group_add</i></a>
 	</div>
-	<div class="barFriend">
+	<div class="barFriend" ng-click="inviteFriend()">
 		<a class="button button-clear barButton" href="#/inviteFriends"><i class="material-icons barIcon">person_add</i></a>
 	</div>
 </ion-footer-bar>

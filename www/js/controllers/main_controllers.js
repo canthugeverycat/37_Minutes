@@ -140,4 +140,46 @@ angular.module('main.controllers',[])
       }
     });
   };
+
+  //Grab the list of notifications
+  $rootScope.getNotifications = function() {
+    RESTFunctions.post({
+      url:'notifications',
+      data:'Token=' + $rootScope.login.token,
+      callback: function(response) {
+        if (!response.error) {
+          //Store the data
+          $rootScope.data.notifications = response.notifications;
+
+          $rootScope.data.newNotifications = 0;
+          //Iterate over received data and check for new notifications
+          for (i = 0; i < response.notifications.length; i++) {
+            //Increase the integer up
+            response.notifications[i].read === 0 ? $rootScope.data.newNotifications ++ : null;
+          }
+        } else {
+          //Display an error message
+          InfoHandling.set('getNotificationsFailed', response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
+
+  //Accept a friend request
+  $rootScope.acceptFriendRequest = function(friendId, acceptInvite, notificationId) {
+    console.log('Accepting ' + notificationId + 'with ' + acceptInvite + ' for ' + friendId);
+    RESTFunctions.post({
+      url:'accept-request',
+      data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,
+      callback: function(response) {
+        if (!response.error) {
+          //Display an error message
+          InfoHandling.set('acceptFriendRequestSuccessful',response.Message, 2000, 'bg-energized');
+        } else {
+          //Display an info message
+          InfoHandling.set('acceptFriendRequestFailed', response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
 });

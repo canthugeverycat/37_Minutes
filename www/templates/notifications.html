@@ -36,7 +36,7 @@
 		</div>
 	</div>
 
-<ion-content class="notificationsContent has-header has-tabs-top" ng-controller="NotificationsController" ng-init="getNotifications()">
+<ion-content class="notificationsContent has-header has-tabs-top" ng-controller="NotificationsController" ng-init="$root.getNotifications()">
 
 	<!-- Without notifications -->
 	<div class="noContent" ng-if="$root.data.notifications.length === 0">
@@ -46,9 +46,9 @@
 
 	<div class="list commentsContainer">
 		<!-- New notifications (different background color) -->
-		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId);notification.notificationType === 'vote' ? $root.getPollItem(notification.questionId, false) : null">
+		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId);notification.notificationType === 'vote' ? $root.getPollItem(notification.questionId, false) : null;notification.notificationType === 'comment' ? $root.getComments(notification.questionId) : null;">
 		<!-- Notification for answers on poll -->
-			<img style="background:url({{notification.authorImage}}) no-repeat center;background-size:cover;">
+			<img style="background:url({{notification.authorImage !== '' ? notification.authorImage : 'img/default_avatar.png'}}) no-repeat center;background-size:cover;">
 			<div class="row userRow">
 				<div class="col col-offset-10">
 					<h2 class="userName userNameMargin">{{notification.authorName}}</h2>
@@ -60,11 +60,16 @@
 			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'question'">INVITED YOU TO ANSWER ON QUESTION:</p>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'comment'">COMMENTED ON QUESTION:</p>
+			<p class="answeredNotification" ng-if="notification.notificationType === 'friendRequest'">WANTS TO BE YOUR FRIEND</p>
 			<p class="answeredPollNotification" ng-class="{'commentMargin':notification.notificationType === 'comment'}">{{notification.question | uppercase}}</p>
 			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
-			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question'">
-				<a class="button button-clear button-royal"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
-				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false)"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
+			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question' && notification.read === 0">
+				<a class="button button-clear button-royal" ng-click="seenNotification(notification.notificationId)"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
+				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false);seenNotification(notification.notificationId, true);"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
+			</div>
+			<div class="button-bar barNotification" ng-if="notification.notificationType === 'friendRequest' && notification.read === 0">
+				<a class="button button-clear button-royal" ng-click="seenNotification(notification.notificationId)"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
+				<a class="button button-clear button-calm" ng-click="seenNotification(notification.notificationId);$root.acceptFriendRequest(notification.authorId, true, notification.notificationId)"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 
 <ion-content class="profileContent" has-footer="true" ng-controller="ProfileController" ng-init="getActivityFeed();getUserProfile();">
 	
-	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
+	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImageBig}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
 			<a><i class="material-icons addBack light" ng-click="$root.goBack()">arrow_back</i></a>
 			<a href="#/settings"><i class="material-icons addConfirm light">settings</i></a>
@@ -12,7 +12,7 @@
 			<div class="item item-avatar profileAvatar">
 				<img class="profileImg" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
 				<h2 class="profileName">{{$root.data.userProfile.profileName}}</h2>
-				<p class="profileQuote light">A truth seeker</p>
+				<p class="profileQuote light">{{$root.data.userProfile.tagLine}}</p>
 			</div>
 		</div>
 	</div>
@@ -58,7 +58,7 @@
 		</div>
 		<a class="subdued pollVotes" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.votesCount}} VOTES</a>
 		<a class="subdued pollComments" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.commentsCount}} COMMENTS</a>
-		<a><i class="material-icons pollMore stable">more_horiz</i></a>
+		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(activity.questionId, false);">more_horiz</i></a>
 	</div>
 </div>
 </ion-content>
