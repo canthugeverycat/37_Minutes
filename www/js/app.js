@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','directives','main.controllers','account.controllers','notifications.controllers','poll.controllers','comments.controllers','friends.controllers','profile.controllers','social.controllers','canthugeverycat.services','ngOpenFB','ngAnimate','ngFileUpload'])
+angular.module('starter', ['ionic','directives','main.controllers','account.controllers','notifications.controllers','poll.controllers','comments.controllers','friends.controllers','profile.controllers','social.controllers','ngOpenFB','canthugeverycat.services','ngAnimate','ngFileUpload'])
 
-.run(function($ionicPlatform, ngFB) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,9 +18,9 @@ angular.module('starter', ['ionic','directives','main.controllers','account.cont
   }); 
 })
 
-.run(function ($ionicPlatform, ngFB) {
-  ngFB.init({appId: '717820615014962'});
-})
+// .run(function ($ionicPlatform, ngFB) {
+//   ngFB.init({appId: '717820615014962'});
+// })
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.views.swipeBackEnabled(false);
