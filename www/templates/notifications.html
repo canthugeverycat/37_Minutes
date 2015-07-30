@@ -45,6 +45,8 @@
 	</div>
 
 	<div class="list commentsContainer">
+		<ion-spinner ng-if="$root.data.notifications.length === 0" spinner="ios-small" style="display:block;text-align:center;margin-top:20px;"></ion-spinner>
+
 		<!-- New notifications (different background color) -->
 		<div class="item item-avatar" ng-class="{'newNotification':notification.read === 0}" ng-repeat="notification in $root.data.notifications" ng-click="seenNotification(notification.notificationId);notification.notificationType === 'vote' ? $root.getPollItem(notification.questionId, false) : null;notification.notificationType === 'comment' ? $root.getComments(notification.questionId) : null;">
 		<!-- Notification for answers on poll -->
@@ -54,7 +56,7 @@
 					<h2 class="userName userNameMargin">{{notification.authorName}}</h2>
 				</div>
 				<div class="col">
-					<p class="commentTime">{{notification.time | uppercase}}</p>
+					<p class="commentTime">{{notification.time.split(' ')[1] === 'sec' ? 'JUST NOW' : notification.time | uppercase}}</p>
 				</div>
 			</div>
 			<p class="answeredNotification" ng-if="notification.notificationType === 'vote'">ANSWERED {{notification.userVotedYes === 1 ? 'YES' : null}} {{notification.userVotedNo === 1 ? 'NO' : null}} ON QUESTION:</p>

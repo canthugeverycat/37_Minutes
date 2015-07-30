@@ -20,46 +20,49 @@
 	<p class="actFeed">ACTIVITY FEED</p>
 
 	<div class="list">
-	<!-- Active poll -->
-	<div class="item item-avatar" ng-repeat="activity in $root.data.activityFeed">
-		<img style="background:url({{activity.activityAuthorImage}}) no-repeat center;background-size:cover;">
-		<div class="row userRow">
-			<div class="col col-offset-10">
-				<h2 class="userName">{{activity.activityAuthorName}}</h2>
-				<p class="asked">{{activity.activityType === 'vote' ? 'VOTED ON' : ''}}{{activity.activityType === 'question' ? 'ASKED' : ''}}{{activity.activityType === 'comment' ? 'COMMENTED ON' : ''}}</p>
-			</div>
-			<div class="col col-25"><p class="timer">25 MIN. LEFT</p></div>
-		</div>
-		<h2 class="pollQuestion">{{activity.question}}</h2>
-		<!-- Comment -->
-		<p class="comment" ng-if="activity.comment !== ''">{{activity.comment}}</p>
-		<!-- Poll image -->
-		<div class="imageContainer" style="background:url({{activity.imageUrl}}) no-repeat center;background-size:cover;" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">
 
-			<div class="yesGrey">
-			<!-- Yes votes  -->
-				<div class="yesContainer" style="width:{{activity.votesYes}}%">
-					<p class="yes light">YES</p>
-					<p class="yesNumber light">{{activity.votesYes}}</p>
-					<p class="percent light">%</p>
-					<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedYes === 1">
+		<ion-spinner spinner="ios-small" style="display:block;text-align:center;margin-top:20px;" ng-if="$root.data.activityFeed === undefined"></ion-spinner>
+		
+		<!-- Active poll -->
+		<div class="item item-avatar comment-animate" ng-repeat="activity in $root.data.activityFeed">
+			<img style="background:url({{activity.activityAuthorImage}}) no-repeat center;background-size:cover;">
+			<div class="row userRow">
+				<div class="col col-offset-10">
+					<h2 class="userName">{{activity.activityAuthorName}}</h2>
+					<p class="asked">{{activity.activityType === 'vote' ? 'VOTED ON' : ''}}{{activity.activityType === 'question' ? 'ASKED' : ''}}{{activity.activityType === 'comment' ? 'COMMENTED ON' : ''}}</p>
+				</div>
+				<div class="col col-25"><p class="timer">25 MIN. LEFT</p></div>
+			</div>
+			<h2 class="pollQuestion">{{activity.question}}</h2>
+			<!-- Comment -->
+			<p class="comment" ng-if="activity.comment !== ''">{{activity.comment}}</p>
+			<!-- Poll image -->
+			<div class="imageContainer" style="background:url({{activity.imageUrl}}) no-repeat center;background-size:cover;" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">
+
+				<div class="yesGrey">
+				<!-- Yes votes  -->
+					<div class="yesContainer" style="width:{{activity.votesYes}}%">
+						<p class="yes light">YES</p>
+						<p class="yesNumber light">{{activity.votesYes}}</p>
+						<p class="percent light">%</p>
+						<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedYes === 1">
+					</div>
+				</div>
+
+				<div class="noGrey">
+				<!-- No votes -->
+					<div class="noContainer" style="width:{{activity.votesNo}}%">
+						<p class="no">NO</p>
+						<p class="noNumber">{{activity.votesNo}}</p>
+						<p class="percent">%</p>
+						<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedNo === 1">
+					</div>
 				</div>
 			</div>
-
-			<div class="noGrey">
-			<!-- No votes -->
-				<div class="noContainer" style="width:{{activity.votesNo}}%">
-					<p class="no">NO</p>
-					<p class="noNumber">{{activity.votesNo}}</p>
-					<p class="percent">%</p>
-					<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedNo === 1">
-				</div>
-			</div>
+			<a class="subdued pollVotes" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.votesCount}} VOTES</a>
+			<a class="subdued pollComments" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.commentsCount}} COMMENTS</a>
+			<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(activity.questionId, false);$root.navigate('/pollDetails')">more_horiz</i></a>
 		</div>
-		<a class="subdued pollVotes" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.votesCount}} VOTES</a>
-		<a class="subdued pollComments" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.commentsCount}} COMMENTS</a>
-		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(activity.questionId, false);">more_horiz</i></a>
-	</div>
 </div>
 </ion-content>
 

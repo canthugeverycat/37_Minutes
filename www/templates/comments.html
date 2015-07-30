@@ -49,7 +49,7 @@
 
 	<div class="list commentsContainer" ng-if="$root.data.pollComments.length > 0">
 
-		<!-- Negative comment -->
+		<!-- Comment -->
 		<div class="item item-avatar" ng-repeat="comment in $root.data.pollComments track by $index" ng-class="{'new-comment-animate':comment.time.split(' ')[1] === 'sec' && $index === 0}">
 			<img style="background:url({{comment.userImage}}) no-repeat center;background-size:cover;">
 			<div class="row userRow">
@@ -71,7 +71,8 @@
 <ion-footer-bar class="bar-stable commentsFooter">
   <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)" autofocus>
  <!-- Send msg button --> 
-  <i class="material-icons enterIcon" ng-click="leaveComment($root.data.poll.questionId)">check</i>
+  <i class="material-icons enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true">check</i>
+  <ion-spinner spinner="ios-small" ng-if="$root.loaders.leaveComment === true" style="right:13px;position:absolute;top:15px;"></ion-spinner>
 </ion-footer-bar>
 
 </ion-view>

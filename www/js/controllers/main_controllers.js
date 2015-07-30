@@ -13,6 +13,7 @@ angular.module('main.controllers',[])
   $rootScope.data.addPoll.groupIds === undefined ? $rootScope.data.addPoll.groupIds = [] : null;
   $rootScope.imageUploadPercent = 0;
   $rootScope.loaders === undefined ? $rootScope.loaders = {} : null;
+  $rootScope.navigateIndex = 0
 
   //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];
@@ -57,8 +58,14 @@ angular.module('main.controllers',[])
   	}
   };
 
+  setInterval(function () {
+    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
+    $rootScope.navigateCSS = ($rootScope.navigateIndex * 20) + '%';
+  },100);
+
   //Go to the specific page (triggers on swipe function)
   $rootScope.navigateGoTo = function(direction) {
+    direction === '.navGoRight' ? $rootScope.navigationindex = ($scope.navigationUrls.indexOf($location.path()) + 1) : ($scope.navigationUrls.indexOf($location.path()) - 1);
 
     //Grab the url from href attribute of an <a> tag
   	$location.path('/' + angular.element(document.querySelector(direction)).attr('href').split('/')[1]);
@@ -125,9 +132,6 @@ angular.module('main.controllers',[])
   //Grab a single poll item
   $rootScope.getPollItem = function(questionId, redirect) {
 
-    //If we are supposed to navigate to pollDetails screen
-    redirect === true ? null : $location.path('/pollDetails');
-
     RESTFunctions.post({
       url:'get-question',
       data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
@@ -145,6 +149,11 @@ angular.module('main.controllers',[])
 
   //Grab the list of notifications
   $rootScope.getNotifications = function() {
+
+    //Clear the data
+    $rootScope.data.notifications = [];
+    $rootScope.data.newNotifications = 0;
+    
     RESTFunctions.post({
       url:'notifications',
       data:'Token=' + $rootScope.login.token,
@@ -187,7 +196,6 @@ angular.module('main.controllers',[])
 
   //Get the user's profile info
   $rootScope.getUserProfile = function(profileId) {
-    console.log('getUserProfile ' + profileId);
     //Redirect the user
     profileId !== undefined ? $rootScope.navigate('/profile') : null;
 

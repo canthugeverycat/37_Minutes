@@ -7,8 +7,6 @@ angular.module('poll.controllers',[])
     $scope.loadMorePolls = function() {
       $rootScope.data.polls === undefined ? null : $rootScope.getPollList(($rootScope.data.polls.length / 10), true);
       $scope.$broadcast('scroll.infiniteScrollComplete');
-
-      //console.log('scrollEnd');
     };
 
     $scope.$on('$stateChangeSuccess', function() {

@@ -19,7 +19,7 @@
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons" ng-class="{'royal':$root.data.newNotifications}">notifications_active</i>
+				<i class="material-icons">notifications_active</i>
 			</a>
 		
 			<a class="tab-item active" href="#/friends">
@@ -42,7 +42,7 @@
 	<p class="groupsTitle">GROUPS</p>
 
 		<!-- Without groups -->
-		<div class="noContent" ng-if="$root.data.groups.length === 0">
+		<div class="noContent comment-animate" ng-if="$root.data.groups.length === 0">
 			<i class="material-icons noContentIcon">group</i>
 			<p class="noContentTitle">You haven't created a group yet</p>
 			<p class="noContentSubtitle">After you create one it will be shown here</p>
@@ -78,7 +78,7 @@
 
 	<p class="groupsTitle">YOUR FRIENDS</p>
 
-		<!-- Without friends -->
+		<!-- No friends -->
 		<div class="noContent" ng-if="$root.data.friendsList.length === 0">
 			<i class="material-icons noContentIcon">person</i>
 			<p class="noContentTitle">You have no friends</p>

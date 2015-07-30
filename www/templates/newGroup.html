@@ -36,26 +36,19 @@
 
 		</div>
 	</div>
-
 <ion-content class="newGroupContent has-header has-tabs-top">
 	<p class="groupsTitle">GROUP NAME</p>
 	<input class="editGroupName" type="text" placeholder="Enter the name of the group" ng-model="$root.inputs.newGroupName" ng-enter="$root.createNewGroup()">
 
-	<p class="groupsTitle">A</p>
+	<p class="groupsTitle">YOUR FRIENDS</p>
 
 	<div class="list">
-
-    	<a class="item item-avatar friendsList" href="#">
-      		<img src="img/avatar.jpg">
-      		<h2 class="friendsName">Aronda Doe</h2>	
-      		<i class="material-icons friendsClose">add</i>
-   			</a>
-
-   		<a class="item item-avatar friendsList" href="#">
-      		<img src="img/avatar.jpg">
-      		<h2  class="friendsName">Amanda Ipsum</h2>
-      		<i class="material-icons friendsClose">add</i>
-   		</a>
+   		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId)">
+  			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
+  			<h2 class="friendsName">{{friend.friendName}}</h2>
+  			<!-- Delete button -->
+  			<i class="material-icons friendsClose" ng-click="removeFriend(friend.friendId);">close</i>
+		</a>
 	</div>
 </ion-content>
 </ion-view>

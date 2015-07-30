@@ -26,7 +26,7 @@
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons" ng-class="{'royal':$root.data.newNotifications}">notifications_active</i>
+				<i class="material-icons">notifications_active</i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">
@@ -43,6 +43,8 @@
 
 		</div>
 	</div>
+
+	
 
 <ion-content class="pollsContent has-header has-tabs-top">
 
@@ -99,16 +101,16 @@
 			</div>
 		</div>
 
-		<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId)">{{poll.usersVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase()">{{poll.commentsCount}} COMMENTS</a>
-		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(poll.questionId)">more_horiz</i></a>
+		<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.usersVoted + 0}} VOTES</a>
+		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase();$root.navigate('/comments')">{{poll.commentsCount}} COMMENTS</a>
+		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">more_horiz</i></a>
 	</div>
 
-	<!-- <ion-infinite-scroll
+	<ion-infinite-scroll
 		ng-if="$root.loadingPolls === false"
 		immediate-check="false" 
 		on-infinite="loadMorePolls()">
-	</ion-infinite-scroll> -->
+	</ion-infinite-scroll>
 
 </div>
 
