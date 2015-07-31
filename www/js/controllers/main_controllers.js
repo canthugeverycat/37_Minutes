@@ -208,6 +208,8 @@ angular.module('main.controllers',[])
         if (!response.error) {
           //Store the data
           $rootScope.data.userProfile = response.profile;
+          $rootScope.inputs.newName = response.profile.firstName + ' ' + response.profile.lastName;
+          $rootScope.inputs.newTagline = response.profile.tagLine;
         } else {
           //Display an error
           InfoHandling.set('getUserProfileFailed', response.error.errorMessage, 2000);

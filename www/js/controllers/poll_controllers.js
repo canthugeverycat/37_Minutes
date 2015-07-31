@@ -26,8 +26,6 @@ angular.module('poll.controllers',[])
       //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
     } else {
-      //console.log('files');
-      //console.log(files);
 
       //Iterate through selected groups of friends and pull the ids out
       for (x in $rootScope.data.addPoll.friends){
