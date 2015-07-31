@@ -36,18 +36,20 @@
 
 		</div>
 	</div>
-<ion-content class="newGroupContent has-header has-tabs-top">
+<ion-content class="newGroupContent has-header has-tabs-top" ng-controller="FriendsController">
 	<p class="groupsTitle">GROUP NAME</p>
 	<input class="editGroupName" type="text" placeholder="Enter the name of the group" ng-model="$root.inputs.newGroupName" ng-enter="$root.createNewGroup()">
 
 	<p class="groupsTitle">YOUR FRIENDS</p>
 
 	<div class="list">
-   		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId)">
+   		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.data.friendsInNewGroup.indexOf(friend.friendId) === -1 ? addFriendToNewGroup(friend.friendId) : removeFriendFromNewGroup(friend.friendId)">
   			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
   			<h2 class="friendsName">{{friend.friendName}}</h2>
-  			<!-- Delete button -->
-  			<i class="material-icons friendsClose" ng-click="removeFriend(friend.friendId);">close</i>
+
+  			<!-- Delete/add button -->
+  			<i class="material-icons friendsClose" ng-if="$root.data.friendsInNewGroup.indexOf(friend.friendId) === -1">add</i>
+  			<i class="material-icons friendsClose" ng-if="$root.data.friendsInNewGroup.indexOf(friend.friendId) !== -1">close</i>
 		</a>
 	</div>
 </ion-content>

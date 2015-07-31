@@ -13,7 +13,8 @@ angular.module('main.controllers',[])
   $rootScope.data.addPoll.groupIds === undefined ? $rootScope.data.addPoll.groupIds = [] : null;
   $rootScope.imageUploadPercent = 0;
   $rootScope.loaders === undefined ? $rootScope.loaders = {} : null;
-  $rootScope.navigateIndex = 0
+  $rootScope.navigateIndex = 0;
+  $rootScope.data.friendsInNewGroup = [];
 
   //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];

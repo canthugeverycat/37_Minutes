@@ -96,6 +96,20 @@ angular.module('friends.controllers',[])
 		});
 	};
 
+	//Add a friend to a new group
+	$scope.addFriendToNewGroup = function(friendId) {
+		$rootScope.data.friendsInNewGroup.push(friendId);
+		console.log('Added friend in new group');
+		console.log($rootScope.data.friendsInNewGroup);
+	};
+
+	//Remove a friend from a new group
+	$scope.removeFriendFromNewGroup = function(friendId) {
+		$rootScope.data.friendsInNewGroup.splice($rootScope.data.friendsInNewGroup.indexOf(friendId), 1);
+		console.log('Removed friend from new group');
+		console.log($rootScope.data.friendsInNewGroup);
+	};
+
 	//Remove a friend from the group
 	$rootScope.removeFriendFromGroup = function(groupId, friendId) {
 
@@ -120,28 +134,36 @@ angular.module('friends.controllers',[])
 	//Create a new group
 	$rootScope.createNewGroup = function() {
 
-		RESTFunctions.post({
-			url:'create-group',
-			data:'Token=' + $rootScope.login.token + '&groupName=' + $rootScope.inputs.newGroupName,
-			callback: function(response) {
-				if (response.error) {
-					//Display an error message
-					InfoHandling.set('createNewGroupFailed', response.error.errorMessage, 2000);
-				} else {
-					//Display a success message
-					InfoHandling.set('createNewGroupSuccessful', response.Message, 2000, 'bg-energized');
+		if ($rootScope.inputs.newGroupName === ('' || undefined)){
+			InfoHandling.set('createNewGroupFailed', "You can't leave the group name empty.", 2000);
+		} else {
 
-					//Refresh the group list to properly display the newly created group
-					$scope.getGroups();
+			RESTFunctions.post({
+				url:'create-group',
+				data:'Token=' + $rootScope.login.token + '&groupName=' + $rootScope.inputs.newGroupName + '&Users=' + $rootScope.data.friendsInNewGroup.toString(),
+				callback: function(response) {
+					if (response.error) {
+						//Display an error message
+						InfoHandling.set('createNewGroupFailed', response.error.errorMessage, 2000);
+					} else {
+						//Display a success message
+						InfoHandling.set('createNewGroupSuccessful', response.Message, 2000, 'bg-energized');
 
-					//Go back to friends screen
-					$location.path('/friends');
+						//Refresh the group list to properly display the newly created group
+						$scope.getGroups();
+
+						//Go back to friends screen
+						$location.path('/friends');
+
+						//And clear the data
+						$rootScope.data.friendsInNewGroup = [];
+					}
+
+					//Clear the group name input
+					$rootScope.inputs.newGroupName = '';
 				}
-
-				//Clear the group name input
-				$rootScope.inputs.newGroupName = '';
-			}
-		});
+			});
+		}
 	};
 
 	//Delete a group from the list
