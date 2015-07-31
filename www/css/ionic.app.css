@@ -8294,16 +8294,19 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
       position: absolute; }
 
 .addBack {
-  margin-top: 20px;
+  font-size: 24pt !important;
+  margin-top: 10px;
   margin-left: 15px; }
 
 .addCamera {
-  margin-top: 20px;
+  font-size: 24pt !important;
+  margin-top: 10px;
   float: right;
   margin-right: 25px; }
 
 .addConfirm {
-  margin-top: 20px;
+  font-size: 24pt !important;
+  margin-top: 10px;
   margin-right: 20px;
   float: right; }
 
