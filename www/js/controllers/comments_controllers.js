@@ -15,6 +15,9 @@ angular.module('comments.controllers',[])
 
 			//Display an error message
 			InfoHandling.set('leaveCommentFailed', "You can't send out an empty comment", 2000);
+
+			//Hide the loader
+			$rootScope.loaders.leaveComment = false;
 		} else {
 			//Store the parameter in a global var so we can use it in a callback
 			var pollId = pollId;

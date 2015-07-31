@@ -43,7 +43,7 @@
 
 		<!-- Without groups -->
 		<div class="noContent comment-animate" ng-if="$root.data.groups.length === 0">
-			<i class="material-icons noContentIcon">group</i>
+			<i class="material-icons noContentIcon noContentIconMargin">group</i>
 			<p class="noContentTitle">You haven't created a group yet</p>
 			<p class="noContentSubtitle">After you create one it will be shown here</p>
 		</div>
@@ -80,17 +80,17 @@
 
 		<!-- No friends -->
 		<div class="noContent" ng-if="$root.data.friendsList.length === 0">
-			<i class="material-icons noContentIcon">person</i>
+			<i class="material-icons noContentIcon noContentIconMargin">person</i>
 			<p class="noContentTitle">You have no friends</p>
 			<p class="noContentSubtitle">Invite friends so you can share polls with them</p>
 		</div>
 
 		<div class="list">
-    		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId)">
+    		<a class="item item-avatar friendsList comment-animate" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId);">
       			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="material-icons friendsClose" ng-click="removeFriend(friend.friendId);">close</i>
+      			<i class="material-icons friendsClose" ng-click="removeFriend(friend.friendId, $event);">close</i>
    			</a>
 		</div>
 

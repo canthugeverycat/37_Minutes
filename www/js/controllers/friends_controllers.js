@@ -98,16 +98,16 @@ angular.module('friends.controllers',[])
 
 	//Add a friend to a new group
 	$scope.addFriendToNewGroup = function(friendId) {
+		
+		//Push the passed friendId to the friends in new group array
 		$rootScope.data.friendsInNewGroup.push(friendId);
-		console.log('Added friend in new group');
-		console.log($rootScope.data.friendsInNewGroup);
 	};
 
 	//Remove a friend from a new group
 	$scope.removeFriendFromNewGroup = function(friendId) {
+
+		//Slice the passed friendId from the friends in new group array
 		$rootScope.data.friendsInNewGroup.splice($rootScope.data.friendsInNewGroup.indexOf(friendId), 1);
-		console.log('Removed friend from new group');
-		console.log($rootScope.data.friendsInNewGroup);
 	};
 
 	//Remove a friend from the group
@@ -226,7 +226,11 @@ angular.module('friends.controllers',[])
 	};
 
 	//Remove a friend from friend list
-	$scope.removeFriend = function(friendId) {
+	$scope.removeFriend = function(friendId, event) {
+
+		//Don't redirect the user
+		event.stopPropagation();
+
 		RESTFunctions.post({
 			url:'remove-friend',
 			data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,

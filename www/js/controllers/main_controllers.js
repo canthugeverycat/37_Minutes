@@ -133,6 +133,8 @@ angular.module('main.controllers',[])
   //Grab a single poll item
   $rootScope.getPollItem = function(questionId, redirect) {
 
+    redirect !== undefined ? $rootScope.navigate('/pollDetails') : null;
+
     RESTFunctions.post({
       url:'get-question',
       data:'Token=' + $rootScope.login.token + '&questionId=' + questionId,
@@ -179,7 +181,6 @@ angular.module('main.controllers',[])
 
   //Accept a friend request
   $rootScope.acceptFriendRequest = function(friendId, acceptInvite, notificationId) {
-    console.log('Accepting ' + notificationId + 'with ' + acceptInvite + ' for ' + friendId);
     RESTFunctions.post({
       url:'accept-request',
       data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,
@@ -244,7 +245,7 @@ angular.module('main.controllers',[])
           InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
         } else {
           //Properly transition the voting options bars
-          $scope.pollTransitionBars(pollId);
+          $rootScope.pollTransitionBars(pollId);
         }
       }
     });

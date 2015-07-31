@@ -1,10 +1,11 @@
-<ion-view>
+<ion-view ng-controller="SettingsController">
 	<!-- Header -->
 
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Profile</h1>
-		<a href="#" class="button settingsDoneBtn button-icon"><i class="material-icons">check</i></a>
+		<a href="#" class="button settingsDoneBtn button-icon" ng-click="editSettings()"><i class="material-icons">check</i></a>
+		<ion-spinner class="button settingsDoneBtn button-icon" spinner="ios-small" ng-if="$root.loaders.editingSettings === true"></ion-spinner>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -38,31 +39,31 @@
 <ion-content class="settingsContent has-header has-tabs-top">
 	<!-- Change profile name -->
 	<p class="settingsName">YOUR NAME VISIBLE TO OTHERS</p>
-	<input class="settingsNameInput" type="text" placeholder="Your name"> 
+	<input class="settingsNameInput" type="text" placeholder="Your name" ng-model="$root.inputs.newName"> 
 	<!-- Add description -->
 	<p class="settingsTagline">TAGLINE</p>
-	<input class="settingsTaglineInput" type="text" placeholder="Describe yourself"> 
+	<input class="settingsTaglineInput" type="text" placeholder="Describe yourself" ng-model="$root.inputs.newTagline">
 
 	<!-- Notifications settings -->
 	<p class="settingsNotification">NOTIFICATIONS</p>
 
 	<div class="list">
-		<label class="item item-radio">
-			<input checked type="radio" name="group">
+		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 0">
+			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 0">
 			<div class="item-content">
 				All
 			</div>
 			<i class="radio-icon material-icons">check</i>
 		</label>
-		<label class="item item-radio">
-			<input type="radio" name="group">
+		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 1">
+			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 1">
 			<div class="item-content">
 				Summary only
 			</div>
 			<i class="radio-icon material-icons">check</i>
 		</label>
-		<label class="item item-radio">
-			<input type="radio" name="group">
+		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 2">
+			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 2">
 			<div class="item-content">
 				None
 			</div>

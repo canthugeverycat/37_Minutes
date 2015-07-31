@@ -1,7 +1,7 @@
 angular.module('poll.controllers',[])
 
 
-.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload) {
+.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload, $ionicScrollDelegate) {
     $rootScope.loadingPolls = false;
 
     $scope.loadMorePolls = function() {
@@ -130,9 +130,6 @@ angular.module('poll.controllers',[])
 
   //Grab the list of polls (can also trigger on pull-to-refresh)
   $rootScope.getPollList = function(page, pushBool) {
-    //console.log(page);
-    //console.log('pushBool: ' + pushBool);
-    //console.log('entered fn');
 
     //Stop ionic infinite scroll from loading
     $rootScope.loaders.polls = true;
@@ -165,6 +162,9 @@ angular.module('poll.controllers',[])
           
           //Stop the ion-refresher (pull-to-refresh) from spinning
           $scope.$broadcast('scroll.refreshComplete');
+
+          //Refresh the view
+          $ionicScrollDelegate.resize();
         }
       }
     });
@@ -175,7 +175,7 @@ angular.module('poll.controllers',[])
 
   //Grab the list of polls every 30 seconds (if you're on the poll screen)
   setInterval(function () {
-    $location.path() === '/polls' ? $rootScope.getPollList(0) : null;
+    $location.path() === '/polls' && $rootScope.data.polls.length < 11 ? $rootScope.getPollList(0) : null;
   },30000);
 
   
@@ -187,7 +187,7 @@ angular.module('poll.controllers',[])
   };
 
   //Get a specific poll and transition its' bars smoothy
-  $scope.pollTransitionBars = function(pollId) {
+  $rootScope.pollTransitionBars = function(pollId) {
 
     RESTFunctions.post({
       url:'get-question',
