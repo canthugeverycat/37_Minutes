@@ -28,6 +28,8 @@ angular.module('main.controllers',[])
 
   	//Store the current screen
   	navigationIndex = $scope.navigationUrls.indexOf($location.path());
+    
+    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
 
   	//If the current screen is first
   	if (navigationIndex === 0) {
@@ -46,6 +48,8 @@ angular.module('main.controllers',[])
 
   	//Store the current screen
   	navigationIndex = $scope.navigationUrls.indexOf($location.path());
+
+    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
 
   	//If the current screen is last
   	if (navigationIndex === $scope.navigationUrls.length - 1) {
