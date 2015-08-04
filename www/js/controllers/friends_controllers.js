@@ -275,15 +275,15 @@ angular.module('friends.controllers',[])
     		//Create an empty contacts array
     		$rootScope.data.contacts = [];
 
+    		//Go through every contact
     		for (i = 0; i < result.length; i++){
-    			//Push the email ones into the array
-    			result[i].emails.length > 0 ? $rootScope.data.contacts.push(result[i]) : null;
+
+    			//And display only the ones with emails
+    			if (result[i].emails !== null) {
+    				$rootScope.data.contacts.push(result[i]);
+    			}
     		}
-    		
-    		console.log($rootScope.data.contacts);
-	    }, function(error) {
-	        console.log("ERROR: " + error);
-	    });
+	    }, function() {});
     }
     $scope.getContactList();
 });
