@@ -22,23 +22,23 @@
 		<div class="tabs">
 
 			<a class="tab-item active" href="#/polls">
-				<i class="material-icons">textsms</i>
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">
-				<i class="material-icons">group</i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="material-icons">person</i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/settings">
-				<i class="material-icons">settings</i>
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>
@@ -50,7 +50,7 @@
 
 	<!-- Without polls -->
 	<div class="noContent" ng-if="$root.data.polls.length === 0">
-		<i class="material-icons noContentIcon">view_list</i>
+		<i class="ion-android-list noContentIcon"></i>
 		<p class="noContentTitle">There are no polls to show</p>
 		<p class="noContentSubtitle">Post new poll or invite friends to see theirs</p>
 	</div>
@@ -101,9 +101,15 @@
 			</div>
 		</div>
 
-		<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.userVoted + 0}} VOTES</a>
-		<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase();$root.navigate('/comments')">{{poll.commentsCount}} COMMENTS</a>
-		<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">more_horiz</i></a>
+		<div class="row">
+			<div class="col">
+				<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.userVoted + 0}} VOTES</a>
+				<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase();$root.navigate('/comments')">{{poll.commentsCount}} COMMENTS</a>
+			</div>
+			<div class="col">
+				<a><i class="ion-more pollMore stable" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')"></i></a>
+			</div>
+		</div>
 	</div>
 
 	<ion-infinite-scroll
@@ -121,7 +127,7 @@
 <!-- Add poll footer -->
 <ion-footer-bar align-title="left" class="bar-royal">
 <!-- Add poll button -->
-	<a href="#/addPoll"><h1 class="title addIcon"><i class="material-icons">add</i></h1></a>
+	<a href="#/addPoll"><h1 class="title addIcon"><i class="ion-android-add"></i></h1></a>
 </ion-footer-bar>
 
 </ion-view>

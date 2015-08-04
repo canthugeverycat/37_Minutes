@@ -5,11 +5,16 @@
 	</div>
 
 	<ion-content class="addPollContent">
-
-		<a><i class="material-icons addBack light" ng-click="$root.goBack()">arrow_back</i></a>
-		<i class="material-icons addConfirm light" ng-click="createPoll(files)" ng-if="$root.imageUploadPercent === 0">check</i>
-		<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
-		<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
+		<div class="row">
+			<div class="col">
+				<a><i class="ion-android-arrow-back addBack light" ng-click="$root.goBack()"></i></a>
+			</div>
+			<div class="col">
+				<i class="ion-checkmark addConfirm light" ng-click="createPoll(files)" ng-if="$root.imageUploadPercent === 0"></i>
+				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
+				<i class="ion-android-camera addCamera light" ngf-select ng-model="files"></i>
+			</div>
+		</div>
 		<p class="addAsk">Ask your question</p>
 		<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
 		<div class="add-poll-image-preview">
@@ -19,7 +24,7 @@
 	</ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">
-	<a href="#/addFriends"><h1 class="title addIcon"><i class="material-icons">group_add</i><div class="numberBubble"><p class="numberInBubble">{{$root.data.addPoll.names.length}}</p></div></h1></a>
+	<a href="#/addFriends"><h1 class="title addIcon"><i class="ion-android-people"></i><div class="numberBubble"><p class="numberInBubble">{{$root.data.addPoll.names.length}}</p></div></h1></a>
 </ion-footer-bar>
 
 </ion-view>
