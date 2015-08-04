@@ -14,23 +14,23 @@
 		<div class="tabs">
 
 			<a class="tab-item active" href="#/polls">
-				<i class="material-icons">textsms</i>
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">
-				<i class="material-icons">group</i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="material-icons">person</i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/settings">
-				<i class="material-icons">settings</i>
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>
@@ -71,7 +71,7 @@
 <ion-footer-bar class="bar-stable commentsFooter">
   <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)" autofocus>
  <!-- Send msg button --> 
-  <i class="material-icons enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true">check</i>
+  <i class="ion-checkmark enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true"></i>
   <ion-spinner spinner="ios-small" ng-if="$root.loaders.leaveComment === true" style="right:13px;position:absolute;top:15px;"></ion-spinner>
 </ion-footer-bar>
 
