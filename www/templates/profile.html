@@ -1,18 +1,21 @@
 <ion-view>
 
+<div class="image-loading-bar" ng-if="$root.profileImageUploadPercent > 0">
+	<span style="width:{{$root.profileImageUploadPercent}}%;background-color:#ee524f;border-right:none;"></span>
+</div>
+
 <ion-content class="profileContent" has-footer="true" ng-controller="ProfileController">
-	
 	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImageBig}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
 			<a ng-click="$root.goBack()"><i class="material-icons addBack light">arrow_back</i></a>
 			<a href="#/settings"><i class="material-icons addConfirm light">settings</i></a>
-			<i class="material-icons addCamera light">camera_alt</i>
+			<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
 			<a href="#/friends"><i class="material-icons addCamera light">group</i></a>
 
 			<div class="item item-avatar profileAvatar">
 				<img class="profileImg" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
-				<h2 class="profileName">{{$root.data.userProfile.profileName}}</h2>
-				<p class="profileQuote light">{{$root.data.userProfile.tagLine}}</p>
+				<h2 class="profileName testProfilename">{{$root.data.userProfile.profileName}}</h2>
+				<p class="profileQuote light testProfilequote">{{$root.data.userProfile.tagLine}}</p>
 			</div>
 		</div>
 	</div>
