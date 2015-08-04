@@ -5,7 +5,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Group Details</h1>
-		<button class="button button-clear button-icon settingsDoneBtn" ng-click="$root.createNewGroup()"><i class="material-icons">check</i></button>
+		<button class="button button-clear button-icon settingsDoneBtn" ng-click="$root.createNewGroup()"><i class="ion-android-done"></i></button>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -15,27 +15,28 @@
 		<div class="tabs">
 
 			<a class="tab-item" href="#/polls">
-				<i class="material-icons">textsms</i>
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item active" href="#/friends">
-				<i class="material-icons">group</i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="material-icons">person</i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/settings">
-				<i class="material-icons">settings</i>
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>
 	</div>
+
 <ion-content class="newGroupContent has-header has-tabs-top" ng-controller="FriendsController">
 	<p class="groupsTitle">GROUP NAME</p>
 	<input class="editGroupName" type="text" placeholder="Enter the name of the group" ng-model="$root.inputs.newGroupName" ng-enter="$root.createNewGroup()">

@@ -10,7 +10,7 @@
 				<a><i class="ion-android-arrow-back addBack light" ng-click="$root.goBack()"></i></a>
 			</div>
 			<div class="col">
-				<i class="ion-checkmark addConfirm light" ng-click="createPoll(files)" ng-if="$root.imageUploadPercent === 0"></i>
+				<i class="ion-android-done addConfirm light" ng-click="createPoll(files)" ng-if="$root.imageUploadPercent === 0"></i>
 				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
 				<i class="ion-android-camera addCamera light" ngf-select ng-model="files"></i>
 			</div>

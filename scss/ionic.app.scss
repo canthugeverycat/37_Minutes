@@ -468,6 +468,7 @@ ion-content{
 		.list{
 			.item{
 				.userName{
+					margin-left: 5px;
 					font-weight: 500;
 					display: inline-block;
 					font-size: 11pt;
@@ -886,9 +887,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .barButton{
 	height: 100%;
 	width: 100%;
+	margin-top: 10px;
 }
 
 .barIcon{ 
+	font-size: 18pt !important;
 	margin-top: 15px;
 }
 
@@ -922,14 +925,17 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	color: #62666c;
 	float: right;
 	padding-right: 20px;
+	font-size: 18pt !important;
 }
 
 .groupsEdit{
+	font-size: 16pt !important;
 	color: #62666c;
 	float: right;
 }
 
 .friendsClose{
+	font-size: 18pt !important;
 	color: #62666c;
 	float: right;
 	display: inline-block;
@@ -1228,6 +1234,7 @@ ion-content{
 	padding-right: 5px;
 	float:right;
 	padding-top: 16px;
+	font-size: 18pt !important;
 }
 
 .detailsComments{
@@ -1241,10 +1248,11 @@ ion-content{
 	padding-right: 10px;
 	float:right;
 	padding-top: 16px;
+	font-size: 18pt !important;
 }
 
 .pollQuestionDetails{
-	padding-left: 72px;
+	margin-left:18% !important;
 }
 
 .detailsContent{
@@ -1261,6 +1269,14 @@ ion-content{
 	bottom: 5px;
 	width: 20%;
 	text-align: center;
+}
+
+.expiredIcon{
+	font-size: 18pt !important;
+}
+
+.activeIcon{
+	font-size: 18pt !important;
 }
 
 .activeCol{
@@ -1289,6 +1305,11 @@ ion-content{
 }
 
 /*Settings screen*/
+
+.settingsDoneBtn{
+	font-size: 16pt !important;
+	margin-top: -5px;
+}
 
 .settingsContent{
 	background-color: #ededed;
@@ -1344,7 +1365,7 @@ ion-content{
 }
 
 .answeredNotification{
-	margin-left: 75px;
+	margin-left: 18%;
 	color:#b6c3c9;
 	opacity: 0.6;
 	font-weight: 500;
@@ -1352,7 +1373,7 @@ ion-content{
 }
 
 .answeredPollNotification{
-	margin-left: 75px;
+	margin-left: 18%;
 	font-weight: 500;
 	color:$dark;
 	font-size: 11pt;

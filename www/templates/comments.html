@@ -71,7 +71,7 @@
 <ion-footer-bar class="bar-stable commentsFooter">
   <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)" autofocus>
  <!-- Send msg button --> 
-  <i class="ion-checkmark enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true"></i>
+  <i class="ion-android-done enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true"></i>
   <ion-spinner spinner="ios-small" ng-if="$root.loaders.leaveComment === true" style="right:13px;position:absolute;top:15px;"></ion-spinner>
 </ion-footer-bar>
 

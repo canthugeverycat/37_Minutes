@@ -8042,6 +8042,7 @@ ion-content {
   white-space: nowrap; }
 
 ion-content .scroll .list .item .userName {
+  margin-left: 5px;
   font-weight: 500;
   display: inline-block;
   font-size: 11pt;
@@ -8365,9 +8366,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 .barButton {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  margin-top: 10px; }
 
 .barIcon {
+  font-size: 18pt !important;
   margin-top: 15px; }
 
 .friendsContent {
@@ -8394,13 +8397,16 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .groupsClose {
   color: #62666c;
   float: right;
-  padding-right: 20px; }
+  padding-right: 20px;
+  font-size: 18pt !important; }
 
 .groupsEdit {
+  font-size: 16pt !important;
   color: #62666c;
   float: right; }
 
 .friendsClose {
+  font-size: 18pt !important;
   color: #62666c;
   float: right;
   display: inline-block;
@@ -8619,7 +8625,8 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
 .detailsAnsweredIcon {
   padding-right: 5px;
   float: right;
-  padding-top: 16px; }
+  padding-top: 16px;
+  font-size: 18pt !important; }
 
 .detailsComments {
   display: inline-block;
@@ -8630,10 +8637,11 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
 .detailsComIcon {
   padding-right: 10px;
   float: right;
-  padding-top: 16px; }
+  padding-top: 16px;
+  font-size: 18pt !important; }
 
 .pollQuestionDetails {
-  padding-left: 72px; }
+  margin-left: 18% !important; }
 
 .detailsContent .scroll .item {
   border-color: transparent; }
@@ -8644,6 +8652,12 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   bottom: 5px;
   width: 20%;
   text-align: center; }
+
+.expiredIcon {
+  font-size: 18pt !important; }
+
+.activeIcon {
+  font-size: 18pt !important; }
 
 .activeCol {
   position: absolute;
@@ -8666,6 +8680,10 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   height: 100px !important; }
 
 /*Settings screen*/
+.settingsDoneBtn {
+  font-size: 16pt !important;
+  margin-top: -5px; }
+
 .settingsContent {
   background-color: #ededed; }
 
@@ -8709,14 +8727,14 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   background-color: #ededed; }
 
 .answeredNotification {
-  margin-left: 75px;
+  margin-left: 18%;
   color: #b6c3c9;
   opacity: 0.6;
   font-weight: 500;
   margin-bottom: 5px !important; }
 
 .answeredPollNotification {
-  margin-left: 75px;
+  margin-left: 18%;
   font-weight: 500;
   color: #444;
   font-size: 11pt;

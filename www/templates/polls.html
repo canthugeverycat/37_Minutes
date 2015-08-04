@@ -106,7 +106,7 @@
 				<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.userVoted + 0}} VOTES</a>
 				<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase();$root.navigate('/comments')">{{poll.commentsCount}} COMMENTS</a>
 			</div>
-			<div class="col">
+			<div class="col col-10">
 				<a><i class="ion-more pollMore stable" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')"></i></a>
 			</div>
 		</div>

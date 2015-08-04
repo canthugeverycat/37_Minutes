@@ -21,11 +21,11 @@
 			</div>
 			
 			<div class="col expiredCol" ng-if="$root.data.poll.timeLeft === 0">
-				<i class="material-icons expiredIcon light">timer_off</i>
+				<i class="ion-android-alarm-clock expiredIcon light"></i>
 				<p class="expiredTxt light">EXPIRED</p>
 			</div>
 			<div class="col activeCol" ng-if="$root.data.poll.timeLeft !== 0">
-				<i class="material-icons activeIcon light">timer</i>
+				<i class="ion-android-alarm-clock activeIcon light"></i>
 				<p class="activeTxt light">{{$root.data.poll.timeLeft}} MIN. LEFT</p>
 			</div>
 		</div>
@@ -52,9 +52,9 @@
 		<img style="background:url({{$root.data.poll.authorImage}}) no-repeat center;background-size:cover;">
 		<h2 class="detailsName">{{$root.data.poll.authorName}}</h2>
 		<p class="detailsAsked">ASKED</p>
-		<i class="material-icons detailsComIcon">speaker_notes</i>
+		<i class="ion-android-textsms detailsComIcon"></i>
 		<p class="detailsComments">{{$root.data.poll.commentsCount}}</p>
-		<i class="material-icons detailsAnsweredIcon">done_all</i>
+		<i class="ion-android-done-all detailsAnsweredIcon"></i>
 		<p class="detailsAnswered">{{$root.data.poll.votesCount}}</p>
 		
 		<h2 class="pollQuestionDetails">{{$root.data.poll.question}}</h2>

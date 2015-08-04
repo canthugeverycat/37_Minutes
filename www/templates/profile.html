@@ -7,11 +7,16 @@
 <ion-content class="profileContent" has-footer="true" ng-controller="ProfileController">
 	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImageBig}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
-			<a ng-click="$root.goBack()"><i class="material-icons addBack light">arrow_back</i></a>
-			<a href="#/settings"><i class="material-icons addConfirm light">settings</i></a>
-			<i class="material-icons addCamera light" ngf-select ng-model="files">camera_alt</i>
-			<a href="#/friends"><i class="material-icons addCamera light">group</i></a>
-
+			<div class="row">
+				<div class="col">
+					<a ng-click="$root.goBack()"><i class="ion-android-arrow-back addBack light"></i></a>
+				</div>
+				<div class="col">
+					<a href="#/settings"><i class="ion-android-settings addConfirm light"></i></a>
+					<i class="ion-android-camera addCamera light" ngf-select ng-model="files"></i>
+					<a href="#/friends"><i class="ion-android-people addCamera light"></i></a>
+				</div>
+			</div>
 			<div class="item item-avatar profileAvatar">
 				<img class="profileImg" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
 				<h2 class="profileName testProfilename">{{$root.data.userProfile.profileName}}</h2>
@@ -72,7 +77,7 @@
 
 <ion-footer-bar align-title="left" class="bar-royal">
 <!-- Add poll button -->
-	<a href="#/addPoll"><h1 class="title addIcon"><i class="material-icons">add</i></h1></a>
+	<a href="#/addPoll"><h1 class="title addIcon"><i class="ion-android-add"></i></h1></a>
 </ion-footer-bar>
 
 </ion-view>
