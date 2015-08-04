@@ -4,7 +4,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Profile</h1>
-		<a href="#" class="button settingsDoneBtn button-icon" ng-click="editSettings()"><i class="material-icons">check</i></a>
+		<a href="#" class="button settingsDoneBtn button-icon" ng-click="editSettings()"><i class="ion-android-done"></i></a>
 		<ion-spinner class="button settingsDoneBtn button-icon" spinner="ios-small" ng-if="$root.loaders.editingSettings === true"></ion-spinner>
 	</ion-header-bar>
 
@@ -13,24 +13,24 @@
 
 		<div class="tabs">
 
-			<a class="tab-item active" href="#/polls">
-				<i class="ion-android-textsms"></i>
+			<a class="tab-item" href="#/polls">
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="ion-android-notifications"></i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/friends">
-				<i class="ion-android-people"></i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="ion-android-person"></i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
-			<a class="tab-item" href="#/settings">
-				<i class="ion-android-settings"></i>
+			<a class="tab-item active" href="#/settings">
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>

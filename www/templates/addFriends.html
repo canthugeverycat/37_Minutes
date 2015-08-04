@@ -5,7 +5,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Add Friends</h1>
-		<a href="#" class="button settingsDoneBtn button-icon" ng-click="$root.navigate('/addPoll')"><i class="material-icons">check</i></a>
+		<a href="#" class="button settingsDoneBtn button-icon" ng-click="$root.navigate('/addPoll')"><i class="ion-android-done"></i></a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -15,23 +15,23 @@
 		<div class="tabs">
 
 			<a class="tab-item" href="#/polls">
-				<i class="material-icons">textsms</i>
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item active" href="#/friends">
-				<i class="material-icons">group</i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="material-icons">person</i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/settings">
-				<i class="material-icons">settings</i>
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>
@@ -43,7 +43,7 @@
 
 		<!-- Without groups -->
 		<div class="noContent" ng-if="$root.data.groups.length === 0">
-			<i class="material-icons noContentIcon">group</i>
+			<i class="ion-android-people noContentIcon"></i>
 			<p class="noContentTitle">You haven't created a group yet</p>
 			<p class="noContentSubtitle">After you create one it will be shown here</p>
 		</div>
@@ -52,7 +52,7 @@
 			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index" ng-click="addFriendsToPoll(null, group)">
 				{{group.groupName}}
 				<!-- Edit group button -->
-				<a><i class="material-icons groupsEdit" ng-if="$root.data.addPoll.groups.indexOf(group) !== -1">check</i></a>
+				<a><i class="ion-android-done groupsEdit" ng-if="$root.data.addPoll.groups.indexOf(group) !== -1"></i></a>
 			</li>
 		</ul>
 
@@ -64,13 +64,13 @@
       			<img src="img/avatar.jpg">
       			<h2 class="friendsName">Tiffany Jones</h2>
       		<!-- Delete button -->	
-      			<i class="material-icons friendsClose">close</i>
+      			<i class="ion-android-close friendsClose"></i>
    			</a>
 
    			<a class="item item-avatar friendsList" href="#">
       			<img src="img/avatar.jpg">
       			<h2  class="friendsName">Melinda Hayek</h2>
-      			<i class="material-icons friendsClose">close</i>
+      			<i class="ion-android-close friendsClose"></i>
    			</a>
 		</div>
 
@@ -78,7 +78,7 @@
 
 		<!-- Without friends -->
 		<div class="noContent" ng-if="$root.data.friendsList.length === 0">
-			<i class="material-icons noContentIcon">person</i>
+			<i class="ion-android-person noContentIcon"></i>
 			<p class="noContentTitle">You have no friends</p>
 			<p class="noContentSubtitle">Invite friends so you can share polls with them</p>
 		</div>
@@ -88,7 +88,7 @@
       			<img ng-src="{{friend.friendImage}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="material-icons friendsClose" ng-if="$root.data.addPoll.friends.indexOf(friend) !== -1">check</i>
+      			<i class="ion-android-close friendsClose" ng-if="$root.data.addPoll.friends.indexOf(friend) !== -1"></i>
    			</a>
 		</div>
 

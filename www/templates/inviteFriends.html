@@ -13,23 +13,23 @@
 		<div class="tabs">
 
 			<a class="tab-item" href="#/polls">
-				<i class="material-icons">textsms</i>
+				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
 			<a class="tab-item" href="#/notifications">
-				<i class="material-icons">notifications_active</i>
+				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
 			<a class="tab-item active" href="#/friends">
-				<i class="material-icons">group</i>
+				<i class="ion-android-people tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/profile" ng-click="$root.getUserProfile();$root.getActivityFeed();">
-				<i class="material-icons">person</i>
+				<i class="ion-android-person tabIcon"></i>
 			</a>
 		
 			<a class="tab-item" href="#/settings">
-				<i class="material-icons">settings</i>
+				<i class="ion-android-settings tabIcon"></i>
 			</a>
 
 		</div>
@@ -63,10 +63,10 @@
 
 <ion-footer-bar class="bar-royal footerFriends">
 	<div class="barGroup">
-		<a class="button button-clear barButton" href="#/newGroup"><i class="material-icons barIcon">group_add</i></a>
+		<a class="button button-clear barButton" href="#/newGroup"><i class="ion-android-people barIcon"></i></a>
 	</div>
-	<div class="barFriend">
-		<a class="button button-clear barButton" href="#/inviteFriends"><i class="material-icons barIcon">person_add</i></a>
+	<div class="barFriend" ng-click="inviteFriend()">
+		<a class="button button-clear barButton" href="#/inviteFriends"><i class="ion-android-person-add barIcon"></i></a>
 	</div>
 </ion-footer-bar>
 
