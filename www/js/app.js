@@ -28,91 +28,91 @@ angular.module('starter', ['ionic','directives','main.controllers','account.cont
 
   .state('cardOne', {
     url:'/cardOne',
-    templateUrl:'/templates/cardOne.html'
+    templateUrl:'templates/cardOne.html'
   })
 
   .state('cardTwo', {
     url:'/cardTwo',
-    templateUrl:'/templates/cardTwo.html'
+    templateUrl:'templates/cardTwo.html'
   })
 
   .state('cardThree', {
     url:'/cardThree',
-    templateUrl:'/templates/cardThree.html'
+    templateUrl:'templates/cardThree.html'
   })
 
   .state('login', {
     url:'/login',
-    templateUrl:'/templates/login.html'
+    templateUrl:'templates/login.html'
   })
 
   .state('polls', {
     url:'/polls',
-    templateUrl:'/templates/polls.html'
+    templateUrl:'templates/polls.html'
   })
 
   .state('signUp', {
     url:'/signUp',
-    templateUrl:'/templates/signUp.html'
+    templateUrl:'templates/signUp.html'
   })
 
   .state('comments', {
     url:'/comments',
-    templateUrl:'/templates/comments.html'
+    templateUrl:'templates/comments.html'
   })
 
 
   .state('addPoll', {
     url:'/addPoll',
-    templateUrl:'/templates/addPoll.html'
+    templateUrl:'templates/addPoll.html'
   })
 
   .state('friends', {
     url:'/friends',
-    templateUrl:'/templates/friends.html'
+    templateUrl:'templates/friends.html'
   })
 
   .state('addFriends', {
     url:'/addFriends',
-    templateUrl:'/templates/addFriends.html'
+    templateUrl:'templates/addFriends.html'
   })
 
   .state('inviteFriends', {
     url:'/inviteFriends',
-    templateUrl:'/templates/inviteFriends.html'
+    templateUrl:'templates/inviteFriends.html'
   })
  
  .state('editGroup', {
     url:'/editGroup',
-    templateUrl:'/templates/editGroup.html'
+    templateUrl:'templates/editGroup.html'
   })
 
  .state('newGroup', {
     url:'/newGroup',
-    templateUrl:'/templates/newGroup.html'
+    templateUrl:'templates/newGroup.html'
   })
 
  .state('profile', {
     url:'/profile',
-    templateUrl:'/templates/profile.html'
+    templateUrl:'templates/profile.html'
   })
 
   .state('pollDetails', {
     url:'/pollDetails',
-    templateUrl:'/templates/pollDetails.html'
+    templateUrl:'templates/pollDetails.html'
   })
 
   .state('settings', {
     url:'/settings',
-    templateUrl:'/templates/settings.html'
+    templateUrl:'templates/settings.html'
   })
 
   .state('notifications', {
     url:'/notifications',
-    templateUrl:'/templates/notifications.html'
+    templateUrl:'templates/notifications.html'
   })
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('login');
 })
 
 

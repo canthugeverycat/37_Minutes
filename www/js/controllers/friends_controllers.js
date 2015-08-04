@@ -241,9 +241,25 @@ angular.module('friends.controllers',[])
 
 					//Update the friends list
 					$scope.getFriendsList();
+					$scope.getRecentFriends();
 				} else {
 					//Display an error message
 					InfoHandling.set('removeFriendFailed', response.error.errorMessage, 2000);
+				}
+			}
+		});
+	};
+
+	//Get friends that you have connected with recently
+	$scope.getRecentFriends = function() {
+		RESTFunctions.post({
+			url:'recent-friends',
+			data:'Token=' + $rootScope.login.token,
+			callback: function(response) {
+				if (!response.error) {
+					$rootScope.data.recentFriends = response.friends;
+				} else {
+					InfoHandling.set('getRecentFriendsFailed', response.error.errorMessage, 2000);
 				}
 			}
 		});
