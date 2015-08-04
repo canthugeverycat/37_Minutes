@@ -264,4 +264,26 @@ angular.module('friends.controllers',[])
 			}
 		});
 	};
+})
+
+.controller("AddFriendsController", function($scope, $rootScope, $cordovaContacts) {
+ 
+	//Grab the contacts from user's phonebook that have an email
+    $scope.getContactList = function() {
+    	$cordovaContacts.find({filter: ''}).then(function(result) {
+
+    		//Create an empty contacts array
+    		$rootScope.data.contacts = [];
+
+    		for (i = 0; i < result.length; i++){
+    			//Push the email ones into the array
+    			result[i].emails.length > 0 ? $rootScope.data.contacts.push(result[i]) : null;
+    		}
+    		
+    		console.log($rootScope.data.contacts);
+	    }, function(error) {
+	        console.log("ERROR: " + error);
+	    });
+    }
+    $scope.getContactList();
 });
