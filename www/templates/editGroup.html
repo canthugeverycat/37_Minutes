@@ -5,7 +5,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Group</h1>
-		<a href="#" class="ion-android-done settingsDoneBtn button-icon"></a>
+		<a href="#" class="button ion-android-done settingsDoneBtn button-icon"></a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -49,7 +49,7 @@
 		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="groupFriend in $root.data.selectedGroupFriends track by $index">
   			<img ng-src="{{groupFriend.friendImage}}">
   			<h2 class="friendsName">{{groupFriend.friendName}}</h2>
-  			<i class="material-icons friendsClose" ng-click="$root.removeFriendFromGroup($root.data.selectedGroup.groupId, groupFriend.friendId)">remove</i>
+  			<i class="ion-close friendsClose" ng-click="$root.removeFriendFromGroup($root.data.selectedGroup.groupId, groupFriend.friendId)"></i>
 		</a>
 	</div>
 
