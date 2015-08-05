@@ -8049,7 +8049,7 @@ ion-content .scroll .list .item .userName {
   text-transform: uppercase; }
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
-  padding-left: 18%;
+  margin-left: 18%;
   margin-top: -5px; }
 ion-content .scroll .list .item a.subdued {
   padding-right: 5px; }
@@ -8192,7 +8192,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   margin-left: auto; }
 
 .comment {
-  padding-left: 72px; }
+  margin-left: 18%; }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
   overflow: hidden;
@@ -8499,7 +8499,8 @@ ion-content .scroll .list a p {
   font-size: 14pt; }
 
 .profileQuote {
-  color: #ffffff !important; }
+  color: #ffffff !important;
+  margin-bottom: 5px !important; }
 
 .commentsContainer {
   margin-bottom: 0; }
@@ -8749,10 +8750,12 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   margin-left: 50px; }
 
 .ignoreIcon {
+  font-size: 14pt !important;
   margin-top: 9px;
   padding-right: 15px; }
 
 .acceptIcon {
+  font-size: 16pt !important;
   margin-top: 9px;
   padding-right: 15px; }
 

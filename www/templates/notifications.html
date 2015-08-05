@@ -66,8 +66,8 @@
 			<p class="answeredPollNotification" ng-class="{'commentMargin':notification.notificationType === 'comment'}">{{notification.question | uppercase}}</p>
 			<img class="noIcon" ng-if="notification.notificationType === 'vote'" ng-src="{{notification.userVotedYes === 1 ? 'img/yes.png' : 'img/no.png'}}">
 			<div class="button-bar barNotification" ng-if="notification.notificationType === 'question' && notification.read === 0">
-				<a class="button button-clear button-royal" ng-click="seenNotification(notification.notificationId)"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>
-				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false);seenNotification(notification.notificationId, true);"><i class="material-icons acceptIcon">check</i>ACCEPT</a>
+				<a class="button button-clear button-royal" ng-click="seenNotification(notification.notificationId)"><i class="ion-close ignoreIcon"></i> IGNORE</a>
+				<a class="button button-clear button-calm" ng-click="$root.getPollItem(notification.questionId, false);seenNotification(notification.notificationId, true);"><i class="ion-android-done acceptIcon"></i>ACCEPT</a>
 			</div>
 			<div class="button-bar barNotification" ng-if="notification.notificationType === 'friendRequest' && notification.read === 0">
 				<a class="button button-clear button-royal" ng-click="seenNotification(notification.notificationId)"><i class="material-icons ignoreIcon">clear</i> IGNORE</a>

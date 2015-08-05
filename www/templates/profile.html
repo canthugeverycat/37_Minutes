@@ -39,7 +39,7 @@
 					<h2 class="userName">{{activity.activityAuthorName}}</h2>
 					<p class="asked">{{activity.activityType === 'vote' ? 'VOTED ON' : ''}}{{activity.activityType === 'question' ? 'ASKED' : ''}}{{activity.activityType === 'comment' ? 'COMMENTED ON' : ''}}</p>
 				</div>
-				<div class="col col-25"><p class="timer">25 MIN. LEFT</p></div>
+				<div class="col col-40"><p class="timer">25 MIN. LEFT</p></div>
 			</div>
 			<h2 class="pollQuestion">{{activity.question}}</h2>
 			<!-- Comment -->
@@ -67,9 +67,16 @@
 					</div>
 				</div>
 			</div>
-			<a class="subdued pollVotes" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.votesCount}} VOTES</a>
-			<a class="subdued pollComments" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.commentsCount}} COMMENTS</a>
-			<a><i class="material-icons pollMore stable" ng-click="$root.getPollItem(activity.questionId, false);$root.navigate('/pollDetails')">more_horiz</i></a>
+
+			<div class="row">
+				<div class="col">
+					<a class="subdued pollVotes" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.votesCount}} VOTES</a>
+					<a class="subdued pollComments" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">{{activity.commentsCount}} COMMENTS</a>
+				</div>
+				<div class="col col-10">
+					<a><i class="ion-more pollMore stable" ng-click="$root.getPollItem(activity.questionId, false);$root.navigate('/pollDetails')"></i></a>
+				</div>
+			</div>
 		</div>
 </div>
 </ion-content>

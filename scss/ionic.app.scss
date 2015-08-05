@@ -476,7 +476,7 @@ ion-content{
 				}
 				.pollQuestion{
 					font-size: 13pt;
-					padding-left:18%; 
+					margin-left:18%; 
 					margin-top: -5px;
 				}
 				a.subdued{
@@ -670,7 +670,7 @@ ion-content{
 }
 
 .comment{
-	padding-left: 72px;
+	margin-left: 18%;
 }
 
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
@@ -1058,6 +1058,7 @@ ion-content{
 
 .profileQuote{
 	color:$light !important;
+	margin-bottom: 5px !important;
 }
 
 .commentsContainer{
@@ -1392,11 +1393,13 @@ ion-content{
 }
 
 .ignoreIcon{
+	font-size: 14pt !important;
 	margin-top: 9px;
 	padding-right: 15px;
 }
 
 .acceptIcon{
+	font-size: 16pt !important;
 	margin-top: 9px;
 	padding-right: 15px;
 }
