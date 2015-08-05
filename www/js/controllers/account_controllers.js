@@ -107,7 +107,8 @@ angular.module('account.controllers',[])
 
   //*WIP Grab the facebook account info
   $scope.fbLogin = function() {
-    ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
+    console.log('Triggered')
+    ngFB.login({scope: 'email'}).then(
       function (response) {
           if (response.status === 'connected') {
               $scope.closeLogin();

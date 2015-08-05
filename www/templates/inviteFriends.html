@@ -51,12 +51,12 @@
 
 	<div class="list">
 
-    	<a class="item item-avatar friendsList" ng-repeat="contact in $root.data.contacts">
+    	<a class="item item-avatar friendsList" ng-repeat="contact in $root.data.contacts" ng-click="inviteFriend(contact.emails[0].value)">
       		<img src="{{contact.photos[0].value}}">
       		<h2 class="friendsName">{{contact.displayName}}</h2>
       		<!-- Select button -->
       		<i class="material-icons friendsClose">check</i>
-   			</a>
+   		</a>
 	</div>
 
 </ion-content>

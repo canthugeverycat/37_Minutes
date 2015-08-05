@@ -18,9 +18,9 @@ angular.module('starter', ['ionic','ngCordova','directives','main.controllers','
   }); 
 })
 
-// .run(function ($ionicPlatform, ngFB) {
-//   ngFB.init({appId: '717820615014962'});
-// })
+.run(function ($ionicPlatform, ngFB) {
+  ngFB.init({appId: '717820615014962'});
+})
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.views.swipeBackEnabled(false);

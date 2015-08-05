@@ -266,7 +266,7 @@ angular.module('friends.controllers',[])
 	};
 })
 
-.controller("AddFriendsController", function($scope, $rootScope, $cordovaContacts) {
+.controller("AddFriendsController", function($scope, $rootScope, $cordovaContacts, RESTFunctions, InfoHandling) {
  
 	//Grab the contacts from user's phonebook that have an email
     $scope.getContactList = function() {
@@ -286,4 +286,19 @@ angular.module('friends.controllers',[])
 	    }, function() {});
     }
     $scope.getContactList();
+
+    //Invite a friend via email
+    $scope.inviteFriend = function(email) {
+    	RESTFunctions.post({
+			url:'invite-friend',
+			data:'Token=' + $rootScope.login.token + '&friendsMail=' + email,
+			callback: function(response) {
+				if (!response.error) {
+					InfoHandling.set('inviteFriendSuccessful', response.Message, 2000);
+				} else {
+					InfoHandling.set('inviteFriendFailed', response.error.errorMessage, 2000);
+				}
+			} 
+		});
+    };
 });

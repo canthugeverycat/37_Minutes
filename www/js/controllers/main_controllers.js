@@ -20,63 +20,6 @@ angular.module('main.controllers',[])
   $rootScope.login.token = localStorage['37-mToken'];
   $rootScope.login.firstTime = localStorage['37-mFirstTime'];
 
-  //Storing the navigation tab urls (for navigating through them)
-  $scope.navigationUrls = ['/polls','/notifications','/friends','/profile','/settings'];
-
-  //Navigate to the left (triggers on swipe)
-  $scope.navigateLeft = function() {
-
-  	//Store the current screen
-  	navigationIndex = $scope.navigationUrls.indexOf($location.path());
-    
-    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
-
-  	//If the current screen is first
-  	if (navigationIndex === 0) {
-  		//Set the href attribute of the invisible <a> tag to the next tab location
-  		angular.element(document.querySelector('.navGoLeft')).attr('href','#' + $scope.navigationUrls[$scope.navigationUrls.length - 1]);
-  		$timeout(function() {angular.element(document.querySelector('.navGoLeft')).triggerHandler('click')}, 0);
-  	} else {
-  		//Set the href attribute of the invisible <a> tag to the next tab location
-  		angular.element(document.querySelector('.navGoLeft')).attr('href','#' + $scope.navigationUrls[navigationIndex - 1]);
-  		$timeout(function() {angular.element(document.querySelector('.navGoLeft')).triggerHandler('click')}, 0);
-  	}
-  };
-
-  //Navigate to the right (triggers on swipe)
-  $scope.navigateRight = function() {
-
-  	//Store the current screen
-  	navigationIndex = $scope.navigationUrls.indexOf($location.path());
-
-    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
-
-  	//If the current screen is last
-  	if (navigationIndex === $scope.navigationUrls.length - 1) {
-  		//Set the href attribute of the invisible <a> tag to the next tab location
-  		angular.element(document.querySelector('.navGoRight')).attr('href','#' + $scope.navigationUrls[0]);
-  		$timeout(function() {angular.element(document.querySelector('.navGoRight')).triggerHandler('click')}, 0);
-  	} else {
-  		//Set the href attribute of the invisible <a> tag to the next tab location
-  		angular.element(document.querySelector('.navGoRight')).attr('href','#' + $scope.navigationUrls[navigationIndex + 1]);
-  		$timeout(function() {angular.element(document.querySelector('.navGoRight')).triggerHandler('click')}, 0);
-  	}
-  };
-
-  setInterval(function () {
-    $rootScope.navigateIndex = $scope.navigationUrls.indexOf($location.path());
-    $rootScope.navigateCSS = ($rootScope.navigateIndex * 20) + '%';
-  },100);
-
-  //Go to the specific page (triggers on swipe function)
-  $rootScope.navigateGoTo = function(direction) {
-    direction === '.navGoRight' ? $rootScope.navigationindex = ($scope.navigationUrls.indexOf($location.path()) + 1) : ($scope.navigationUrls.indexOf($location.path()) - 1);
-
-    //Grab the url from href attribute of an <a> tag
-  	$location.path('/' + angular.element(document.querySelector(direction)).attr('href').split('/')[1]);
-  };
-
-
   //Navigate to the passed screen
   $rootScope.navigate = function(url) {
     $location.path(url);
