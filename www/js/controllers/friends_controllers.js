@@ -1,6 +1,6 @@
 angular.module('friends.controllers',[])
 
-.controller('FriendsController',function($scope, $rootScope, InfoHandling, RESTFunctions, $location) {
+.controller('FriendsController',function($scope, $rootScope, InfoHandling, RESTFunctions, $location, $ionicPopup) {
 
 	//Get a list of all of the user's friends
 	$scope.getFriendsList = function() {
@@ -167,24 +167,32 @@ angular.module('friends.controllers',[])
 	};
 
 	//Delete a group from the list
-	$rootScope.deleteGroup = function(groupId) {
+	$rootScope.deleteGroup = function(groupId, groupName) {
+		// A confirm dialog
+		var confirmPopup = $ionicPopup.confirm({
+	    	title: 'Delete ' + groupName,
+	    	template: 'Are you sure you want to delete ' + groupName + ' ?'
+	   	});
+	   	confirmPopup.then(function(res) {
+	    	if(res) {
+	       		RESTFunctions.post({
+					url:'delete-group',
+					data:'Token=' + $rootScope.login.token + '&groupId=' + groupId,
+					callback: function(response) {
+						if (response.error) {
+							//Display an error message
+							InfoHandling.set('deleteGroupFailed', response.error.errorMessage, 2000);
+						} else {
+							//Display a success message
+							InfoHandling.set('deleteGroupSuccessful', response.Message, 2000, 'bg-energized');
 
-		RESTFunctions.post({
-			url:'delete-group',
-			data:'Token=' + $rootScope.login.token + '&groupId=' + groupId,
-			callback: function(response) {
-				if (response.error) {
-					//Display an error message
-					InfoHandling.set('deleteGroupFailed', response.error.errorMessage, 2000);
-				} else {
-					//Display a success message
-					InfoHandling.set('deleteGroupSuccessful', response.Message, 2000, 'bg-energized');
-
-					//Refresh the group list to properly display the deleted group
-					$scope.getGroups();
-				}
-			}
-		});
+							//Refresh the group list to properly display the deleted group
+							$scope.getGroups();
+						}
+					}
+				});
+	     	}
+	   	});
 	};
 
 	//Add friends and groups to addPoll arrays
@@ -226,28 +234,37 @@ angular.module('friends.controllers',[])
 	};
 
 	//Remove a friend from friend list
-	$scope.removeFriend = function(friendId, event) {
+	$scope.removeFriend = function(friendId, event, friendName) {
 
 		//Don't redirect the user
 		event.stopPropagation();
 
-		RESTFunctions.post({
-			url:'remove-friend',
-			data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,
-			callback: function(response) {
-				if (!response.error) {
-					//Display an info message
-					InfoHandling.set('removeFriendSuccessful', response.Message, 2000, 'bg-energized');
+		// A confirm dialog
+		var confirmPopup = $ionicPopup.confirm({
+	    	title: 'Delete ' + friendName,
+	    	template: 'Are you sure you want to delete ' + friendName + ' ?'
+	   	});
+	   	confirmPopup.then(function(res) {
+	    	if(res) {
+	       		RESTFunctions.post({
+					url:'remove-friend',
+					data:'Token=' + $rootScope.login.token + '&friendId=' + friendId,
+					callback: function(response) {
+						if (!response.error) {
+							//Display an info message
+							InfoHandling.set('removeFriendSuccessful', response.Message, 2000, 'bg-energized');
 
-					//Update the friends list
-					$scope.getFriendsList();
-					$scope.getRecentFriends();
-				} else {
-					//Display an error message
-					InfoHandling.set('removeFriendFailed', response.error.errorMessage, 2000);
-				}
-			}
-		});
+							//Update the friends list
+							$scope.getFriendsList();
+							$scope.getRecentFriends();
+						} else {
+							//Display an error message
+							InfoHandling.set('removeFriendFailed', response.error.errorMessage, 2000);
+						}
+					}
+				});
+	     	}
+	   	});
 	};
 
 	//Get friends that you have connected with recently

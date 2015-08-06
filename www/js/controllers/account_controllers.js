@@ -105,9 +105,8 @@ angular.module('account.controllers',[])
   };
 
 
-  //*WIP Grab the facebook account info
+  //Grab the facebook account info and register the user with it
   $scope.fbLogin = function() {
-    console.log('Triggered')
     ngFB.login({scope: 'email'}).then(
       function (response) {
           if (response.status === 'connected') {

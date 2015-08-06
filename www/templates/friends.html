@@ -18,7 +18,7 @@
 				<i class="ion-android-textsms tabIcon"></i>
 			</a>
 	
-			<a class="tab-item" href="#/notifications">
+			<a class="tab-item" href="#/notifications" ng-class="{'assertive':$root.data.newNotifications > 0}">
 				<i class="ion-android-notifications tabIcon"></i>
 			</a>
 		
@@ -54,7 +54,7 @@
 				<!-- Edit group button -->
 				<a ng-click="getGroupItem(group)"><i class="ion-android-create groupsEdit"></i></a>
 				<!-- Delete button -->
-				<i class="ion-android-close groupsClose" ng-click="deleteGroup(group.groupId)"></i>
+				<i class="ion-android-close groupsClose" ng-click="deleteGroup(group.groupId, group.groupName)"></i>
 			</li>
 		</ul>
 
@@ -66,7 +66,7 @@
       			<img ng-src="{{recentfriend.friendImage !== '' ? recentfriend.friendImage : 'img/default_avatar.png'}}">
       			<h2 class="friendsName">{{recentfriend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="ion-android-close friendsClose" ng-click="removeFriend(recentfriend.friendId, $event);"></i>
+      			<i class="ion-android-close friendsClose" ng-click="removeFriend(recentfriend.friendId, $event, recentfriend.friendName);"></i>
    			</a>
 		</div>
 
@@ -84,7 +84,7 @@
       			<img ng-src="{{friend.friendImage !== '' ? friend.friendImage : 'img/default_avatar.png'}}">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
-      			<i class="ion-android-close friendsClose" ng-click="removeFriend(friend.friendId, $event);"></i>
+      			<i class="ion-android-close friendsClose" ng-click="removeFriend(friend.friendId, $event, friend.friendName);"></i>
    			</a>
 		</div>
 
