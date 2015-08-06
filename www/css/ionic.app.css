@@ -8061,7 +8061,7 @@ ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
   padding-top: 20px; }
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .yesNumber {
   font-size: 40pt;
-  height: 40px;
+  height: 50px;
   font-weight: 400;
   color: #ffffff;
   padding-left: 16px;
@@ -8185,7 +8185,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
 
 .noContentSubtitle {
   text-align: center;
-  width: 40%;
+  width: 70%;
   font-size: 12pt;
   margin-right: auto;
   margin-left: auto; }
@@ -8229,14 +8229,14 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   margin-top: 0px; }
 
 .enterComment {
-  width: 100%;
+  width: 90%;
   background-color: transparent;
   height: 100% !important; }
 
 .enterIcon {
-  font-size: 12pt !important;
-  margin-top: 22px;
-  margin-right: 15px; }
+  font-size: 16pt !important;
+  position: absolute;
+  top: 20px; }
 
 /*addPoll screen*/
 .image-loading-bar {
@@ -8366,10 +8366,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .barButton {
   height: 100%;
   width: 100%;
-  margin-top: 10px; }
-
-.barIcon {
-  font-size: 18pt !important;
   margin-top: 15px; }
 
 .friendsContent {
@@ -8429,7 +8425,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   margin-right: auto;
   display: block;
   border: none;
-  border-radius: 0; }
+  border-radius: 0;
+  font-size: 10pt !important; }
 
 .importGoogle {
   border: none;
@@ -8438,10 +8435,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  display: block; }
+  display: block;
+  font-size: 10pt !important; }
+
+.groupsTitleMargin {
+  margin-top: 15px; }
+
+.fbIcon {
+  position: absolute;
+  left: 5%; }
 
 .googleIcon {
-  margin-right: 8px; }
+  position: absolute;
+  left: 5%; }
 
 .accepted {
   color: #62666c;
@@ -8464,7 +8470,7 @@ ion-content .scroll .list a p {
 
 .editGroupName {
   width: 100%;
-  height: 40px !important; }
+  height: 50px !important; }
 
 /*New Group screen*/
 .newGroupContent {
@@ -8641,7 +8647,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   font-size: 18pt !important; }
 
 .pollQuestionDetails {
-  margin-left: 18% !important; }
+  margin-left: 80px !important; }
 
 .detailsContent .scroll .item {
   border-color: transparent; }

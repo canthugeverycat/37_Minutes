@@ -4,6 +4,7 @@
 	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Invite Friends <!-- Number of selected friends -->(2)</h1>
+		<a href="#" class="button ion-android-done settingsDoneBtn button-icon"></a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -47,7 +48,7 @@
 		Import from Google Plus
 	</button>
 		
-	<p class="groupsTitle">INVITE YOUR FRIENDS</p>
+	<p class="groupsTitle groupsTitleMargin">INVITE YOUR FRIENDS</p>
 
 	<div class="list">
 
@@ -63,10 +64,10 @@
 
 <ion-footer-bar class="bar-royal footerFriends">
 	<div class="barGroup">
-		<a class="button button-clear barButton" href="#/newGroup"><i class="ion-android-people barIcon"></i></a>
+		<a class="button button-clear barButton" href="#/newGroup"><i class="barIcon"><img src="img/addGroup.png"></img></i></a>
 	</div>
 	<div class="barFriend" ng-click="inviteFriend()">
-		<a class="button button-clear barButton" href="#/inviteFriends"><i class="ion-android-person-add barIcon"></i></a>
+		<a class="button button-clear barButton" href="#/inviteFriends"><i class="barIcon"><img src="img/addFriend.png"></img></i></a>
 	</div>
 </ion-footer-bar>
 
