@@ -15,6 +15,92 @@ angular.module('main.controllers',[])
   $rootScope.loaders === undefined ? $rootScope.loaders = {} : null;
   $rootScope.navigateIndex = 0;
   $rootScope.data.friendsInNewGroup = [];
+  $scope.showEmojis = false;
+  $rootScope.inputs.newComment = '';
+
+  //Defining emoji types
+
+  $rootScope.data.emojis = [{
+    code:'ion-ios-heart',
+    trigger:'<3'
+  },
+  {
+    code:'ion-ios-star',
+    trigger:':star:'
+  },
+  {
+    code:'ion-ios-cloud',
+    trigger:':cloud:'
+  },
+  {
+    code:'ion-beer',
+    trigger:':beer:'
+  },
+  {
+    code:'ion-coffee',
+    trigger:':coffee:'
+  },
+  {
+    code:'ion-pizza',
+    trigger:':pizza:'
+  },
+  {
+    code:'ion-bug',
+    trigger:':bug:'
+  },
+  {
+    code:'ion-headphone',
+    trigger:':music:'
+  },
+  {
+    code:'ion-happy-outline',
+    trigger:':smile:'
+  },
+  {
+    code:'ion-sad-outline',
+    trigger:':sad:'
+  },
+  {
+    code:'ion-bowtie',
+    trigger:':bowtie:'
+  },
+  {
+    code:'ion-planet',
+    trigger:':planet:'
+  },
+  {
+    code:'ion-ios-alarm-outline',
+    trigger:':alarm:'
+  },
+  {
+    code:'ion-ios-nutrition',
+    trigger:':carrot:'
+  },
+  {
+    code:'ion-ios-paw',
+    trigger:':paw:'
+  },
+  {
+    code:'ion-ios-snowy',
+    trigger:':snowflake:'
+  },
+  {
+    code:'ion-ios-moon',
+    trigger:':moon:'
+  },
+  {
+    code:'ion-ios-sunny-outline',
+    trigger:':sun:'
+  },
+  {
+    code:'ion-social-snapchat-outline',
+    trigger:':ghost:'
+  },
+  {
+    code:'ion-social-usd',
+    trigger:'$'
+  }
+  ];
 
   //Store the user token and a firstTime bool from localStorage in $rootScope
   $rootScope.login.token = localStorage['37-mToken'];
