@@ -231,6 +231,9 @@ angular.module('main.controllers',[])
 
   //Get the user's profile info
   $rootScope.getUserProfile = function(profileId) {
+
+    profileId !== undefined ? $rootScope.user = false : $rootScope.user = true;
+
     //Redirect the user
     profileId !== undefined ? $rootScope.navigate('/profile') : null;
 
@@ -289,12 +292,10 @@ angular.module('main.controllers',[])
 
 .controller('PushController', function($scope, $rootScope, $ionicPush, $ionicUser, RESTFunctions, $ionicPlatform) {
    $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
-     console.log('Got token', data.token, data.platform);
    });
 
    //Basic registration
    $scope.pushRegister = function() {
-     alert('Registering');
 
      $ionicPush.register({
        canShowAlert: false,
@@ -305,7 +306,6 @@ angular.module('main.controllers',[])
      }).then(function(deviceToken) {
        $scope.token = deviceToken;
        $rootScope.token = deviceToken;
-       alert(deviceToken);
       
      });
    }
@@ -327,7 +327,6 @@ angular.module('main.controllers',[])
    }
 
    setTimeout(function () {
-     alert('startingl');
      $scope.identifyUser();
 
      setTimeout(function() {

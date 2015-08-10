@@ -74,12 +74,29 @@ angular.module('account.controllers',[])
     document.getElementsByClassName('register-input')[index].focus();
   };
 
+  //Sends out an SMS code to verify the email
+
+  $scope.sendSMS = function() {
+    RESTFunctions.post({
+      url:'register/send-code',
+      data:'mail=' + $rootScope.inputs.smsEmail,
+      callback: function(response) {
+        if (!response.error) {
+          $rootScope.codeSent = true;
+          InfoHandling.set('sendSMSFailed',response.message, 2000, 'bg-energized');
+        } else {
+          InfoHandling.set('sendSMSFailed',response.error.errorMessage, 2000);
+        }
+      }
+    });
+  };
+
   //Registers a user in the app
   $scope.signUp = function() {
 
     RESTFunctions.post({
       url:'register',
-      data:'mail=' + $rootScope.inputs.signUpMail + '&pass=' + $rootScope.inputs.signUpPass + '&firstName=' + $rootScope.inputs.signUpFirstName + '&lastName=' + $rootScope.inputs.signUpLastName,
+      data:'mail=' + $rootScope.inputs.signUpMail + '&pass=' + $rootScope.inputs.signUpPass + '&firstName=' + $rootScope.inputs.signUpFirstName + '&lastName=' + $rootScope.inputs.signUpLastName + '&code=' + $rootScope.inputs.signUpSms,
       callback: function(response) {
 
         if (response.error) {

@@ -6,9 +6,23 @@
 
 	<img src="img/logo.png" class="signInLogo">
 
+	<!-- SMS Code button -->
+	<div class="list list-inset sms-container" ng-if="!$root.codeSent">
+		
+		<h2 style="font-size:16px;color:#f9f9f9;font-weight:400;margin-left:10px;margin-right:10px;margin-top:20px;text-align:center;">Before registering we need to confirm the validity of your e-mail address. Press this button to send out an SMS code to your email address.</h2>
+
+		<label class="item item-input" style="margin-left:10px;margin-right:10px;margin-top:20px;">
+			<i class="ion-ios-email formIcon stable"></i>
+			<input class="register-input" type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.smsEmail">
+		</label>
+
+		<button class="button button-block button-assertive" style="width:calc(100% - 20px);margin-left:10px;margin-right:10px;margin-top:40px;" ng-click="sendSMS()">Send SMS Code</button>
+
+	</div>
+
 	<!-- Register form -->
 
-	<div class="list list-inset">
+	<div class="list list-inset" ng-if="$root.codeSent === true">
 		<label class="item item-input">
 			<i class="ion-ios-email formIcon stable"></i>
 			<input class="register-input" type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.signUpMail" ng-enter="focusField(1)">
@@ -26,17 +40,22 @@
 
 		<label class="item item-input">
 			<i class="ion-ios-person-outline formIcon stable"></i>
-			<input class="register-input" type="text" placeholder="Last Name" ng-model="$root.inputs.signUpLastName" ng-enter="signUp()">
+			<input class="register-input" type="text" placeholder="Last Name" ng-model="$root.inputs.signUpLastName" ng-enter="focusField(4)">
 		</label>
 
-	<!-- Sign Up button -->
+		<label class="item item-input">
+			<i class="ion-ios-unlocked-outline formIcon stable"></i>
+			<input class="register-input" type="text" placeholder="SMS Code" ng-model="$root.inputs.signUpSms" ng-enter="signUp()">
+		</label>
+
+		<!-- Sign Up button -->
 
 		<button class="button button-royal signInButton" ng-click="signUp()">
 			SIGN UP
 		</button>
 	</div>
 
-	<button class="button button-positive fbBtn" ng-click="fbLogin()">
+	<button class="button button-positive fbBtn" ng-click="fbLogin()" ng-if="$root.codeSent === true">
 		<i class="ion-social-facebook fbIcon"></i>
 		Sign up with Facebook
 	</button>
