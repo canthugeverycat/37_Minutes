@@ -19,6 +19,14 @@
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
+
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage
+       to be sent to iCloud. Note: enabling this could result in Apple rejecting your app. -->
+  <preference name="BackupWebStorage" value="none"/>
+
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>

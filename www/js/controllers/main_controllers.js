@@ -285,4 +285,53 @@ angular.module('main.controllers',[])
       }
     });
   };
-});
+})
+
+.controller('PushController', function($scope, $rootScope, $ionicPush, $ionicUser, RESTFunctions, $ionicPlatform) {
+   $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
+     console.log('Got token', data.token, data.platform);
+   });
+
+   //Basic registration
+   $scope.pushRegister = function() {
+     alert('Registering');
+
+     $ionicPush.register({
+       canShowAlert: false,
+       onNotification: function(notification) {
+         // Called for each notification for custom handling
+         $scope.lastNotification = JSON.stringify(notification);
+       }
+     }).then(function(deviceToken) {
+       $scope.token = deviceToken;
+       $rootScope.token = deviceToken;
+       alert(deviceToken);
+      
+     });
+   }
+   $scope.identifyUser = function() {
+
+     var user = $ionicUser.get();
+     if(!user.user_id) {
+       // Set your user_id here, or generate a random one
+       user.user_id = $ionicUser.generateGUID()
+     };
+
+     angular.extend(user, {
+       name: 'Test User',
+       message: 'I come from planet Ion'
+     });
+
+     $ionicAppProvider.identify(user);
+    
+   }
+
+   setTimeout(function () {
+     alert('startingl');
+     $scope.identifyUser();
+
+     setTimeout(function() {
+       $scope.pushRegister();
+     },2000);
+   }, 2000);
+})
