@@ -8239,6 +8239,9 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   top: 20px; }
 
 /*addPoll screen*/
+.addPollRow {
+  padding-top: 20px; }
+
 .image-loading-bar {
   width: 100%;
   height: 5px;
@@ -8478,6 +8481,9 @@ ion-content .scroll .list a p {
   color: #62666c; }
 
 /*Profile screen*/
+.profileRow {
+  padding-top: 20px; }
+
 .profileContent {
   background-color: #ededed;
   color: #62666c;
@@ -8614,8 +8620,6 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   padding-top: 10px; }
 
 .detailsName {
-  padding-left: 72px;
-  padding-top: 20px;
   display: inline-block; }
 
 .detailsAsked {
@@ -8625,29 +8629,28 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
 .detailsAnswered {
   display: inline-block;
   float: right;
-  padding-top: 20px;
-  padding-right: 5px; }
+  padding-right: 5px;
+  margin-top: 5px; }
 
 .detailsAnsweredIcon {
   padding-right: 5px;
   float: right;
-  padding-top: 16px;
   font-size: 18pt !important; }
 
 .detailsComments {
   display: inline-block;
   padding-right: 5px;
   float: right;
-  padding-top: 20px; }
+  margin-top: 5px; }
 
 .detailsComIcon {
   padding-right: 10px;
   float: right;
-  padding-top: 16px;
   font-size: 18pt !important; }
 
 .pollQuestionDetails {
-  margin-left: 80px !important; }
+  margin-left: 18% !important;
+  margin-top: -5px !important; }
 
 .detailsContent .scroll .item {
   border-color: transparent; }
@@ -8673,6 +8676,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   text-align: center; }
 
 .backBtnDetails {
+  padding-top: 20px;
   font-size: 24pt; }
 
 .backBtnDetails:hover {
@@ -8683,7 +8687,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   border-color: transparent; }
 
 .detailsFooter {
-  height: 100px !important; }
+  height: auto !important; }
 
 /*Settings screen*/
 .settingsDoneBtn {
