@@ -735,6 +735,10 @@ ion-content{
 
 /*addPoll screen*/
 
+.addPollRow{
+	padding-top: 20px;
+}
+
 .image-loading-bar{
 	width: 100%;
 	height: 5px;
@@ -1033,6 +1037,10 @@ ion-content{
 
 /*Profile screen*/
 
+.profileRow{
+	padding-top: 20px;
+}
+
 .profileContent{
 	background-color: #ededed;
 	color: #62666c;
@@ -1221,8 +1229,6 @@ ion-content{
 }
 
 .detailsName{
-	padding-left: 72px;
-	padding-top: 20px;
 	display: inline-block;
 }
 
@@ -1234,14 +1240,13 @@ ion-content{
 .detailsAnswered{
 	display: inline-block;
 	float:right;
-	padding-top: 20px;
 	padding-right: 5px;
+	margin-top: 5px;
 }
 
 .detailsAnsweredIcon{
 	padding-right: 5px;
 	float:right;
-	padding-top: 16px;
 	font-size: 18pt !important;
 }
 
@@ -1249,18 +1254,18 @@ ion-content{
 	display: inline-block;
 	padding-right: 5px;
 	float:right;
-	padding-top: 20px;
+	margin-top: 5px;
 }
 
 .detailsComIcon{
 	padding-right: 10px;
 	float:right;
-	padding-top: 16px;
 	font-size: 18pt !important;
 }
 
 .pollQuestionDetails{
-	margin-left: 80px !important;
+	margin-left: 18% !important;
+	margin-top: -5px !important;
 }
 
 .detailsContent{
@@ -1296,6 +1301,7 @@ ion-content{
 }
 
 .backBtnDetails{
+	padding-top: 20px;
 	font-size: 24pt;
 }
 
@@ -1309,7 +1315,7 @@ ion-content{
 }
 
 .detailsFooter{
-	height:100px !important;
+	height:auto !important;
 }
 
 /*Settings screen*/
