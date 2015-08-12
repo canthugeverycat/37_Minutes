@@ -76,7 +76,6 @@ angular.module('comments.controllers',[])
 	},500);
 
 	$rootScope.useEmoji = function(emoji) {
-		console.log('Using ' + emoji);
 		$rootScope.inputs.newComment += emoji;
 	};
 });

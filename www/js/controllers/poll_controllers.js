@@ -1,7 +1,7 @@
 angular.module('poll.controllers',[])
 
 
-.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload, $ionicScrollDelegate) {
+.controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload, $ionicScrollDelegate, $timeout) {
     $rootScope.loadingPolls = false;
 
     $scope.loadMorePolls = function() {
@@ -18,6 +18,10 @@ angular.module('poll.controllers',[])
     $rootScope.login.firstTime = '0';
     localStorage['37-mFirstTime'] = '0';
   };
+
+  $timeout(function() {
+    $scope.removeOverlay();
+  },10000);
 
   //Create a new poll
   $scope.createPoll = function (files) {

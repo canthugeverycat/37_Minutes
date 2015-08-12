@@ -7694,6 +7694,9 @@ ion-content {
 .arrowNext:hover {
   color: #ffffff !important; }
 
+.ion-icon {
+  padding: 5px; }
+
 .bg-light {
   background-color: #ffffff; }
 
@@ -7983,7 +7986,8 @@ ion-content {
 
 .timer {
   font-size: 11pt;
-  float: right; }
+  float: right;
+  white-space: nowrap; }
 
 .pollComments {
   font-size: 11pt;
@@ -8049,7 +8053,8 @@ ion-content .scroll .list .item .userName {
 ion-content .scroll .list .item .pollQuestion {
   font-size: 13pt;
   margin-left: 18%;
-  margin-top: -5px; }
+  margin-top: -5px;
+  margin-right: 10px; }
 ion-content .scroll .list .item a.subdued {
   padding-right: 5px; }
 ion-content .scroll .list .item .imageContainerDefault .yesContainer .yes {
@@ -8246,7 +8251,7 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   width: 100%;
   height: 5px;
   position: absolute;
-  top: 5px;
+  top: 65px;
   z-index: 99999999; }
   .image-loading-bar span {
     transition: width 0.5s;

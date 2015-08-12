@@ -1,6 +1,6 @@
 angular.module('main.controllers',[])
 
-.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate, $ionicHistory) {
+.controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate, $ionicHistory, $ionicPopup) {
   //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
@@ -108,7 +108,20 @@ angular.module('main.controllers',[])
 
   //Navigate to the passed screen
   $rootScope.navigate = function(url) {
-    $location.path(url);
+
+    if (url === '/login') {
+      // A confirm dialog
+      var confirmPopup = $ionicPopup.confirm({
+          title: 'Logout',
+          template: 'Are you sure you want logout'
+        });
+
+        confirmPopup.then(function(res) {
+          if(res) {$location.path(url);}
+        });
+    } else {
+      $location.path(url);
+    }
   };
 
   //Go back one screen
@@ -143,24 +156,34 @@ angular.module('main.controllers',[])
 
   //Logs the user out and clears the data
   $rootScope.logout = function() {
-    RESTFunctions.post({
-      url:'logout',
-      data:'Token=' + $rootScope.login.token,
-      callback: function(response) {
-        if (response.error) {
-          //Display an error message
-          InfoHandling.set('logoutFailed', response.error.errorMessage, 2000);
-        } else {
+    // A confirm dialog
+    var confirmPopup = $ionicPopup.confirm({
+        title: 'Logout',
+        template: 'Are you sure you want to log out'
+      });
 
-          //Clear the login data
-          localStorage.removeItem('37-mToken');
-          $rootScope.login.token = '';
+      confirmPopup.then(function(res) {
+        if(res) {
+          RESTFunctions.post({
+            url:'logout',
+            data:'Token=' + $rootScope.login.token,
+            callback: function(response) {
+              if (response.error) {
+                //Display an error message
+                InfoHandling.set('logoutFailed', response.error.errorMessage, 2000);
+              } else {
 
-          //Navigate to login screen
-          $location.path('/login');
+                //Clear the login data
+                localStorage.removeItem('37-mToken');
+                $rootScope.login.token = '';
+
+                //Navigate to login screen
+                $location.path('/login');
+              }
+            }
+          });
         }
-      }
-    });
+      });
   };
 
   //Grab a single poll item

@@ -133,7 +133,6 @@ angular.module('friends.controllers',[])
 
 	//Change name of existing group
 	$scope.changeGroupName = function(groupId) {
-			console.log ('dean kurva');
 		RESTFunctions.post({
 			url:'change-group-name',
 			data:'Token=' + $rootScope.login.token + '&groupId=' + groupId + '&groupName=' + $rootScope.data.selectedGroup.groupName,
