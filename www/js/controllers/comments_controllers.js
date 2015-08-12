@@ -34,7 +34,7 @@ angular.module('comments.controllers',[])
 					} else {
 
 						//Clear the input field
-						delete $rootScope.inputs.newComment;
+						$rootScope.inputs.newComment = '';
 
 						//Grab the comments for the poll and refresh the list of polls (so the number of comments is correctly displayed)
 						$rootScope.getComments(pollId);
