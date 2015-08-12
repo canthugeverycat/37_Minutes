@@ -8613,7 +8613,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .yes {
   margin-bottom: -15px;
   font-weight: 500; }
 ion-content .scroll .imageContainerDetails .yesContainerDetails .yesNumber {
-  font-size: 40pt;
+  font-size: 80%;
   color: #ffffff;
   padding-left: 30px;
   display: inline-block;
