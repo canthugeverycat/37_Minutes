@@ -127,9 +127,20 @@ angular.module('account.controllers',[])
     ngFB.login({scope: 'email'}).then(
       function (response) {
           if (response.status === 'connected') {
-              $scope.closeLogin();
+            var me = {};
+            ngFB.api({
+            path: '/me',
+            params: {fields: 'id,name'}
+        }).then(
+            function (user) {
+              $rootScope.inputs.signUpFirstName = user.name.split(' ')[0];
+              $rootScope.inputs.signUpLastName = user.name.split(' ')[1];
+              $rootScope.codeSent = true;
+            },
+            function (error) {
+            });
+            $scope.closeLogin();
           } else {
-              alert('Facebook login failed');
           }
       }
     );

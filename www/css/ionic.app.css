@@ -8681,6 +8681,7 @@ ion-content .scroll .imageContainerDetails .yesContainerDetails .percent {
   text-align: center; }
 
 .backBtnDetails {
+  padding: 10px;
   padding-top: 20px;
   font-size: 24pt; }
 

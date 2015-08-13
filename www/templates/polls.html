@@ -84,8 +84,8 @@
 			<!-- Yes votes  -->
 				<div class="yesContainer" style="width:{{poll.votesYes}}%">
 					<p class="yes light">YES</p>
-					<p class="yesNumber light">{{poll.votesYes}}</p>
-					<p class="percent light">%</p>
+					<p class="yesNumber light" style="overflow:visible;z-index:99999999;">{{poll.votesYes}}</p>
+					<p class="percent light" style="overflow:visible;z-index:99999999;">%</p>
 					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedYes === 1">
 				</div>
 			</div>

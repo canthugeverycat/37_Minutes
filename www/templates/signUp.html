@@ -4,6 +4,8 @@
 
 	<!-- Logo -->
 
+	<h2>{{$root.test}}</h2>
+
 	<img src="img/logo.png" class="signInLogo">
 
 	<!-- SMS Code button -->
@@ -17,6 +19,11 @@
 		</label>
 
 		<button class="button button-block button-assertive" style="width:calc(100% - 20px);margin-left:10px;margin-right:10px;margin-top:40px;" ng-click="sendSMS()">Send SMS Code</button>
+
+		<button class="button button-positive fbBtn" ng-click="fbLogin();" style="width:calc(100% - 20px);">
+			<i class="ion-social-facebook fbIcon"></i>
+			Sign up with Facebook
+		</button>
 
 	</div>
 

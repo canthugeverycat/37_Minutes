@@ -159,6 +159,11 @@ angular.module('poll.controllers',[])
             $rootScope.data.polls = response.questions;
           }
 
+          //Check for invalid profile pictures and replace them with default
+          for (x in $rootScope.data.polls) {
+            $rootScope.data.polls[x].authorImage === '' ? $rootScope.data.polls[x].authorImage = '../img/default_avatar.png' : null;
+          }
+
           //Enable ionic infinite scroll
           $rootScope.loaders.polls = false;
           

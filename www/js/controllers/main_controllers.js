@@ -269,6 +269,7 @@ angular.module('main.controllers',[])
           $rootScope.data.userProfile = response.profile;
           $rootScope.inputs.newName = response.profile.firstName + ' ' + response.profile.lastName;
           $rootScope.inputs.newTagline = response.profile.tagLine;
+          $rootScope.data.userProfile.profileImage === '' ? $rootScope.data.userProfile.profileImage = '../img/default_avatar.png' : null;
         } else {
           //Display an error
           InfoHandling.set('getUserProfileFailed', response.error.errorMessage, 2000);
@@ -286,6 +287,9 @@ angular.module('main.controllers',[])
         if (!response.error) {
           //Store the data
           $rootScope.data.activityFeed = response.activity;
+          for (x in $rootScope.data.activityFeed) {
+            $rootScope.data.activityFeed[x].activityAuthorImage === '' ? $rootScope.data.activityFeed[x].activityAuthorImage = '../img/default_avatar.png' : null;
+          }
         } else {
           //Display an error
           InfoHandling.set('getActivityFeed', response.error.errorMessage, 2000);
