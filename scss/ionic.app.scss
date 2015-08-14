@@ -29,6 +29,11 @@ ion-content{
 	color:$dark;
 }
 
+.col-33{
+	flex:0 0 40%;
+	max-width: 40%;
+}
+
 .has-footer{
 	bottom:60px;
 }
@@ -769,11 +774,10 @@ ion-content{
 	top: 0;
 	height: 100%;
 	z-index: -100;
-	opacity:0.2;
+	opacity:0.5 !important;
 	img{
 		height:100%;
 		position:absolute;
-		left:-100px;
 	}
 }
 
@@ -828,7 +832,7 @@ ion-content{
 	font-size: 14pt;
 	margin-top: 50px;
 	margin-left: 40px;
-	color:#757575;
+	color:#909090;
 }
 
 .addText{
@@ -1066,6 +1070,7 @@ ion-content{
  	border: solid transparent;
  	padding-top: 150px;
  	padding-left: 20px;
+ 	background-size:cover;
 }
 
 .profileImg{
@@ -1215,7 +1220,7 @@ ion-content{
 				}
 
 				.yesNumber{
-					font-size: 80%;
+					font-size: 40pt;
 					color: $light;
 					padding-left:30px; 
 					display: inline-block;
