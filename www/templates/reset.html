@@ -1,0 +1,26 @@
+<ion-view ng-controller="PushController">
+
+<ion-content class="signInContent" ng-controller="LoginController">
+
+	<!-- Logo -->
+
+	<img src="img/logo.png" class="signInLogo">
+
+	<!-- Login form -->
+
+	<div class="list list-inset">
+		<label class="item item-input">
+			<i class="ion-ios-email formIcon stable"></i>
+			<input type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.resetMail" ng-enter="reset">
+		</label>
+		
+		<!-- Reset button -->
+
+		<a ng-click="reset()"><button class="button button-royal signInButton">
+			RESET PASSWORD
+		</button></a>
+	</div>
+
+</ion-content>
+
+</ion-view>

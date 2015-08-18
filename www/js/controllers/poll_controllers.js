@@ -23,8 +23,26 @@ angular.module('poll.controllers',[])
     $scope.removeOverlay();
   },10000);
 
+
+  //Invoke cordova imagePicker plugin to choose a photo for poll and store it in a variable
+  $scope.addPollPhoto = function() {
+    window.imagePicker.getPictures(function(results) {
+      console.log('Got pictures');
+      for (var i = 0; i < results.length; i++) {
+          var file = $rootScope.dataURItoBlob(results[0]);
+          $rootScope.addPollFileExists = true;
+      }
+    }, function (error) {
+        console.log('Error: ' + error);
+    });
+  };
+
   //Create a new poll
   $scope.createPoll = function (files) {
+    console.log('Entered');
+    console.log('file' + files);
+    console.log('file' + file);
+
     //Check if the input is empty
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
       //Display an error message
@@ -43,19 +61,22 @@ angular.module('poll.controllers',[])
         $rootScope.data.addPoll.groupIds.push($rootScope.data.addPoll.groups[y].groupId);
       }
 
-      if (files && files.length) {
+      if ($rootScope.addPollFileExists === true) {
+        console.log('File exists');
 
         //Execute Upload service if there is a file in the file model
-        var file = files[0];
+
+        //var file = files[0];
         Upload.upload({
             url: 'http://p.vz301.verteez.net/mobile-api/v1/leave-question',
             fields: {'Token': $rootScope.login.token,'Title':$rootScope.inputs.createPollTitle,'Groups':$rootScope.data.addPoll.groupIds.toString(),'Users':$rootScope.data.addPoll.friendIds.toString()},
-            file:file,
+            file:files,
             fileFormDataName:'photo'
         }).progress(function(evt) {
           //Store the current state of uploaded image
           $rootScope.imageUploadPercent = parseInt((evt.loaded/evt.total) * 100);
         }).success(function (response) {
+          $rootScope.addPollFileExists = false;
           if (response.error) {
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
@@ -82,8 +103,6 @@ angular.module('poll.controllers',[])
             $rootScope.data.addPoll.friendIds = [];
           }
         }).error(function (response) {
-            //console.log('Error:');
-            //console.log(data);
 
             //Clear the data
             $rootScope.imageUploadPercent = 0;

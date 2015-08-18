@@ -112,6 +112,11 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push','ng
     templateUrl:'templates/notifications.html'
   })
 
+  .state('reset', {
+    url:'/reset',
+    templateUrl:'templates/reset.html'
+  })
+
   $urlRouterProvider.otherwise('login');
 })
 

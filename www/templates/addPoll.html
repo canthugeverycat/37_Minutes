@@ -10,8 +10,8 @@
 				<a><i class="ion-android-arrow-back addBack light" ng-click="$root.goBack()"></i></a>
 			</div>
 			<div class="col">
-				<i class="ion-android-done addCamera light" ng-click="createPoll(files)"></i>
-				<i class="ion-android-camera addCamera light" ngf-select ng-model="files"></i>
+				<i class="ion-android-done addCamera light" ng-click="createPoll(file)"></i>
+				<i class="ion-android-camera addCamera light" ng-click="addPollPhoto()"></i>
 				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
 			</div>
 		</div>
