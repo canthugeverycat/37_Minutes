@@ -18,9 +18,9 @@
 				</div>
 			</div>
 			<div class="item item-avatar profileAvatar">
-				<img class="profileImg" style="background:url({{$root.data.userProfile.profileImage}}) no-repeat center;background-size:cover;">
-				<h2 class="profileName testProfilename">{{$root.data.userProfile.profileName}}</h2>
-				<p class="profileQuote light testProfilequote">{{$root.data.userProfile.tagLine}}</p>
+				<div class="profileImg" style="background:url({{$root.data.userProfile.profileImage !== '' ? $root.data.userProfile.profileImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
+				<h2 class="profileName testProfilename" style="position:relative;left:50px;">{{$root.data.userProfile.profileName}}</h2>
+				<p class="profileQuote light testProfilequote" style="position:relative;left:50px;">{{$root.data.userProfile.tagLine}}</p>
 			</div>
 		</div>
 	</div>
@@ -31,9 +31,9 @@
 
 		<ion-spinner spinner="ios-small" style="display:block;text-align:center;margin-top:20px;" ng-if="$root.data.activityFeed === undefined"></ion-spinner>
 		
-		<!-- Active poll -->
+		<!-- Card item -->
 		<div class="item item-avatar comment-animate" ng-repeat="activity in $root.data.activityFeed">
-			<img style="background:url({{activity.activityAuthorImage}}) no-repeat center;background-size:cover;">
+			<div style="background:url({{activity.activityAuthorImage !== '' ? activity.activityAuthorImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
 			<div class="row userRow">
 				<div class="col col-offset-10">
 					<h2 class="userName">{{activity.activityAuthorName}}</h2>
