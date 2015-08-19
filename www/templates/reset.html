@@ -1,23 +1,48 @@
 <ion-view ng-controller="PushController">
 
-<ion-content class="signInContent" ng-controller="LoginController">
+<ion-content class="signInContent" ng-controller="ResetController">
 
 	<!-- Logo -->
 
 	<img src="img/logo.png" class="signInLogo">
 
-	<!-- Login form -->
+	<!-- Send code form -->
 
-	<div class="list list-inset">
+	<div class="list list-inset" ng-if="$root.codeSent !== true">
 		<label class="item item-input">
 			<i class="ion-ios-email formIcon stable"></i>
-			<input type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.resetMail" ng-enter="reset">
+			<input type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.resetMail" ng-enter="resetPassword()">
 		</label>
 		
 		<!-- Reset button -->
 
-		<a ng-click="reset()"><button class="button button-royal signInButton">
+		<a ng-click="resetPassword()"><button class="button button-royal signInButton">
 			RESET PASSWORD
+		</button></a>
+	</div>
+
+
+	<!-- Reset pass form -->
+
+	<div class="list list-inset" ng-if="$root.codeSent === true">
+		<label class="item item-input">
+			<i class="ion-ios-email formIcon stable"></i>
+			<input type="text" placeholder="Enter your E-mail" ng-model="$root.inputs.resetMail">
+		</label>
+
+		<label class="item item-input">
+			<i class="ion-ios-lock-outline formIcon stable"></i>
+			<input type="password" placeholder="New Password" ng-model="$root.inputs.resetPass">
+		</label>
+
+		<label class="item item-input">
+			<input type="text" placeholder="Verification Code" ng-model="$root.inputs.resetCode">
+		</label>
+		
+		<!-- Reset button -->
+
+		<a ng-click="confirmReset()"><button class="button button-royal signInButton">
+			CONFIRM RESET
 		</button></a>
 	</div>
 

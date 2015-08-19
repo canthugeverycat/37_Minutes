@@ -67,20 +67,4 @@ angular.module('canthugeverycat.services',['ngResource'])
 		}
 	}
 	return InfoHandling;
-})
-
-.service('fileUpload', ['$http','$rootScope', function ($http, $rootScope) {
-    this.uploadFileToUrl = function(x){
-        var fd = new FormData();
-        fd.append('token_api', $rootScope.login.token);
-        fd.append('mealId', $rootScope.meal.id);
-        fd.append('file', x.file);
-
-        $http.post(x.uploadUrl, fd, {
-            transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-        })
-        .success(x.successCb)
-        .error(x.errorCb);
-    }
-}]);
+});

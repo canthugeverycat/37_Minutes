@@ -24,6 +24,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
+i:active{
+	opacity:0.2;
+}
+
 ion-content{
 
 	color:$dark;
@@ -772,6 +776,9 @@ ion-content{
 .add-poll-image-preview{
 	position: absolute;
 	top: 0;
+	bottom:-50px;
+	left:-50px;
+	right:-50px;
 	height: 100%;
 	z-index: -100;
 	opacity:0.5 !important;

@@ -18,6 +18,7 @@ angular.module('main.controllers',[])
   $scope.showEmojis = false;
   $rootScope.inputs.newComment = '';
   $rootScope.addPollFileExists = false;
+  $rootScope.uploadingPollImage = false;
 
   //Defining emoji types
 
@@ -130,33 +131,26 @@ angular.module('main.controllers',[])
     $ionicHistory.goBack();
   };
 
-  $rootScope.urlForImage = function(imageName) {
-    var trueOrigin = cordova.file.dataDirectory + imageName;
-    return trueOrigin;
-  }
-
-  //Convert file URL to file blob
-
-  $rootScope.dataURItoBlob = function (dataURI) {
-    // convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = atob(dataURI.split(',')[1]);
-
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-
-    // write the ArrayBuffer to a blob, and you're done
-    var bb = new BlobBuilder();
-    bb.append(ab);
-    return bb.getBlob(mimeString);
-  }
+  //Send a login request
+  $rootScope.loginRequest = function(userId, firstName, lastName) {
+    RESTFunctions.post({
+      url:'fblogin',
+      data:'firstName=' + firstName + '&lastName=' + lastName + '&fbUserId=' + userId,
+      callback: function(response){
+        console.log(response);
+        if (!response.error) {
+          //Store the token in localStorage and $rootScope
+          localStorage['37-mToken'] = response.Token;
+          $rootScope.login.token = response.Token;
+          //Redirect user to main screen
+          $location.path('/polls');
+        } else {
+          //Display an error
+          InfoHandling.set('loginRequestFailed', response.error.errorMessage, 2000);
+        }
+      }
+    })
+  };
 
 
   //Get comments for the current poll
@@ -316,6 +310,8 @@ angular.module('main.controllers',[])
         if (!response.error) {
           //Store the data
           $rootScope.data.activityFeed = response.activity;
+          
+          //Loop and find emoji triggers
           for (x in $rootScope.data.activityFeed) {
             $rootScope.data.activityFeed[x].activityAuthorImage === '' ? $rootScope.data.activityFeed[x].activityAuthorImage = '../img/default_avatar.png' : null;
           }

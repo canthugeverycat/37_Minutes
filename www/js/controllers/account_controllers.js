@@ -64,7 +64,6 @@ angular.module('account.controllers',[])
       }
     });
   };
-
 })
 
 .controller('SignupController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, ngFB) {
@@ -121,7 +120,6 @@ angular.module('account.controllers',[])
     });
   };
 
-
   //Grab the facebook account info and register the user with it
   $scope.fbLogin = function() {
     ngFB.login({scope: 'email'}).then(
@@ -133,9 +131,8 @@ angular.module('account.controllers',[])
             params: {fields: 'id,name'}
         }).then(
             function (user) {
-              $rootScope.inputs.signUpFirstName = user.name.split(' ')[0];
-              $rootScope.inputs.signUpLastName = user.name.split(' ')[1];
-              $rootScope.codeSent = true;
+              user.name.split(' ')[1] === undefined ? tempLastName = user.name : tempLastName = user.name.split(' ')[1];
+              $rootScope.loginRequest(user.id, user.name.split(' ')[0], tempLastName);
             },
             function (error) {
             });

@@ -7682,6 +7682,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+i:active {
+  opacity: 0.2; }
+
 ion-content {
   color: #444; }
 
@@ -8271,6 +8274,9 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
 .add-poll-image-preview {
   position: absolute;
   top: 0;
+  bottom: -50px;
+  left: -50px;
+  right: -50px;
   height: 100%;
   z-index: -100;
   opacity: 0.5 !important; }

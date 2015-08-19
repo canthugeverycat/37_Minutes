@@ -1,26 +1,22 @@
 <ion-view ng-controller="PollsController">
 	
-	<div class="image-loading-bar" ng-if="$root.imageUploadPercent > 0">
-		<span style="width:{{$root.imageUploadPercent}}%;background-color:#ee524f;border-right:none;"></span>
-	</div>
-
 	<ion-content class="addPollContent">
 		<div class="row addPollRow">
 			<div class="col">
 				<a><i class="ion-android-arrow-back addBack light" ng-click="$root.goBack()"></i></a>
 			</div>
 			<div class="col">
-				<i class="ion-android-done addCamera light" ng-click="createPoll(file)"></i>
-				<i class="ion-android-camera addCamera light" ng-click="addPollPhoto()"></i>
-				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:18px;" ng-if="$root.imageUploadPercent > 0"></ion-spinner>
+				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:-2px;" ng-if="$root.addingPoll === true"></ion-spinner>
+				<i class="ion-android-done addCamera light" ng-click="createPoll(files)" ng-if="$root.addingPoll !== true"></i>
+				<i class="addCamera light" ng-class="{'ion-android-camera':$root.addingPoll !== true}" ngf-select ng-model="files"></i>
 			</div>
 		</div>
 		<p class="addAsk">Ask your question</p>
 		<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
-		<div class="add-poll-image-preview">
-			<img ngf-src="files[0]" ngf-accept="'image/*'" ngf-default-src="img/default.png">
-		</div>
 
+		<div class="add-poll-image-preview">
+			<img ngf-src="files[0]" ngf-background="files[0]" ngf-no-object-url="true" ngf-default-src="img/default.png">
+		</div>
 	</ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">

@@ -23,25 +23,10 @@ angular.module('poll.controllers',[])
     $scope.removeOverlay();
   },10000);
 
-
-  //Invoke cordova imagePicker plugin to choose a photo for poll and store it in a variable
-  $scope.addPollPhoto = function() {
-    window.imagePicker.getPictures(function(results) {
-      console.log('Got pictures');
-      for (var i = 0; i < results.length; i++) {
-          var file = $rootScope.dataURItoBlob(results[0]);
-          $rootScope.addPollFileExists = true;
-      }
-    }, function (error) {
-        console.log('Error: ' + error);
-    });
-  };
-
   //Create a new poll
   $scope.createPoll = function (files) {
-    console.log('Entered');
-    console.log('file' + files);
-    console.log('file' + file);
+
+    $rootScope.addingPoll = true;
 
     //Check if the input is empty
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
@@ -61,22 +46,18 @@ angular.module('poll.controllers',[])
         $rootScope.data.addPoll.groupIds.push($rootScope.data.addPoll.groups[y].groupId);
       }
 
-      if ($rootScope.addPollFileExists === true) {
-        console.log('File exists');
+      if (files && files.length) {
 
         //Execute Upload service if there is a file in the file model
-
-        //var file = files[0];
+        var file = files[0];
         Upload.upload({
             url: 'http://p.vz301.verteez.net/mobile-api/v1/leave-question',
             fields: {'Token': $rootScope.login.token,'Title':$rootScope.inputs.createPollTitle,'Groups':$rootScope.data.addPoll.groupIds.toString(),'Users':$rootScope.data.addPoll.friendIds.toString()},
-            file:files,
+            file:file,
             fileFormDataName:'photo'
         }).progress(function(evt) {
-          //Store the current state of uploaded image
-          $rootScope.imageUploadPercent = parseInt((evt.loaded/evt.total) * 100);
         }).success(function (response) {
-          $rootScope.addPollFileExists = false;
+          $rootScope.addingPoll = false;
           if (response.error) {
             //Display an error message
             InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
@@ -97,15 +78,15 @@ angular.module('poll.controllers',[])
             $location.path('/polls');
 
             //Clear the data
-            $rootScope.imageUploadPercent = 0;
             $rootScope.inputs.createPollTitle = '';
             $rootScope.data.addPoll.groupIds = [];
             $rootScope.data.addPoll.friendIds = [];
           }
         }).error(function (response) {
+            //console.log('Error:');
+            //console.log(data);
 
             //Clear the data
-            $rootScope.imageUploadPercent = 0;
             $rootScope.inputs.createPollTitle = '';
             $rootScope.data.addPoll.groupIds = [];
             $rootScope.data.addPoll.friendIds = [];

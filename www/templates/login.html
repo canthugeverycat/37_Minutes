@@ -26,6 +26,11 @@
 			SIGN IN 
 			<ion-spinner icon="ios-small" class="spinner-light" style="position:absolute;top:8px;" ng-if="$root.checkingLogin === true;"></ion-spinner>
 		</button></a>
+
+		<button class="button button-positive signInButton" ng-click="fbLogin();" style="margin-top:10px;" ng-controller="SignupController">
+			<i class="ion-social-facebook fbIcon"></i>
+			Sign in with Facebook
+		</button>
 	</div>
 
 	<div class="signInCorner">
