@@ -44,6 +44,7 @@ ion-content{
 
 .button:hover{
 	color:none !important;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .arrowNext:hover{
