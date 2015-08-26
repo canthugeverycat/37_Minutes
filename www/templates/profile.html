@@ -1,9 +1,5 @@
 <ion-view>
 
-<div class="image-loading-bar" ng-if="$root.profileImageUploadPercent > 0">
-	<span style="width:{{$root.profileImageUploadPercent}}%;background-color:#ee524f;border-right:none;"></span>
-</div>
-
 <ion-content class="profileContent" has-footer="true" ng-controller="ProfileController">
 	<div class="profileContainer" style="background:url({{$root.data.userProfile.profileImageBig}}) no-repeat center;background-size:cover;">
 		<div class="profileOverlay">
@@ -13,7 +9,7 @@
 				</div>
 				<div class="col" ng-if="$root.user === true">
 					<a href="#/settings"><i class="ion-android-settings addConfirm light"></i></a>
-					<i class="ion-android-camera addCamera light" ngf-select ng-model="files"></i>
+					<i class="ion-android-camera addCamera light" ngf-select ng-model="files" ngf-change="changeProfilePhoto(files)"></i>
 					<a href="#/friends"><i class="ion-android-people addCamera light"></i></a>
 				</div>
 			</div>

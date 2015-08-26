@@ -18,8 +18,6 @@ angular.module('profile.controllers',[])
 	            file:file,
 	            fileFormDataName:'photo'
 	        }).progress(function(evt) {
-	          //Store the current state of uploaded image
-	          $rootScope.profileImageUploadPercent = parseInt((evt.loaded/evt.total) * 100);
 	        }).success(function (response) {
 	          if (response.error) {
 	            //Display an error message
