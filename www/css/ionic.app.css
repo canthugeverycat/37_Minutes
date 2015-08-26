@@ -7696,7 +7696,8 @@ ion-content {
   bottom: 60px; }
 
 .button:hover {
-  color: none !important; }
+  color: none !important;
+  -webkit-tap-highlight-color: transparent; }
 
 .arrowNext:hover {
   color: #ffffff !important; }
