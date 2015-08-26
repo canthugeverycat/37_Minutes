@@ -17,17 +17,6 @@ angular.module('friends.controllers',[])
 		});
 	};
 
-	//Invite a friend
-	$scope.inviteFriend = function() {
-		RESTFunctions.post({
-			url:'invite-friend',
-			data:'Token=' + $rootScope.login.token + '&friendsMail=nini.grbic@gmail.com',
-			callback: function(response) {
-				console.log(response);
-			}
-		});
-	};
-
 	//Get the user's groups
 	$scope.getGroups = function() {
 
@@ -310,17 +299,25 @@ angular.module('friends.controllers',[])
     		//Create an empty contacts array
     		$rootScope.data.contacts = [];
 
+    		$rootScope.tester = [];
+
     		//Go through every contact
     		for (i = 0; i < result.length; i++){
 
     			//And display only the ones with emails
-    			if (result[i].emails !== null) {
+    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ') {
+    				//Push the to the contacts array
     				$rootScope.data.contacts.push(result[i]);
     			}
     		}
+    		$rootScope.contactsFilled = true;
 	    }, function() {});
     }
     $scope.getContactList();
+
+    $rootScope.tempContactsArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','d','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $rootScope.tempContactsArray2 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35];
+
 
     //Invite a friend via email
     $scope.inviteFriend = function(email) {
@@ -329,7 +326,7 @@ angular.module('friends.controllers',[])
 			data:'Token=' + $rootScope.login.token + '&friendsMail=' + email,
 			callback: function(response) {
 				if (!response.error) {
-					InfoHandling.set('inviteFriendSuccessful', response.Message, 2000);
+					InfoHandling.set('inviteFriendSuccessful', response.Message, 2000, 'bg-energized');
 				} else {
 					InfoHandling.set('inviteFriendFailed', response.error.errorMessage, 2000);
 				}

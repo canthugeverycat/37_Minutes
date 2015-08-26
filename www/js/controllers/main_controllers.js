@@ -1,6 +1,10 @@
 angular.module('main.controllers',[])
 
 .controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate, $ionicHistory, $ionicPopup) {
+  ionic.Platform.ready(function() {
+    // hide the status bar using the StatusBar plugin
+    StatusBar.hide();
+  });  
   //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
   $rootScope.data === undefined ? $rootScope.data = {} : null;
@@ -19,6 +23,7 @@ angular.module('main.controllers',[])
   $rootScope.inputs.newComment = '';
   $rootScope.addPollFileExists = false;
   $rootScope.uploadingPollImage = false;
+  $rootScope.contactsFilled = false;
 
   //Defining emoji types
 
