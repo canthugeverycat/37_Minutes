@@ -124,6 +124,7 @@ angular.module('account.controllers',[])
   $scope.fbLogin = function() {
     ngFB.login({scope: 'email'}).then(
       function (response) {
+          $rootScope.facebookLoginToken = response.authResponse.accessToken;
           if (response.status === 'connected') {
             var me = {};
             ngFB.api({
@@ -132,7 +133,7 @@ angular.module('account.controllers',[])
         }).then(
             function (user) {
               user.name.split(' ')[1] === undefined ? tempLastName = user.name : tempLastName = user.name.split(' ')[1];
-              $rootScope.loginRequest(user.id, user.name.split(' ')[0], tempLastName);
+              $rootScope.loginRequest(user.id, user.name.split(' ')[0], tempLastName, $rootScope.facebookLoginToken);
             },
             function (error) {
             });

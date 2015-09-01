@@ -305,11 +305,19 @@ angular.module('friends.controllers',[])
     		for (i = 0; i < result.length; i++){
 
     			//And display only the ones with emails
-    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ') {
-    				//Push the to the contacts array
-    				$rootScope.data.contacts.push(result[i]);
+    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ' && result[i].emails[0].value.length > 5) {
+
+    				if (result[i].emails[0] !== null || result[i].emails[0] !== '' || result[i].emails[0] !== ' ') {
+    					//Push the to the contacts array
+    					$rootScope.data.contacts.push(result[i]);
+    				}
     			}
     		}
+
+    		$rootScope.tester.sort(function(obj1, obj2) {
+				// Ascending: first age less than the previous
+				return obj1.displayName.split('')[0] - obj2.displayName.split('')[0];
+			});
     		$rootScope.contactsFilled = true;
 	    }, function() {});
     }
@@ -318,9 +326,25 @@ angular.module('friends.controllers',[])
     $rootScope.tempContactsArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','d','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     $rootScope.tempContactsArray2 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35];
 
+    $rootScope.inviteList = [];
+    $scope.addFriendToInvite = function(email) {
+    	if ($rootScope.inviteList.indexOf(email) === -1) {
+    		$rootScope.inviteList.push(email);
+    	} else {
+    		$rootScope.inviteList.splice($rootScope.inviteList.indexOf(email),1);
+    	}
+    };
+
+    $rootScope.inviteListFriends = function() {
+    	for (x in $rootScope.inviteList) {
+    		$scope.inviteFriends($rootScope.inviteList[x]);
+    	}
+
+    	$rootScope.inviteList = [];
+    };
 
     //Invite a friend via email
-    $scope.inviteFriend = function(email) {
+    $scope.inviteFriends = function(email) {
     	RESTFunctions.post({
 			url:'invite-friend',
 			data:'Token=' + $rootScope.login.token + '&friendsMail=' + email,

@@ -61,7 +61,7 @@
 		<div class="list">
 
     		<a class="item item-avatar friendsList comment-animate" ng-repeat="recentfriend in $root.data.recentFriends track by $index">
-      			<img ng-src="{{recentfriend.friendImage !== '' ? recentfriend.friendImage : 'img/default_avatar.png'}}">
+    			<div style="background:url({{recentfriend.friendImage !== '' ? recentfriend.friendImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
       			<h2 class="friendsName">{{recentfriend.friendName}}</h2>
       			<!-- Selected button -->
       			<i class="ion-android-done friendsClose" ng-if="$root.data.addPoll.friends.indexOf(recentfriend) !== -1"></i>
@@ -79,10 +79,11 @@
 
 		<div class="list">
     		<a class="item item-avatar friendsList comment-animate" href="" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="addFriendsToPoll(friend)">
-      			<img ng-src="{{friend.friendImage}}">
+    			<div style="background:url({{friend.friendImage !== '' ? friend.friendImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
+      			<img ng-src="">
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Selected button -->
-      			<!-- <i class="ion-android-done friendsClose" ng-if="$root.data.addPoll.friends.indexOf(friend) !== -1"></i> -->
+      			<i class="ion-android-done friendsClose" ng-if="$root.data.addPoll.friends.indexOf(friend) !== -1"></i>
    			</a>
 		</div>
 

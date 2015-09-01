@@ -7682,6 +7682,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.friendSelected {
+  background-color: #cce5b0; }
+
 i:active {
   opacity: 0.2; }
 

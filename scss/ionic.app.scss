@@ -24,6 +24,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
+.friendSelected{
+	background-color:lighten($calm, 20%);
+}
+
 i:active{
 	opacity:0.2;
 }

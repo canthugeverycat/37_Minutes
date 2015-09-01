@@ -44,8 +44,8 @@
 				<p class="detailsAsked">ASKED</p>
 			</div>
 			<div class="col col-33">
-				<i class="ion-android-textsms detailsComIcon"></i>
-				<p class="detailsComments">{{$root.data.poll.commentsCount}}</p>
+				<a class="ion-android-textsms detailsComIcon" ng-click="$root.getComments($root.data.poll.questionId)"></a>
+				<a class="detailsComments" ng-click="$root.getComments($root.data.poll.questionId)">{{$root.data.poll.commentsCount}}</a>
 				<i class="ion-android-done-all detailsAnsweredIcon"></i>
 				<p class="detailsAnswered">{{$root.data.poll.votesCount}}</p>
 			</div>

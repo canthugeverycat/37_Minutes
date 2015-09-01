@@ -43,32 +43,5 @@
 	<!-- Add description -->
 	<p class="settingsTagline">TAGLINE</p>
 	<input class="settingsTaglineInput" type="text" placeholder="Describe yourself" ng-model="$root.inputs.newTagline">
-
-	<!-- Notifications settings -->
-	<p class="settingsNotification">NOTIFICATIONS</p>
-
-	<div class="list">
-		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 0">
-			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 0">
-			<div class="item-content">
-				All
-			</div>
-			<i class="radio-icon ion-android-done"></i>
-		</label>
-		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 1">
-			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 1">
-			<div class="item-content">
-				Summary only
-			</div>
-			<i class="radio-icon ion-android-done"></i>
-		</label>
-		<label class="item item-radio" ng-click="$root.inputs.mailNotifications = 2">
-			<input type="radio" name="group" ng-checked="$root.inputs.mailNotifications === 2">
-			<div class="item-content">
-				None
-			</div>
-			<i class="radio-icon ion-android-done"></i>
-		</label>
-	</div>
 </ion-content>
 </ion-view>

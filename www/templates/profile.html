@@ -35,7 +35,10 @@
 					<h2 class="userName">{{activity.activityAuthorName}}</h2>
 					<p class="asked">{{activity.activityType === 'vote' ? 'VOTED ON' : ''}}{{activity.activityType === 'question' ? 'ASKED' : ''}}{{activity.activityType === 'comment' ? 'COMMENTED ON' : ''}}</p>
 				</div>
-				<div class="col col-33"><p class="timer">25 MIN. LEFT</p></div>
+				<!-- <div class="col col-33">
+					<p class="timer" ng-if="activity.timeLeft !== 0">{{activity.timeLeft}} MIN. LEFT</p>
+					<p class="timer" ng-if="activity.timeLeft === 0">EXPIRED</p>
+				</div> -->
 			</div>
 			<h2 class="pollQuestion">{{activity.question}}</h2>
 			<!-- Poll image -->

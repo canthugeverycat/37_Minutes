@@ -32,6 +32,7 @@ angular.module('poll.controllers',[])
     if ($rootScope.inputs.createPollTitle === undefined || $rootScope.inputs.createPollTitle === '') {
       //Display an error message
       InfoHandling.set('createPollFailed',"You can't leave the question empty.",2000);
+      $rootScope.addingPoll = false;
     } else {
 
       //Iterate through selected groups of friends and pull the ids out

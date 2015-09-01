@@ -2,7 +2,8 @@ angular.module('main.controllers',[])
 
 .controller('MainController', function($scope, $rootScope, $location, $timeout, RESTFunctions, InfoHandling, $ionicScrollDelegate, $ionicHistory, $ionicPopup) {
   ionic.Platform.ready(function() {
-    // hide the status bar using the StatusBar plugin
+    // hide the status bar using the StatusBar plugin and lock the orientation with screen orientation plugin
+    screen.lockOrientation('portrait');
     StatusBar.hide();
   });  
   //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
@@ -137,10 +138,10 @@ angular.module('main.controllers',[])
   };
 
   //Send a login request
-  $rootScope.loginRequest = function(userId, firstName, lastName) {
+  $rootScope.loginRequest = function(userId, firstName, lastName, token) {
     RESTFunctions.post({
       url:'fblogin',
-      data:'firstName=' + firstName + '&lastName=' + lastName + '&fbUserId=' + userId,
+      data:'firstName=' + firstName + '&lastName=' + lastName + '&fbUserId=' + userId + '&fbAccessToken=' + token,
       callback: function(response){
         console.log(response);
         if (!response.error) {
@@ -216,6 +217,7 @@ angular.module('main.controllers',[])
 
   //Grab a single poll item
   $rootScope.getPollItem = function(questionId, redirect) {
+
 
     redirect !== undefined ? $rootScope.navigate('/pollDetails') : null;
 
@@ -315,6 +317,7 @@ angular.module('main.controllers',[])
         if (!response.error) {
           //Store the data
           $rootScope.data.activityFeed = response.activity;
+          console.log(response.activity);
           
           //Loop and find emoji triggers
           for (x in $rootScope.data.activityFeed) {
