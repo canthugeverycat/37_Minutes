@@ -42,7 +42,6 @@
 	</label>
 
 
-
 <ion-content class="inviteFriendsContent has-header has-tabs-top">
 
 	<!-- <button class="button button-positive importFb">
@@ -55,14 +54,15 @@
 		Import from Google Plus
 	</button> -->
 		
+	<br><br>
 	<p class="groupsTitle groupsTitleMargin">INVITE YOUR FRIENDS</p>
 
-	<div style="width:100%;display:inline-block;text-align:center">
-		<ion-spinner icon="ios-small" class="spinner-assertive" ng-if="$root.contactsFilled !== true"></ion-spinner>
+	<div style="width:100%;display:inline-block;text-align:center" ng-if="$root.contactsFilled !== true">
+		<i class="calm ion-icon ion-load-d rotate-icon" style="font-size:34px;"></i>
 	</div>
  
 	<div class="list">
-	    	<a class="item item-avatar friendsList" ng-repeat="contact in $root.data.contacts | filter: $root.inviteFriendsSearch" ng-click="addFriendToInvite(contact.emails[0].value)" ng-class="{friendSelected:$root.inviteList.indexOf(contact.emails[0].value) !== -1}">
+	    	<a class="item item-avatar friendsList" ng-repeat="contact in $root.data.contacts | orderBy:'displayName' | filter: $root.inviteFriendsSearch" ng-click="addFriendToInvite(contact.emails[0].value)" ng-class="{friendSelected:$root.inviteList.indexOf(contact.emails[0].value) !== -1}">
 	      		<div style="background:url({{contact.photos === null ? 'img/default.png' : contact.photos[0].value}}) no-repeat center;background-size:cover;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
 	      		<h2 class="friendsName">{{contact.displayName}}</h2>
 	      		<p class="asked">{{contact.emails[0].value}}</p>

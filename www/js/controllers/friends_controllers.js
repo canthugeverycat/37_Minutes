@@ -305,9 +305,9 @@ angular.module('friends.controllers',[])
     		for (i = 0; i < result.length; i++){
 
     			//And display only the ones with emails
-    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ' && result[i].emails[0].value.length > 5) {
+    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ') {
 
-    				if (result[i].emails[0] !== null || result[i].emails[0] !== '' || result[i].emails[0] !== ' ') {
+    				if (result[i].emails[0].value !== undefined || result[i].emails[0].value !== null || result[i].emails[0].value !== '' || result[i].emails[0].value !== ' ') {
     					//Push the to the contacts array
     					$rootScope.data.contacts.push(result[i]);
     				}
