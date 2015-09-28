@@ -1,11 +1,10 @@
-<ion-view ng-controller="FriendsController" ng-init="getFriendsList();getGroups();getRecentFriends()">
+<ion-view ng-controller="FriendsController" ng-init="$root.getFriendsList();getGroups();getRecentFriends()">
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Friends</h1>
-		<a ng-click="$root.logout()" class="button" style="border:none;top:6px;font-size:14px;">Logout</a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -39,14 +38,7 @@
 
 <ion-content class="friendsContent has-header has-tabs-top">
 
-	<p class="groupsTitle">GROUPS</p>
-
-		<!-- Without groups -->
-		<div class="noContent comment-animate" ng-if="$root.data.groups.length === 0">
-			<i class="ion-android-people noContentIcon noContentIconMargin"></i>
-			<p class="noContentTitle">You haven't created a group yet</p>
-			<p class="noContentSubtitle">After you create one it will be shown here</p>
-		</div>
+	<p class="groupsTitle" ng-if="$root.data.groups.length !== 0">GROUPS</p>
 
 		<ul class="list">
 			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index">
@@ -62,7 +54,7 @@
 
 		<div class="list">
 
-    		<a class="item item-avatar friendsList comment-animate" ng-repeat="recentfriend in $root.data.recentFriends track by $index" ng-click="$root.getUserProfile(recentfriend.friendId);$root.getActivityFeed(recentfriend.friendId);">
+    		<a class="item item-avatar friendsList comment-animate" ng-repeat="recentfriend in $root.data.recentFriends track by $index" ng-click="$root.getUserProfile(recentfriend.friendId);$root.getActivityFeed(recentfriend.friendId);$root.isFriend = false;">
       			<div style="background:url({{recentfriend.friendImage !== '' ? recentfriend.friendImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
       			<h2 class="friendsName">{{recentfriend.friendName}}</h2>
       			<!-- Delete button -->
@@ -70,17 +62,18 @@
    			</a>
 		</div>
 
-	<p class="groupsTitle">YOUR FRIENDS</p>
+	<p class="groupsTitle" ng-if="$root.data.friendsList.length !== 0">YOUR FRIENDS</p>
 
 		<!-- No friends -->
 		<div class="noContent" ng-if="$root.data.friendsList.length === 0">
 			<i class="ion-android-person noContentIcon noContentIconMargin"></i>
 			<p class="noContentTitle">You have no friends</p>
 			<p class="noContentSubtitle">Invite friends so you can share polls with them</p>
+			<a class="button button-clear inviteFriendsButton" ng-click="$root.navigate('/inviteFriends')"><i class="ion-icon ion-android-person-add"></i></a>
 		</div>
 
 		<div class="list">
-    		<a class="item item-avatar friendsList comment-animate" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId);">
+    		<a class="item item-avatar friendsList comment-animate" ng-repeat="friend in $root.data.friendsList track by $index" ng-click="$root.getUserProfile(friend.friendId);$root.getActivityFeed(friend.friendId);$root.isFriend = false;">
       			<div style="background:url({{friend.friendImage !== '' ? friend.friendImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
       			<h2 class="friendsName">{{friend.friendName}}</h2>
       			<!-- Delete button -->
@@ -90,11 +83,11 @@
 
 </ion-content>
 
-<ion-footer-bar class="bar-royal footerFriends">
-	<div class="barGroup">
+<ion-footer-bar class="bar-royal footerFriends row">
+	<div class="barGroup col" ng-if="$root.data.friendsList.length > 0">
 		<a class="button button-clear barButton" href="#/newGroup"><i class="barIcon"><img src="img/addGroup.png"></img></i></a>
 	</div>
-	<div class="barFriend" ng-click="inviteFriend()">
+	<div class="barFriend col" ng-click="inviteFriend()">
 		<a class="button button-clear barButton" href="#/inviteFriends"><i class="barIcon"><img src="img/addFriend.png"></img></i></a>
 	</div>
 </ion-footer-bar>

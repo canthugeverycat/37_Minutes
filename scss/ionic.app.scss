@@ -23,6 +23,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
+.inviteFriendsButton{
+	color:$assertive;
+	width:100%;
+	text-align:center;
+	i{
+		color:$assertive;
+		font-size:40px;
+		position:relative;
+		top:20px;
+	}
+}
 
 .friendSelected{
 	background-color:lighten($calm, 20%);
@@ -274,9 +285,9 @@ ion-content{
 }
 
 .list-inset{
-	width:70%;
-	margin-left: auto;
-	margin-right: auto;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .formIcon{
@@ -842,12 +853,21 @@ ion-content{
 .addAsk{
 	font-weight: 300;
 	font-size: 14pt;
-	margin-top: 50px;
-	margin-left: 40px;
-	color:#909090;
+	position:absolute;
+	font-family: 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
+	font-size: 21.3333px;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	top:25px;
+	width:100%;
+	text-align:center;
+	color:$stable;
 }
 
 .addText{
+	margin-top:40px;
 	background-color: transparent;
 	font-size: 11pt;
 	margin-left: 40px;
@@ -858,6 +878,22 @@ ion-content{
 }
 
 .addPollContent{
+	.container-textarea{
+		position:relative;
+
+		textarea {
+			padding:10px !important;
+			border:1px solid rgba(255,255,255,0.2) !important;
+			box-shadow:1px 1px 10px rgba(0,0,0,0.2);
+		}
+
+		i{
+			position:absolute;
+			bottom:7px;
+			right:25px;
+		}
+	}
+
 	.scroll{
 		textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
@@ -972,6 +1008,14 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 /*Invite friends screen*/
+
+
+.platform-ios{
+	.container-search{
+		top:115px !important;
+	}
+}
+
 
 .inviteFriendsContent{
 	background-color: #ededed;

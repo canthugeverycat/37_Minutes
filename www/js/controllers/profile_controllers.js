@@ -38,4 +38,19 @@ angular.module('profile.controllers',[])
 	        });
 	    }
 	};
+
+	//Invite a friend via id
+    $rootScope.addFriendFromProfile = function(friendId) {
+    	RESTFunctions.post({
+			url:'invite-friend',
+			data:'Token=' + $rootScope.login.token + '&friendsId=' + friendId,
+			callback: function(response) {
+				if (!response.error) {
+					InfoHandling.set('inviteFriendSuccessful', response.Message, 2000, 'bg-energized');
+				} else {
+					InfoHandling.set('inviteFriendFailed', response.error.errorMessage, 2000);
+				}
+			} 
+		});
+    };
 });

@@ -4,7 +4,6 @@ angular.module('main.controllers',[])
   ionic.Platform.ready(function() {
     // hide the status bar using the StatusBar plugin and lock the orientation with screen orientation plugin
     screen.lockOrientation('portrait');
-    StatusBar.hide();
   });  
   //We create the non-existing parent keys so we can store children in later (otherwise we'll get a reference error)
   $rootScope.inputs === undefined ? $rootScope.inputs = {} : null;
@@ -143,7 +142,6 @@ angular.module('main.controllers',[])
       url:'fblogin',
       data:'firstName=' + firstName + '&lastName=' + lastName + '&fbUserId=' + userId + '&fbAccessToken=' + token,
       callback: function(response){
-        console.log(response);
         if (!response.error) {
           //Store the token in localStorage and $rootScope
           localStorage['37-mToken'] = response.Token;
@@ -156,6 +154,26 @@ angular.module('main.controllers',[])
         }
       }
     })
+  };
+
+  //Invite friends via email only
+  $rootScope.inviteByMail = function() {
+    if ($rootScope.inputs.inviteMail !== undefined || $rootScope.inputs.inviteMail !== ''){
+      RESTFunctions.post({
+        url:'invite-friend',
+        'data':'Token=' + $rootScope.login.token + '&friendsMail=' + $rootScope.inputs.inviteMail,
+        callback : function(response) {
+          $rootScope.inputs.inviteMail = '';
+          if (!response.error) {
+          InfoHandling.set('inviteFriendSuccessful', response.Message, 2000, 'bg-energized');
+        } else {
+          InfoHandling.set('inviteFriendFailed', response.error.errorMessage, 2000);
+        }
+        }
+      })
+    } else {
+      InfoHandling.set('inviteFriendFailed', 'Cant leave the e-mail field empty', 2000);
+    }
   };
 
 
@@ -218,7 +236,6 @@ angular.module('main.controllers',[])
   //Grab a single poll item
   $rootScope.getPollItem = function(questionId, redirect) {
 
-
     redirect !== undefined ? $rootScope.navigate('/pollDetails') : null;
 
     RESTFunctions.post({
@@ -236,8 +253,24 @@ angular.module('main.controllers',[])
     });
   };
 
+  //Get a list of all of the user's friends
+  $rootScope.getFriendsList = function() {
+
+    RESTFunctions.post({
+      url:'get-friends',
+      data:'Token=' + $rootScope.login.token,
+      callback: function(response) {
+        if (!response.error) {
+          //Store friends in the $rootScope
+          $rootScope.data.friendsList = response.Friends;
+        }
+      }
+    });
+  };
+
   //Grab the list of notifications
   $rootScope.getNotifications = function() {
+    $rootScope.loaders.notifications = true;
 
     //Clear the data
     $rootScope.data.notifications = [];
@@ -247,6 +280,10 @@ angular.module('main.controllers',[])
       url:'notifications',
       data:'Token=' + $rootScope.login.token,
       callback: function(response) {
+        //Stop the ion-refresher (pull-to-refresh) from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+
+        $rootScope.loaders.notifications = false;
         if (!response.error) {
           //Store the data
           $rootScope.data.notifications = response.notifications;
@@ -294,12 +331,19 @@ angular.module('main.controllers',[])
       url:'profile',
       data:'Token=' + $rootScope.login.token + '&userId=' + profileId,
       callback: function(response) {
+        console.log(response.profile);
         if (!response.error) {
           //Store the data
           $rootScope.data.userProfile = response.profile;
-          $rootScope.inputs.newName = response.profile.firstName + ' ' + response.profile.lastName;
+
+          $rootScope.inputs.newFirstName = response.profile.firstName;
+          $rootScope.inputs.newLastName = response.profile.lastName;
           $rootScope.inputs.newTagline = response.profile.tagLine;
           $rootScope.data.userProfile.profileImage === '' ? $rootScope.data.userProfile.profileImage = '../img/default_avatar.png' : null;
+
+          if (profileId === undefined) {
+            $rootScope.userId = response.profile.profileId;
+          }
         } else {
           //Display an error
           InfoHandling.set('getUserProfileFailed', response.error.errorMessage, 2000);
@@ -307,22 +351,39 @@ angular.module('main.controllers',[])
       }
     });
   };
+  $rootScope.getUserProfile();
 
   //Get the user's activity feed
   $rootScope.getActivityFeed = function(userId) {
+    $rootScope.data.activityFeed = undefined;
     RESTFunctions.post({
       url:'activity-feed',
-      data:'Token=' + $rootScope.login.token + '&userId=' + userId,
+      data:'Token=' + $rootScope.login.token + '&userId=' + (userId !== undefined ? userId : ''),
       callback: function(response) {
         if (!response.error) {
           //Store the data
           $rootScope.data.activityFeed = response.activity;
-          console.log(response.activity);
-          
-          //Loop and find emoji triggers
-          for (x in $rootScope.data.activityFeed) {
-            $rootScope.data.activityFeed[x].activityAuthorImage === '' ? $rootScope.data.activityFeed[x].activityAuthorImage = '../img/default_avatar.png' : null;
+
+          //Loop and check if the user is a friend
+          var tempFriendsArray = [];
+          for (x in $rootScope.data.friendsList){
+            tempFriendsArray.push($rootScope.data.friendsList[x].friendId);
+
+            if (parseInt(x) === (parseInt($rootScope.data.friendsList.length - 1))){
+              if (tempFriendsArray.indexOf(parseInt(userId)) !== -1){
+                $rootScope.isFriend = true;
+              } else {
+                $rootScope.isFriend = false;
+              }
+            }
           }
+
+          if (parseInt(userId) === parseInt($rootScope.userId)){
+            $rootScope.user = true;
+          }
+
+          console.log('isFriend: ' + $rootScope.isFriend);
+          console.log('user: ' + $rootScope.user);
         } else {
           //Display an error
           InfoHandling.set('getActivityFeed', response.error.errorMessage, 2000);
@@ -330,67 +391,83 @@ angular.module('main.controllers',[])
       }
     });
   };
+  $rootScope.getActivityFeed();
 
+  var tempPollId;
+  $rootScope.clickCount = false;
   //Vote on a specific poll
   $rootScope.voteOnPoll = function(pollId, vote) {
+    if ($rootScope.clickCount === true && tempPollId === pollId){
+      tempPollId = pollId;
+      RESTFunctions.post({
+        url:'vote',
+        data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
+        callback: function(response) {
+          $rootScope.clickCount = false;
+          if (response.error) {
+            //Display an error message
+            InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
+          } else {
+            //Properly transition the voting options bars
+            $rootScope.pollTransitionBars(pollId);
 
-    RESTFunctions.post({
-      url:'vote',
-      data:'Token=' + $rootScope.login.token + '&questionId=' + pollId + '&Vote=' + vote,
-      callback: function(response) {
-        if (response.error) {
-          //Display an error message
-          InfoHandling.set('voteOnPollfailed',response.error.errorMessage,2000,'bg-energized');
-        } else {
-          //Properly transition the voting options bars
-          $rootScope.pollTransitionBars(pollId);
+            $rootScope.getPollItem(pollId);
+          }
         }
-      }
-    });
+      });
+    } else {
+      tempPollId = pollId;
+      $rootScope.clickCount = true;
+    }
   };
 })
 
-.controller('PushController', function($scope, $rootScope, $ionicPush, $ionicUser, RESTFunctions, $ionicPlatform) {
-   $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
-   });
+.controller('PushController', function($scope, $rootScope, $cordovaPush, $ionicPush, $ionicUser, RESTFunctions, $location) {
+  
+  if (ionic.Platform.isIOS() === true || ionic.Platform.isAndroid() === true) {
+    //Basic registration
+    $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
+      $rootScope.token = data.token;
+      //Send the token to the API
+      RESTFunctions.post({
+        url:'push/register-token',
+        data:'Token=' + $rootScope.login.token + '&pushToken=' + $rootScope.token + '&platform=' + (ionic.Platform.isAndroid() === true ? '1' : '0'),
+        callback: function(response) {
+        }
+      });
+    });
 
-   //Basic registration
-   $scope.pushRegister = function() {
+    $rootScope.pushRegister = function() {
 
-     $ionicPush.register({
-       canShowAlert: false,
-       onNotification: function(notification) {
-         // Called for each notification for custom handling
-         $scope.lastNotification = JSON.stringify(notification);
-       }
-     }).then(function(deviceToken) {
-       $scope.token = deviceToken;
-       $rootScope.token = deviceToken;
-      
-     });
-   }
-   $scope.identifyUser = function() {
+      $ionicPush.register({
+        canShowAlert: false,
+        onNotification: function(notification) {
+          // Called for each notification for custom handling
+          $scope.lastNotification = JSON.stringify(notification);
+        }
+      }).then(function(deviceToken) {
+        //Store the token in model
+        $rootScope.token = deviceToken;
+      });
+    }
+  }
 
-     var user = $ionicUser.get();
-     if(!user.user_id) {
-       // Set your user_id here, or generate a random one
-       user.user_id = $ionicUser.generateGUID()
-     };
-
-     angular.extend(user, {
-       name: 'Test User',
-       message: 'I come from planet Ion'
-     });
-
-     $ionicAppProvider.identify(user);
-    
-   }
-
-   setTimeout(function () {
-     $scope.identifyUser();
-
-     setTimeout(function() {
-       $scope.pushRegister();
-     },2000);
-   }, 2000);
+  //Handle new notifications
+  $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+    if (ionic.Platform.isAndroid() === true) {
+      if (notification.android.payload.notificationType === 'question' || 'vote') {
+        $rootScope.payload = '/pollDetails';
+        alert($rootScope.payload);
+        //$rootScope.getPollItem(notification.android.payload.questionId);
+      } else if (notification.android.payload.notificationType === 'comment') {
+        //$rootScope.getComments(notification.android.payload.questionId);$rootScope.getPollItem(notification.android.payload.questionId, false);$rootScope.data.commentsTitle = $rootScope.data.poll.question.toUpperCase();
+        $rootScope.payload = '/comments';
+        alert($rootScope.payload);
+      } else {
+        $rootScope.getNotifications();
+        $rootScope.payload = '/notifications';
+        alert($rootScope.payload);
+      }
+    }
+  });
 })

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/customfonts.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src='lib/angular-google-maps/dist/angular-google-maps.js'></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+  </head>
+  <body ng-app="starter" class="platform-ios platform-cordova platform-webview fullscreen">
+      <ion-nav-bar class="bar-dark">
+          <button class="button button-icon icon-left ion-chevron-left" ng-show="showBack" ng-click="goBack()">BACK</button>
+      </ion-nav-bar>
+
+      <ion-nav-view animation="slide-left-right">
+          <!-- Center content -->
+      </ion-nav-view>
+
+      <!-- Loading overlay -->
+      <div class="loading-overlay" ng-class="{'loading-overlay-out':$root.loadingOverlay === false}">
+        <img class="app-logo"src="img/djgriff_logo.png">
+        <div class="row creator-container">
+          <div class="col">
+            <p>Powered by&nbsp;</p>
+            <img src="img/artistappz_logo.png">
+          </div>
+        </div>
+      </div>
+
+
+      <div ng-controller="MenuBarController">
+      <div class="button-bar submenu-media" ng-show="submenuMedia">
+        <a href="#/music" class="button icon-left button-icon ion-headphone"  ng-click="submenuMedia = false;">MUSIC</a>
+        <a href="#/photos" class="button icon-left button-icon ion-images"  ng-click="submenuMedia = false;">PHOTOS</a>
+        <a href="#/videos" class="button icon-left button-icon ion-videocamera" ng-click="submenuMedia = false;">VIDEOS</a>
+      </div>
+      <div class="tabs tabs-icon-top tabs-dark hide-on-keyboard-open" ng-hide="!showTabs">
+        <a href="#/events" class="tab-item" ng-click="submenuMedia = false;">
+          <i class="icon ion-calendar"></i>
+          EVENTS
+        </a>
+        <a href="#/news" class="tab-item" ng-click="submenuMedia = false;">
+          <i class="icon ion-speakerphone"></i>
+          NEWS
+        </a>
+        <a class="tab-item" ng-class="{'tab-item-active':submenuMedia}" ng-click="submenuMedia = !submenuMedia">
+          <i class="icon ion-mic-c"></i>
+          MEDIA
+        </a>
+        <a href="" ng-click="onOpenLink('http://' + website)" class="tab-item">
+          <i class="icon ion-earth"></i>
+          WEB-SITE
+        </a>
+        <a href="#/social" class="tab-item" ng-click="submenuMedia = false;">
+          <i class="icon ion-person"></i>
+          SOCIAL
+        </a>
+        <a href="#/contact" class="tab-item" ng-click="submenuMedia = false;">
+          <i class="icon ion-chatbubbles"></i>
+          CONTACT
+        </a>
+      </div>
+      </div>
+  </body>
+</html>

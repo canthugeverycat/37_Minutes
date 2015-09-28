@@ -2,6 +2,7 @@ angular.module('poll.controllers',[])
 
 
 .controller('PollsController', function($scope, $rootScope , RESTFunctions, InfoHandling, $location, Upload, $ionicScrollDelegate, $timeout) {
+    $rootScope.getFriendsList();
     $rootScope.loadingPolls = false;
 
     $scope.loadMorePolls = function() {
@@ -13,10 +14,15 @@ angular.module('poll.controllers',[])
       $scope.loadMorePolls();
     });
   
+  $rootScope.overlayClickCount = false;
   //Remove the first time user overlay
   $scope.removeOverlay = function() {
-    $rootScope.login.firstTime = '0';
-    localStorage['37-mFirstTime'] = '0';
+    if ($rootScope.overlayClickCount === true) {
+      $rootScope.login.firstTime = '0';
+      localStorage['37-mFirstTime'] = '0';
+    } else {
+      $rootScope.overlayClickCount = true;
+    }
   };
 
   $timeout(function() {
@@ -24,7 +30,7 @@ angular.module('poll.controllers',[])
   },10000);
 
   //Create a new poll
-  $scope.createPoll = function (files) {
+  $rootScope.createPoll = function (files) {
 
     $rootScope.addingPoll = true;
 
@@ -73,6 +79,7 @@ angular.module('poll.controllers',[])
             InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
 
             //Refresh the list of polls to properly display the newly created one
+            $rootScope.data.polls = [];
             $rootScope.getPollList();
             
             //Redirect user to main screen
@@ -84,6 +91,7 @@ angular.module('poll.controllers',[])
             $rootScope.data.addPoll.friendIds = [];
           }
         }).error(function (response) {
+            $rootScope.addingPoll = false;
             //console.log('Error:');
             //console.log(data);
 
@@ -100,6 +108,7 @@ angular.module('poll.controllers',[])
           data:'Token=' + $rootScope.login.token + '&Title=' + $rootScope.inputs.createPollTitle + '&Groups=' + $rootScope.data.addPoll.groupIds.toString() + '&Users=' + $rootScope.data.addPoll.friendIds.toString(),
           callback: function(response) {
             if (response.error) {
+              $rootScope.addingPoll = false;
               //Display an error message
               InfoHandling.set('createPollFailed',response.error.errorMessage,2000);
 
@@ -109,6 +118,7 @@ angular.module('poll.controllers',[])
               $rootScope.data.addPoll.groupIds = [];
               $rootScope.data.addPoll.friendIds = [];
             } else {
+              $rootScope.addingPoll = false;
               //Display a success message
               InfoHandling.set('createPollSuccessful', 'Poll created.',2000,'bg-energized');
 
@@ -142,17 +152,13 @@ angular.module('poll.controllers',[])
       data:'Token=' + $rootScope.login.token + '&page=' + (page === undefined ? '0' : page),
       callback: function(response) {
         if (response.error) {
-          //Dispaly an error message
+          //Display an error message
           InfoHandling.set('getPollListFailed',response.error.errorMessage,2000);
         } else {
-          //console.log('pushBool' + pushBool);
           if (pushBool === true) {
-            //console.log($rootScope.data.polls);
-            //console.log(response.questions);
             //Push the new data to polls array
             for (i = 0; i < response.questions.length; i++){
               $rootScope.data.polls.push(response.questions[i]);
-              //console.log('pushing');
             }
           } else if (pushBool === undefined || pushBool === false) {
             //Clear the old polls and display new ones

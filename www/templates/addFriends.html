@@ -2,10 +2,9 @@
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Add Friends</h1>
-		<a href="#" class="button settingsDoneBtn button-icon" ng-click="$root.navigate('/addPoll')"><i class="ion-android-done"></i></a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -41,13 +40,6 @@
 
 	<p class="groupsTitle">GROUPS</p>
 
-		<!-- Without groups -->
-		<div class="noContent" ng-if="$root.data.groups.length === 0">
-			<i class="ion-android-people noContentIcon noContentIconMargin"></i>
-			<p class="noContentTitle">You haven't created a group yet</p>
-			<p class="noContentSubtitle">After you create one it will be shown here</p>
-		</div>
-
 		<ul class="list">
 			<li class="item groupName comment-animate" ng-repeat="group in $root.data.groups track by $index" ng-click="addFriendsToPoll(null, group)">
 				{{group.groupName}}
@@ -60,7 +52,7 @@
 
 		<div class="list">
 
-    		<a class="item item-avatar friendsList comment-animate" ng-repeat="recentfriend in $root.data.recentFriends track by $index">
+    		<a class="item item-avatar friendsList comment-animate" ng-repeat="recentfriend in $root.data.recentFriends track by $index" ng-click="addFriendsToPoll(recentfriend)">
     			<div style="background:url({{recentfriend.friendImage !== '' ? recentfriend.friendImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
       			<h2 class="friendsName">{{recentfriend.friendName}}</h2>
       			<!-- Selected button -->
@@ -88,5 +80,9 @@
 		</div>
 
 </ion-content>
+
+	<ion-footer-bar align-title="center" class="bar-royal">
+		<a href="#" class="button button-icon" ng-click="$root.createPoll($root.files)" style="width:100%;top:8px;opacity:1;position:relative;text-align:center !important;">Post your poll <ion-spinner icon="ios-small" class="spinner-light" ng-if="$root.addingPoll === true" style="width:100%;text-align:center;position:absolute;top:2px;left:70px;"></ion-spinner></a>
+	</ion-footer-bar>
 
 </ion-view>

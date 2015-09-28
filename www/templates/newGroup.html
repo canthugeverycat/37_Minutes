@@ -2,10 +2,9 @@
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Group Details</h1>
-		<button class="button button-clear button-icon settingsDoneBtn" ng-click="$root.createNewGroup()"><i class="ion-android-done"></i></button>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -54,4 +53,9 @@
 		</a>
 	</div>
 </ion-content>
+
+<ion-footer-bar align-title="center" class="bar-royal">
+	<a href="#" class="button settingsDoneBtn button-icon" ng-click="$root.createNewGroup()" style="width:100%;top:12px;opacity:1;position:relative;font-family:'Helvetica Neue', Roboto, 'Segoe UI', sans-serif !important;font-size:17px !important;font-stretch:normal !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;text-align:center !important;">Create group</a>
+</ion-footer-bar>
+
 </ion-view>

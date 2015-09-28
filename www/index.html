@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <title>37 Minutes</title>
 
@@ -24,8 +25,8 @@
     <!-- your app's js -->
     <script src="lib/angular-resource.js"></script>
     <!-- shim is needed to support non-HTML5 FormData browsers (IE8-9)-->
-    <script src='lib/lodash/dist/lodash.js'></script>
-    <script src='lib/bluebird/js/browser/bluebird.js'></script>
+    <script src="lib/lodash/dist/lodash.js"></script>
+    <script src="lib/bluebird/js/browser/bluebird.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
     <script src="lib/ng-file-upload-shim.js"></script>
     <script src="lib/ng-file-upload.js"></script>
@@ -43,12 +44,14 @@
     <script src="js/controllers/reset_controllers.js"></script>
     <script src="js/canthugeverycat_services.js"></script>
 
+    <!-- <script src="http://192.168.0.124:8080/target/target-script-min.js#anonymous"></script> -->
+
   </head>
   
   <body ng-app="starter" ng-controller="MainController" on-swipe-left="navigateRight()" on-swipe-right="navigateLeft()">
     <a class="navGoLeft" nav-direction="back" href="" ng-click="$root.navigateGoTo(&apos;.navGoLeft&apos;)" style="display:none;"></a>
     <a class="navGoRight" nav-direction="forward" href="" ng-click="$root.navigateGoTo(&apos;.navGoRight&apos;)" style="display:none;"></a>
     
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view ng-controller="PushController"></ion-nav-view>
   </body>
 </html>

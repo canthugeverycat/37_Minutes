@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic','ionic.service.core','ionic.service.push','ngCordova','directives','main.controllers','reset.controllers','account.controllers','notifications.controllers','poll.controllers','comments.controllers','friends.controllers','profile.controllers','social.controllers','settings.controllers','ngOpenFB','canthugeverycat.services','ngAnimate','ngFileUpload'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -22,7 +22,44 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push','ng
   ngFB.init({appId: '717820615014962'});
 })
 
-.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(['$ionicAppProvider','$ionicConfigProvider','$httpProvider','$compileProvider', function($ionicAppProvider,$ionicConfigProvider,$httpProvider,$compileProvider) {
+
+  // Identify app
+  $ionicAppProvider.identify({
+  
+    // Your App ID
+    app_id: '5796c606',
+    
+    // The public ionic API key services will use for this app
+    
+    // api_key: 'eg3843764837e46g476f8638687e62837e6',    // Testing
+    api_key: 'AIzaSyCM_E34cgzFtCiIjTpSvoTiL7ZyYuZOHP4',     // Production!
+    
+    // Your GCM sender ID/project number (Uncomment if supporting Android)
+    gcm_id: '614155252203' // Google public API key: e3f5673e6578e8567256875867e25876e24
+    
+    // Set the app to use development pushes (that bypass Apple/Google)
+    // , dev_push: true
+  });
+  
+}])
+
+.run(function($ionicPlatform, $rootScope, $ionicPush, $ionicUser, $ionicModal, $ionicHistory, $ionicPopup, $ionicViewSwitcher, $cordovaPush, $state, $http, $cordovaStatusbar) {
+  
+  $ionicPlatform.ready(function() {
+
+      var user = $ionicUser.get();
+
+      if(!user.user_id) {
+        // Set your user_id here, or generate a random one
+        user.user_id = $ionicUser.generateGUID();
+      };
+          
+      $ionicUser.identify(user);
+  }); // End $ionicPlatform.ready()
+})
+
+.config(['$stateProvider','$urlRouterProvider','$ionicConfigProvider', function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.views.swipeBackEnabled(false);
   $stateProvider
 
@@ -118,7 +155,7 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push','ng
   })
 
   $urlRouterProvider.otherwise('login');
-})
+}])
 
 
 //Converts an angular string to int
@@ -144,4 +181,4 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push','ng
     });
     return array;
  }
-});
+})

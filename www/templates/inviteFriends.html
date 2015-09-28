@@ -1,7 +1,7 @@
 <ion-view ng-controller="AddFriendsController">
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Invite Friends</h1>
 		<!-- <a href="#" class="button ion-android-done settingsDoneBtn button-icon"></a> -->
@@ -36,26 +36,36 @@
 		</div>
 	</div>
 
-	<label class="item item-input" style="top:95px;">
+	<label class="item item-input container-search" style="position:relative;top:100px;">
 		<i class="icon ion-search placeholder-icon"></i>
 		<input type="text" placeholder="Search through your friends" ng-model="$root.inviteFriendsSearch">
 	</label>
 
 
 <ion-content class="inviteFriendsContent has-header has-tabs-top">
-
-	<!-- <button class="button button-positive importFb">
-		<i class="ion-social-facebook fbIcon"></i>
-		Import from Facebook
-	</button>
-
-	<button class="button button-assertive importGoogle">
-		<i class="ion-social-googleplus googleIcon"></i>
-		Import from Google Plus
-	</button> -->
 		
-	<br><br>
-	<p class="groupsTitle groupsTitleMargin">INVITE YOUR FRIENDS</p>
+	<br><br><br>
+
+	<div class="list list-inset">
+		
+		<label class="item item-input">
+			<i class="ion-ios-email formIcon stable"></i>
+			<input type="text" placeholder="Enter your friend's E-mail" ng-model="$root.inputs.inviteMail" ng-enter="$root.inviteByMail()">
+		</label>
+
+		<!-- Invite button #/polls -->
+
+		<a ng-click="$root.inviteByMail()"><button class="button button-royal signInButton">
+			Invite by e-mail
+		</button></a>
+
+		<!-- <button class="button button-positive signInButton" ng-click="fbLogin();" style="margin-top:10px;white-space:nowrap;" ng-controller="SignupController">
+			<i class="ion-social-facebook fbIcon"></i>
+			Sign in with Facebook
+		</button> -->
+	</div>
+
+	<p class="groupsTitle groupsTitleMargin">PHONE CONTACTS</p>
 
 	<div style="width:100%;display:inline-block;text-align:center" ng-if="$root.contactsFilled !== true">
 		<i class="calm ion-icon ion-load-d rotate-icon" style="font-size:34px;"></i>
@@ -63,8 +73,8 @@
  
 	<div class="list">
 	    	<a class="item item-avatar friendsList" ng-repeat="contact in $root.data.contacts | orderBy:'displayName' | filter: $root.inviteFriendsSearch" ng-click="addFriendToInvite(contact.emails[0].value)" ng-class="{friendSelected:$root.inviteList.indexOf(contact.emails[0].value) !== -1}">
-	      		<div style="background:url({{contact.photos === null ? 'img/default.png' : contact.photos[0].value}}) no-repeat center;background-size:cover;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
-	      		<h2 class="friendsName">{{contact.displayName}}</h2>
+	      		<div style="background:url({{contact.photos === null ? 'img/default.png' : contact.photos[0].value}}) no-repeat center;background-size:cover;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;text-align:center !important;"></div>
+	      		<h2 class="friendsName">{{contact.displayName !== null ? contact.displayName : '' + ' ' + contact.name.givenName !== null ? contact.name.givenName : ''}}</h2>
 	      		<p class="asked">{{contact.emails[0].value}}</p>
 	   		</a>
 	</div>
@@ -72,7 +82,7 @@
 </ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal" ng-click="$root.inviteListFriends()">
-	<h1 class="title" style="line-height:52px">Invite Friends ({{$root.inviteList.length}})</h1>
+	<h1 class="title" style="line-height:52px">Invite Friends ({{$root.inviteList.length !== 0 ? $root.inviteList.length : ''}})</h1>
 </ion-footer-bar>
 
 

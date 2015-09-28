@@ -2,18 +2,20 @@
 
 <ion-content class="detailsContent">
 	<div class="imageContainerDetails" ng-class="{'imageContainerDetailsDefault':$root.data.poll.imageUrl === ''}" style="background-image: url({{$root.data.poll.imageUrl}});">
-		<div class="yesGrey">
-			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%">
-				<a class="button backBtnDetails light button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
-				<p class="yes light">YES</p>
-				<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
-				<p class="percent light">%</p>
-				<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedYes !== 0">
+		<a class="button backBtnDetails light button-icon ion-android-arrow-back" ng-click="$root.goBack()" style="position:absolute;z-index:9999;"></a>
+		<div class="yesGrey" ng-click="voteOnPoll($root.data.poll.questionId,1)" style="position:relative;">
+			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%;">
+				<div class="wrapper" style="position:absolute;bottom:0;width:100%;">
+					<p class="yes light">YES</p>
+					<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
+					<p class="percent light">%</p>
+					<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedYes !== 0">
+				</div>
 			</div>
 		</div>
 
-		<div class="noGrey">
-			<div class="noContainerDetails" style="width:{{$root.data.poll.votesNo}}%">
+		<div class="noGrey" ng-click="voteOnPoll($root.data.poll.questionId,0)">
+			<div class="noContainerDetails" style="width:{{$root.data.poll.votesNo}}%" >
 				<p class="no">NO</p>
 				<p class="noNumber">{{$root.data.poll.votesNo}}</p>
 				<p class="percent">%</p>
@@ -37,7 +39,7 @@
 
 	<div class="item item-avatar itemDetails">
 
-		<img style="background:url({{$root.data.poll.authorImage}}) no-repeat center;background-size:cover;">
+		<img style="background:url({{$root.data.poll.authorImage !== '' ? $root.data.poll.authorImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;">
 		<div class="row">
 			<div class="col col-offset-10">
 				<h2 class="detailsName">{{$root.data.poll.authorName}}</h2>

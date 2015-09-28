@@ -2,21 +2,6 @@ angular.module('friends.controllers',[])
 
 .controller('FriendsController',function($scope, $rootScope, InfoHandling, RESTFunctions, $location, $ionicPopup) {
 
-	//Get a list of all of the user's friends
-	$scope.getFriendsList = function() {
-
-		RESTFunctions.post({
-			url:'get-friends',
-			data:'Token=' + $rootScope.login.token,
-			callback: function(response) {
-				if (!response.error) {
-					//Store friends in the $rootScope
-					$rootScope.data.friendsList = response.Friends;
-				}
-			}
-		});
-	};
-
 	//Get the user's groups
 	$scope.getGroups = function() {
 
@@ -217,7 +202,9 @@ angular.module('friends.controllers',[])
 			//If selected group is already in the array
 			if ($rootScope.data.addPoll.groups.indexOf(group) === -1) {
 				//Add him to the array
-				$rootScope.data.addPoll.groups.push(group);
+				for (x = 0; x < parseInt(group.membersCount); x++) {
+					$rootScope.data.addPoll.groups.push(group);
+				}
 			} else {
 				//Remove him from the array
 				$rootScope.data.addPoll.groups.splice($rootScope.data.addPoll.groups.indexOf(group),1);
@@ -262,7 +249,7 @@ angular.module('friends.controllers',[])
 							InfoHandling.set('removeFriendSuccessful', response.Message, 2000, 'bg-energized');
 
 							//Update the friends list
-							$scope.getFriendsList();
+							$rootScope.getFriendsList();
 							$scope.getRecentFriends();
 						} else {
 							//Display an error message
@@ -305,7 +292,7 @@ angular.module('friends.controllers',[])
     		for (i = 0; i < result.length; i++){
 
     			//And display only the ones with emails
-    			if (result[i].emails !== null && result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' ') {
+    			if (result[i].emails !== null /*&& result[i].displayName !== null && result[i].displayName !== '' && result[i].displayName !== ' '*/) {
 
     				if (result[i].emails[0].value !== undefined || result[i].emails[0].value !== null || result[i].emails[0].value !== '' || result[i].emails[0].value !== ' ') {
     					//Push the to the contacts array
@@ -343,7 +330,7 @@ angular.module('friends.controllers',[])
     	$rootScope.inviteList = [];
     };
 
-    //Invite a friend via email
+    //Invite a friend via contacts
     $scope.inviteFriends = function(email) {
     	RESTFunctions.post({
 			url:'invite-friend',

@@ -1,18 +1,17 @@
-<ion-view ng-controller='PollsController' ng-init="$root.getNotifications()">
+<ion-view ng-controller='PollsController' ng-init="$root.getNotifications();$root.getPollList();$root.getFriendsList()">
 
 	<!-- First time user tutorial -->
  
- 	<div class="doubleTapOverlay comment-animate" ng-dblclick="removeOverlay()" ng-if="$root.login.firstTime === '1'">
+ 	<div class="doubleTapOverlay comment-animate" ng-click="removeOverlay()" ng-if="$root.login.firstTime === '1'">
 		<p class="doubleTapTxt light">Double tap on YES or NO to vote</p>
 		<img class="doubleTapIcon" src="img/doubleTap.png">
 	</div>
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Polls</h1>
-		<a ng-click="$root.logout()" class="button" style="border:none;top:6px;font-size:14px;">Logout</a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -52,7 +51,9 @@
 	<div class="noContent" ng-if="$root.data.polls.length === 0">
 		<i class="ion-android-list noContentIcon"></i>
 		<p class="noContentTitle">There are no polls to show</p>
-		<p class="noContentSubtitle">Post new poll or invite friends to see theirs</p>
+		<p class="noContentSubtitle" ng-if="parseInt($root.data.friendsList) > parseInt(0)">Post new poll or invite friends to see their polls</p>
+		<p class="noContentSubtitle" ng-if="parseInt($root.data.friendsList) === parseInt(0)">Invite friends to post and see their polls</p>
+		<a class="button button-clear inviteFriendsButton" ng-click="$root.navigate('/inviteFriends')" ng-if="$root.data.friendsList === 0"><i class="ion-icon ion-android-person-add"></i></a>
 	</div>
 
 
@@ -67,7 +68,7 @@
 		
 	<!-- Poll card-->
 	<div class="item item-avatar poll-animate" ng-class="{'overlay':poll.timeLeft === 0}" ng-repeat="poll in $root.data.polls track by $index">
-		<div style="background:url({{poll.authorImage !== '' ? poll.authorImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
+		<div style="background:url({{poll.authorImage !== '' ? poll.authorImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;" ng-click="$root.getUserProfile(poll.authorId);$root.getActivityFeed(poll.authorId);"></div>
 		<div class="row userRow">
 			<div class="col col-offset-10">
 				<h2 class="userName">{{poll.authorName}}</h2>
@@ -84,7 +85,7 @@
 			<!-- Yes votes  -->
 				<div class="yesContainer" style="width:{{poll.votesYes}}%">
 					<p class="yes light">YES</p>
-					<p class="yesNumber light" style="overflow:visible;z-index:99999999;">{{poll.votesYes}}</p>
+					<p class="yesNumber light" style="overflow:visible;z-index:99999999;font-size:40px;">{{poll.votesYes}}</p>
 					<p class="percent light" style="overflow:visible;z-index:99999999;">%</p>
 					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedYes === 1">
 				</div>
@@ -94,8 +95,8 @@
 			<!-- No votes -->
 				<div class="noContainer" style="width:{{poll.votesNo}}%">
 					<p class="no">NO</p>
-					<p class="noNumber">{{poll.votesNo}}</p>
-					<p class="percent">%</p>
+					<p class="noNumber" style="font-size:40px;">{{poll.votesNo}}</p>
+					<p class="percent" style="margin-bottom:10px;">%</p>
 					<img class="answeredIcon" src="img/answered.png" ng-if="poll.userVotedNo === 1">
 				</div>
 			</div>
@@ -103,7 +104,7 @@
 
 		<div class="row">
 			<div class="col">
-				<a class="subdued pollVotes" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.userVoted + 0}} VOTES</a>
+				<a class="subdued pollVotes" ng-class="{'userCommented':poll.userVoted !== 0}" ng-click="$root.getPollItem(poll.questionId);$root.navigate('/pollDetails')">{{poll.votesCount + 0}} VOTES</a>
 				<a class="subdued pollComments" ng-class="{'userCommented':poll.userCommented !== 0}" ng-click="$root.getComments(poll.questionId);$root.getPollItem(poll.questionId, false);$root.data.commentsTitle = poll.question.toUpperCase();$root.navigate('/comments')">{{poll.commentsCount}} COMMENTS</a>
 			</div>
 			<div class="col col-10">
@@ -125,7 +126,7 @@
 </ion-content>
 
 <!-- Add poll footer -->
-<ion-footer-bar align-title="left" class="bar-royal">
+<ion-footer-bar align-title="left" class="bar-royal" ng-if="$root.data.friendsList.length !== 0 && $root.data.friendsList !== undefined">
 <!-- Add poll button -->
 	<a href="#/addPoll"><h1 class="title addIcon"><i class="ion-android-add"></i></h1></a>
 </ion-footer-bar>

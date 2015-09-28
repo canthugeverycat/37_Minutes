@@ -6,13 +6,14 @@
 				<a><i class="ion-android-arrow-back addBack light" ng-click="$root.goBack()"></i></a>
 			</div>
 			<div class="col">
-				<ion-spinner icon="ios-small" class="spinner-light addCamera" style="margin-left:-9px;margin-top:-2px;" ng-if="$root.addingPoll === true"></ion-spinner>
-				<i class="ion-android-done addCamera light" ng-click="createPoll(files)" ng-if="$root.addingPoll !== true"></i>
-				<i class="addCamera light" ng-class="{'ion-android-camera':$root.addingPoll !== true}" ngf-select ng-model="files"></i>
 			</div>
 		</div>
 		<p class="addAsk">Ask your question</p>
-		<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)"></textarea>
+		<div class="container-textarea">
+			<textarea class="addText" maxlength="128" placeholder="Enter your text here" ng-model="$root.inputs.createPollTitle" ng-enter="createPoll(files)">
+			</textarea>
+			<i class="addCamera light" ng-class="{'ion-android-camera':$root.addingPoll !== true}" ngf-select ng-model="$root.files"></i>
+		</div>
 
 		<div class="add-poll-image-preview">
 			<img ngf-src="files[0]" ngf-background="files[0]" ngf-no-object-url="true" ngf-default-src="img/default.png">
@@ -20,7 +21,7 @@
 	</ion-content>
 
 <ion-footer-bar align-title="center" class="bar-royal">
-	<a href="#/addFriends"><h1 class="title addIcon"><i class="ion-android-people"></i><div class="numberBubble"><p class="numberInBubble">{{$root.data.addPoll.friends.length + $root.data.addPoll.groups.length}}</p></div></h1></a>
+	<a href="#/addFriends"><h1 class="title addIcon" style="font-family:'Helvetica Neue', Roboto, 'Segoe UI', sans-serif !important;font-size:17px !important;font-stretch:normal !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;text-align:center !important;">Invite friends <i class="ion-icon ion-ios-arrow-forward"></i></h1></a>
 </ion-footer-bar>
 
 </ion-view>

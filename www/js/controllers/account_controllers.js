@@ -23,7 +23,11 @@ angular.module('account.controllers',[])
         } else {
           //If token is valid store it in $rootScope and proceed to the main screen
           $rootScope.login.token = localStorage['37-mToken'];
-          $location.path('/polls');
+          
+          $rootScope.payload === undefined ? $location.path('/polls') : $location.path($rootScope.payload);
+          console.log('payload ' + $rootScope.payload);
+          
+          $rootScope.pushRegister();
         }
       }
     });
@@ -44,7 +48,7 @@ angular.module('account.controllers',[])
 
     RESTFunctions.post({
       url:'login',
-      data:'mail=' + $rootScope.inputs.loginMail + '&pass=' + $rootScope.inputs.loginPass,
+      data:'mail=' + $rootScope.inputs.loginMail + '&pass=' + $rootScope.inputs.loginPass + '&device_id=' + $rootScope.token,
       callback: function(response) {
         //Hide the spinner
         $rootScope.checkingLogin = false;
@@ -55,11 +59,15 @@ angular.module('account.controllers',[])
         } else {
           //Display a success message
           InfoHandling.set('loginSuccessful', 'Logged in successfully',2000,'bg-energized');
-          //Store the token in localStorage and $rootScope
-          localStorage['37-mToken'] = response.Token;
-          $rootScope.login.token = response.Token;
+
           //Redirect user to main screen
           $location.path('/polls');
+
+          //Store the token in localStorage and $rootScope
+          $rootScope.login.token = response.Token;
+          localStorage['37-mToken'] = response.Token;
+
+          $rootScope.pushRegister();
         }
       }
     });
@@ -112,6 +120,8 @@ angular.module('account.controllers',[])
           //Recognize the user as a first time user and show him the "tutorial overlay"
           localStorage['37-mFirstTime'] = '1';
           $rootScope.login.firstTime = localStorage['37-mFirstTime'];
+
+          $rootScope.pushRegister();
           
           //Redirect user to main screen
           $location.path('/cardOne');

@@ -2,10 +2,9 @@
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Group</h1>
-		<a href="#" class="button ion-android-done settingsDoneBtn button-icon" ng-click="changeGroupName($root.data.selectedGroup.groupId)"></a>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -65,4 +64,9 @@
 
 	</div>
 </ion-content>
+
+<ion-footer-bar align-title="center" class="bar-royal">
+	<a href="#" class="button settingsDoneBtn button-icon" ng-click="changeGroupName($root.data.selectedGroup.groupId)" style="width:100%;top:12px;opacity:1;position:relative;font-family:'Helvetica Neue', Roboto, 'Segoe UI', sans-serif !important;font-size:17px !important;font-stretch:normal !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;text-align:center !important;">Finish editing</a>
+</ion-footer-bar>
+
 </ion-view>

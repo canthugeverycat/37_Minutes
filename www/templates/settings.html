@@ -1,11 +1,9 @@
 <ion-view ng-controller="SettingsController">
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Edit Profile</h1>
-		<a href="#" class="button settingsDoneBtn button-icon" ng-click="editSettings()"><i class="ion-android-done"></i></a>
-		<ion-spinner class="button settingsDoneBtn button-icon" spinner="ios-small" ng-if="$root.loaders.editingSettings === true"></ion-spinner>
 	</ion-header-bar>
 
 	<!-- Tabs -->
@@ -38,10 +36,24 @@
 
 <ion-content class="settingsContent has-header has-tabs-top">
 	<!-- Change profile name -->
-	<p class="settingsName">YOUR NAME VISIBLE TO OTHERS</p>
-	<input class="settingsNameInput" type="text" placeholder="Your name" ng-model="$root.inputs.newName"> 
+	<p class="settingsName">FIRST NAME</p>
+	<input class="settingsNameInput" type="text" placeholder="Your name" ng-model="$root.inputs.newFirstName"> 
+	<!-- Add description -->
+
+	<!-- Change profile name -->
+	<p class="settingsName">LAST NAME</p>
+	<input class="settingsNameInput" type="text" placeholder="Your name" ng-model="$root.inputs.newLastName"> 
+
 	<!-- Add description -->
 	<p class="settingsTagline">TAGLINE</p>
 	<input class="settingsTaglineInput" type="text" placeholder="Describe yourself" ng-model="$root.inputs.newTagline">
+
+	<br>
+	<a href="#" class="button button-icon button-royal" ng-click="editSettings()" style="width:100%;top:12px;opacity:1;position:relative;font-family:'Helvetica Neue', Roboto, 'Segoe UI', sans-serif !important;font-size:17px !important;font-stretch:normal !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;text-align:center !important;background-color: #ee524f !important;">Save settings</a>
+
+	<!-- Logout button -->
+	<br>
+	<br>
+	<a href="#" class="button royal" ng-click="$root.logout()" style="border:none;background-color:transparent;width:100%;top:12px;opacity:1;position:relative;font-family:'Helvetica Neue', Roboto, 'Segoe UI', sans-serif !important;font-size:17px !important;font-stretch:normal !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;text-align:right;">Logout <i class="royal ion-icon ion-log-out" style="line-height:10px;position:relative;top:1px;"></i></a>
 </ion-content>
 </ion-view>

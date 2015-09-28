@@ -2,7 +2,7 @@
 
 	<!-- Header -->
 
-	<ion-header-bar align-title="left" class="bar-calm has-tabs-top">
+	<ion-header-bar align-title="center" class="bar-calm has-tabs-top">
 		<a class="button backBtn button-icon ion-android-arrow-back" ng-click="$root.goBack()"></a>
 		<h1 class="title light">Comments </h1>
 	</ion-header-bar>
@@ -50,7 +50,7 @@
 	<div class="list commentsContainer" ng-if="$root.data.pollComments.length > 0">
 
 		<!-- Comment -->
-		<div class="item item-avatar" ng-repeat="comment in $root.data.pollComments track by $index" ng-class="{'new-comment-animate':comment.time.split(' ')[1] === 'sec' && $index === 0}">
+		<div class="item item-avatar" ng-repeat="comment in $root.data.pollComments track by $index" ng-class="{'new-comment-animate':comment.time.split(' ')[1] === 'sec' && $index === 0}" ng-click="$root.getUserProfile(comment.userId);$root.getActivityFeed(comment.userId)">
 		
 			<div style="background:url({{comment.userImage !== '' ? comment.userImage : 'img/default.png'}}) no-repeat center;background-size:cover;position: absolute;top: 16px;left: 16px;max-width: 40px;max-height: 40px;width: 100%;height: 100%;border-radius: 50%;margin: 0;padding: 0;border: 0;vertical-align: baseline;font: inherit;font-size: 100%;box-sizing: border-box;white-space: normal;"></div>
 			<div class="row userRow">
@@ -70,16 +70,16 @@
 </ion-content>
 
 <!-- Emoji card -->
-<div class="card comment-animate" style="z-index: 9999999999;background-color:#f9f9f9;width:calc(100% - 20px);position:fixed;border-radius:5px;padding:10px;bottom:50px;" ng-if="showEmojis === true">
+<div class="card comment-animate" style="z-index: 9999999999;background-color:#f9f9f9;width:calc(100% - 20px);position:fixed;border-radius:5px;padding:10px;bottom:50px;" ng-if="$root.showEmojis === true">
 	<p>Make your comments more fun!</p>
-	<i class="ion-icon {{emoji.code}}" ng-repeat="emoji in $root.data.emojis" style="font-size:28px;margin:10px;line-height:40px;" ng-click="$root.useEmoji(emoji.trigger)"></i>
+	<i class="ion-icon {{emoji.code}}" ng-repeat="emoji in $root.data.emojis" style="font-size:28px;margin:10px;line-height:40px;" ng-click="$root.useEmoji(emoji.trigger);$root.showEmojis = false;"></i>
 </div>
 
 <ion-footer-bar class="bar-stable commentsFooter">
   <input class="enterComment" type="text" ng-model="$root.inputs.newComment" placeholder="Enter your comment" ng-enter="leaveComment($root.data.poll.questionId)" autofocus>
  <!-- Send msg button --> 
-  <i class="ion-icon ion-happy-outline enterIcon" ng-class="{'calm':showEmojis}" style="right:65px;top:15px !important;" ng-click="showEmojis = !showEmojis"></i>
-  <i class="ion-android-done enterIcon" ng-click="leaveComment($root.data.poll.questionId)" ng-if="$root.loaders.leaveComment !== true"></i>
+  <i class="ion-icon ion-happy-outline enterIcon" ng-class="{'calm':showEmojis}" style="right:65px;top:15px !important;" ng-click="$root.showEmojis = !$root.showEmojis"></i>
+  <i class="ion-android-done enterIcon" ng-click="leaveComment($root.data.poll.questionId);$root.showEmojis = false;" ng-if="$root.loaders.leaveComment !== true;"></i>
   <ion-spinner spinner="ios-small" ng-if="$root.loaders.leaveComment === true" style="right:13px;position:absolute;top:15px;"></ion-spinner>
 </ion-footer-bar>
 

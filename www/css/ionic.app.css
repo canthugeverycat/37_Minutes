@@ -7682,6 +7682,16 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.inviteFriendsButton {
+  color: #bf360c;
+  width: 100%;
+  text-align: center; }
+  .inviteFriendsButton i {
+    color: #bf360c;
+    font-size: 40px;
+    position: relative;
+    top: 20px; }
+
 .friendSelected {
   background-color: #cce5b0; }
 
@@ -7884,7 +7894,7 @@ ion-content {
   margin-top: 20px; }
 
 .list-inset {
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto; }
 
@@ -8329,11 +8339,20 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
 .addAsk {
   font-weight: 300;
   font-size: 14pt;
-  margin-top: 50px;
-  margin-left: 40px;
-  color: #909090; }
+  position: absolute;
+  font-family: 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
+  font-size: 21.3333px;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  top: 25px;
+  width: 100%;
+  text-align: center;
+  color: #e0e0e0; }
 
 .addText {
+  margin-top: 40px;
   background-color: transparent;
   font-size: 11pt;
   margin-left: 40px;
@@ -8342,6 +8361,16 @@ ion-content .scroll .list .item .imageContainer .noContainer .percent {
   width: 80%;
   resize: none !important; }
 
+.addPollContent .container-textarea {
+  position: relative; }
+  .addPollContent .container-textarea textarea {
+    padding: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); }
+  .addPollContent .container-textarea i {
+    position: absolute;
+    bottom: 7px;
+    right: 25px; }
 .addPollContent .scroll textarea, .addPollContent .scroll input[type="text"], .addPollContent .scroll input[type="password"], .addPollContent .scroll input[type="datetime"], .addPollContent .scroll input[type="datetime-local"], .addPollContent .scroll input[type="date"], .addPollContent .scroll input[type="month"], .addPollContent .scroll input[type="time"], .addPollContent .scroll input[type="week"], .addPollContent .scroll input[type="number"], .addPollContent .scroll input[type="email"], .addPollContent .scroll input[type="url"], .addPollContent .scroll input[type="search"], .addPollContent .scroll input[type="tel"], .addPollContent .scroll input[type="color"] {
   display: block;
   padding-top: 2px;
@@ -8436,6 +8465,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   padding-top: 20px; }
 
 /*Invite friends screen*/
+.platform-ios .container-search {
+  top: 115px !important; }
+
 .inviteFriendsContent {
   background-color: #ededed; }
 
