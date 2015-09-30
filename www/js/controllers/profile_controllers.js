@@ -2,16 +2,16 @@ angular.module('profile.controllers',[])
 
 .controller('ProfileController', function($rootScope, $scope, InfoHandling, RESTFunctions, Upload) {
 
-	$scope.$watch('files', function () {
-        $scope.changeProfilePhoto($scope.files);
+	$scope.$watch('filesProfile', function () {
+        $scope.changeProfilePhoto($scope.filesProfile);
     });
 
 	//Change the users profile picture
-	$scope.changeProfilePhoto = function(files) {
+	$scope.changeProfilePhoto = function(filesProfile) {
 
-		if (files && files.length) {
+		if (filesProfile && filesProfile.length) {
 	        //Execute Upload service if there is a file in the file model
-	        var file = files[0];
+	        var file = filesProfile[0];
 	        Upload.upload({
 	            url: 'http://p.vz301.verteez.net/mobile-api/v1/profile/new-image',
 	            fields: {'Token': $rootScope.login.token},

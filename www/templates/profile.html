@@ -9,7 +9,7 @@
 				</div>
 				<div class="col" ng-if="$root.user === true">
 					<a href="#/settings"><i class="ion-android-settings addConfirm light"></i></a>
-					<i class="ion-android-camera addCamera light" ngf-select ng-model="files" ngf-change="changeProfilePhoto(files)"></i>
+					<i class="ion-android-camera addCamera light" ngf-select ng-model="filesProfile" ngf-change="changeProfilePhoto(filesProfile)"></i>
 					<a href="#/friends"><i class="ion-android-people addCamera light"></i></a>
 				</div>
 			</div>
@@ -47,22 +47,22 @@
 				<!-- Poll image -->
 				<div class="imageContainer" style="background:url({{activity.imageUrl}}) no-repeat center;background-size:cover;" ng-if="activity.activityType === 'question' || activity.activityType === 'vote'">
 
-					<div class="yesGrey">
+					<div class="yesGrey" ng-click="voteOnPoll(activity.questionId,1)">
 					<!-- Yes votes  -->
 						<div class="yesContainer" style="width:{{activity.votesYes}}%">
 							<p class="yes light">YES</p>
-							<p class="yesNumber light">{{activity.votesYes}}</p>
-							<p class="percent light">%</p>
+							<p class="yesNumber light" style="overflow:visible;z-index:99999999;font-size:40px;">{{activity.votesYes}}</p>
+							<p class="percent light" style="overflow:visible;z-index:99999999;">%</p>
 							<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedYes === 1">
 						</div>
 					</div>
 
-					<div class="noGrey">
+					<div class="noGrey" ng-click="voteOnPoll(activity.questionId,0)">
 					<!-- No votes -->
 						<div class="noContainer" style="width:{{activity.votesNo}}%">
 							<p class="no">NO</p>
-							<p class="noNumber">{{activity.votesNo}}</p>
-							<p class="percent">%</p>
+							<p class="noNumber" style="overflow:visible;z-index:99999999;font-size:40px;">{{activity.votesNo}}</p>
+							<p class="percent" style="overflow:visible;z-index:99999999;">%</p>
 							<img class="answeredIcon" src="img/answered.png" ng-if="activity.userVotedNo === 1">
 						</div>
 					</div>

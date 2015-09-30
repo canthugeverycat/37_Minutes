@@ -223,6 +223,7 @@ angular.module('main.controllers',[])
                 //Clear the login data
                 localStorage.removeItem('37-mToken');
                 $rootScope.login.token = '';
+                $rootScope.data = {};
 
                 //Navigate to login screen
                 $location.path('/login');
@@ -360,6 +361,7 @@ angular.module('main.controllers',[])
       url:'activity-feed',
       data:'Token=' + $rootScope.login.token + '&userId=' + (userId !== undefined ? userId : ''),
       callback: function(response) {
+        console.log(response.activity);
         if (!response.error) {
           //Store the data
           $rootScope.data.activityFeed = response.activity;

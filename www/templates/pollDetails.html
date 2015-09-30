@@ -7,8 +7,8 @@
 			<div class="yesContainerDetails" style="width:{{$root.data.poll.votesYes}}%;">
 				<div class="wrapper" style="position:absolute;bottom:0;width:100%;">
 					<p class="yes light">YES</p>
-					<p class="yesNumber light">{{$root.data.poll.votesYes}}</p>
-					<p class="percent light">%</p>
+					<p class="yesNumber light" style="overflow:visible;z-index:99999999;font-size:40px;">{{$root.data.poll.votesYes}}</p>
+					<p class="percent light" style="overflow:visible;z-index:99999999;">%</p>
 					<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedYes !== 0">
 				</div>
 			</div>
@@ -17,8 +17,8 @@
 		<div class="noGrey" ng-click="voteOnPoll($root.data.poll.questionId,0)">
 			<div class="noContainerDetails" style="width:{{$root.data.poll.votesNo}}%" >
 				<p class="no">NO</p>
-				<p class="noNumber">{{$root.data.poll.votesNo}}</p>
-				<p class="percent">%</p>
+				<p class="noNumber" style="overflow:visible;z-index:99999999;font-size:40px;">{{$root.data.poll.votesNo}}</p>
+				<p class="percent" style="overflow:visible;z-index:99999999;">%</p>
 				<img class="answeredIcon" src="img/answered.png" ng-if="$root.data.poll.userVotedNo !== 0">
 			</div>
 			
